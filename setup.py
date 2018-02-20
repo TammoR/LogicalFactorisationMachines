@@ -17,13 +17,13 @@ if ('Darwin' in platform.platform()) or (USE_OPENMP is False):
 
     ext_modules = [
         Extension(
-            "cython_tensorm", ["lom/cython/tensor_sampling"+ext],
+            "tensor_sampling", ["lom/_cython/tensor_sampling"+ext],
             include_dirs=[numpy.get_include()],
             extra_compile_args = ["-Ofast", "-ffast-math", "-march=native"]#, "-fopenmp"],
             #extra_link_args=['-fopenmp'],
             ),
         Extension(
-            "cython_fcts", ["src/cython/matrix_sampling"+ext],
+            "matrix_sampling", ["lom/_cython/matrix_sampling"+ext],
             include_dirs=[numpy.get_include()],
             extra_compile_args = ["-Ofast", "-ffast-math", "-march=native"]#, "-fopenmp"],
             #extra_link_args=['-fopenmp'],
@@ -33,13 +33,13 @@ if ('Darwin' in platform.platform()) or (USE_OPENMP is False):
 else:
     ext_modules = [
     Extension(
-        "cython_tensorm", ["lom/cython/tensor_sampling"+ext],
+        "cython_tensorm", ["lom/_cython/tensor_sampling"+ext],
         include_dirs=[numpy.get_include()],
         extra_compile_args = ["-Ofast", "-ffast-math", "-march=native", "-fopenmp"],
         extra_link_args=['-fopenmp'],
         ),
     Extension(
-        "cython_fcts", ["lom/cython/matrix_sampling"+ext],
+        "cython_fcts", ["lom/_cython/matrix_sampling"+ext],
         include_dirs=[numpy.get_include()],
         extra_compile_args = ["-Ofast", "-ffast-math", "-march=native", "-fopenmp"],
         extra_link_args=['-fopenmp'],
@@ -52,15 +52,15 @@ if USE_CYTHON:
     ext_modules = cythonize(ext_modules)
 
 test = find_packages(exclude=('tests'))
-import pdb; pdb.set_trace()
+print(test)
 
 setup(
     name='LogicalOperatorMachines',
     version='0.2',
     author='Tammo Rukat',
     author_email='tammorukat@gmail.com',
-    package_dir = {'': 'lom'},
     packages=find_packages(exclude=('tests')),
+    # package_dir = {'': 'lom'},
     # py_modules=['wrappers','experiments','lib','lom','lom_sampling'],
     # py_modules=['src.*','src.cython.*'],
     # install_requires=['numpy','Cython'],
