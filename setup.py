@@ -12,18 +12,18 @@ USE_OPENMP = True
 
 ext = '.pyx' if USE_CYTHON else '.c'
 
-# No openMP support on MAC
+# No openMP support on MAC compile without openMP flags
 if ('Darwin' in platform.platform()) or (USE_OPENMP is False):
 
     ext_modules = [
         Extension(
-            "cython_tensorm", ["src/cython/cython_tensorm"+ext],
+            "cython_tensorm", ["lom/cython/tensor_sampling"+ext],
             include_dirs=[numpy.get_include()],
             extra_compile_args = ["-Ofast", "-ffast-math", "-march=native"]#, "-fopenmp"],
             #extra_link_args=['-fopenmp'],
             ),
         Extension(
-            "cython_fcts", ["src/cython/cython_fcts"+ext],
+            "cython_fcts", ["src/cython/matrix_sampling"+ext],
             include_dirs=[numpy.get_include()],
             extra_compile_args = ["-Ofast", "-ffast-math", "-march=native"]#, "-fopenmp"],
             #extra_link_args=['-fopenmp'],
@@ -33,13 +33,13 @@ if ('Darwin' in platform.platform()) or (USE_OPENMP is False):
 else:
     ext_modules = [
     Extension(
-        "cython_tensorm", ["src/cython/cython_tensorm"+ext],
+        "cython_tensorm", ["lom/cython/tensor_sampling"+ext],
         include_dirs=[numpy.get_include()],
         extra_compile_args = ["-Ofast", "-ffast-math", "-march=native", "-fopenmp"],
         extra_link_args=['-fopenmp'],
         ),
     Extension(
-        "cython_fcts", ["src/cython/cython_fcts"+ext],
+        "cython_fcts", ["lom/cython/matrix_sampling"+ext],
         include_dirs=[numpy.get_include()],
         extra_compile_args = ["-Ofast", "-ffast-math", "-march=native", "-fopenmp"],
         extra_link_args=['-fopenmp'],
@@ -60,8 +60,8 @@ setup(
     author='Tammo Rukat',
     author_email='tammorukat@gmail.com',
     package_dir = {'': 'lom'},
-    py_modules=['wrappers','experiments','lib','lom','lom_sampling'],
     packages=find_packages(exclude=('tests')),
+    # py_modules=['wrappers','experiments','lib','lom','lom_sampling'],
     # py_modules=['src.*','src.cython.*'],
     # install_requires=['numpy','Cython'],
     ext_modules=ext_modules,
