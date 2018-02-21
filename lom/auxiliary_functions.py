@@ -6,13 +6,15 @@ Various auxiliary functions
 
 """
 import numpy as np
-import wrappers
-import cython_fcts as cf
-import lom_sampling as sampling
 import sys
 import tempfile
 import sklearn
 from IPython.core.debugger import Tracer
+import itertools
+
+import lom.matrix_updates_c_wrappers as wrappers
+import lom.lambda_updates_c_wrappers as sampling
+import lom._cython.matrix_updates as cf
 
 # optional scipy dependencies
 def expit(x):
@@ -755,7 +757,6 @@ def add_bernoulli_noise_2d_biased(X, p_plus, p_minus, seed=None):
 
 
 
-
 def flatten(t):
 	"""
 	Generator flattening the structure
@@ -794,4 +795,17 @@ def intersect_dataframes(A, B):
     
     print('\n\tNew shape is :'+str(mut.shape))
     
-    return A, B			
+    return A, B
+
+
+
+def all_columsn_are_disjoint(mat):
+    """
+    Check whether places with 1s in all columns of mat are disjoint
+    for all pairs of columns.
+    """
+
+    L = mat.shape[1]
+    return not np.any([np.all(mat[mat[:,i]==1,j]==1) 
+                       for i,j in list(itertools.permutations(range(L),2))])
+    

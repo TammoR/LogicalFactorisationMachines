@@ -1,7 +1,5 @@
 from Cython.Build import cythonize
 from setuptools import setup, Extension, find_packages
-#from distutils.core import setup
-# from distutils.extension import Extension
 from Cython.Distutils import build_ext
 import numpy
 import  platform
@@ -17,13 +15,13 @@ if ('Darwin' in platform.platform()) or (USE_OPENMP is False):
 
     ext_modules = [
         Extension(
-            "tensor_sampling", ["lom/_cython/tensor_sampling"+ext],
+            "lom._cython.matrix_updates", ["lom/_cython/matrix_updates"+ext],
             include_dirs=[numpy.get_include()],
             extra_compile_args = ["-Ofast", "-ffast-math", "-march=native"]#, "-fopenmp"],
             #extra_link_args=['-fopenmp'],
             ),
         Extension(
-            "matrix_sampling", ["lom/_cython/matrix_sampling"+ext],
+            "lom._cython.tensor_updates", ["lom/_cython/tensor_updates"+ext],
             include_dirs=[numpy.get_include()],
             extra_compile_args = ["-Ofast", "-ffast-math", "-march=native"]#, "-fopenmp"],
             #extra_link_args=['-fopenmp'],
@@ -33,13 +31,13 @@ if ('Darwin' in platform.platform()) or (USE_OPENMP is False):
 else:
     ext_modules = [
     Extension(
-        "cython_tensorm", ["lom/_cython/tensor_sampling"+ext],
+        "lom._cython.tensor_updates", ["lom/_cython/tensor_updates"+ext],
         include_dirs=[numpy.get_include()],
         extra_compile_args = ["-Ofast", "-ffast-math", "-march=native", "-fopenmp"],
         extra_link_args=['-fopenmp'],
         ),
     Extension(
-        "cython_fcts", ["lom/_cython/matrix_sampling"+ext],
+        "lom._cython.matrix_updates", ["lom/_cython/matrix_updates"+ext],
         include_dirs=[numpy.get_include()],
         extra_compile_args = ["-Ofast", "-ffast-math", "-march=native", "-fopenmp"],
         extra_link_args=['-fopenmp'],
@@ -51,8 +49,7 @@ if USE_CYTHON:
     from Cython.Build import cythonize
     ext_modules = cythonize(ext_modules)
 
-test = find_packages(exclude=('tests'))
-print(test)
+
 
 setup(
     name='LogicalOperatorMachines',

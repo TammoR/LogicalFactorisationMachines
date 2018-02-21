@@ -1,5 +1,5 @@
 import numpy as np
-import src.lom as lom
+import lom
 
 
 def test_orm():

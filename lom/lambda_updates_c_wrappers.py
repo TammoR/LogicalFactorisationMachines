@@ -4,10 +4,10 @@ lom_sampling.py
 
 
 """
-import wrappers
-import cython_fcts as cf
-import cython_tensorm as cf_tensorm
 import numpy as np
+import lom.matrix_updates_c_wrappers as wrappers
+import lom._cython.matrix_updates as cf
+import lom._cython.tensor_updates as cf_tensorm
 
 def draw_lbda_max(parm):
 	"""

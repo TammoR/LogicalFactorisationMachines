@@ -10,10 +10,11 @@ sampling_function(matrix)
 """
 
 import numpy as np
-import cython_fcts as cf
-import cython_tensorm as cf_tensorm
 from IPython.core.debugger import Tracer
 import warnings
+
+import lom._cython.matrix_updates as cf
+import lom._cython.tensor_updates as cf_tensorm
 
 
 def draw_balanced_or(mat):

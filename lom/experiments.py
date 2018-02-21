@@ -3,17 +3,18 @@
 Functions to automatize experiments
 
 """
+
 import numpy as np
-import wrappers
-import cython_fcts as cf
-import lom_sampling as sampling
-import lom
 import lib
 import sys
 import tempfile
 import sklearn
 from IPython.core.debugger import Tracer
 
+import lom
+import lom.matrix_updates_c_wrappers as wrappers
+import lom.lambda_updates_c_wrappers as sampling
+import lom._cython.matrix_updates as cf
 
 def generate_random_tensor(L, dims, noise=0, density=.5):
     """

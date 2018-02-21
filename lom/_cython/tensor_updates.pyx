@@ -18,7 +18,7 @@ from libcpp cimport bool as bool_t
 
 cimport numpy as np
 import numpy as np
-import cython_fcts as cf
+import lom._cython.matrix_updates as cf
 
 data_type = np.int8
 ctypedef np.int8_t data_type_t

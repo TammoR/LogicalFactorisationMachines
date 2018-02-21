@@ -15,12 +15,12 @@
         "include_dirs": [
             "/Users/trukat/anaconda3/envs/conda_lom/lib/python3.6/site-packages/numpy/core/include"
         ],
-        "name": "cython_fcts",
+        "name": "lom._cython.matrix_updates",
         "sources": [
-            "lom/_cython/matrix_sampling.pyx"
+            "lom/_cython/matrix_updates.pyx"
         ]
     },
-    "module_name": "cython_fcts"
+    "module_name": "lom._cython.matrix_updates"
 }
 END: Cython Metadata */
 
@@ -542,8 +542,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__lom___cython__matrix_sampling
-#define __PYX_HAVE_API__lom___cython__matrix_sampling
+#define __PYX_HAVE__lom___cython__matrix_updates
+#define __PYX_HAVE_API__lom___cython__matrix_updates
 #include <math.h>
 #include <string.h>
 #include <stdlib.h>
@@ -777,7 +777,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "lom/_cython/matrix_sampling.pyx",
+  "lom/_cython/matrix_updates.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1080,23 +1080,23 @@ typedef npy_double __pyx_t_5numpy_double_t;
  */
 typedef npy_longdouble __pyx_t_5numpy_longdouble_t;
 
-/* "lom/_cython/matrix_sampling.pyx":42
+/* "lom/_cython/matrix_updates.pyx":42
  * # entries in {-1,0,1}, where 0 indicates unobserved data
  * data_type = np.int8
  * ctypedef np.int8_t data_type_t             # <<<<<<<<<<<<<<
  * 
  * data_type2 = np.int16
  */
-typedef __pyx_t_5numpy_int8_t __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t;
+typedef __pyx_t_5numpy_int8_t __pyx_t_3lom_7_cython_14matrix_updates_data_type_t;
 
-/* "lom/_cython/matrix_sampling.pyx":45
+/* "lom/_cython/matrix_updates.pyx":45
  * 
  * data_type2 = np.int16
  * ctypedef np.int16_t data_type_t2             # <<<<<<<<<<<<<<
  * 
  * cdef float child_node_contribution_to_maxmachine(data_type_t[:,:] x,
  */
-typedef __pyx_t_5numpy_int16_t __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t2;
+typedef __pyx_t_5numpy_int16_t __pyx_t_3lom_7_cython_14matrix_updates_data_type_t2;
 /* Declarations.proto */
 #if CYTHON_CCOMPLEX
   #ifdef __cplusplus
@@ -1166,7 +1166,7 @@ typedef npy_cdouble __pyx_t_5numpy_complex_t;
 struct __pyx_ctuple_int__and_int;
 typedef struct __pyx_ctuple_int__and_int __pyx_ctuple_int__and_int;
 
-/* "lom/_cython/matrix_sampling.pyx":535
+/* "lom/_cython/matrix_updates.pyx":535
  * 
  * 
  * cdef (int, int) score_no_parents_balanced(             # <<<<<<<<<<<<<<
@@ -1820,7 +1820,7 @@ static int __Pyx_ValidateAndInit_memviewslice(
                 PyObject *original_obj);
 
 /* ObjectToMemviewSlice.proto */
-static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(PyObject *);
+static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(PyObject *);
 
 /* ObjectToMemviewSlice.proto */
 static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_ds_double(PyObject *);
@@ -1832,7 +1832,7 @@ static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_ds_int
 static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsdsds_float(PyObject *);
 
 /* ObjectToMemviewSlice.proto */
-static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(PyObject *);
+static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(PyObject *);
 
 /* ObjectToMemviewSlice.proto */
 static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_ds_long(PyObject *);
@@ -2053,7 +2053,7 @@ static PyTypeObject *__pyx_ptype_5numpy_ndarray = 0;
 static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;
 static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, char *, char *, int *); /*proto*/
 
-/* Module declarations from 'lom._cython.matrix_sampling' */
+/* Module declarations from 'lom._cython.matrix_updates' */
 static PyTypeObject *__pyx_array_type = 0;
 static PyTypeObject *__pyx_MemviewEnum_type = 0;
 static PyTypeObject *__pyx_memoryview_type = 0;
@@ -2065,22 +2065,22 @@ static PyObject *contiguous = 0;
 static PyObject *indirect_contiguous = 0;
 static int __pyx_memoryview_thread_locks_used;
 static PyThread_type_lock __pyx_memoryview_thread_locks[8];
-static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_maxmachine(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int, __Pyx_memviewslice, int, int, int, __Pyx_memviewslice); /*proto*/
-static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_latent(__Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
-static __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_unified(__Pyx_memviewslice, __Pyx_memviewslice); /*proto*/
-static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_balanced(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int, int, int); /*proto*/
-static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int); /*proto*/
-static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs(float, int __pyx_skip_dispatch); /*proto*/
-static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unified(float, __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t, int __pyx_skip_dispatch); /*proto*/
-static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs_unified(float, __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t, int __pyx_skip_dispatch); /*proto*/
-static float __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(float, int __pyx_skip_dispatch); /*proto*/
-static CYTHON_INLINE void __pyx_f_3lom_7_cython_15matrix_sampling_compute_pred_accuracy(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
-static int __pyx_f_3lom_7_cython_15matrix_sampling_compute_P_parallel(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
-static long __pyx_f_3lom_7_cython_15matrix_sampling_compute_P(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
-static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, double, int, int, int, int __pyx_skip_dispatch); /*proto*/
-static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistic_output_maxmachine(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
-static float __pyx_f_3lom_7_cython_15matrix_sampling_parent_contribution_to_maxmachine(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int, int); /*proto*/
-static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output_indpndt(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, double, double, int, int, int, int __pyx_skip_dispatch); /*proto*/
+static float __pyx_f_3lom_7_cython_14matrix_updates_child_node_contribution_to_maxmachine(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int, __Pyx_memviewslice, int, int, int, __Pyx_memviewslice); /*proto*/
+static PyArrayObject *__pyx_f_3lom_7_cython_14matrix_updates_predict_single_latent(__Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
+static __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unified(__Pyx_memviewslice, __Pyx_memviewslice); /*proto*/
+static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_balanced(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int, int, int); /*proto*/
+static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int); /*proto*/
+static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs(float, int __pyx_skip_dispatch); /*proto*/
+static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(float, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t, int __pyx_skip_dispatch); /*proto*/
+static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs_unified(float, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t, int __pyx_skip_dispatch); /*proto*/
+static float __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(float, int __pyx_skip_dispatch); /*proto*/
+static CYTHON_INLINE void __pyx_f_3lom_7_cython_14matrix_updates_compute_pred_accuracy(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
+static int __pyx_f_3lom_7_cython_14matrix_updates_compute_P_parallel(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
+static long __pyx_f_3lom_7_cython_14matrix_updates_compute_P(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
+static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, double, int, int, int, int __pyx_skip_dispatch); /*proto*/
+static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistic_output_maxmachine(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
+static float __pyx_f_3lom_7_cython_14matrix_updates_parent_contribution_to_maxmachine(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int, int); /*proto*/
+static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, double, double, int, int, int, int __pyx_skip_dispatch); /*proto*/
 static struct __pyx_array_obj *__pyx_array_new(PyObject *, Py_ssize_t, char *, char *, char *); /*proto*/
 static void *__pyx_align_pointer(void *, size_t); /*proto*/
 static PyObject *__pyx_memoryview_new(PyObject *, int, int, __Pyx_TypeInfo *); /*proto*/
@@ -2116,16 +2116,16 @@ static void __pyx_memoryview__slice_assign_scalar(char *, Py_ssize_t *, Py_ssize
 static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *, PyObject *); /*proto*/
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t = { "float64_t", NULL, sizeof(__pyx_t_5numpy_float64_t), { 0 }, 0, 'R', 0, 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t = { "int32_t", NULL, sizeof(__pyx_t_5numpy_int32_t), { 0 }, 0, IS_UNSIGNED(__pyx_t_5numpy_int32_t) ? 'U' : 'I', IS_UNSIGNED(__pyx_t_5numpy_int32_t), 0 };
-static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t = { "data_type_t", NULL, sizeof(__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t), { 0 }, 0, IS_UNSIGNED(__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t) ? 'U' : 'I', IS_UNSIGNED(__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t), 0 };
+static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t = { "data_type_t", NULL, sizeof(__pyx_t_3lom_7_cython_14matrix_updates_data_type_t), { 0 }, 0, IS_UNSIGNED(__pyx_t_3lom_7_cython_14matrix_updates_data_type_t) ? 'U' : 'I', IS_UNSIGNED(__pyx_t_3lom_7_cython_14matrix_updates_data_type_t), 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_double = { "double", NULL, sizeof(double), { 0 }, 0, 'R', 0, 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_int = { "int", NULL, sizeof(int), { 0 }, 0, IS_UNSIGNED(int) ? 'U' : 'I', IS_UNSIGNED(int), 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_float = { "float", NULL, sizeof(float), { 0 }, 0, 'R', 0, 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_long = { "long", NULL, sizeof(long), { 0 }, 0, IS_UNSIGNED(long) ? 'U' : 'I', IS_UNSIGNED(long), 0 };
-#define __Pyx_MODULE_NAME "lom._cython.matrix_sampling"
-extern int __pyx_module_is_main_lom___cython__matrix_sampling;
-int __pyx_module_is_main_lom___cython__matrix_sampling = 0;
+#define __Pyx_MODULE_NAME "lom._cython.matrix_updates"
+extern int __pyx_module_is_main_lom___cython__matrix_updates;
+int __pyx_module_is_main_lom___cython__matrix_updates = 0;
 
-/* Implementation of 'lom._cython.matrix_sampling' */
+/* Implementation of 'lom._cython.matrix_updates' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -2273,13 +2273,13 @@ static const char __pyx_k_draw_oneparent_onechild[] = "draw_oneparent_onechild";
 static const char __pyx_k_draw_twoparents_nochild[] = "draw_twoparents_nochild";
 static const char __pyx_k_Cannot_index_with_type_s[] = "Cannot index with type '%s'";
 static const char __pyx_k_Invalid_shape_in_axis_d_d[] = "Invalid shape in axis %d: %d.";
+static const char __pyx_k_lom__cython_matrix_updates[] = "lom._cython.matrix_updates";
 static const char __pyx_k_itemsize_0_for_cython_array[] = "itemsize <= 0 for cython.array";
-static const char __pyx_k_lom__cython_matrix_sampling[] = "lom._cython.matrix_sampling";
 static const char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C contiguous";
 static const char __pyx_k_unable_to_allocate_array_data[] = "unable to allocate array data.";
+static const char __pyx_k_lom__cython_matrix_updates_pyx[] = "lom/_cython/matrix_updates.pyx";
 static const char __pyx_k_strided_and_direct_or_indirect[] = "<strided and direct or indirect>";
 static const char __pyx_k_Logical_Operator_Machines_Cytho[] = "\nLogical Operator Machines\nCython functions.\n\nEfficient implementations of sampling functions.\n\nFunctions provided here are called from wrappers\nin maxmachine_wrappers.\n\nReadability is sacrificed for performance.\n\nThis implements algorithms described here:\nproceedings.mlr.press/v70/rukat17a.html\nand\nNIPS Symposium paper:\nAn interpretable latent variable model for attribute applicability in the Amazon catalogue\n";
-static const char __pyx_k_lom__cython_matrix_sampling_pyx[] = "lom/_cython/matrix_sampling.pyx";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_unknown_dtype_code_in_numpy_pxd[] = "unknown dtype code in numpy.pxd (%d)";
 static const char __pyx_k_Buffer_view_does_not_expose_stri[] = "Buffer view does not expose strides";
@@ -2394,8 +2394,8 @@ static PyObject *__pyx_n_s_lbda_pa1;
 static PyObject *__pyx_n_s_lbda_pa2;
 static PyObject *__pyx_n_s_lbda_ratios;
 static PyObject *__pyx_n_s_logit_lbda_pa;
-static PyObject *__pyx_n_s_lom__cython_matrix_sampling;
-static PyObject *__pyx_kp_s_lom__cython_matrix_sampling_pyx;
+static PyObject *__pyx_n_s_lom__cython_matrix_updates;
+static PyObject *__pyx_kp_s_lom__cython_matrix_updates_pyx;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_memview;
 static PyObject *__pyx_n_s_mode;
@@ -2469,26 +2469,26 @@ static PyObject *__pyx_n_s_z_pa;
 static PyObject *__pyx_n_s_z_pa1;
 static PyObject *__pyx_n_s_z_pa2;
 static PyObject *__pyx_n_s_zeros;
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechild_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_lbda, __Pyx_memviewslice __pyx_v_idx_sorted, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_lbda_ratios); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechild_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_lbda, __Pyx_memviewslice __pyx_v_idx_sorted, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_u_pa, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_logit_lbda_pa, __Pyx_memviewslice __pyx_v_idx_sorted_pa, __Pyx_memviewslice __pyx_v_lbda_ratios); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_4draw_balanced_or(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, double __pyx_v_lbda_p, double __pyx_v_lbda_m); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_6draw_noparents_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_8draw_noparents_onechild_single_thread(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_u_pa, double __pyx_v_lbda_pa, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_nochild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z_pa1, __Pyx_memviewslice __pyx_v_u_pa1, double __pyx_v_lbda_pa1, __Pyx_memviewslice __pyx_v_z_pa2, __Pyx_memviewslice __pyx_v_u_pa2, double __pyx_v_lbda_pa2, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_u_pa, double __pyx_v_lbda_pa, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_16predict_single_latent(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_18swap_gibbs(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_20swap_metropolised_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_22swap_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_24sigmoid(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_x); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_26compute_pred_accuracy(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_rates); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_28compute_P_parallel(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_30compute_P(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_32probabilistc_output(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_34probabilistic_output_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_pvec, __Pyx_memviewslice __pyx_v_l_dcr); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_36probabilistc_output_indpndt(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, double __pyx_v_mu, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onechild_old_prior(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_draw_noparents_onechild_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_lbda, __Pyx_memviewslice __pyx_v_idx_sorted, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_lbda_ratios); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_2draw_oneparent_onechild_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_lbda, __Pyx_memviewslice __pyx_v_idx_sorted, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_u_pa, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_logit_lbda_pa, __Pyx_memviewslice __pyx_v_idx_sorted_pa, __Pyx_memviewslice __pyx_v_lbda_ratios); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_4draw_balanced_or(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, double __pyx_v_lbda_p, double __pyx_v_lbda_m); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_6draw_noparents_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_8draw_noparents_onechild_single_thread(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_u_pa, double __pyx_v_lbda_pa, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z_pa1, __Pyx_memviewslice __pyx_v_u_pa1, double __pyx_v_lbda_pa1, __Pyx_memviewslice __pyx_v_z_pa2, __Pyx_memviewslice __pyx_v_u_pa2, double __pyx_v_lbda_pa2, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_u_pa, double __pyx_v_lbda_pa, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_16predict_single_latent(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_18swap_gibbs(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_20swap_metropolised_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_22swap_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_24sigmoid(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_x); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_26compute_pred_accuracy(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_rates); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_28compute_P_parallel(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_30compute_P(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_32probabilistc_output(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_34probabilistic_output_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_pvec, __Pyx_memviewslice __pyx_v_l_dcr); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_36probabilistc_output_indpndt(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, double __pyx_v_mu, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechild_old_prior(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
@@ -2596,7 +2596,7 @@ static PyObject *__pyx_codeobj__45;
 static PyObject *__pyx_codeobj__47;
 static PyObject *__pyx_codeobj__54;
 
-/* "lom/_cython/matrix_sampling.pyx":47
+/* "lom/_cython/matrix_updates.pyx":47
  * ctypedef np.int16_t data_type_t2
  * 
  * cdef float child_node_contribution_to_maxmachine(data_type_t[:,:] x,             # <<<<<<<<<<<<<<
@@ -2604,7 +2604,7 @@ static PyObject *__pyx_codeobj__54;
  *                                                  data_type_t[:,:] child,
  */
 
-static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_maxmachine(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, CYTHON_UNUSED __Pyx_memviewslice __pyx_v_lbda, int __pyx_v_l_idx, __Pyx_memviewslice __pyx_v_idx_sorted, int __pyx_v_n, int __pyx_v_D, int __pyx_v_L, __Pyx_memviewslice __pyx_v_lbda_ratios) {
+static float __pyx_f_3lom_7_cython_14matrix_updates_child_node_contribution_to_maxmachine(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, CYTHON_UNUSED __Pyx_memviewslice __pyx_v_lbda, int __pyx_v_l_idx, __Pyx_memviewslice __pyx_v_idx_sorted, int __pyx_v_n, int __pyx_v_D, int __pyx_v_L, __Pyx_memviewslice __pyx_v_lbda_ratios) {
   int __pyx_v_l_prime_idx;
   int __pyx_v_my_break_accumulator;
   float __pyx_v_my_accumulator;
@@ -2660,7 +2660,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
   Py_ssize_t __pyx_t_47;
   __Pyx_RefNannySetupContext("child_node_contribution_to_maxmachine", 0);
 
-  /* "lom/_cython/matrix_sampling.pyx":62
+  /* "lom/_cython/matrix_updates.pyx":62
  *     cdef int l_prime_idx
  *     cdef bint my_break_accumulator
  *     cdef float my_accumulator = 0             # <<<<<<<<<<<<<<
@@ -2669,7 +2669,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
   __pyx_v_my_accumulator = 0.0;
 
-  /* "lom/_cython/matrix_sampling.pyx":64
+  /* "lom/_cython/matrix_updates.pyx":64
  *     cdef float my_accumulator = 0
  * 
  *     for d in range(D):             # <<<<<<<<<<<<<<
@@ -2680,7 +2680,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_d = __pyx_t_2;
 
-    /* "lom/_cython/matrix_sampling.pyx":66
+    /* "lom/_cython/matrix_updates.pyx":66
  *     for d in range(D):
  *         # connection to child is cut
  *         if sibling[d,idx_sorted[l_idx]] == -1:             # <<<<<<<<<<<<<<
@@ -2690,10 +2690,10 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
     __pyx_t_3 = __pyx_v_l_idx;
     __pyx_t_4 = __pyx_v_d;
     __pyx_t_5 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_3 * __pyx_v_idx_sorted.strides[0]) )));
-    __pyx_t_6 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling.data + __pyx_t_4 * __pyx_v_sibling.strides[0]) ) + __pyx_t_5 * __pyx_v_sibling.strides[1]) ))) == -1L) != 0);
+    __pyx_t_6 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling.data + __pyx_t_4 * __pyx_v_sibling.strides[0]) ) + __pyx_t_5 * __pyx_v_sibling.strides[1]) ))) == -1L) != 0);
     if (__pyx_t_6) {
 
-      /* "lom/_cython/matrix_sampling.pyx":67
+      /* "lom/_cython/matrix_updates.pyx":67
  *         # connection to child is cut
  *         if sibling[d,idx_sorted[l_idx]] == -1:
  *             continue             # <<<<<<<<<<<<<<
@@ -2702,7 +2702,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
       goto __pyx_L3_continue;
 
-      /* "lom/_cython/matrix_sampling.pyx":66
+      /* "lom/_cython/matrix_updates.pyx":66
  *     for d in range(D):
  *         # connection to child is cut
  *         if sibling[d,idx_sorted[l_idx]] == -1:             # <<<<<<<<<<<<<<
@@ -2711,7 +2711,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
     }
 
-    /* "lom/_cython/matrix_sampling.pyx":71
+    /* "lom/_cython/matrix_updates.pyx":71
  *        # connection to child is intact
  *         else:
  *             my_break_accumulator = False # continue with next iteration over d, once acc is updated             # <<<<<<<<<<<<<<
@@ -2721,7 +2721,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
     /*else*/ {
       __pyx_v_my_break_accumulator = 0;
 
-      /* "lom/_cython/matrix_sampling.pyx":74
+      /* "lom/_cython/matrix_updates.pyx":74
  * 
  *             # is any older sibling explaining away the child?
  *             for l_prime_idx in range(l_idx):             # <<<<<<<<<<<<<<
@@ -2732,7 +2732,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
       for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
         __pyx_v_l_prime_idx = __pyx_t_8;
 
-        /* "lom/_cython/matrix_sampling.pyx":75
+        /* "lom/_cython/matrix_updates.pyx":75
  *             # is any older sibling explaining away the child?
  *             for l_prime_idx in range(l_idx):
  *                 if (x[n,idx_sorted[l_prime_idx]] == 1) and (sibling[d,idx_sorted[l_prime_idx]] == 1):             # <<<<<<<<<<<<<<
@@ -2742,7 +2742,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
         __pyx_t_9 = __pyx_v_l_prime_idx;
         __pyx_t_10 = __pyx_v_n;
         __pyx_t_11 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_9 * __pyx_v_idx_sorted.strides[0]) )));
-        __pyx_t_12 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_10 * __pyx_v_x.strides[0]) ) + __pyx_t_11 * __pyx_v_x.strides[1]) ))) == 1) != 0);
+        __pyx_t_12 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_10 * __pyx_v_x.strides[0]) ) + __pyx_t_11 * __pyx_v_x.strides[1]) ))) == 1) != 0);
         if (__pyx_t_12) {
         } else {
           __pyx_t_6 = __pyx_t_12;
@@ -2751,12 +2751,12 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
         __pyx_t_13 = __pyx_v_l_prime_idx;
         __pyx_t_14 = __pyx_v_d;
         __pyx_t_15 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_13 * __pyx_v_idx_sorted.strides[0]) )));
-        __pyx_t_12 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling.data + __pyx_t_14 * __pyx_v_sibling.strides[0]) ) + __pyx_t_15 * __pyx_v_sibling.strides[1]) ))) == 1) != 0);
+        __pyx_t_12 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling.data + __pyx_t_14 * __pyx_v_sibling.strides[0]) ) + __pyx_t_15 * __pyx_v_sibling.strides[1]) ))) == 1) != 0);
         __pyx_t_6 = __pyx_t_12;
         __pyx_L9_bool_binop_done:;
         if (__pyx_t_6) {
 
-          /* "lom/_cython/matrix_sampling.pyx":77
+          /* "lom/_cython/matrix_updates.pyx":77
  *                 if (x[n,idx_sorted[l_prime_idx]] == 1) and (sibling[d,idx_sorted[l_prime_idx]] == 1):
  *                     # break -> continue with next child
  *                     my_break_accumulator = True             # <<<<<<<<<<<<<<
@@ -2765,7 +2765,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
           __pyx_v_my_break_accumulator = 1;
 
-          /* "lom/_cython/matrix_sampling.pyx":78
+          /* "lom/_cython/matrix_updates.pyx":78
  *                     # break -> continue with next child
  *                     my_break_accumulator = True
  *                     break             # <<<<<<<<<<<<<<
@@ -2774,7 +2774,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
           goto __pyx_L7_break;
 
-          /* "lom/_cython/matrix_sampling.pyx":75
+          /* "lom/_cython/matrix_updates.pyx":75
  *             # is any older sibling explaining away the child?
  *             for l_prime_idx in range(l_idx):
  *                 if (x[n,idx_sorted[l_prime_idx]] == 1) and (sibling[d,idx_sorted[l_prime_idx]] == 1):             # <<<<<<<<<<<<<<
@@ -2785,7 +2785,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
       }
       __pyx_L7_break:;
 
-      /* "lom/_cython/matrix_sampling.pyx":79
+      /* "lom/_cython/matrix_updates.pyx":79
  *                     my_break_accumulator = True
  *                     break
  *             if my_break_accumulator == True:             # <<<<<<<<<<<<<<
@@ -2795,7 +2795,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
       __pyx_t_6 = ((__pyx_v_my_break_accumulator == 1) != 0);
       if (__pyx_t_6) {
 
-        /* "lom/_cython/matrix_sampling.pyx":80
+        /* "lom/_cython/matrix_updates.pyx":80
  *                     break
  *             if my_break_accumulator == True:
  *                 continue             # <<<<<<<<<<<<<<
@@ -2804,7 +2804,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
         goto __pyx_L3_continue;
 
-        /* "lom/_cython/matrix_sampling.pyx":79
+        /* "lom/_cython/matrix_updates.pyx":79
  *                     my_break_accumulator = True
  *                     break
  *             if my_break_accumulator == True:             # <<<<<<<<<<<<<<
@@ -2813,7 +2813,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":83
+      /* "lom/_cython/matrix_updates.pyx":83
  * 
  *             # is any younger sibling trying to explain away the child?
  *             for l_prime_idx in range(l_idx+1,L):             # <<<<<<<<<<<<<<
@@ -2824,7 +2824,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
       for (__pyx_t_8 = (__pyx_v_l_idx + 1); __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
         __pyx_v_l_prime_idx = __pyx_t_8;
 
-        /* "lom/_cython/matrix_sampling.pyx":84
+        /* "lom/_cython/matrix_updates.pyx":84
  *             # is any younger sibling trying to explain away the child?
  *             for l_prime_idx in range(l_idx+1,L):
  *                 if (x[n,idx_sorted[l_prime_idx]] == 1) and (sibling[d,idx_sorted[l_prime_idx]] == 1):             # <<<<<<<<<<<<<<
@@ -2834,7 +2834,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
         __pyx_t_16 = __pyx_v_l_prime_idx;
         __pyx_t_17 = __pyx_v_n;
         __pyx_t_18 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_16 * __pyx_v_idx_sorted.strides[0]) )));
-        __pyx_t_12 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_17 * __pyx_v_x.strides[0]) ) + __pyx_t_18 * __pyx_v_x.strides[1]) ))) == 1) != 0);
+        __pyx_t_12 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_17 * __pyx_v_x.strides[0]) ) + __pyx_t_18 * __pyx_v_x.strides[1]) ))) == 1) != 0);
         if (__pyx_t_12) {
         } else {
           __pyx_t_6 = __pyx_t_12;
@@ -2843,12 +2843,12 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
         __pyx_t_19 = __pyx_v_l_prime_idx;
         __pyx_t_20 = __pyx_v_d;
         __pyx_t_21 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_19 * __pyx_v_idx_sorted.strides[0]) )));
-        __pyx_t_12 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling.data + __pyx_t_20 * __pyx_v_sibling.strides[0]) ) + __pyx_t_21 * __pyx_v_sibling.strides[1]) ))) == 1) != 0);
+        __pyx_t_12 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling.data + __pyx_t_20 * __pyx_v_sibling.strides[0]) ) + __pyx_t_21 * __pyx_v_sibling.strides[1]) ))) == 1) != 0);
         __pyx_t_6 = __pyx_t_12;
         __pyx_L15_bool_binop_done:;
         if (__pyx_t_6) {
 
-          /* "lom/_cython/matrix_sampling.pyx":85
+          /* "lom/_cython/matrix_updates.pyx":85
  *             for l_prime_idx in range(l_idx+1,L):
  *                 if (x[n,idx_sorted[l_prime_idx]] == 1) and (sibling[d,idx_sorted[l_prime_idx]] == 1):
  *                     if child[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -2857,10 +2857,10 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
           __pyx_t_22 = __pyx_v_n;
           __pyx_t_23 = __pyx_v_d;
-          __pyx_t_6 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_22 * __pyx_v_child.strides[0]) ) + __pyx_t_23 * __pyx_v_child.strides[1]) ))) == 1) != 0);
+          __pyx_t_6 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_22 * __pyx_v_child.strides[0]) ) + __pyx_t_23 * __pyx_v_child.strides[1]) ))) == 1) != 0);
           if (__pyx_t_6) {
 
-            /* "lom/_cython/matrix_sampling.pyx":86
+            /* "lom/_cython/matrix_updates.pyx":86
  *                 if (x[n,idx_sorted[l_prime_idx]] == 1) and (sibling[d,idx_sorted[l_prime_idx]] == 1):
  *                     if child[n,d] == 1:
  *                         my_accumulator += lbda_ratios[0, idx_sorted[l_idx], idx_sorted[l_prime_idx]]             # <<<<<<<<<<<<<<
@@ -2874,7 +2874,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
             __pyx_t_28 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_25 * __pyx_v_idx_sorted.strides[0]) )));
             __pyx_v_my_accumulator = (__pyx_v_my_accumulator + (*((float *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_lbda_ratios.data + __pyx_t_26 * __pyx_v_lbda_ratios.strides[0]) ) + __pyx_t_27 * __pyx_v_lbda_ratios.strides[1]) ) + __pyx_t_28 * __pyx_v_lbda_ratios.strides[2]) ))));
 
-            /* "lom/_cython/matrix_sampling.pyx":85
+            /* "lom/_cython/matrix_updates.pyx":85
  *             for l_prime_idx in range(l_idx+1,L):
  *                 if (x[n,idx_sorted[l_prime_idx]] == 1) and (sibling[d,idx_sorted[l_prime_idx]] == 1):
  *                     if child[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -2884,7 +2884,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
             goto __pyx_L17;
           }
 
-          /* "lom/_cython/matrix_sampling.pyx":88
+          /* "lom/_cython/matrix_updates.pyx":88
  *                         my_accumulator += lbda_ratios[0, idx_sorted[l_idx], idx_sorted[l_prime_idx]]
  * 
  *                     elif child[n,d] == -1:             # <<<<<<<<<<<<<<
@@ -2893,10 +2893,10 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
           __pyx_t_29 = __pyx_v_n;
           __pyx_t_30 = __pyx_v_d;
-          __pyx_t_6 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_29 * __pyx_v_child.strides[0]) ) + __pyx_t_30 * __pyx_v_child.strides[1]) ))) == -1L) != 0);
+          __pyx_t_6 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_29 * __pyx_v_child.strides[0]) ) + __pyx_t_30 * __pyx_v_child.strides[1]) ))) == -1L) != 0);
           if (__pyx_t_6) {
 
-            /* "lom/_cython/matrix_sampling.pyx":89
+            /* "lom/_cython/matrix_updates.pyx":89
  * 
  *                     elif child[n,d] == -1:
  *                         my_accumulator += lbda_ratios[1, idx_sorted[l_idx], idx_sorted[l_prime_idx]]             # <<<<<<<<<<<<<<
@@ -2910,7 +2910,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
             __pyx_t_35 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_32 * __pyx_v_idx_sorted.strides[0]) )));
             __pyx_v_my_accumulator = (__pyx_v_my_accumulator + (*((float *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_lbda_ratios.data + __pyx_t_33 * __pyx_v_lbda_ratios.strides[0]) ) + __pyx_t_34 * __pyx_v_lbda_ratios.strides[1]) ) + __pyx_t_35 * __pyx_v_lbda_ratios.strides[2]) ))));
 
-            /* "lom/_cython/matrix_sampling.pyx":88
+            /* "lom/_cython/matrix_updates.pyx":88
  *                         my_accumulator += lbda_ratios[0, idx_sorted[l_idx], idx_sorted[l_prime_idx]]
  * 
  *                     elif child[n,d] == -1:             # <<<<<<<<<<<<<<
@@ -2920,7 +2920,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
           }
           __pyx_L17:;
 
-          /* "lom/_cython/matrix_sampling.pyx":91
+          /* "lom/_cython/matrix_updates.pyx":91
  *                         my_accumulator += lbda_ratios[1, idx_sorted[l_idx], idx_sorted[l_prime_idx]]
  * 
  *                     my_break_accumulator = True             # <<<<<<<<<<<<<<
@@ -2929,7 +2929,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
           __pyx_v_my_break_accumulator = 1;
 
-          /* "lom/_cython/matrix_sampling.pyx":92
+          /* "lom/_cython/matrix_updates.pyx":92
  * 
  *                     my_break_accumulator = True
  *                     break             # <<<<<<<<<<<<<<
@@ -2938,7 +2938,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
           goto __pyx_L13_break;
 
-          /* "lom/_cython/matrix_sampling.pyx":84
+          /* "lom/_cython/matrix_updates.pyx":84
  *             # is any younger sibling trying to explain away the child?
  *             for l_prime_idx in range(l_idx+1,L):
  *                 if (x[n,idx_sorted[l_prime_idx]] == 1) and (sibling[d,idx_sorted[l_prime_idx]] == 1):             # <<<<<<<<<<<<<<
@@ -2949,7 +2949,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
       }
       __pyx_L13_break:;
 
-      /* "lom/_cython/matrix_sampling.pyx":93
+      /* "lom/_cython/matrix_updates.pyx":93
  *                     my_break_accumulator = True
  *                     break
  *             if my_break_accumulator == True:             # <<<<<<<<<<<<<<
@@ -2959,7 +2959,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
       __pyx_t_6 = ((__pyx_v_my_break_accumulator == 1) != 0);
       if (__pyx_t_6) {
 
-        /* "lom/_cython/matrix_sampling.pyx":94
+        /* "lom/_cython/matrix_updates.pyx":94
  *                     break
  *             if my_break_accumulator == True:
  *                 continue             # <<<<<<<<<<<<<<
@@ -2968,7 +2968,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
         goto __pyx_L3_continue;
 
-        /* "lom/_cython/matrix_sampling.pyx":93
+        /* "lom/_cython/matrix_updates.pyx":93
  *                     my_break_accumulator = True
  *                     break
  *             if my_break_accumulator == True:             # <<<<<<<<<<<<<<
@@ -2977,7 +2977,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":99
+      /* "lom/_cython/matrix_updates.pyx":99
  *             # print(myaccumulator, child[n,d])
  *             # TODO: use precomputed values here.
  *             if child[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -2986,10 +2986,10 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
       __pyx_t_36 = __pyx_v_n;
       __pyx_t_37 = __pyx_v_d;
-      __pyx_t_6 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_36 * __pyx_v_child.strides[0]) ) + __pyx_t_37 * __pyx_v_child.strides[1]) ))) == 1) != 0);
+      __pyx_t_6 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_36 * __pyx_v_child.strides[0]) ) + __pyx_t_37 * __pyx_v_child.strides[1]) ))) == 1) != 0);
       if (__pyx_t_6) {
 
-        /* "lom/_cython/matrix_sampling.pyx":100
+        /* "lom/_cython/matrix_updates.pyx":100
  *             # TODO: use precomputed values here.
  *             if child[n,d] == 1:
  *                 my_accumulator += lbda_ratios[0, idx_sorted[l_idx], L]             # <<<<<<<<<<<<<<
@@ -3002,7 +3002,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
         __pyx_t_41 = __pyx_v_L;
         __pyx_v_my_accumulator = (__pyx_v_my_accumulator + (*((float *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_lbda_ratios.data + __pyx_t_39 * __pyx_v_lbda_ratios.strides[0]) ) + __pyx_t_40 * __pyx_v_lbda_ratios.strides[1]) ) + __pyx_t_41 * __pyx_v_lbda_ratios.strides[2]) ))));
 
-        /* "lom/_cython/matrix_sampling.pyx":99
+        /* "lom/_cython/matrix_updates.pyx":99
  *             # print(myaccumulator, child[n,d])
  *             # TODO: use precomputed values here.
  *             if child[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -3012,7 +3012,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
         goto __pyx_L19;
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":102
+      /* "lom/_cython/matrix_updates.pyx":102
  *                 my_accumulator += lbda_ratios[0, idx_sorted[l_idx], L]
  *                 #my_accumulator += log(lbda[idx_sorted[l_idx]]/lbda[L])
  *             elif child[n,d] == -1:             # <<<<<<<<<<<<<<
@@ -3021,10 +3021,10 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
       __pyx_t_42 = __pyx_v_n;
       __pyx_t_43 = __pyx_v_d;
-      __pyx_t_6 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_42 * __pyx_v_child.strides[0]) ) + __pyx_t_43 * __pyx_v_child.strides[1]) ))) == -1L) != 0);
+      __pyx_t_6 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_42 * __pyx_v_child.strides[0]) ) + __pyx_t_43 * __pyx_v_child.strides[1]) ))) == -1L) != 0);
       if (__pyx_t_6) {
 
-        /* "lom/_cython/matrix_sampling.pyx":103
+        /* "lom/_cython/matrix_updates.pyx":103
  *                 #my_accumulator += log(lbda[idx_sorted[l_idx]]/lbda[L])
  *             elif child[n,d] == -1:
  *                 my_accumulator += lbda_ratios[1, idx_sorted[l_idx], L]             # <<<<<<<<<<<<<<
@@ -3037,7 +3037,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
         __pyx_t_47 = __pyx_v_L;
         __pyx_v_my_accumulator = (__pyx_v_my_accumulator + (*((float *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_lbda_ratios.data + __pyx_t_45 * __pyx_v_lbda_ratios.strides[0]) ) + __pyx_t_46 * __pyx_v_lbda_ratios.strides[1]) ) + __pyx_t_47 * __pyx_v_lbda_ratios.strides[2]) ))));
 
-        /* "lom/_cython/matrix_sampling.pyx":102
+        /* "lom/_cython/matrix_updates.pyx":102
  *                 my_accumulator += lbda_ratios[0, idx_sorted[l_idx], L]
  *                 #my_accumulator += log(lbda[idx_sorted[l_idx]]/lbda[L])
  *             elif child[n,d] == -1:             # <<<<<<<<<<<<<<
@@ -3050,7 +3050,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
     __pyx_L3_continue:;
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":106
+  /* "lom/_cython/matrix_updates.pyx":106
  *                 #my_accumulator += log((1-lbda[idx_sorted[l_idx]])/(1-lbda[L]))
  * 
  *     return my_accumulator             # <<<<<<<<<<<<<<
@@ -3060,7 +3060,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
   __pyx_r = __pyx_v_my_accumulator;
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_sampling.pyx":47
+  /* "lom/_cython/matrix_updates.pyx":47
  * ctypedef np.int16_t data_type_t2
  * 
  * cdef float child_node_contribution_to_maxmachine(data_type_t[:,:] x,             # <<<<<<<<<<<<<<
@@ -3074,7 +3074,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":110
+/* "lom/_cython/matrix_updates.pyx":110
  * 
  * 
  * def draw_noparents_onechild_maxmachine(data_type_t[:,:] x,  # N x D; z_nl             # <<<<<<<<<<<<<<
@@ -3083,10 +3083,10 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_1draw_noparents_onechild_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_15matrix_sampling_draw_noparents_onechild_maxmachine[] = "\n    Update latent matrix x, conditional on it's child, siblings,\n    dispersion parameters and specified priors.\n    ";
-static PyMethodDef __pyx_mdef_3lom_7_cython_15matrix_sampling_1draw_noparents_onechild_maxmachine = {"draw_noparents_onechild_maxmachine", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_1draw_noparents_onechild_maxmachine, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_15matrix_sampling_draw_noparents_onechild_maxmachine};
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_1draw_noparents_onechild_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_1draw_noparents_onechild_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_draw_noparents_onechild_maxmachine[] = "\n    Update latent matrix x, conditional on it's child, siblings,\n    dispersion parameters and specified priors.\n    ";
+static PyMethodDef __pyx_mdef_3lom_7_cython_14matrix_updates_1draw_noparents_onechild_maxmachine = {"draw_noparents_onechild_maxmachine", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_1draw_noparents_onechild_maxmachine, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_draw_noparents_onechild_maxmachine};
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_1draw_noparents_onechild_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_sibling = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_child = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -3177,9 +3177,9 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_1draw_noparents_onechi
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
       values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 110, __pyx_L3_error)
-    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 111, __pyx_L3_error)
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 112, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 110, __pyx_L3_error)
+    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 111, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 112, __pyx_L3_error)
     __pyx_v_lbda = __Pyx_PyObject_to_MemoryviewSlice_ds_double(values[3]); if (unlikely(!__pyx_v_lbda.memview)) __PYX_ERR(0, 113, __pyx_L3_error)
     __pyx_v_idx_sorted = __Pyx_PyObject_to_MemoryviewSlice_ds_int(values[4]); if (unlikely(!__pyx_v_idx_sorted.memview)) __PYX_ERR(0, 114, __pyx_L3_error)
     __pyx_v_prior_config = ((PyObject*)values[5]);
@@ -3189,12 +3189,12 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_1draw_noparents_onechi
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_maxmachine", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 110, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_noparents_onechild_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_noparents_onechild_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prior_config), (&PyList_Type), 1, "prior_config", 1))) __PYX_ERR(0, 115, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechild_maxmachine(__pyx_self, __pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_idx_sorted, __pyx_v_prior_config, __pyx_v_lbda_ratios);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_draw_noparents_onechild_maxmachine(__pyx_self, __pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_idx_sorted, __pyx_v_prior_config, __pyx_v_lbda_ratios);
 
   /* function exit code */
   goto __pyx_L0;
@@ -3205,7 +3205,7 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_1draw_noparents_onechi
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechild_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_lbda, __Pyx_memviewslice __pyx_v_idx_sorted, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_lbda_ratios) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_draw_noparents_onechild_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_lbda, __Pyx_memviewslice __pyx_v_idx_sorted, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_lbda_ratios) {
   int __pyx_v_n;
   int __pyx_v_l_idx;
   int __pyx_v_N;
@@ -3213,7 +3213,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
   int __pyx_v_D;
   float __pyx_v_accumulator;
   float __pyx_v_prior;
-  __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x_old;
+  __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x_old;
   PyArrayObject *__pyx_v_row_binom = 0;
   PyArrayObject *__pyx_v_col_binom = 0;
   PyArrayObject *__pyx_v_row_densities = 0;
@@ -3286,7 +3286,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
   __pyx_pybuffernd_col_densities.data = NULL;
   __pyx_pybuffernd_col_densities.rcbuffer = &__pyx_pybuffer_col_densities;
 
-  /* "lom/_cython/matrix_sampling.pyx":122
+  /* "lom/_cython/matrix_updates.pyx":122
  *     """
  * 
  *     cdef int n, l_idx, d, N = x.shape[0], L = x.shape[1], D = sibling.shape[0]             # <<<<<<<<<<<<<<
@@ -3297,7 +3297,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
   __pyx_v_L = (__pyx_v_x.shape[1]);
   __pyx_v_D = (__pyx_v_sibling.shape[0]);
 
-  /* "lom/_cython/matrix_sampling.pyx":125
+  /* "lom/_cython/matrix_updates.pyx":125
  *     cdef bint break_accumulator
  *     cdef float accumulator
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -3306,7 +3306,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/matrix_sampling.pyx":129
+  /* "lom/_cython/matrix_updates.pyx":129
  * 
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]             # <<<<<<<<<<<<<<
@@ -3331,7 +3331,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
   __pyx_v_row_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":130
+  /* "lom/_cython/matrix_updates.pyx":130
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]             # <<<<<<<<<<<<<<
@@ -3356,7 +3356,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
   __pyx_v_col_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":131
+  /* "lom/_cython/matrix_updates.pyx":131
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]             # <<<<<<<<<<<<<<
@@ -3381,7 +3381,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
   __pyx_v_row_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":132
+  /* "lom/_cython/matrix_updates.pyx":132
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]             # <<<<<<<<<<<<<<
@@ -3406,7 +3406,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
   __pyx_v_col_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":133
+  /* "lom/_cython/matrix_updates.pyx":133
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]
  *     cdef int prior_code = prior_config[0]             # <<<<<<<<<<<<<<
@@ -3420,7 +3420,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
   __pyx_t_2 = __Pyx_PyInt_As_int(PyList_GET_ITEM(__pyx_v_prior_config, 0)); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 133, __pyx_L1_error)
   __pyx_v_prior_code = __pyx_t_2;
 
-  /* "lom/_cython/matrix_sampling.pyx":136
+  /* "lom/_cython/matrix_updates.pyx":136
  * 
  *     # flat prior
  *     if prior_code == 0:             # <<<<<<<<<<<<<<
@@ -3430,7 +3430,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
   switch (__pyx_v_prior_code) {
     case 0:
 
-    /* "lom/_cython/matrix_sampling.pyx":137
+    /* "lom/_cython/matrix_updates.pyx":137
  *     # flat prior
  *     if prior_code == 0:
  *         prior = 0             # <<<<<<<<<<<<<<
@@ -3439,7 +3439,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
  */
     __pyx_v_prior = 0.0;
 
-    /* "lom/_cython/matrix_sampling.pyx":136
+    /* "lom/_cython/matrix_updates.pyx":136
  * 
  *     # flat prior
  *     if prior_code == 0:             # <<<<<<<<<<<<<<
@@ -3448,7 +3448,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
  */
     break;
 
-    /* "lom/_cython/matrix_sampling.pyx":139
+    /* "lom/_cython/matrix_updates.pyx":139
  *         prior = 0
  *     # independent bernoulli prior
  *     elif prior_code == 1:             # <<<<<<<<<<<<<<
@@ -3457,7 +3457,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
  */
     case 1:
 
-    /* "lom/_cython/matrix_sampling.pyx":140
+    /* "lom/_cython/matrix_updates.pyx":140
  *     # independent bernoulli prior
  *     elif prior_code == 1:
  *         prior = prior_config[1]             # <<<<<<<<<<<<<<
@@ -3471,7 +3471,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
     __pyx_t_3 = __pyx_PyFloat_AsFloat(PyList_GET_ITEM(__pyx_v_prior_config, 1)); if (unlikely((__pyx_t_3 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 140, __pyx_L1_error)
     __pyx_v_prior = __pyx_t_3;
 
-    /* "lom/_cython/matrix_sampling.pyx":139
+    /* "lom/_cython/matrix_updates.pyx":139
  *         prior = 0
  *     # independent bernoulli prior
  *     elif prior_code == 1:             # <<<<<<<<<<<<<<
@@ -3482,7 +3482,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
     default: break;
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":145
+  /* "lom/_cython/matrix_updates.pyx":145
  *     # binomial prior over N breaks paralellism
  *     # can be run in parallel with simpler prior
  *     for n in range(N): #, schedule='dynamic', nogil=True):             # <<<<<<<<<<<<<<
@@ -3493,7 +3493,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_2; __pyx_t_4+=1) {
     __pyx_v_n = __pyx_t_4;
 
-    /* "lom/_cython/matrix_sampling.pyx":146
+    /* "lom/_cython/matrix_updates.pyx":146
  *     # can be run in parallel with simpler prior
  *     for n in range(N): #, schedule='dynamic', nogil=True):
  *         for l_idx in range(L):             # <<<<<<<<<<<<<<
@@ -3504,16 +3504,16 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_l_idx = __pyx_t_6;
 
-      /* "lom/_cython/matrix_sampling.pyx":149
+      /* "lom/_cython/matrix_updates.pyx":149
  *             # iterate over children
  * 
  *             accumulator = child_node_contribution_to_maxmachine(             # <<<<<<<<<<<<<<
  *                 x, sibling, child, lbda, l_idx, idx_sorted, n, D, L, lbda_ratios)
  * 
  */
-      __pyx_v_accumulator = __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_maxmachine(__pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_l_idx, __pyx_v_idx_sorted, __pyx_v_n, __pyx_v_D, __pyx_v_L, __pyx_v_lbda_ratios);
+      __pyx_v_accumulator = __pyx_f_3lom_7_cython_14matrix_updates_child_node_contribution_to_maxmachine(__pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_l_idx, __pyx_v_idx_sorted, __pyx_v_n, __pyx_v_D, __pyx_v_L, __pyx_v_lbda_ratios);
 
-      /* "lom/_cython/matrix_sampling.pyx":156
+      /* "lom/_cython/matrix_updates.pyx":156
  *             # (N*L + N*D) * MCMC_iters times.
  *             # Therefore it's better to avoid the modularisation overhead.
  *             if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -3523,7 +3523,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
       __pyx_t_7 = ((__pyx_v_prior_code > 1) != 0);
       if (__pyx_t_7) {
 
-        /* "lom/_cython/matrix_sampling.pyx":157
+        /* "lom/_cython/matrix_updates.pyx":157
  *             # Therefore it's better to avoid the modularisation overhead.
  *             if prior_code > 1:
  *                 if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -3533,7 +3533,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
         switch (__pyx_v_prior_code) {
           case 2:
 
-          /* "lom/_cython/matrix_sampling.pyx":158
+          /* "lom/_cython/matrix_updates.pyx":158
  *             if prior_code > 1:
  *                 if prior_code == 2:
  *                     prior = row_binom[row_densities[n]]             # <<<<<<<<<<<<<<
@@ -3544,7 +3544,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
           __pyx_t_9 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_row_densities.diminfo[0].strides));
           __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_row_binom.diminfo[0].strides));
 
-          /* "lom/_cython/matrix_sampling.pyx":157
+          /* "lom/_cython/matrix_updates.pyx":157
  *             # Therefore it's better to avoid the modularisation overhead.
  *             if prior_code > 1:
  *                 if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -3553,7 +3553,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
  */
           break;
 
-          /* "lom/_cython/matrix_sampling.pyx":159
+          /* "lom/_cython/matrix_updates.pyx":159
  *                 if prior_code == 2:
  *                     prior = row_binom[row_densities[n]]
  *                 elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -3562,7 +3562,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
  */
           case 3:
 
-          /* "lom/_cython/matrix_sampling.pyx":160
+          /* "lom/_cython/matrix_updates.pyx":160
  *                     prior = row_binom[row_densities[n]]
  *                 elif prior_code == 3:
  *                     prior = col_binom[col_densities[idx_sorted[l_idx]]]             # <<<<<<<<<<<<<<
@@ -3574,7 +3574,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
           __pyx_t_12 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_col_densities.diminfo[0].strides));
           __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_col_binom.diminfo[0].strides));
 
-          /* "lom/_cython/matrix_sampling.pyx":159
+          /* "lom/_cython/matrix_updates.pyx":159
  *                 if prior_code == 2:
  *                     prior = row_binom[row_densities[n]]
  *                 elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -3583,7 +3583,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
  */
           break;
 
-          /* "lom/_cython/matrix_sampling.pyx":161
+          /* "lom/_cython/matrix_updates.pyx":161
  *                 elif prior_code == 3:
  *                     prior = col_binom[col_densities[idx_sorted[l_idx]]]
  *                 elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -3592,7 +3592,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
  */
           case 4:
 
-          /* "lom/_cython/matrix_sampling.pyx":162
+          /* "lom/_cython/matrix_updates.pyx":162
  *                     prior = col_binom[col_densities[idx_sorted[l_idx]]]
  *                 elif prior_code == 4:
  *                     prior = row_binom[row_densities[n]] + col_binom[col_densities[idx_sorted[l_idx]]]             # <<<<<<<<<<<<<<
@@ -3606,7 +3606,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
           __pyx_t_17 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_col_densities.diminfo[0].strides));
           __pyx_v_prior = ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_14, __pyx_pybuffernd_row_binom.diminfo[0].strides)) + (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_col_binom.diminfo[0].strides)));
 
-          /* "lom/_cython/matrix_sampling.pyx":161
+          /* "lom/_cython/matrix_updates.pyx":161
  *                 elif prior_code == 3:
  *                     prior = col_binom[col_densities[idx_sorted[l_idx]]]
  *                 elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -3617,7 +3617,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
           default: break;
         }
 
-        /* "lom/_cython/matrix_sampling.pyx":156
+        /* "lom/_cython/matrix_updates.pyx":156
  *             # (N*L + N*D) * MCMC_iters times.
  *             # Therefore it's better to avoid the modularisation overhead.
  *             if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -3626,7 +3626,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
  */
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":164
+      /* "lom/_cython/matrix_updates.pyx":164
  *                     prior = row_binom[row_densities[n]] + col_binom[col_densities[idx_sorted[l_idx]]]
  * 
  *             x_old = x[n,idx_sorted[l_idx]]             # <<<<<<<<<<<<<<
@@ -3636,9 +3636,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
       __pyx_t_18 = __pyx_v_l_idx;
       __pyx_t_19 = __pyx_v_n;
       __pyx_t_20 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_18 * __pyx_v_idx_sorted.strides[0]) )));
-      __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_19 * __pyx_v_x.strides[0]) ) + __pyx_t_20 * __pyx_v_x.strides[1]) )));
+      __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_19 * __pyx_v_x.strides[0]) ) + __pyx_t_20 * __pyx_v_x.strides[1]) )));
 
-      /* "lom/_cython/matrix_sampling.pyx":167
+      /* "lom/_cython/matrix_updates.pyx":167
  * 
  *             x[n, idx_sorted[l_idx]]= swap_metropolised_gibbs_unified(
  *                 sigmoid(accumulator + prior), x[n, idx_sorted[l_idx]])             # <<<<<<<<<<<<<<
@@ -3649,7 +3649,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
       __pyx_t_22 = __pyx_v_n;
       __pyx_t_23 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_21 * __pyx_v_idx_sorted.strides[0]) )));
 
-      /* "lom/_cython/matrix_sampling.pyx":166
+      /* "lom/_cython/matrix_updates.pyx":166
  *             x_old = x[n,idx_sorted[l_idx]]
  * 
  *             x[n, idx_sorted[l_idx]]= swap_metropolised_gibbs_unified(             # <<<<<<<<<<<<<<
@@ -3659,9 +3659,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
       __pyx_t_24 = __pyx_v_l_idx;
       __pyx_t_25 = __pyx_v_n;
       __pyx_t_26 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_24 * __pyx_v_idx_sorted.strides[0]) )));
-      *((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_25 * __pyx_v_x.strides[0]) ) + __pyx_t_26 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unified(__pyx_f_3lom_7_cython_15matrix_sampling_sigmoid((__pyx_v_accumulator + __pyx_v_prior), 0), (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_22 * __pyx_v_x.strides[0]) ) + __pyx_t_23 * __pyx_v_x.strides[1]) ))), 0);
+      *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_25 * __pyx_v_x.strides[0]) ) + __pyx_t_26 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_f_3lom_7_cython_14matrix_updates_sigmoid((__pyx_v_accumulator + __pyx_v_prior), 0), (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_22 * __pyx_v_x.strides[0]) ) + __pyx_t_23 * __pyx_v_x.strides[1]) ))), 0);
 
-      /* "lom/_cython/matrix_sampling.pyx":169
+      /* "lom/_cython/matrix_updates.pyx":169
  *                 sigmoid(accumulator + prior), x[n, idx_sorted[l_idx]])
  * 
  *             if (prior_code > 1) and (x[n, idx_sorted[l_idx]] != x_old):             # <<<<<<<<<<<<<<
@@ -3677,12 +3677,12 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
       __pyx_t_28 = __pyx_v_l_idx;
       __pyx_t_29 = __pyx_v_n;
       __pyx_t_30 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_28 * __pyx_v_idx_sorted.strides[0]) )));
-      __pyx_t_27 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_29 * __pyx_v_x.strides[0]) ) + __pyx_t_30 * __pyx_v_x.strides[1]) ))) != __pyx_v_x_old) != 0);
+      __pyx_t_27 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_29 * __pyx_v_x.strides[0]) ) + __pyx_t_30 * __pyx_v_x.strides[1]) ))) != __pyx_v_x_old) != 0);
       __pyx_t_7 = __pyx_t_27;
       __pyx_L9_bool_binop_done:;
       if (__pyx_t_7) {
 
-        /* "lom/_cython/matrix_sampling.pyx":170
+        /* "lom/_cython/matrix_updates.pyx":170
  * 
  *             if (prior_code > 1) and (x[n, idx_sorted[l_idx]] != x_old):
  *                 if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -3700,7 +3700,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
         }
         if (__pyx_t_7) {
 
-          /* "lom/_cython/matrix_sampling.pyx":171
+          /* "lom/_cython/matrix_updates.pyx":171
  *             if (prior_code > 1) and (x[n, idx_sorted[l_idx]] != x_old):
  *                 if (prior_code == 2) or (prior_code == 4):
  *                     row_densities[n] += x[n, idx_sorted[l_idx]]             # <<<<<<<<<<<<<<
@@ -3711,9 +3711,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
           __pyx_t_32 = __pyx_v_n;
           __pyx_t_33 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_31 * __pyx_v_idx_sorted.strides[0]) )));
           __pyx_t_34 = __pyx_v_n;
-          *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_34, __pyx_pybuffernd_row_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_32 * __pyx_v_x.strides[0]) ) + __pyx_t_33 * __pyx_v_x.strides[1]) )));
+          *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_34, __pyx_pybuffernd_row_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_32 * __pyx_v_x.strides[0]) ) + __pyx_t_33 * __pyx_v_x.strides[1]) )));
 
-          /* "lom/_cython/matrix_sampling.pyx":170
+          /* "lom/_cython/matrix_updates.pyx":170
  * 
  *             if (prior_code > 1) and (x[n, idx_sorted[l_idx]] != x_old):
  *                 if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -3723,7 +3723,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
           goto __pyx_L11;
         }
 
-        /* "lom/_cython/matrix_sampling.pyx":172
+        /* "lom/_cython/matrix_updates.pyx":172
  *                 if (prior_code == 2) or (prior_code == 4):
  *                     row_densities[n] += x[n, idx_sorted[l_idx]]
  *                 elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -3741,7 +3741,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
         }
         if (__pyx_t_7) {
 
-          /* "lom/_cython/matrix_sampling.pyx":173
+          /* "lom/_cython/matrix_updates.pyx":173
  *                     row_densities[n] += x[n, idx_sorted[l_idx]]
  *                 elif (prior_code == 3) or (prior_code == 4):
  *                     col_densities[idx_sorted[l_idx]] += x[n, idx_sorted[l_idx]]             # <<<<<<<<<<<<<<
@@ -3753,9 +3753,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
           __pyx_t_37 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_35 * __pyx_v_idx_sorted.strides[0]) )));
           __pyx_t_38 = __pyx_v_l_idx;
           __pyx_t_39 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_38 * __pyx_v_idx_sorted.strides[0]) )));
-          *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_39, __pyx_pybuffernd_col_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_36 * __pyx_v_x.strides[0]) ) + __pyx_t_37 * __pyx_v_x.strides[1]) )));
+          *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_39, __pyx_pybuffernd_col_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_36 * __pyx_v_x.strides[0]) ) + __pyx_t_37 * __pyx_v_x.strides[1]) )));
 
-          /* "lom/_cython/matrix_sampling.pyx":172
+          /* "lom/_cython/matrix_updates.pyx":172
  *                 if (prior_code == 2) or (prior_code == 4):
  *                     row_densities[n] += x[n, idx_sorted[l_idx]]
  *                 elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -3765,7 +3765,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
         }
         __pyx_L11:;
 
-        /* "lom/_cython/matrix_sampling.pyx":169
+        /* "lom/_cython/matrix_updates.pyx":169
  *                 sigmoid(accumulator + prior), x[n, idx_sorted[l_idx]])
  * 
  *             if (prior_code > 1) and (x[n, idx_sorted[l_idx]] != x_old):             # <<<<<<<<<<<<<<
@@ -3776,7 +3776,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
     }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":110
+  /* "lom/_cython/matrix_updates.pyx":110
  * 
  * 
  * def draw_noparents_onechild_maxmachine(data_type_t[:,:] x,  # N x D; z_nl             # <<<<<<<<<<<<<<
@@ -3798,7 +3798,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_row_binom.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_row_densities.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_noparents_onechild_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_noparents_onechild_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -3822,7 +3822,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":181
+/* "lom/_cython/matrix_updates.pyx":181
  * 
  * 
  * def draw_oneparent_onechild_maxmachine(data_type_t[:,:] x,  # N x D; z_nl             # <<<<<<<<<<<<<<
@@ -3831,10 +3831,10 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_draw_noparents_onechil
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_3draw_oneparent_onechild_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechild_maxmachine[] = "\n    TODO:  sampling indicator, versions with parents\n    ";
-static PyMethodDef __pyx_mdef_3lom_7_cython_15matrix_sampling_3draw_oneparent_onechild_maxmachine = {"draw_oneparent_onechild_maxmachine", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_3draw_oneparent_onechild_maxmachine, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechild_maxmachine};
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_3draw_oneparent_onechild_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_3draw_oneparent_onechild_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_2draw_oneparent_onechild_maxmachine[] = "\n    TODO:  sampling indicator, versions with parents\n    ";
+static PyMethodDef __pyx_mdef_3lom_7_cython_14matrix_updates_3draw_oneparent_onechild_maxmachine = {"draw_oneparent_onechild_maxmachine", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_3draw_oneparent_onechild_maxmachine, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_2draw_oneparent_onechild_maxmachine};
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_3draw_oneparent_onechild_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_sibling = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_child = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -3965,14 +3965,14 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_3draw_oneparent_onechi
       values[9] = PyTuple_GET_ITEM(__pyx_args, 9);
       values[10] = PyTuple_GET_ITEM(__pyx_args, 10);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 181, __pyx_L3_error)
-    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 182, __pyx_L3_error)
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 183, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 181, __pyx_L3_error)
+    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 182, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 183, __pyx_L3_error)
     __pyx_v_lbda = __Pyx_PyObject_to_MemoryviewSlice_ds_double(values[3]); if (unlikely(!__pyx_v_lbda.memview)) __PYX_ERR(0, 184, __pyx_L3_error)
     __pyx_v_idx_sorted = __Pyx_PyObject_to_MemoryviewSlice_ds_int(values[4]); if (unlikely(!__pyx_v_idx_sorted.memview)) __PYX_ERR(0, 185, __pyx_L3_error)
     __pyx_v_prior_config = ((PyObject*)values[5]);
-    __pyx_v_u_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[6]); if (unlikely(!__pyx_v_u_pa.memview)) __PYX_ERR(0, 187, __pyx_L3_error)
-    __pyx_v_z_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[7]); if (unlikely(!__pyx_v_z_pa.memview)) __PYX_ERR(0, 188, __pyx_L3_error)
+    __pyx_v_u_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[6]); if (unlikely(!__pyx_v_u_pa.memview)) __PYX_ERR(0, 187, __pyx_L3_error)
+    __pyx_v_z_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[7]); if (unlikely(!__pyx_v_z_pa.memview)) __PYX_ERR(0, 188, __pyx_L3_error)
     __pyx_v_logit_lbda_pa = __Pyx_PyObject_to_MemoryviewSlice_ds_double(values[8]); if (unlikely(!__pyx_v_logit_lbda_pa.memview)) __PYX_ERR(0, 189, __pyx_L3_error)
     __pyx_v_idx_sorted_pa = __Pyx_PyObject_to_MemoryviewSlice_ds_int(values[9]); if (unlikely(!__pyx_v_idx_sorted_pa.memview)) __PYX_ERR(0, 190, __pyx_L3_error)
     __pyx_v_lbda_ratios = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_float(values[10]); if (unlikely(!__pyx_v_lbda_ratios.memview)) __PYX_ERR(0, 191, __pyx_L3_error)
@@ -3981,12 +3981,12 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_3draw_oneparent_onechi
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild_maxmachine", 1, 11, 11, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 181, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_oneparent_onechild_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_oneparent_onechild_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prior_config), (&PyList_Type), 1, "prior_config", 1))) __PYX_ERR(0, 186, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechild_maxmachine(__pyx_self, __pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_idx_sorted, __pyx_v_prior_config, __pyx_v_u_pa, __pyx_v_z_pa, __pyx_v_logit_lbda_pa, __pyx_v_idx_sorted_pa, __pyx_v_lbda_ratios);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_2draw_oneparent_onechild_maxmachine(__pyx_self, __pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_idx_sorted, __pyx_v_prior_config, __pyx_v_u_pa, __pyx_v_z_pa, __pyx_v_logit_lbda_pa, __pyx_v_idx_sorted_pa, __pyx_v_lbda_ratios);
 
   /* function exit code */
   goto __pyx_L0;
@@ -3997,7 +3997,7 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_3draw_oneparent_onechi
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechild_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_lbda, __Pyx_memviewslice __pyx_v_idx_sorted, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_u_pa, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_logit_lbda_pa, __Pyx_memviewslice __pyx_v_idx_sorted_pa, __Pyx_memviewslice __pyx_v_lbda_ratios) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_2draw_oneparent_onechild_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_lbda, __Pyx_memviewslice __pyx_v_idx_sorted, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_u_pa, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_logit_lbda_pa, __Pyx_memviewslice __pyx_v_idx_sorted_pa, __Pyx_memviewslice __pyx_v_lbda_ratios) {
   PyArrayObject *__pyx_v_row_binom = 0;
   PyArrayObject *__pyx_v_col_binom = 0;
   PyArrayObject *__pyx_v_row_densities = 0;
@@ -4011,7 +4011,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
   float __pyx_v_accumulator_par;
   float __pyx_v_accumulator_child;
   float __pyx_v_prior;
-  __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x_old;
+  __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x_old;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_col_binom;
   __Pyx_Buffer __pyx_pybuffer_col_binom;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_col_densities;
@@ -4080,7 +4080,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
   __pyx_pybuffernd_col_densities.data = NULL;
   __pyx_pybuffernd_col_densities.rcbuffer = &__pyx_pybuffer_col_densities;
 
-  /* "lom/_cython/matrix_sampling.pyx":197
+  /* "lom/_cython/matrix_updates.pyx":197
  * 
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]             # <<<<<<<<<<<<<<
@@ -4105,7 +4105,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
   __pyx_v_row_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":198
+  /* "lom/_cython/matrix_updates.pyx":198
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]             # <<<<<<<<<<<<<<
@@ -4130,7 +4130,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
   __pyx_v_col_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":199
+  /* "lom/_cython/matrix_updates.pyx":199
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]             # <<<<<<<<<<<<<<
@@ -4155,7 +4155,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
   __pyx_v_row_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":200
+  /* "lom/_cython/matrix_updates.pyx":200
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]             # <<<<<<<<<<<<<<
@@ -4180,7 +4180,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
   __pyx_v_col_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":201
+  /* "lom/_cython/matrix_updates.pyx":201
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]
  *     cdef int prior_code = prior_config[0]             # <<<<<<<<<<<<<<
@@ -4194,7 +4194,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
   __pyx_t_2 = __Pyx_PyInt_As_int(PyList_GET_ITEM(__pyx_v_prior_config, 0)); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 201, __pyx_L1_error)
   __pyx_v_prior_code = __pyx_t_2;
 
-  /* "lom/_cython/matrix_sampling.pyx":203
+  /* "lom/_cython/matrix_updates.pyx":203
  *     cdef int prior_code = prior_config[0]
  * 
  *     cdef int n, l_idx, d, N = x.shape[0], L = x.shape[1], D = sibling.shape[0]             # <<<<<<<<<<<<<<
@@ -4205,7 +4205,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
   __pyx_v_L = (__pyx_v_x.shape[1]);
   __pyx_v_D = (__pyx_v_sibling.shape[0]);
 
-  /* "lom/_cython/matrix_sampling.pyx":206
+  /* "lom/_cython/matrix_updates.pyx":206
  *     cdef bint break_accumulator
  *     cdef float accumulator_par, accumulator_child
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -4214,7 +4214,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/matrix_sampling.pyx":212
+  /* "lom/_cython/matrix_updates.pyx":212
  *     #     logit_lbda_pa[l] = scipy.special.cython_special.logit(logit_lbda_pa[l])
  * 
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -4224,7 +4224,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
   __pyx_t_3 = ((__pyx_v_prior_code == 1) != 0);
   if (__pyx_t_3) {
 
-    /* "lom/_cython/matrix_sampling.pyx":213
+    /* "lom/_cython/matrix_updates.pyx":213
  * 
  *     if prior_code == 1:
  *         prior = prior_config[1] # already on logit scale             # <<<<<<<<<<<<<<
@@ -4238,7 +4238,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
     __pyx_t_4 = __pyx_PyFloat_AsFloat(PyList_GET_ITEM(__pyx_v_prior_config, 1)); if (unlikely((__pyx_t_4 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 213, __pyx_L1_error)
     __pyx_v_prior = __pyx_t_4;
 
-    /* "lom/_cython/matrix_sampling.pyx":212
+    /* "lom/_cython/matrix_updates.pyx":212
  *     #     logit_lbda_pa[l] = scipy.special.cython_special.logit(logit_lbda_pa[l])
  * 
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -4247,7 +4247,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
  */
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":217
+  /* "lom/_cython/matrix_updates.pyx":217
  *     # iterate over codes in order of decreasing lbda
  *     # binomial prior over N breaks paralellism
  *     for n in range(N): #, schedule='dynamic', nogil=True):             # <<<<<<<<<<<<<<
@@ -4258,7 +4258,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_2; __pyx_t_5+=1) {
     __pyx_v_n = __pyx_t_5;
 
-    /* "lom/_cython/matrix_sampling.pyx":218
+    /* "lom/_cython/matrix_updates.pyx":218
  *     # binomial prior over N breaks paralellism
  *     for n in range(N): #, schedule='dynamic', nogil=True):
  *         for l_idx in range(L):             # <<<<<<<<<<<<<<
@@ -4269,16 +4269,16 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_l_idx = __pyx_t_7;
 
-      /* "lom/_cython/matrix_sampling.pyx":221
+      /* "lom/_cython/matrix_updates.pyx":221
  *             # iterate over children
  * 
  *             accumulator_child = child_node_contribution_to_maxmachine(             # <<<<<<<<<<<<<<
  *                 x, sibling, child, lbda, l_idx, idx_sorted, n, D, L, lbda_ratios)
  * 
  */
-      __pyx_v_accumulator_child = __pyx_f_3lom_7_cython_15matrix_sampling_child_node_contribution_to_maxmachine(__pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_l_idx, __pyx_v_idx_sorted, __pyx_v_n, __pyx_v_D, __pyx_v_L, __pyx_v_lbda_ratios);
+      __pyx_v_accumulator_child = __pyx_f_3lom_7_cython_14matrix_updates_child_node_contribution_to_maxmachine(__pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_l_idx, __pyx_v_idx_sorted, __pyx_v_n, __pyx_v_D, __pyx_v_L, __pyx_v_lbda_ratios);
 
-      /* "lom/_cython/matrix_sampling.pyx":225
+      /* "lom/_cython/matrix_updates.pyx":225
  * 
  *             accumulator_par = parent_contribution_to_maxmachine(
  *                 u_pa, z_pa, logit_lbda_pa, idx_sorted_pa, n, idx_sorted[l_idx])             # <<<<<<<<<<<<<<
@@ -4287,16 +4287,16 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
  */
       __pyx_t_8 = __pyx_v_l_idx;
 
-      /* "lom/_cython/matrix_sampling.pyx":224
+      /* "lom/_cython/matrix_updates.pyx":224
  *                 x, sibling, child, lbda, l_idx, idx_sorted, n, D, L, lbda_ratios)
  * 
  *             accumulator_par = parent_contribution_to_maxmachine(             # <<<<<<<<<<<<<<
  *                 u_pa, z_pa, logit_lbda_pa, idx_sorted_pa, n, idx_sorted[l_idx])
  * 
  */
-      __pyx_v_accumulator_par = __pyx_f_3lom_7_cython_15matrix_sampling_parent_contribution_to_maxmachine(__pyx_v_u_pa, __pyx_v_z_pa, __pyx_v_logit_lbda_pa, __pyx_v_idx_sorted_pa, __pyx_v_n, (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_8 * __pyx_v_idx_sorted.strides[0]) ))));
+      __pyx_v_accumulator_par = __pyx_f_3lom_7_cython_14matrix_updates_parent_contribution_to_maxmachine(__pyx_v_u_pa, __pyx_v_z_pa, __pyx_v_logit_lbda_pa, __pyx_v_idx_sorted_pa, __pyx_v_n, (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_8 * __pyx_v_idx_sorted.strides[0]) ))));
 
-      /* "lom/_cython/matrix_sampling.pyx":227
+      /* "lom/_cython/matrix_updates.pyx":227
  *                 u_pa, z_pa, logit_lbda_pa, idx_sorted_pa, n, idx_sorted[l_idx])
  * 
  *             if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -4306,7 +4306,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
       __pyx_t_3 = ((__pyx_v_prior_code > 1) != 0);
       if (__pyx_t_3) {
 
-        /* "lom/_cython/matrix_sampling.pyx":228
+        /* "lom/_cython/matrix_updates.pyx":228
  * 
  *             if prior_code > 1:
  *                 if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -4316,7 +4316,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
         switch (__pyx_v_prior_code) {
           case 2:
 
-          /* "lom/_cython/matrix_sampling.pyx":229
+          /* "lom/_cython/matrix_updates.pyx":229
  *             if prior_code > 1:
  *                 if prior_code == 2:
  *                     prior = row_binom[row_densities[n]]             # <<<<<<<<<<<<<<
@@ -4327,7 +4327,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
           __pyx_t_10 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_row_densities.diminfo[0].strides));
           __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_row_binom.diminfo[0].strides));
 
-          /* "lom/_cython/matrix_sampling.pyx":228
+          /* "lom/_cython/matrix_updates.pyx":228
  * 
  *             if prior_code > 1:
  *                 if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -4336,7 +4336,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
  */
           break;
 
-          /* "lom/_cython/matrix_sampling.pyx":230
+          /* "lom/_cython/matrix_updates.pyx":230
  *                 if prior_code == 2:
  *                     prior = row_binom[row_densities[n]]
  *                 elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -4345,7 +4345,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
  */
           case 3:
 
-          /* "lom/_cython/matrix_sampling.pyx":231
+          /* "lom/_cython/matrix_updates.pyx":231
  *                     prior = row_binom[row_densities[n]]
  *                 elif prior_code == 3:
  *                     prior = col_binom[col_densities[idx_sorted[l_idx]]]             # <<<<<<<<<<<<<<
@@ -4357,7 +4357,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
           __pyx_t_13 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_col_densities.diminfo[0].strides));
           __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_col_binom.diminfo[0].strides));
 
-          /* "lom/_cython/matrix_sampling.pyx":230
+          /* "lom/_cython/matrix_updates.pyx":230
  *                 if prior_code == 2:
  *                     prior = row_binom[row_densities[n]]
  *                 elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -4366,7 +4366,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
  */
           break;
 
-          /* "lom/_cython/matrix_sampling.pyx":232
+          /* "lom/_cython/matrix_updates.pyx":232
  *                 elif prior_code == 3:
  *                     prior = col_binom[col_densities[idx_sorted[l_idx]]]
  *                 elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -4375,7 +4375,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
  */
           case 4:
 
-          /* "lom/_cython/matrix_sampling.pyx":233
+          /* "lom/_cython/matrix_updates.pyx":233
  *                     prior = col_binom[col_densities[idx_sorted[l_idx]]]
  *                 elif prior_code == 4:
  *                     prior = row_binom[row_densities[n]] + col_binom[col_densities[idx_sorted[l_idx]]]             # <<<<<<<<<<<<<<
@@ -4389,7 +4389,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
           __pyx_t_18 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_col_densities.diminfo[0].strides));
           __pyx_v_prior = ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_row_binom.diminfo[0].strides)) + (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_18, __pyx_pybuffernd_col_binom.diminfo[0].strides)));
 
-          /* "lom/_cython/matrix_sampling.pyx":232
+          /* "lom/_cython/matrix_updates.pyx":232
  *                 elif prior_code == 3:
  *                     prior = col_binom[col_densities[idx_sorted[l_idx]]]
  *                 elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -4400,7 +4400,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
           default: break;
         }
 
-        /* "lom/_cython/matrix_sampling.pyx":227
+        /* "lom/_cython/matrix_updates.pyx":227
  *                 u_pa, z_pa, logit_lbda_pa, idx_sorted_pa, n, idx_sorted[l_idx])
  * 
  *             if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -4409,7 +4409,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
  */
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":239
+      /* "lom/_cython/matrix_updates.pyx":239
  *                 #           n, idx_sorted[l_idx], prior_code, prior)
  * 
  *             x_old = x[n,idx_sorted[l_idx]]             # <<<<<<<<<<<<<<
@@ -4419,9 +4419,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
       __pyx_t_19 = __pyx_v_l_idx;
       __pyx_t_20 = __pyx_v_n;
       __pyx_t_21 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_19 * __pyx_v_idx_sorted.strides[0]) )));
-      __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_20 * __pyx_v_x.strides[0]) ) + __pyx_t_21 * __pyx_v_x.strides[1]) )));
+      __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_20 * __pyx_v_x.strides[0]) ) + __pyx_t_21 * __pyx_v_x.strides[1]) )));
 
-      /* "lom/_cython/matrix_sampling.pyx":243
+      /* "lom/_cython/matrix_updates.pyx":243
  *             x[n, idx_sorted[l_idx]] = swap_metropolised_gibbs_unified(
  *                 sigmoid(accumulator_child + accumulator_par + prior),
  *                 x[n, idx_sorted[l_idx]])             # <<<<<<<<<<<<<<
@@ -4432,7 +4432,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
       __pyx_t_23 = __pyx_v_n;
       __pyx_t_24 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_22 * __pyx_v_idx_sorted.strides[0]) )));
 
-      /* "lom/_cython/matrix_sampling.pyx":241
+      /* "lom/_cython/matrix_updates.pyx":241
  *             x_old = x[n,idx_sorted[l_idx]]
  * 
  *             x[n, idx_sorted[l_idx]] = swap_metropolised_gibbs_unified(             # <<<<<<<<<<<<<<
@@ -4442,9 +4442,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
       __pyx_t_25 = __pyx_v_l_idx;
       __pyx_t_26 = __pyx_v_n;
       __pyx_t_27 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_25 * __pyx_v_idx_sorted.strides[0]) )));
-      *((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_26 * __pyx_v_x.strides[0]) ) + __pyx_t_27 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unified(__pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(((__pyx_v_accumulator_child + __pyx_v_accumulator_par) + __pyx_v_prior), 0), (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_23 * __pyx_v_x.strides[0]) ) + __pyx_t_24 * __pyx_v_x.strides[1]) ))), 0);
+      *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_26 * __pyx_v_x.strides[0]) ) + __pyx_t_27 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_f_3lom_7_cython_14matrix_updates_sigmoid(((__pyx_v_accumulator_child + __pyx_v_accumulator_par) + __pyx_v_prior), 0), (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_23 * __pyx_v_x.strides[0]) ) + __pyx_t_24 * __pyx_v_x.strides[1]) ))), 0);
 
-      /* "lom/_cython/matrix_sampling.pyx":246
+      /* "lom/_cython/matrix_updates.pyx":246
  *             # x[n, idx_sorted[l_idx]] = swap_gibbs(sigmoid(accumulator_child + prior)) # + prior
  * 
  *             if (prior_code > 1) and (x[n, idx_sorted[l_idx]] != x_old):             # <<<<<<<<<<<<<<
@@ -4460,12 +4460,12 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
       __pyx_t_29 = __pyx_v_l_idx;
       __pyx_t_30 = __pyx_v_n;
       __pyx_t_31 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_29 * __pyx_v_idx_sorted.strides[0]) )));
-      __pyx_t_28 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_30 * __pyx_v_x.strides[0]) ) + __pyx_t_31 * __pyx_v_x.strides[1]) ))) != __pyx_v_x_old) != 0);
+      __pyx_t_28 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_30 * __pyx_v_x.strides[0]) ) + __pyx_t_31 * __pyx_v_x.strides[1]) ))) != __pyx_v_x_old) != 0);
       __pyx_t_3 = __pyx_t_28;
       __pyx_L10_bool_binop_done:;
       if (__pyx_t_3) {
 
-        /* "lom/_cython/matrix_sampling.pyx":247
+        /* "lom/_cython/matrix_updates.pyx":247
  * 
  *             if (prior_code > 1) and (x[n, idx_sorted[l_idx]] != x_old):
  *                 if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -4483,7 +4483,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
         }
         if (__pyx_t_3) {
 
-          /* "lom/_cython/matrix_sampling.pyx":248
+          /* "lom/_cython/matrix_updates.pyx":248
  *             if (prior_code > 1) and (x[n, idx_sorted[l_idx]] != x_old):
  *                 if (prior_code == 2) or (prior_code == 4):
  *                     row_densities[n] += x[n, idx_sorted[l_idx]]             # <<<<<<<<<<<<<<
@@ -4494,9 +4494,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
           __pyx_t_33 = __pyx_v_n;
           __pyx_t_34 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_32 * __pyx_v_idx_sorted.strides[0]) )));
           __pyx_t_35 = __pyx_v_n;
-          *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_35, __pyx_pybuffernd_row_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_33 * __pyx_v_x.strides[0]) ) + __pyx_t_34 * __pyx_v_x.strides[1]) )));
+          *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_35, __pyx_pybuffernd_row_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_33 * __pyx_v_x.strides[0]) ) + __pyx_t_34 * __pyx_v_x.strides[1]) )));
 
-          /* "lom/_cython/matrix_sampling.pyx":247
+          /* "lom/_cython/matrix_updates.pyx":247
  * 
  *             if (prior_code > 1) and (x[n, idx_sorted[l_idx]] != x_old):
  *                 if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -4506,7 +4506,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
           goto __pyx_L12;
         }
 
-        /* "lom/_cython/matrix_sampling.pyx":249
+        /* "lom/_cython/matrix_updates.pyx":249
  *                 if (prior_code == 2) or (prior_code == 4):
  *                     row_densities[n] += x[n, idx_sorted[l_idx]]
  *                 elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -4524,7 +4524,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
         }
         if (__pyx_t_3) {
 
-          /* "lom/_cython/matrix_sampling.pyx":250
+          /* "lom/_cython/matrix_updates.pyx":250
  *                     row_densities[n] += x[n, idx_sorted[l_idx]]
  *                 elif (prior_code == 3) or (prior_code == 4):
  *                     col_densities[idx_sorted[l_idx]] += x[n, idx_sorted[l_idx]]             # <<<<<<<<<<<<<<
@@ -4536,9 +4536,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
           __pyx_t_38 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_36 * __pyx_v_idx_sorted.strides[0]) )));
           __pyx_t_39 = __pyx_v_l_idx;
           __pyx_t_40 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_39 * __pyx_v_idx_sorted.strides[0]) )));
-          *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_40, __pyx_pybuffernd_col_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_37 * __pyx_v_x.strides[0]) ) + __pyx_t_38 * __pyx_v_x.strides[1]) )));
+          *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_40, __pyx_pybuffernd_col_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_37 * __pyx_v_x.strides[0]) ) + __pyx_t_38 * __pyx_v_x.strides[1]) )));
 
-          /* "lom/_cython/matrix_sampling.pyx":249
+          /* "lom/_cython/matrix_updates.pyx":249
  *                 if (prior_code == 2) or (prior_code == 4):
  *                     row_densities[n] += x[n, idx_sorted[l_idx]]
  *                 elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -4548,7 +4548,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
         }
         __pyx_L12:;
 
-        /* "lom/_cython/matrix_sampling.pyx":246
+        /* "lom/_cython/matrix_updates.pyx":246
  *             # x[n, idx_sorted[l_idx]] = swap_gibbs(sigmoid(accumulator_child + prior)) # + prior
  * 
  *             if (prior_code > 1) and (x[n, idx_sorted[l_idx]] != x_old):             # <<<<<<<<<<<<<<
@@ -4559,7 +4559,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
     }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":181
+  /* "lom/_cython/matrix_updates.pyx":181
  * 
  * 
  * def draw_oneparent_onechild_maxmachine(data_type_t[:,:] x,  # N x D; z_nl             # <<<<<<<<<<<<<<
@@ -4581,7 +4581,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_row_binom.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_row_densities.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_oneparent_onechild_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_oneparent_onechild_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -4609,7 +4609,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":253
+/* "lom/_cython/matrix_updates.pyx":253
  * 
  * 
  * def draw_balanced_or(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -4618,9 +4618,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_2draw_oneparent_onechi
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_5draw_balanced_or(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3lom_7_cython_15matrix_sampling_5draw_balanced_or = {"draw_balanced_or", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_5draw_balanced_or, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_5draw_balanced_or(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_5draw_balanced_or(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_3lom_7_cython_14matrix_updates_5draw_balanced_or = {"draw_balanced_or", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_5draw_balanced_or, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_5draw_balanced_or(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_sibling = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_child = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -4691,9 +4691,9 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_5draw_balanced_or(PyOb
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 253, __pyx_L3_error)
-    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 254, __pyx_L3_error)
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 255, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 253, __pyx_L3_error)
+    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 254, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 255, __pyx_L3_error)
     __pyx_v_lbda_p = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_lbda_p == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 256, __pyx_L3_error)
     __pyx_v_lbda_m = __pyx_PyFloat_AsDouble(values[4]); if (unlikely((__pyx_v_lbda_m == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 257, __pyx_L3_error)
   }
@@ -4701,18 +4701,18 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_5draw_balanced_or(PyOb
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("draw_balanced_or", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 253, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_balanced_or", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_balanced_or", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_4draw_balanced_or(__pyx_self, __pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda_p, __pyx_v_lbda_m);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_4draw_balanced_or(__pyx_self, __pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda_p, __pyx_v_lbda_m);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_4draw_balanced_or(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, double __pyx_v_lbda_p, double __pyx_v_lbda_m) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_4draw_balanced_or(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, double __pyx_v_lbda_p, double __pyx_v_lbda_m) {
   float __pyx_v_p;
   float __pyx_v_acc_child;
   CYTHON_UNUSED float __pyx_v_prior;
@@ -4720,7 +4720,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_4draw_balanced_or(CYTH
   int __pyx_v_d;
   CYTHON_UNUSED int __pyx_v_N;
   int __pyx_v_D;
-  CYTHON_UNUSED __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x_old;
+  CYTHON_UNUSED __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x_old;
   int __pyx_v_n_count;
   int __pyx_v_p_count;
   PyObject *__pyx_r = NULL;
@@ -4743,7 +4743,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_4draw_balanced_or(CYTH
   Py_ssize_t __pyx_t_16;
   __Pyx_RefNannySetupContext("draw_balanced_or", 0);
 
-  /* "lom/_cython/matrix_sampling.pyx":261
+  /* "lom/_cython/matrix_updates.pyx":261
  * 
  *     cdef float p, acc_child
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -4752,7 +4752,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_4draw_balanced_or(CYTH
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/matrix_sampling.pyx":262
+  /* "lom/_cython/matrix_updates.pyx":262
  *     cdef float p, acc_child
  *     cdef float prior = 0
  *     cdef int n, d, N = x.shape[0], D = x.shape[1]             # <<<<<<<<<<<<<<
@@ -4762,7 +4762,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_4draw_balanced_or(CYTH
   __pyx_v_N = (__pyx_v_x.shape[0]);
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_sampling.pyx":267
+  /* "lom/_cython/matrix_updates.pyx":267
  * 
  *     # for n in range(N):
  *     for n in prange(N, schedule='guided', nogil=True):             # <<<<<<<<<<<<<<
@@ -4785,7 +4785,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_4draw_balanced_or(CYTH
             int __pyx_parallel_temp3 = ((int)0xbad0bad0);
             float __pyx_parallel_temp4 = ((float)__PYX_NAN());
             int __pyx_parallel_temp5 = ((int)0xbad0bad0);
-            __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_parallel_temp6 = ((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t)'?');
+            __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_parallel_temp6 = ((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t)'?');
             const char *__pyx_parallel_filename = NULL; int __pyx_parallel_lineno = 0, __pyx_parallel_clineno = 0;
             PyObject *__pyx_parallel_exc_type = NULL, *__pyx_parallel_exc_value = NULL, *__pyx_parallel_exc_tb = NULL;
             int __pyx_parallel_why;
@@ -4822,9 +4822,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_4draw_balanced_or(CYTH
                             __pyx_v_n_count = ((int)0xbad0bad0);
                             __pyx_v_p = ((float)__PYX_NAN());
                             __pyx_v_p_count = ((int)0xbad0bad0);
-                            __pyx_v_x_old = ((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t)'?');
+                            __pyx_v_x_old = ((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t)'?');
 
-                            /* "lom/_cython/matrix_sampling.pyx":268
+                            /* "lom/_cython/matrix_updates.pyx":268
  *     # for n in range(N):
  *     for n in prange(N, schedule='guided', nogil=True):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -4835,7 +4835,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_4draw_balanced_or(CYTH
                             for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
                               __pyx_v_d = __pyx_t_5;
 
-                              /* "lom/_cython/matrix_sampling.pyx":271
+                              /* "lom/_cython/matrix_updates.pyx":271
  * 
  * 
  *             p_count, n_count = score_no_parents_balanced(child[n,:], x[n,:], sibling, d, p_count, n_count)             # <<<<<<<<<<<<<<
@@ -4894,7 +4894,7 @@ __pyx_t_7.shape[0] = __pyx_v_x.shape[1];
 __pyx_t_7.strides[0] = __pyx_v_x.strides[1];
     __pyx_t_7.suboffsets[0] = -1;
 
-__pyx_t_8 = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_balanced(__pyx_t_6, __pyx_t_7, __pyx_v_sibling, __pyx_v_d, __pyx_v_p_count, __pyx_v_n_count);
+__pyx_t_8 = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_balanced(__pyx_t_6, __pyx_t_7, __pyx_v_sibling, __pyx_v_d, __pyx_v_p_count, __pyx_v_n_count);
                               __PYX_XDEC_MEMVIEW(&__pyx_t_6, 0);
                               __pyx_t_6.memview = NULL;
                               __pyx_t_6.data = NULL;
@@ -4906,7 +4906,7 @@ __pyx_t_8 = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_balanced(__
                               __pyx_v_p_count = __pyx_t_9;
                               __pyx_v_n_count = __pyx_t_10;
 
-                              /* "lom/_cython/matrix_sampling.pyx":273
+                              /* "lom/_cython/matrix_updates.pyx":273
  *             p_count, n_count = score_no_parents_balanced(child[n,:], x[n,:], sibling, d, p_count, n_count)
  * 
  *             acc_child = lbda_p*p_count + lbda_m*n_count             # <<<<<<<<<<<<<<
@@ -4915,16 +4915,16 @@ __pyx_t_8 = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_balanced(__
  */
                               __pyx_v_acc_child = ((__pyx_v_lbda_p * __pyx_v_p_count) + (__pyx_v_lbda_m * __pyx_v_n_count));
 
-                              /* "lom/_cython/matrix_sampling.pyx":277
+                              /* "lom/_cython/matrix_updates.pyx":277
  *             # acc_child = lbda_p*score_no_parents_unified(child[n,:], x[n,:], sibling, d)
  * 
  *             p = sigmoid(acc_child)             # <<<<<<<<<<<<<<
  * 
  *             x_old = x[n,d]
  */
-                              __pyx_v_p = __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(__pyx_v_acc_child, 0);
+                              __pyx_v_p = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_acc_child, 0);
 
-                              /* "lom/_cython/matrix_sampling.pyx":279
+                              /* "lom/_cython/matrix_updates.pyx":279
  *             p = sigmoid(acc_child)
  * 
  *             x_old = x[n,d]             # <<<<<<<<<<<<<<
@@ -4933,9 +4933,9 @@ __pyx_t_8 = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_balanced(__
  */
                               __pyx_t_11 = __pyx_v_n;
                               __pyx_t_12 = __pyx_v_d;
-                              __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_11 * __pyx_v_x.strides[0]) ) + __pyx_t_12 * __pyx_v_x.strides[1]) )));
+                              __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_11 * __pyx_v_x.strides[0]) ) + __pyx_t_12 * __pyx_v_x.strides[1]) )));
 
-                              /* "lom/_cython/matrix_sampling.pyx":281
+                              /* "lom/_cython/matrix_updates.pyx":281
  *             x_old = x[n,d]
  * 
  *             x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])             # <<<<<<<<<<<<<<
@@ -4946,7 +4946,7 @@ __pyx_t_8 = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_balanced(__
                               __pyx_t_14 = __pyx_v_d;
                               __pyx_t_15 = __pyx_v_n;
                               __pyx_t_16 = __pyx_v_d;
-                              *((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_15 * __pyx_v_x.strides[0]) ) + __pyx_t_16 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_13 * __pyx_v_x.strides[0]) ) + __pyx_t_14 * __pyx_v_x.strides[1]) ))), 0);
+                              *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_15 * __pyx_v_x.strides[0]) ) + __pyx_t_16 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_13 * __pyx_v_x.strides[0]) ) + __pyx_t_14 * __pyx_v_x.strides[1]) ))), 0);
                             }
                             goto __pyx_L13;
                             __pyx_L8_error:;
@@ -5043,7 +5043,7 @@ __pyx_t_8 = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_balanced(__
         #endif
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":267
+      /* "lom/_cython/matrix_updates.pyx":267
  * 
  *     # for n in range(N):
  *     for n in prange(N, schedule='guided', nogil=True):             # <<<<<<<<<<<<<<
@@ -5069,7 +5069,7 @@ __pyx_t_8 = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_balanced(__
       }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":253
+  /* "lom/_cython/matrix_updates.pyx":253
  * 
  * 
  * def draw_balanced_or(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -5083,7 +5083,7 @@ __pyx_t_8 = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_balanced(__
   __pyx_L1_error:;
   __PYX_XDEC_MEMVIEW(&__pyx_t_6, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_7, 1);
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_balanced_or", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_balanced_or", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_x, 1);
@@ -5094,7 +5094,7 @@ __pyx_t_8 = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_balanced(__
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":286
+/* "lom/_cython/matrix_updates.pyx":286
  * 
  * 
  * def draw_noparents_onechild(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -5103,9 +5103,9 @@ __pyx_t_8 = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_balanced(__
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_7draw_noparents_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3lom_7_cython_15matrix_sampling_7draw_noparents_onechild = {"draw_noparents_onechild", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_7draw_noparents_onechild, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_7draw_noparents_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_7draw_noparents_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_3lom_7_cython_14matrix_updates_7draw_noparents_onechild = {"draw_noparents_onechild", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_7draw_noparents_onechild, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_7draw_noparents_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_sibling = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_child = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -5176,28 +5176,28 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_7draw_noparents_onechi
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 286, __pyx_L3_error)
-    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 287, __pyx_L3_error)
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 288, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 286, __pyx_L3_error)
+    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 287, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 288, __pyx_L3_error)
     __pyx_v_lbda = __pyx_PyFloat_AsFloat(values[3]); if (unlikely((__pyx_v_lbda == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 289, __pyx_L3_error)
-    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[4]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 290, __pyx_L3_error)
+    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[4]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 290, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 286, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_noparents_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_noparents_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_6draw_noparents_onechild(__pyx_self, __pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_sampling_indicator);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_6draw_noparents_onechild(__pyx_self, __pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_sampling_indicator);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_6draw_noparents_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, __Pyx_memviewslice __pyx_v_sampling_indicator) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_6draw_noparents_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, __Pyx_memviewslice __pyx_v_sampling_indicator) {
   float __pyx_v_p;
   float __pyx_v_acc_child;
   CYTHON_UNUSED float __pyx_v_prior;
@@ -5205,7 +5205,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_6draw_noparents_onechi
   int __pyx_v_d;
   CYTHON_UNUSED int __pyx_v_N;
   int __pyx_v_D;
-  CYTHON_UNUSED __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x_old;
+  CYTHON_UNUSED __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x_old;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -5226,7 +5226,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_6draw_noparents_onechi
   Py_ssize_t __pyx_t_16;
   __Pyx_RefNannySetupContext("draw_noparents_onechild", 0);
 
-  /* "lom/_cython/matrix_sampling.pyx":294
+  /* "lom/_cython/matrix_updates.pyx":294
  * 
  *     cdef float p, acc_child
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -5235,7 +5235,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_6draw_noparents_onechi
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/matrix_sampling.pyx":295
+  /* "lom/_cython/matrix_updates.pyx":295
  *     cdef float p, acc_child
  *     cdef float prior = 0
  *     cdef int n, d, N = x.shape[0], D = x.shape[1]             # <<<<<<<<<<<<<<
@@ -5245,7 +5245,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_6draw_noparents_onechi
   __pyx_v_N = (__pyx_v_x.shape[0]);
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_sampling.pyx":299
+  /* "lom/_cython/matrix_updates.pyx":299
  * 
  *     # for n in range(N):
  *     for n in prange(N, schedule='guided', nogil=True):             # <<<<<<<<<<<<<<
@@ -5266,7 +5266,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_6draw_noparents_onechi
             int __pyx_parallel_temp1 = ((int)0xbad0bad0);
             int __pyx_parallel_temp2 = ((int)0xbad0bad0);
             float __pyx_parallel_temp3 = ((float)__PYX_NAN());
-            __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_parallel_temp4 = ((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t)'?');
+            __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_parallel_temp4 = ((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t)'?');
             const char *__pyx_parallel_filename = NULL; int __pyx_parallel_lineno = 0, __pyx_parallel_clineno = 0;
             PyObject *__pyx_parallel_exc_type = NULL, *__pyx_parallel_exc_value = NULL, *__pyx_parallel_exc_tb = NULL;
             int __pyx_parallel_why;
@@ -5301,9 +5301,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_6draw_noparents_onechi
                             __pyx_v_acc_child = ((float)__PYX_NAN());
                             __pyx_v_d = ((int)0xbad0bad0);
                             __pyx_v_p = ((float)__PYX_NAN());
-                            __pyx_v_x_old = ((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t)'?');
+                            __pyx_v_x_old = ((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t)'?');
 
-                            /* "lom/_cython/matrix_sampling.pyx":300
+                            /* "lom/_cython/matrix_updates.pyx":300
  *     # for n in range(N):
  *     for n in prange(N, schedule='guided', nogil=True):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -5314,7 +5314,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_6draw_noparents_onechi
                             for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
                               __pyx_v_d = __pyx_t_5;
 
-                              /* "lom/_cython/matrix_sampling.pyx":301
+                              /* "lom/_cython/matrix_updates.pyx":301
  *     for n in prange(N, schedule='guided', nogil=True):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -5323,10 +5323,10 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_6draw_noparents_onechi
  */
                               __pyx_t_6 = __pyx_v_n;
                               __pyx_t_7 = __pyx_v_d;
-                              __pyx_t_8 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_6 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_7 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
+                              __pyx_t_8 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_6 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_7 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
                               if (__pyx_t_8) {
 
-                                /* "lom/_cython/matrix_sampling.pyx":304
+                                /* "lom/_cython/matrix_updates.pyx":304
  * 
  *                 # compute the posterior
  *                 acc_child = lbda*score_no_parents_unified(child[n,:], x[n,:], sibling, d)             # <<<<<<<<<<<<<<
@@ -5385,7 +5385,7 @@ __pyx_t_10.shape[0] = __pyx_v_x.shape[1];
 __pyx_t_10.strides[0] = __pyx_v_x.strides[1];
     __pyx_t_10.suboffsets[0] = -1;
 
-__pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__pyx_t_9, __pyx_t_10, __pyx_v_sibling, __pyx_v_d));
+__pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__pyx_t_9, __pyx_t_10, __pyx_v_sibling, __pyx_v_d));
                                 __PYX_XDEC_MEMVIEW(&__pyx_t_9, 0);
                                 __pyx_t_9.memview = NULL;
                                 __pyx_t_9.data = NULL;
@@ -5393,16 +5393,16 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
                                 __pyx_t_10.memview = NULL;
                                 __pyx_t_10.data = NULL;
 
-                                /* "lom/_cython/matrix_sampling.pyx":306
+                                /* "lom/_cython/matrix_updates.pyx":306
  *                 acc_child = lbda*score_no_parents_unified(child[n,:], x[n,:], sibling, d)
  * 
  *                 p = sigmoid(acc_child)             # <<<<<<<<<<<<<<
  * 
  *                 x_old = x[n,d]
  */
-                                __pyx_v_p = __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(__pyx_v_acc_child, 0);
+                                __pyx_v_p = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_acc_child, 0);
 
-                                /* "lom/_cython/matrix_sampling.pyx":308
+                                /* "lom/_cython/matrix_updates.pyx":308
  *                 p = sigmoid(acc_child)
  * 
  *                 x_old = x[n,d]             # <<<<<<<<<<<<<<
@@ -5411,9 +5411,9 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
  */
                                 __pyx_t_11 = __pyx_v_n;
                                 __pyx_t_12 = __pyx_v_d;
-                                __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_11 * __pyx_v_x.strides[0]) ) + __pyx_t_12 * __pyx_v_x.strides[1]) )));
+                                __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_11 * __pyx_v_x.strides[0]) ) + __pyx_t_12 * __pyx_v_x.strides[1]) )));
 
-                                /* "lom/_cython/matrix_sampling.pyx":309
+                                /* "lom/_cython/matrix_updates.pyx":309
  * 
  *                 x_old = x[n,d]
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])             # <<<<<<<<<<<<<<
@@ -5424,9 +5424,9 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
                                 __pyx_t_14 = __pyx_v_d;
                                 __pyx_t_15 = __pyx_v_n;
                                 __pyx_t_16 = __pyx_v_d;
-                                *((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_15 * __pyx_v_x.strides[0]) ) + __pyx_t_16 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_13 * __pyx_v_x.strides[0]) ) + __pyx_t_14 * __pyx_v_x.strides[1]) ))), 0);
+                                *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_15 * __pyx_v_x.strides[0]) ) + __pyx_t_16 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_13 * __pyx_v_x.strides[0]) ) + __pyx_t_14 * __pyx_v_x.strides[1]) ))), 0);
 
-                                /* "lom/_cython/matrix_sampling.pyx":301
+                                /* "lom/_cython/matrix_updates.pyx":301
  *     for n in prange(N, schedule='guided', nogil=True):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -5526,7 +5526,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
         #endif
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":299
+      /* "lom/_cython/matrix_updates.pyx":299
  * 
  *     # for n in range(N):
  *     for n in prange(N, schedule='guided', nogil=True):             # <<<<<<<<<<<<<<
@@ -5552,7 +5552,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
       }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":286
+  /* "lom/_cython/matrix_updates.pyx":286
  * 
  * 
  * def draw_noparents_onechild(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -5566,7 +5566,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
   __pyx_L1_error:;
   __PYX_XDEC_MEMVIEW(&__pyx_t_9, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_10, 1);
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_noparents_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_noparents_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_x, 1);
@@ -5578,7 +5578,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":312
+/* "lom/_cython/matrix_updates.pyx":312
  * 
  * 
  * def draw_noparents_onechild_single_thread(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -5587,9 +5587,9 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_9draw_noparents_onechild_single_thread(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3lom_7_cython_15matrix_sampling_9draw_noparents_onechild_single_thread = {"draw_noparents_onechild_single_thread", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_9draw_noparents_onechild_single_thread, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_9draw_noparents_onechild_single_thread(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_9draw_noparents_onechild_single_thread(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_3lom_7_cython_14matrix_updates_9draw_noparents_onechild_single_thread = {"draw_noparents_onechild_single_thread", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_9draw_noparents_onechild_single_thread, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_9draw_noparents_onechild_single_thread(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_sibling = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_child = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -5660,28 +5660,28 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_9draw_noparents_onechi
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 312, __pyx_L3_error)
-    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 313, __pyx_L3_error)
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 314, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 312, __pyx_L3_error)
+    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 313, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 314, __pyx_L3_error)
     __pyx_v_lbda = __pyx_PyFloat_AsFloat(values[3]); if (unlikely((__pyx_v_lbda == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 315, __pyx_L3_error)
-    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[4]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 316, __pyx_L3_error)
+    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[4]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 316, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_single_thread", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 312, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_noparents_onechild_single_thread", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_noparents_onechild_single_thread", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_8draw_noparents_onechild_single_thread(__pyx_self, __pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_sampling_indicator);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_8draw_noparents_onechild_single_thread(__pyx_self, __pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_sampling_indicator);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_8draw_noparents_onechild_single_thread(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, __Pyx_memviewslice __pyx_v_sampling_indicator) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_8draw_noparents_onechild_single_thread(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, __Pyx_memviewslice __pyx_v_sampling_indicator) {
   float __pyx_v_p;
   float __pyx_v_acc_child;
   CYTHON_UNUSED float __pyx_v_prior;
@@ -5689,7 +5689,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_8draw_noparents_onechi
   int __pyx_v_d;
   int __pyx_v_N;
   int __pyx_v_D;
-  CYTHON_UNUSED __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x_old;
+  CYTHON_UNUSED __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x_old;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -5709,7 +5709,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_8draw_noparents_onechi
   Py_ssize_t __pyx_t_15;
   __Pyx_RefNannySetupContext("draw_noparents_onechild_single_thread", 0);
 
-  /* "lom/_cython/matrix_sampling.pyx":319
+  /* "lom/_cython/matrix_updates.pyx":319
  * 
  *     cdef float p, acc_child
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -5718,7 +5718,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_8draw_noparents_onechi
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/matrix_sampling.pyx":320
+  /* "lom/_cython/matrix_updates.pyx":320
  *     cdef float p, acc_child
  *     cdef float prior = 0
  *     cdef int n, d, N = x.shape[0], D = x.shape[1]             # <<<<<<<<<<<<<<
@@ -5728,7 +5728,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_8draw_noparents_onechi
   __pyx_v_N = (__pyx_v_x.shape[0]);
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_sampling.pyx":323
+  /* "lom/_cython/matrix_updates.pyx":323
  *     cdef data_type_t x_old
  * 
  *     for n in range(N):             # <<<<<<<<<<<<<<
@@ -5739,7 +5739,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_8draw_noparents_onechi
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_n = __pyx_t_2;
 
-    /* "lom/_cython/matrix_sampling.pyx":324
+    /* "lom/_cython/matrix_updates.pyx":324
  * 
  *     for n in range(N):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -5750,7 +5750,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_8draw_noparents_onechi
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_d = __pyx_t_4;
 
-      /* "lom/_cython/matrix_sampling.pyx":325
+      /* "lom/_cython/matrix_updates.pyx":325
  *     for n in range(N):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -5759,10 +5759,10 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_8draw_noparents_onechi
  */
       __pyx_t_5 = __pyx_v_n;
       __pyx_t_6 = __pyx_v_d;
-      __pyx_t_7 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_5 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_6 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
+      __pyx_t_7 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_5 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_6 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
       if (__pyx_t_7) {
 
-        /* "lom/_cython/matrix_sampling.pyx":328
+        /* "lom/_cython/matrix_updates.pyx":328
  * 
  *                 # compute the posterior
  *                 acc_child = lbda*score_no_parents_unified(child[n,:], x[n,:], sibling, d)             # <<<<<<<<<<<<<<
@@ -5809,7 +5809,7 @@ __pyx_t_9.shape[0] = __pyx_v_x.shape[1];
 __pyx_t_9.strides[0] = __pyx_v_x.strides[1];
     __pyx_t_9.suboffsets[0] = -1;
 
-__pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__pyx_t_8, __pyx_t_9, __pyx_v_sibling, __pyx_v_d));
+__pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__pyx_t_8, __pyx_t_9, __pyx_v_sibling, __pyx_v_d));
         __PYX_XDEC_MEMVIEW(&__pyx_t_8, 1);
         __pyx_t_8.memview = NULL;
         __pyx_t_8.data = NULL;
@@ -5817,16 +5817,16 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
         __pyx_t_9.memview = NULL;
         __pyx_t_9.data = NULL;
 
-        /* "lom/_cython/matrix_sampling.pyx":330
+        /* "lom/_cython/matrix_updates.pyx":330
  *                 acc_child = lbda*score_no_parents_unified(child[n,:], x[n,:], sibling, d)
  * 
  *                 p = sigmoid(acc_child)             # <<<<<<<<<<<<<<
  * 
  *                 x_old = x[n,d]
  */
-        __pyx_v_p = __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(__pyx_v_acc_child, 0);
+        __pyx_v_p = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_acc_child, 0);
 
-        /* "lom/_cython/matrix_sampling.pyx":332
+        /* "lom/_cython/matrix_updates.pyx":332
  *                 p = sigmoid(acc_child)
  * 
  *                 x_old = x[n,d]             # <<<<<<<<<<<<<<
@@ -5835,9 +5835,9 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
  */
         __pyx_t_10 = __pyx_v_n;
         __pyx_t_11 = __pyx_v_d;
-        __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_10 * __pyx_v_x.strides[0]) ) + __pyx_t_11 * __pyx_v_x.strides[1]) )));
+        __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_10 * __pyx_v_x.strides[0]) ) + __pyx_t_11 * __pyx_v_x.strides[1]) )));
 
-        /* "lom/_cython/matrix_sampling.pyx":333
+        /* "lom/_cython/matrix_updates.pyx":333
  * 
  *                 x_old = x[n,d]
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])             # <<<<<<<<<<<<<<
@@ -5848,9 +5848,9 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
         __pyx_t_13 = __pyx_v_d;
         __pyx_t_14 = __pyx_v_n;
         __pyx_t_15 = __pyx_v_d;
-        *((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_14 * __pyx_v_x.strides[0]) ) + __pyx_t_15 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_12 * __pyx_v_x.strides[0]) ) + __pyx_t_13 * __pyx_v_x.strides[1]) ))), 0);
+        *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_14 * __pyx_v_x.strides[0]) ) + __pyx_t_15 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_12 * __pyx_v_x.strides[0]) ) + __pyx_t_13 * __pyx_v_x.strides[1]) ))), 0);
 
-        /* "lom/_cython/matrix_sampling.pyx":325
+        /* "lom/_cython/matrix_updates.pyx":325
  *     for n in range(N):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -5861,7 +5861,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
     }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":312
+  /* "lom/_cython/matrix_updates.pyx":312
  * 
  * 
  * def draw_noparents_onechild_single_thread(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -5875,7 +5875,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
   __pyx_L1_error:;
   __PYX_XDEC_MEMVIEW(&__pyx_t_8, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_9, 1);
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_noparents_onechild_single_thread", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_noparents_onechild_single_thread", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_x, 1);
@@ -5887,7 +5887,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":337
+/* "lom/_cython/matrix_updates.pyx":337
  * 
  * 
  * def draw_oneparent_nochild(             # <<<<<<<<<<<<<<
@@ -5896,9 +5896,9 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_11draw_oneparent_nochild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3lom_7_cython_15matrix_sampling_11draw_oneparent_nochild = {"draw_oneparent_nochild", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_11draw_oneparent_nochild, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_11draw_oneparent_nochild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_11draw_oneparent_nochild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_3lom_7_cython_14matrix_updates_11draw_oneparent_nochild = {"draw_oneparent_nochild", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_11draw_oneparent_nochild, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_11draw_oneparent_nochild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z_pa = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u_pa = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -5979,23 +5979,23 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_11draw_oneparent_nochi
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 338, __pyx_L3_error)
-    __pyx_v_z_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_z_pa.memview)) __PYX_ERR(0, 339, __pyx_L3_error)
-    __pyx_v_u_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_u_pa.memview)) __PYX_ERR(0, 340, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 338, __pyx_L3_error)
+    __pyx_v_z_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_z_pa.memview)) __PYX_ERR(0, 339, __pyx_L3_error)
+    __pyx_v_u_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_u_pa.memview)) __PYX_ERR(0, 340, __pyx_L3_error)
     __pyx_v_lbda_pa = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_lbda_pa == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 341, __pyx_L3_error)
     __pyx_v_prior_config = ((PyObject*)values[4]);
-    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[5]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 343, __pyx_L3_error)
+    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[5]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 343, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("draw_oneparent_nochild", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 337, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_oneparent_nochild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_oneparent_nochild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prior_config), (&PyList_Type), 1, "prior_config", 1))) __PYX_ERR(0, 342, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochild(__pyx_self, __pyx_v_x, __pyx_v_z_pa, __pyx_v_u_pa, __pyx_v_lbda_pa, __pyx_v_prior_config, __pyx_v_sampling_indicator);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochild(__pyx_self, __pyx_v_x, __pyx_v_z_pa, __pyx_v_u_pa, __pyx_v_lbda_pa, __pyx_v_prior_config, __pyx_v_sampling_indicator);
 
   /* function exit code */
   goto __pyx_L0;
@@ -6006,7 +6006,7 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_11draw_oneparent_nochi
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_u_pa, double __pyx_v_lbda_pa, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_u_pa, double __pyx_v_lbda_pa, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator) {
   int __pyx_v_n;
   int __pyx_v_d;
   int __pyx_v_N;
@@ -6014,7 +6014,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
   float __pyx_v_acc_par;
   float __pyx_v_p;
   float __pyx_v_prior;
-  __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x_old;
+  __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x_old;
   PyArrayObject *__pyx_v_row_binom = 0;
   PyArrayObject *__pyx_v_col_binom = 0;
   PyArrayObject *__pyx_v_row_densities = 0;
@@ -6082,7 +6082,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
   __pyx_pybuffernd_col_densities.data = NULL;
   __pyx_pybuffernd_col_densities.rcbuffer = &__pyx_pybuffer_col_densities;
 
-  /* "lom/_cython/matrix_sampling.pyx":345
+  /* "lom/_cython/matrix_updates.pyx":345
  *     data_type_t[:,:] sampling_indicator): # N x D
  * 
  *     cdef int n, d, N = x.shape[0], D=x.shape[1]             # <<<<<<<<<<<<<<
@@ -6092,7 +6092,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
   __pyx_v_N = (__pyx_v_x.shape[0]);
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_sampling.pyx":347
+  /* "lom/_cython/matrix_updates.pyx":347
  *     cdef int n, d, N = x.shape[0], D=x.shape[1]
  *     cdef float acc_par, p
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -6101,7 +6101,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/matrix_sampling.pyx":350
+  /* "lom/_cython/matrix_updates.pyx":350
  *     cdef data_type_t x_old
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]             # <<<<<<<<<<<<<<
@@ -6126,7 +6126,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
   __pyx_v_row_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":351
+  /* "lom/_cython/matrix_updates.pyx":351
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]             # <<<<<<<<<<<<<<
@@ -6151,7 +6151,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
   __pyx_v_col_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":352
+  /* "lom/_cython/matrix_updates.pyx":352
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]             # <<<<<<<<<<<<<<
@@ -6176,7 +6176,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
   __pyx_v_row_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":353
+  /* "lom/_cython/matrix_updates.pyx":353
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]             # <<<<<<<<<<<<<<
@@ -6201,7 +6201,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
   __pyx_v_col_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":354
+  /* "lom/_cython/matrix_updates.pyx":354
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]
  *     cdef int prior_code = prior_config[0]             # <<<<<<<<<<<<<<
@@ -6215,7 +6215,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
   __pyx_t_2 = __Pyx_PyInt_As_int(PyList_GET_ITEM(__pyx_v_prior_config, 0)); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 354, __pyx_L1_error)
   __pyx_v_prior_code = __pyx_t_2;
 
-  /* "lom/_cython/matrix_sampling.pyx":356
+  /* "lom/_cython/matrix_updates.pyx":356
  *     cdef int prior_code = prior_config[0]
  * 
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -6225,7 +6225,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
   __pyx_t_3 = ((__pyx_v_prior_code == 1) != 0);
   if (__pyx_t_3) {
 
-    /* "lom/_cython/matrix_sampling.pyx":357
+    /* "lom/_cython/matrix_updates.pyx":357
  * 
  *     if prior_code == 1:
  *         prior = prior_config[1]             # <<<<<<<<<<<<<<
@@ -6239,7 +6239,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
     __pyx_t_4 = __pyx_PyFloat_AsFloat(PyList_GET_ITEM(__pyx_v_prior_config, 1)); if (unlikely((__pyx_t_4 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 357, __pyx_L1_error)
     __pyx_v_prior = __pyx_t_4;
 
-    /* "lom/_cython/matrix_sampling.pyx":356
+    /* "lom/_cython/matrix_updates.pyx":356
  *     cdef int prior_code = prior_config[0]
  * 
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -6248,7 +6248,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
  */
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":359
+  /* "lom/_cython/matrix_updates.pyx":359
  *         prior = prior_config[1]
  * 
  *     for n in range(N):             # <<<<<<<<<<<<<<
@@ -6259,7 +6259,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_2; __pyx_t_5+=1) {
     __pyx_v_n = __pyx_t_5;
 
-    /* "lom/_cython/matrix_sampling.pyx":361
+    /* "lom/_cython/matrix_updates.pyx":361
  *     for n in range(N):
  *     # for n in prange(N, schedule='dynamic', nogil=True): # parallelise
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -6270,7 +6270,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_d = __pyx_t_7;
 
-      /* "lom/_cython/matrix_sampling.pyx":362
+      /* "lom/_cython/matrix_updates.pyx":362
  *     # for n in prange(N, schedule='dynamic', nogil=True): # parallelise
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -6279,10 +6279,10 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
  */
       __pyx_t_8 = __pyx_v_n;
       __pyx_t_9 = __pyx_v_d;
-      __pyx_t_3 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_8 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_9 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
+      __pyx_t_3 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_8 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_9 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
       if (__pyx_t_3) {
 
-        /* "lom/_cython/matrix_sampling.pyx":364
+        /* "lom/_cython/matrix_updates.pyx":364
  *             if sampling_indicator[n,d] == 1:
  * 
  *                 if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -6292,7 +6292,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
         __pyx_t_3 = ((__pyx_v_prior_code > 1) != 0);
         if (__pyx_t_3) {
 
-          /* "lom/_cython/matrix_sampling.pyx":365
+          /* "lom/_cython/matrix_updates.pyx":365
  * 
  *                 if prior_code > 1:
  *                     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -6302,7 +6302,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
           switch (__pyx_v_prior_code) {
             case 2:
 
-            /* "lom/_cython/matrix_sampling.pyx":366
+            /* "lom/_cython/matrix_updates.pyx":366
  *                 if prior_code > 1:
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]             # <<<<<<<<<<<<<<
@@ -6313,7 +6313,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
             __pyx_t_11 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_row_densities.diminfo[0].strides));
             __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_row_binom.diminfo[0].strides));
 
-            /* "lom/_cython/matrix_sampling.pyx":365
+            /* "lom/_cython/matrix_updates.pyx":365
  * 
  *                 if prior_code > 1:
  *                     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -6322,7 +6322,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
  */
             break;
 
-            /* "lom/_cython/matrix_sampling.pyx":367
+            /* "lom/_cython/matrix_updates.pyx":367
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -6331,7 +6331,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
  */
             case 3:
 
-            /* "lom/_cython/matrix_sampling.pyx":368
+            /* "lom/_cython/matrix_updates.pyx":368
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]             # <<<<<<<<<<<<<<
@@ -6342,7 +6342,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
             __pyx_t_13 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_col_densities.diminfo[0].strides));
             __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_col_binom.diminfo[0].strides));
 
-            /* "lom/_cython/matrix_sampling.pyx":367
+            /* "lom/_cython/matrix_updates.pyx":367
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -6351,7 +6351,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
  */
             break;
 
-            /* "lom/_cython/matrix_sampling.pyx":369
+            /* "lom/_cython/matrix_updates.pyx":369
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -6360,7 +6360,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
  */
             case 4:
 
-            /* "lom/_cython/matrix_sampling.pyx":370
+            /* "lom/_cython/matrix_updates.pyx":370
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:
  *                         prior = row_binom[row_densities[n]] + col_binom[col_densities[d]]             # <<<<<<<<<<<<<<
@@ -6373,7 +6373,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
             __pyx_t_17 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_col_densities.diminfo[0].strides));
             __pyx_v_prior = ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_row_binom.diminfo[0].strides)) + (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_col_binom.diminfo[0].strides)));
 
-            /* "lom/_cython/matrix_sampling.pyx":369
+            /* "lom/_cython/matrix_updates.pyx":369
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -6384,7 +6384,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
             default: break;
           }
 
-          /* "lom/_cython/matrix_sampling.pyx":364
+          /* "lom/_cython/matrix_updates.pyx":364
  *             if sampling_indicator[n,d] == 1:
  * 
  *                 if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -6393,7 +6393,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_10draw_oneparent_nochi
  */
         }
 
-        /* "lom/_cython/matrix_sampling.pyx":372
+        /* "lom/_cython/matrix_updates.pyx":372
  *                         prior = row_binom[row_densities[n]] + col_binom[col_densities[d]]
  * 
  *                 acc_par = lbda_pa*compute_g_alt_tilde_unified(u_pa[d,:], z_pa[n,:])             # <<<<<<<<<<<<<<
@@ -6440,7 +6440,7 @@ __pyx_t_19.shape[0] = __pyx_v_z_pa.shape[1];
 __pyx_t_19.strides[0] = __pyx_v_z_pa.strides[1];
     __pyx_t_19.suboffsets[0] = -1;
 
-__pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_unified(__pyx_t_18, __pyx_t_19));
+__pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unified(__pyx_t_18, __pyx_t_19));
         __PYX_XDEC_MEMVIEW(&__pyx_t_18, 1);
         __pyx_t_18.memview = NULL;
         __pyx_t_18.data = NULL;
@@ -6448,16 +6448,16 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
         __pyx_t_19.memview = NULL;
         __pyx_t_19.data = NULL;
 
-        /* "lom/_cython/matrix_sampling.pyx":373
+        /* "lom/_cython/matrix_updates.pyx":373
  * 
  *                 acc_par = lbda_pa*compute_g_alt_tilde_unified(u_pa[d,:], z_pa[n,:])
  *                 p = sigmoid(acc_par + prior)             # <<<<<<<<<<<<<<
  *                 x_old = x[n,d]
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  */
-        __pyx_v_p = __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid((__pyx_v_acc_par + __pyx_v_prior), 0);
+        __pyx_v_p = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid((__pyx_v_acc_par + __pyx_v_prior), 0);
 
-        /* "lom/_cython/matrix_sampling.pyx":374
+        /* "lom/_cython/matrix_updates.pyx":374
  *                 acc_par = lbda_pa*compute_g_alt_tilde_unified(u_pa[d,:], z_pa[n,:])
  *                 p = sigmoid(acc_par + prior)
  *                 x_old = x[n,d]             # <<<<<<<<<<<<<<
@@ -6466,9 +6466,9 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
  */
         __pyx_t_20 = __pyx_v_n;
         __pyx_t_21 = __pyx_v_d;
-        __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_20 * __pyx_v_x.strides[0]) ) + __pyx_t_21 * __pyx_v_x.strides[1]) )));
+        __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_20 * __pyx_v_x.strides[0]) ) + __pyx_t_21 * __pyx_v_x.strides[1]) )));
 
-        /* "lom/_cython/matrix_sampling.pyx":375
+        /* "lom/_cython/matrix_updates.pyx":375
  *                 p = sigmoid(acc_par + prior)
  *                 x_old = x[n,d]
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])             # <<<<<<<<<<<<<<
@@ -6479,9 +6479,9 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
         __pyx_t_23 = __pyx_v_d;
         __pyx_t_24 = __pyx_v_n;
         __pyx_t_25 = __pyx_v_d;
-        *((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_24 * __pyx_v_x.strides[0]) ) + __pyx_t_25 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_22 * __pyx_v_x.strides[0]) ) + __pyx_t_23 * __pyx_v_x.strides[1]) ))), 0);
+        *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_24 * __pyx_v_x.strides[0]) ) + __pyx_t_25 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_22 * __pyx_v_x.strides[0]) ) + __pyx_t_23 * __pyx_v_x.strides[1]) ))), 0);
 
-        /* "lom/_cython/matrix_sampling.pyx":377
+        /* "lom/_cython/matrix_updates.pyx":377
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):             # <<<<<<<<<<<<<<
@@ -6496,12 +6496,12 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
         }
         __pyx_t_27 = __pyx_v_n;
         __pyx_t_28 = __pyx_v_d;
-        __pyx_t_26 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_27 * __pyx_v_x.strides[0]) ) + __pyx_t_28 * __pyx_v_x.strides[1]) ))) != __pyx_v_x_old) != 0);
+        __pyx_t_26 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_27 * __pyx_v_x.strides[0]) ) + __pyx_t_28 * __pyx_v_x.strides[1]) ))) != __pyx_v_x_old) != 0);
         __pyx_t_3 = __pyx_t_26;
         __pyx_L11_bool_binop_done:;
         if (__pyx_t_3) {
 
-          /* "lom/_cython/matrix_sampling.pyx":378
+          /* "lom/_cython/matrix_updates.pyx":378
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -6519,7 +6519,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
           }
           if (__pyx_t_3) {
 
-            /* "lom/_cython/matrix_sampling.pyx":379
+            /* "lom/_cython/matrix_updates.pyx":379
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]             # <<<<<<<<<<<<<<
@@ -6529,9 +6529,9 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
             __pyx_t_29 = __pyx_v_n;
             __pyx_t_30 = __pyx_v_d;
             __pyx_t_31 = __pyx_v_n;
-            *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_31, __pyx_pybuffernd_row_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_29 * __pyx_v_x.strides[0]) ) + __pyx_t_30 * __pyx_v_x.strides[1]) )));
+            *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_31, __pyx_pybuffernd_row_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_29 * __pyx_v_x.strides[0]) ) + __pyx_t_30 * __pyx_v_x.strides[1]) )));
 
-            /* "lom/_cython/matrix_sampling.pyx":378
+            /* "lom/_cython/matrix_updates.pyx":378
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -6541,7 +6541,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
             goto __pyx_L13;
           }
 
-          /* "lom/_cython/matrix_sampling.pyx":380
+          /* "lom/_cython/matrix_updates.pyx":380
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -6559,7 +6559,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
           }
           if (__pyx_t_3) {
 
-            /* "lom/_cython/matrix_sampling.pyx":381
+            /* "lom/_cython/matrix_updates.pyx":381
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):
  *                         col_densities[d] += x[n, d]             # <<<<<<<<<<<<<<
@@ -6569,9 +6569,9 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
             __pyx_t_32 = __pyx_v_n;
             __pyx_t_33 = __pyx_v_d;
             __pyx_t_34 = __pyx_v_d;
-            *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_34, __pyx_pybuffernd_col_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_32 * __pyx_v_x.strides[0]) ) + __pyx_t_33 * __pyx_v_x.strides[1]) )));
+            *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_34, __pyx_pybuffernd_col_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_32 * __pyx_v_x.strides[0]) ) + __pyx_t_33 * __pyx_v_x.strides[1]) )));
 
-            /* "lom/_cython/matrix_sampling.pyx":380
+            /* "lom/_cython/matrix_updates.pyx":380
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -6581,7 +6581,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
           }
           __pyx_L13:;
 
-          /* "lom/_cython/matrix_sampling.pyx":377
+          /* "lom/_cython/matrix_updates.pyx":377
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):             # <<<<<<<<<<<<<<
@@ -6590,7 +6590,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
  */
         }
 
-        /* "lom/_cython/matrix_sampling.pyx":362
+        /* "lom/_cython/matrix_updates.pyx":362
  *     # for n in prange(N, schedule='dynamic', nogil=True): # parallelise
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -6601,7 +6601,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
     }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":337
+  /* "lom/_cython/matrix_updates.pyx":337
  * 
  * 
  * def draw_oneparent_nochild(             # <<<<<<<<<<<<<<
@@ -6625,7 +6625,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_row_binom.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_row_densities.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_oneparent_nochild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_oneparent_nochild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -6647,7 +6647,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":385
+/* "lom/_cython/matrix_updates.pyx":385
  * 
  * 
  * def draw_twoparents_nochild(             # <<<<<<<<<<<<<<
@@ -6656,9 +6656,9 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_13draw_twoparents_nochild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3lom_7_cython_15matrix_sampling_13draw_twoparents_nochild = {"draw_twoparents_nochild", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_13draw_twoparents_nochild, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_13draw_twoparents_nochild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_13draw_twoparents_nochild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_3lom_7_cython_14matrix_updates_13draw_twoparents_nochild = {"draw_twoparents_nochild", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_13draw_twoparents_nochild, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_13draw_twoparents_nochild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z_pa1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u_pa1 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -6769,26 +6769,26 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_13draw_twoparents_noch
       values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
       values[8] = PyTuple_GET_ITEM(__pyx_args, 8);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 386, __pyx_L3_error)
-    __pyx_v_z_pa1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_z_pa1.memview)) __PYX_ERR(0, 387, __pyx_L3_error)
-    __pyx_v_u_pa1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_u_pa1.memview)) __PYX_ERR(0, 388, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 386, __pyx_L3_error)
+    __pyx_v_z_pa1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_z_pa1.memview)) __PYX_ERR(0, 387, __pyx_L3_error)
+    __pyx_v_u_pa1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_u_pa1.memview)) __PYX_ERR(0, 388, __pyx_L3_error)
     __pyx_v_lbda_pa1 = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_lbda_pa1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 389, __pyx_L3_error)
-    __pyx_v_z_pa2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[4]); if (unlikely(!__pyx_v_z_pa2.memview)) __PYX_ERR(0, 390, __pyx_L3_error)
-    __pyx_v_u_pa2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[5]); if (unlikely(!__pyx_v_u_pa2.memview)) __PYX_ERR(0, 391, __pyx_L3_error)
+    __pyx_v_z_pa2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[4]); if (unlikely(!__pyx_v_z_pa2.memview)) __PYX_ERR(0, 390, __pyx_L3_error)
+    __pyx_v_u_pa2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[5]); if (unlikely(!__pyx_v_u_pa2.memview)) __PYX_ERR(0, 391, __pyx_L3_error)
     __pyx_v_lbda_pa2 = __pyx_PyFloat_AsDouble(values[6]); if (unlikely((__pyx_v_lbda_pa2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 392, __pyx_L3_error)
     __pyx_v_prior_config = ((PyObject*)values[7]);
-    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[8]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 394, __pyx_L3_error)
+    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[8]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 394, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 385, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_twoparents_nochild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_twoparents_nochild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prior_config), (&PyList_Type), 1, "prior_config", 1))) __PYX_ERR(0, 393, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_nochild(__pyx_self, __pyx_v_x, __pyx_v_z_pa1, __pyx_v_u_pa1, __pyx_v_lbda_pa1, __pyx_v_z_pa2, __pyx_v_u_pa2, __pyx_v_lbda_pa2, __pyx_v_prior_config, __pyx_v_sampling_indicator);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochild(__pyx_self, __pyx_v_x, __pyx_v_z_pa1, __pyx_v_u_pa1, __pyx_v_lbda_pa1, __pyx_v_z_pa2, __pyx_v_u_pa2, __pyx_v_lbda_pa2, __pyx_v_prior_config, __pyx_v_sampling_indicator);
 
   /* function exit code */
   goto __pyx_L0;
@@ -6799,7 +6799,7 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_13draw_twoparents_noch
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_nochild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z_pa1, __Pyx_memviewslice __pyx_v_u_pa1, double __pyx_v_lbda_pa1, __Pyx_memviewslice __pyx_v_z_pa2, __Pyx_memviewslice __pyx_v_u_pa2, double __pyx_v_lbda_pa2, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z_pa1, __Pyx_memviewslice __pyx_v_u_pa1, double __pyx_v_lbda_pa1, __Pyx_memviewslice __pyx_v_z_pa2, __Pyx_memviewslice __pyx_v_u_pa2, double __pyx_v_lbda_pa2, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator) {
   int __pyx_v_n;
   int __pyx_v_d;
   int __pyx_v_N;
@@ -6807,7 +6807,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
   float __pyx_v_acc_par;
   float __pyx_v_p;
   float __pyx_v_prior;
-  __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x_old;
+  __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x_old;
   PyArrayObject *__pyx_v_row_binom = 0;
   PyArrayObject *__pyx_v_col_binom = 0;
   PyArrayObject *__pyx_v_row_densities = 0;
@@ -6877,7 +6877,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
   __pyx_pybuffernd_col_densities.data = NULL;
   __pyx_pybuffernd_col_densities.rcbuffer = &__pyx_pybuffer_col_densities;
 
-  /* "lom/_cython/matrix_sampling.pyx":396
+  /* "lom/_cython/matrix_updates.pyx":396
  *         data_type_t[:,:] sampling_indicator): # N x D
  * 
  *     cdef int n, d, N = x.shape[0], D=x.shape[1]             # <<<<<<<<<<<<<<
@@ -6887,7 +6887,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
   __pyx_v_N = (__pyx_v_x.shape[0]);
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_sampling.pyx":398
+  /* "lom/_cython/matrix_updates.pyx":398
  *     cdef int n, d, N = x.shape[0], D=x.shape[1]
  *     cdef float acc_par, p
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -6896,7 +6896,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/matrix_sampling.pyx":402
+  /* "lom/_cython/matrix_updates.pyx":402
  * 
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]             # <<<<<<<<<<<<<<
@@ -6921,7 +6921,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
   __pyx_v_row_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":403
+  /* "lom/_cython/matrix_updates.pyx":403
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]             # <<<<<<<<<<<<<<
@@ -6946,7 +6946,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
   __pyx_v_col_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":404
+  /* "lom/_cython/matrix_updates.pyx":404
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]             # <<<<<<<<<<<<<<
@@ -6971,7 +6971,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
   __pyx_v_row_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":405
+  /* "lom/_cython/matrix_updates.pyx":405
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]             # <<<<<<<<<<<<<<
@@ -6996,7 +6996,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
   __pyx_v_col_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":406
+  /* "lom/_cython/matrix_updates.pyx":406
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]
  *     cdef int prior_code = prior_config[0]             # <<<<<<<<<<<<<<
@@ -7010,7 +7010,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
   __pyx_t_2 = __Pyx_PyInt_As_int(PyList_GET_ITEM(__pyx_v_prior_config, 0)); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 406, __pyx_L1_error)
   __pyx_v_prior_code = __pyx_t_2;
 
-  /* "lom/_cython/matrix_sampling.pyx":410
+  /* "lom/_cython/matrix_updates.pyx":410
  * 
  *     # independent bernoulli prior
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -7020,7 +7020,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
   __pyx_t_3 = ((__pyx_v_prior_code == 1) != 0);
   if (__pyx_t_3) {
 
-    /* "lom/_cython/matrix_sampling.pyx":411
+    /* "lom/_cython/matrix_updates.pyx":411
  *     # independent bernoulli prior
  *     if prior_code == 1:
  *         prior = prior_config[1]             # <<<<<<<<<<<<<<
@@ -7034,7 +7034,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
     __pyx_t_4 = __pyx_PyFloat_AsFloat(PyList_GET_ITEM(__pyx_v_prior_config, 1)); if (unlikely((__pyx_t_4 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 411, __pyx_L1_error)
     __pyx_v_prior = __pyx_t_4;
 
-    /* "lom/_cython/matrix_sampling.pyx":410
+    /* "lom/_cython/matrix_updates.pyx":410
  * 
  *     # independent bernoulli prior
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -7043,7 +7043,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
  */
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":414
+  /* "lom/_cython/matrix_updates.pyx":414
  * 
  *     # for n in prange(N, schedule='dynamic', nogil=True): # parallelise
  *     for n in range(N):             # <<<<<<<<<<<<<<
@@ -7054,7 +7054,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_2; __pyx_t_5+=1) {
     __pyx_v_n = __pyx_t_5;
 
-    /* "lom/_cython/matrix_sampling.pyx":415
+    /* "lom/_cython/matrix_updates.pyx":415
  *     # for n in prange(N, schedule='dynamic', nogil=True): # parallelise
  *     for n in range(N):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -7065,7 +7065,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_d = __pyx_t_7;
 
-      /* "lom/_cython/matrix_sampling.pyx":416
+      /* "lom/_cython/matrix_updates.pyx":416
  *     for n in range(N):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -7074,10 +7074,10 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
  */
       __pyx_t_8 = __pyx_v_n;
       __pyx_t_9 = __pyx_v_d;
-      __pyx_t_3 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_8 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_9 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
+      __pyx_t_3 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_8 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_9 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
       if (__pyx_t_3) {
 
-        /* "lom/_cython/matrix_sampling.pyx":418
+        /* "lom/_cython/matrix_updates.pyx":418
  *             if sampling_indicator[n,d] == 1:
  * 
  *                 if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -7087,7 +7087,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
         __pyx_t_3 = ((__pyx_v_prior_code > 1) != 0);
         if (__pyx_t_3) {
 
-          /* "lom/_cython/matrix_sampling.pyx":419
+          /* "lom/_cython/matrix_updates.pyx":419
  * 
  *                 if prior_code > 1:
  *                     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -7097,7 +7097,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
           switch (__pyx_v_prior_code) {
             case 2:
 
-            /* "lom/_cython/matrix_sampling.pyx":420
+            /* "lom/_cython/matrix_updates.pyx":420
  *                 if prior_code > 1:
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]             # <<<<<<<<<<<<<<
@@ -7108,7 +7108,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
             __pyx_t_11 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_row_densities.diminfo[0].strides));
             __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_row_binom.diminfo[0].strides));
 
-            /* "lom/_cython/matrix_sampling.pyx":419
+            /* "lom/_cython/matrix_updates.pyx":419
  * 
  *                 if prior_code > 1:
  *                     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -7117,7 +7117,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
  */
             break;
 
-            /* "lom/_cython/matrix_sampling.pyx":421
+            /* "lom/_cython/matrix_updates.pyx":421
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -7126,7 +7126,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
  */
             case 3:
 
-            /* "lom/_cython/matrix_sampling.pyx":422
+            /* "lom/_cython/matrix_updates.pyx":422
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]             # <<<<<<<<<<<<<<
@@ -7137,7 +7137,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
             __pyx_t_13 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_col_densities.diminfo[0].strides));
             __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_col_binom.diminfo[0].strides));
 
-            /* "lom/_cython/matrix_sampling.pyx":421
+            /* "lom/_cython/matrix_updates.pyx":421
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -7146,7 +7146,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
  */
             break;
 
-            /* "lom/_cython/matrix_sampling.pyx":423
+            /* "lom/_cython/matrix_updates.pyx":423
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -7155,7 +7155,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
  */
             case 4:
 
-            /* "lom/_cython/matrix_sampling.pyx":424
+            /* "lom/_cython/matrix_updates.pyx":424
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:
  *                         prior = row_binom[row_densities[n]] + col_binom[col_densities[d]]             # <<<<<<<<<<<<<<
@@ -7168,7 +7168,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
             __pyx_t_17 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_col_densities.diminfo[0].strides));
             __pyx_v_prior = ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_row_binom.diminfo[0].strides)) + (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_col_binom.diminfo[0].strides)));
 
-            /* "lom/_cython/matrix_sampling.pyx":423
+            /* "lom/_cython/matrix_updates.pyx":423
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -7179,7 +7179,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
             default: break;
           }
 
-          /* "lom/_cython/matrix_sampling.pyx":418
+          /* "lom/_cython/matrix_updates.pyx":418
  *             if sampling_indicator[n,d] == 1:
  * 
  *                 if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -7188,7 +7188,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_12draw_twoparents_noch
  */
         }
 
-        /* "lom/_cython/matrix_sampling.pyx":427
+        /* "lom/_cython/matrix_updates.pyx":427
  * 
  *                 # accumulate over all parents
  *                 acc_par = lbda_pa1*compute_g_alt_tilde_unified(u_pa1[d,:], z_pa1[n,:]) +\             # <<<<<<<<<<<<<<
@@ -7237,7 +7237,7 @@ __pyx_t_19.strides[0] = __pyx_v_z_pa1.strides[1];
 
 __pyx_t_20.data = __pyx_v_u_pa2.data;
 
-        /* "lom/_cython/matrix_sampling.pyx":428
+        /* "lom/_cython/matrix_updates.pyx":428
  *                 # accumulate over all parents
  *                 acc_par = lbda_pa1*compute_g_alt_tilde_unified(u_pa1[d,:], z_pa1[n,:]) +\
  *                   lbda_pa2*compute_g_alt_tilde_unified(u_pa2[d,:], z_pa2[n,:])             # <<<<<<<<<<<<<<
@@ -7283,9 +7283,9 @@ __pyx_t_21.shape[0] = __pyx_v_z_pa2.shape[1];
 __pyx_t_21.strides[0] = __pyx_v_z_pa2.strides[1];
     __pyx_t_21.suboffsets[0] = -1;
 
-__pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_unified(__pyx_t_18, __pyx_t_19)) + (__pyx_v_lbda_pa2 * __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_unified(__pyx_t_20, __pyx_t_21)));
+__pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unified(__pyx_t_18, __pyx_t_19)) + (__pyx_v_lbda_pa2 * __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unified(__pyx_t_20, __pyx_t_21)));
 
-        /* "lom/_cython/matrix_sampling.pyx":427
+        /* "lom/_cython/matrix_updates.pyx":427
  * 
  *                 # accumulate over all parents
  *                 acc_par = lbda_pa1*compute_g_alt_tilde_unified(u_pa1[d,:], z_pa1[n,:]) +\             # <<<<<<<<<<<<<<
@@ -7305,16 +7305,16 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
         __pyx_t_21.memview = NULL;
         __pyx_t_21.data = NULL;
 
-        /* "lom/_cython/matrix_sampling.pyx":430
+        /* "lom/_cython/matrix_updates.pyx":430
  *                   lbda_pa2*compute_g_alt_tilde_unified(u_pa2[d,:], z_pa2[n,:])
  * 
  *                 p = sigmoid(acc_par + prior)             # <<<<<<<<<<<<<<
  *                 x_old = x[n,d]
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  */
-        __pyx_v_p = __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid((__pyx_v_acc_par + __pyx_v_prior), 0);
+        __pyx_v_p = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid((__pyx_v_acc_par + __pyx_v_prior), 0);
 
-        /* "lom/_cython/matrix_sampling.pyx":431
+        /* "lom/_cython/matrix_updates.pyx":431
  * 
  *                 p = sigmoid(acc_par + prior)
  *                 x_old = x[n,d]             # <<<<<<<<<<<<<<
@@ -7323,9 +7323,9 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
  */
         __pyx_t_22 = __pyx_v_n;
         __pyx_t_23 = __pyx_v_d;
-        __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_22 * __pyx_v_x.strides[0]) ) + __pyx_t_23 * __pyx_v_x.strides[1]) )));
+        __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_22 * __pyx_v_x.strides[0]) ) + __pyx_t_23 * __pyx_v_x.strides[1]) )));
 
-        /* "lom/_cython/matrix_sampling.pyx":432
+        /* "lom/_cython/matrix_updates.pyx":432
  *                 p = sigmoid(acc_par + prior)
  *                 x_old = x[n,d]
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])             # <<<<<<<<<<<<<<
@@ -7336,9 +7336,9 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
         __pyx_t_25 = __pyx_v_d;
         __pyx_t_26 = __pyx_v_n;
         __pyx_t_27 = __pyx_v_d;
-        *((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_26 * __pyx_v_x.strides[0]) ) + __pyx_t_27 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_24 * __pyx_v_x.strides[0]) ) + __pyx_t_25 * __pyx_v_x.strides[1]) ))), 0);
+        *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_26 * __pyx_v_x.strides[0]) ) + __pyx_t_27 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_24 * __pyx_v_x.strides[0]) ) + __pyx_t_25 * __pyx_v_x.strides[1]) ))), 0);
 
-        /* "lom/_cython/matrix_sampling.pyx":434
+        /* "lom/_cython/matrix_updates.pyx":434
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):             # <<<<<<<<<<<<<<
@@ -7353,12 +7353,12 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
         }
         __pyx_t_29 = __pyx_v_n;
         __pyx_t_30 = __pyx_v_d;
-        __pyx_t_28 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_29 * __pyx_v_x.strides[0]) ) + __pyx_t_30 * __pyx_v_x.strides[1]) ))) != __pyx_v_x_old) != 0);
+        __pyx_t_28 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_29 * __pyx_v_x.strides[0]) ) + __pyx_t_30 * __pyx_v_x.strides[1]) ))) != __pyx_v_x_old) != 0);
         __pyx_t_3 = __pyx_t_28;
         __pyx_L11_bool_binop_done:;
         if (__pyx_t_3) {
 
-          /* "lom/_cython/matrix_sampling.pyx":435
+          /* "lom/_cython/matrix_updates.pyx":435
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -7376,7 +7376,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
           }
           if (__pyx_t_3) {
 
-            /* "lom/_cython/matrix_sampling.pyx":436
+            /* "lom/_cython/matrix_updates.pyx":436
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]             # <<<<<<<<<<<<<<
@@ -7386,9 +7386,9 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
             __pyx_t_31 = __pyx_v_n;
             __pyx_t_32 = __pyx_v_d;
             __pyx_t_33 = __pyx_v_n;
-            *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_33, __pyx_pybuffernd_row_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_31 * __pyx_v_x.strides[0]) ) + __pyx_t_32 * __pyx_v_x.strides[1]) )));
+            *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_33, __pyx_pybuffernd_row_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_31 * __pyx_v_x.strides[0]) ) + __pyx_t_32 * __pyx_v_x.strides[1]) )));
 
-            /* "lom/_cython/matrix_sampling.pyx":435
+            /* "lom/_cython/matrix_updates.pyx":435
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -7398,7 +7398,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
             goto __pyx_L13;
           }
 
-          /* "lom/_cython/matrix_sampling.pyx":437
+          /* "lom/_cython/matrix_updates.pyx":437
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -7416,7 +7416,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
           }
           if (__pyx_t_3) {
 
-            /* "lom/_cython/matrix_sampling.pyx":438
+            /* "lom/_cython/matrix_updates.pyx":438
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):
  *                         col_densities[d] += x[n, d]             # <<<<<<<<<<<<<<
@@ -7426,9 +7426,9 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
             __pyx_t_34 = __pyx_v_n;
             __pyx_t_35 = __pyx_v_d;
             __pyx_t_36 = __pyx_v_d;
-            *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_36, __pyx_pybuffernd_col_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_34 * __pyx_v_x.strides[0]) ) + __pyx_t_35 * __pyx_v_x.strides[1]) )));
+            *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_36, __pyx_pybuffernd_col_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_34 * __pyx_v_x.strides[0]) ) + __pyx_t_35 * __pyx_v_x.strides[1]) )));
 
-            /* "lom/_cython/matrix_sampling.pyx":437
+            /* "lom/_cython/matrix_updates.pyx":437
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -7438,7 +7438,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
           }
           __pyx_L13:;
 
-          /* "lom/_cython/matrix_sampling.pyx":434
+          /* "lom/_cython/matrix_updates.pyx":434
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):             # <<<<<<<<<<<<<<
@@ -7447,7 +7447,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
  */
         }
 
-        /* "lom/_cython/matrix_sampling.pyx":416
+        /* "lom/_cython/matrix_updates.pyx":416
  *     for n in range(N):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -7458,7 +7458,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
     }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":385
+  /* "lom/_cython/matrix_updates.pyx":385
  * 
  * 
  * def draw_twoparents_nochild(             # <<<<<<<<<<<<<<
@@ -7484,7 +7484,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_row_binom.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_row_densities.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_twoparents_nochild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_twoparents_nochild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -7508,7 +7508,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":442
+/* "lom/_cython/matrix_updates.pyx":442
  * 
  * 
  * def draw_oneparent_onechild(             # <<<<<<<<<<<<<<
@@ -7517,9 +7517,9 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_15matrix_sampling_c
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_15draw_oneparent_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3lom_7_cython_15matrix_sampling_15draw_oneparent_onechild = {"draw_oneparent_onechild", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_15draw_oneparent_onechild, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_15draw_oneparent_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_15draw_oneparent_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_3lom_7_cython_14matrix_updates_15draw_oneparent_onechild = {"draw_oneparent_onechild", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_15draw_oneparent_onechild, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_15draw_oneparent_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z_pa = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u_pa = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -7630,26 +7630,26 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_15draw_oneparent_onech
       values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
       values[8] = PyTuple_GET_ITEM(__pyx_args, 8);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 443, __pyx_L3_error)
-    __pyx_v_z_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_z_pa.memview)) __PYX_ERR(0, 444, __pyx_L3_error)
-    __pyx_v_u_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_u_pa.memview)) __PYX_ERR(0, 445, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 443, __pyx_L3_error)
+    __pyx_v_z_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_z_pa.memview)) __PYX_ERR(0, 444, __pyx_L3_error)
+    __pyx_v_u_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_u_pa.memview)) __PYX_ERR(0, 445, __pyx_L3_error)
     __pyx_v_lbda_pa = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_lbda_pa == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 446, __pyx_L3_error)
-    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[4]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 447, __pyx_L3_error)
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[5]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 448, __pyx_L3_error)
+    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[4]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 447, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[5]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 448, __pyx_L3_error)
     __pyx_v_lbda = __pyx_PyFloat_AsFloat(values[6]); if (unlikely((__pyx_v_lbda == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 449, __pyx_L3_error)
     __pyx_v_prior_config = ((PyObject*)values[7]);
-    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[8]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 451, __pyx_L3_error)
+    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[8]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 451, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 442, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_oneparent_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_oneparent_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prior_config), (&PyList_Type), 1, "prior_config", 1))) __PYX_ERR(0, 450, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onechild(__pyx_self, __pyx_v_x, __pyx_v_z_pa, __pyx_v_u_pa, __pyx_v_lbda_pa, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_prior_config, __pyx_v_sampling_indicator);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechild(__pyx_self, __pyx_v_x, __pyx_v_z_pa, __pyx_v_u_pa, __pyx_v_lbda_pa, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_prior_config, __pyx_v_sampling_indicator);
 
   /* function exit code */
   goto __pyx_L0;
@@ -7660,7 +7660,7 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_15draw_oneparent_onech
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_u_pa, double __pyx_v_lbda_pa, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_u_pa, double __pyx_v_lbda_pa, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator) {
   int __pyx_v_n;
   int __pyx_v_d;
   int __pyx_v_N;
@@ -7669,7 +7669,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
   float __pyx_v_acc_child;
   float __pyx_v_p;
   float __pyx_v_prior;
-  __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x_old;
+  __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x_old;
   int __pyx_v_prior_code;
   PyArrayObject *__pyx_v_row_binom = 0;
   PyArrayObject *__pyx_v_col_binom = 0;
@@ -7737,7 +7737,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
   __pyx_pybuffernd_col_densities.data = NULL;
   __pyx_pybuffernd_col_densities.rcbuffer = &__pyx_pybuffer_col_densities;
 
-  /* "lom/_cython/matrix_sampling.pyx":453
+  /* "lom/_cython/matrix_updates.pyx":453
  *         data_type_t[:,:] sampling_indicator): # N x D
  * 
  *     cdef int n, d, N = x.shape[0], D=x.shape[1]             # <<<<<<<<<<<<<<
@@ -7747,7 +7747,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
   __pyx_v_N = (__pyx_v_x.shape[0]);
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_sampling.pyx":455
+  /* "lom/_cython/matrix_updates.pyx":455
  *     cdef int n, d, N = x.shape[0], D=x.shape[1]
  *     cdef float acc_par, acc_child, p
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -7756,7 +7756,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/matrix_sampling.pyx":459
+  /* "lom/_cython/matrix_updates.pyx":459
  * 
  *     # unpack prior config
  *     cdef int prior_code = prior_config[0]             # <<<<<<<<<<<<<<
@@ -7770,7 +7770,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
   __pyx_t_1 = __Pyx_PyInt_As_int(PyList_GET_ITEM(__pyx_v_prior_config, 0)); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 459, __pyx_L1_error)
   __pyx_v_prior_code = __pyx_t_1;
 
-  /* "lom/_cython/matrix_sampling.pyx":460
+  /* "lom/_cython/matrix_updates.pyx":460
  *     # unpack prior config
  *     cdef int prior_code = prior_config[0]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]             # <<<<<<<<<<<<<<
@@ -7795,7 +7795,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
   __pyx_v_row_binom = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":461
+  /* "lom/_cython/matrix_updates.pyx":461
  *     cdef int prior_code = prior_config[0]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]             # <<<<<<<<<<<<<<
@@ -7820,7 +7820,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
   __pyx_v_col_binom = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":462
+  /* "lom/_cython/matrix_updates.pyx":462
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]             # <<<<<<<<<<<<<<
@@ -7845,7 +7845,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
   __pyx_v_row_densities = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":463
+  /* "lom/_cython/matrix_updates.pyx":463
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]             # <<<<<<<<<<<<<<
@@ -7870,7 +7870,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
   __pyx_v_col_densities = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":466
+  /* "lom/_cython/matrix_updates.pyx":466
  * 
  *     # independent bernoulli prior
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -7880,7 +7880,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
   __pyx_t_3 = ((__pyx_v_prior_code == 1) != 0);
   if (__pyx_t_3) {
 
-    /* "lom/_cython/matrix_sampling.pyx":467
+    /* "lom/_cython/matrix_updates.pyx":467
  *     # independent bernoulli prior
  *     if prior_code == 1:
  *         prior = prior_config[1]             # <<<<<<<<<<<<<<
@@ -7894,7 +7894,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
     __pyx_t_4 = __pyx_PyFloat_AsFloat(PyList_GET_ITEM(__pyx_v_prior_config, 1)); if (unlikely((__pyx_t_4 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 467, __pyx_L1_error)
     __pyx_v_prior = __pyx_t_4;
 
-    /* "lom/_cython/matrix_sampling.pyx":466
+    /* "lom/_cython/matrix_updates.pyx":466
  * 
  *     # independent bernoulli prior
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -7903,7 +7903,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
  */
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":470
+  /* "lom/_cython/matrix_updates.pyx":470
  * 
  *     # for n in prange(N, schedule='dynamic', nogil=True):
  *     for n in range(N):             # <<<<<<<<<<<<<<
@@ -7914,7 +7914,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_1; __pyx_t_5+=1) {
     __pyx_v_n = __pyx_t_5;
 
-    /* "lom/_cython/matrix_sampling.pyx":471
+    /* "lom/_cython/matrix_updates.pyx":471
  *     # for n in prange(N, schedule='dynamic', nogil=True):
  *     for n in range(N):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -7925,7 +7925,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_d = __pyx_t_7;
 
-      /* "lom/_cython/matrix_sampling.pyx":472
+      /* "lom/_cython/matrix_updates.pyx":472
  *     for n in range(N):
  *         for d in range(D):
  *             if sampling_indicator[n,d] is True:             # <<<<<<<<<<<<<<
@@ -7934,10 +7934,10 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
  */
       __pyx_t_8 = __pyx_v_n;
       __pyx_t_9 = __pyx_v_d;
-      __pyx_t_3 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_8 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_9 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
+      __pyx_t_3 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_8 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_9 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
       if (__pyx_t_3) {
 
-        /* "lom/_cython/matrix_sampling.pyx":474
+        /* "lom/_cython/matrix_updates.pyx":474
  *             if sampling_indicator[n,d] is True:
  * 
  *                 if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -7947,7 +7947,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
         __pyx_t_3 = ((__pyx_v_prior_code > 1) != 0);
         if (__pyx_t_3) {
 
-          /* "lom/_cython/matrix_sampling.pyx":475
+          /* "lom/_cython/matrix_updates.pyx":475
  * 
  *                 if prior_code > 1:
  *                     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -7957,7 +7957,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
           switch (__pyx_v_prior_code) {
             case 2:
 
-            /* "lom/_cython/matrix_sampling.pyx":476
+            /* "lom/_cython/matrix_updates.pyx":476
  *                 if prior_code > 1:
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]             # <<<<<<<<<<<<<<
@@ -7968,7 +7968,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
             __pyx_t_11 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_row_densities.diminfo[0].strides));
             __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_row_binom.diminfo[0].strides));
 
-            /* "lom/_cython/matrix_sampling.pyx":475
+            /* "lom/_cython/matrix_updates.pyx":475
  * 
  *                 if prior_code > 1:
  *                     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -7977,7 +7977,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
  */
             break;
 
-            /* "lom/_cython/matrix_sampling.pyx":477
+            /* "lom/_cython/matrix_updates.pyx":477
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -7986,7 +7986,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
  */
             case 3:
 
-            /* "lom/_cython/matrix_sampling.pyx":478
+            /* "lom/_cython/matrix_updates.pyx":478
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]             # <<<<<<<<<<<<<<
@@ -7997,7 +7997,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
             __pyx_t_13 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_col_densities.diminfo[0].strides));
             __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_col_binom.diminfo[0].strides));
 
-            /* "lom/_cython/matrix_sampling.pyx":477
+            /* "lom/_cython/matrix_updates.pyx":477
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -8006,7 +8006,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
  */
             break;
 
-            /* "lom/_cython/matrix_sampling.pyx":479
+            /* "lom/_cython/matrix_updates.pyx":479
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -8015,7 +8015,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
  */
             case 4:
 
-            /* "lom/_cython/matrix_sampling.pyx":480
+            /* "lom/_cython/matrix_updates.pyx":480
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:
  *                         prior = row_binom[row_densities[n]] + col_binom[col_densities[d]]             # <<<<<<<<<<<<<<
@@ -8028,7 +8028,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
             __pyx_t_17 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_col_densities.diminfo[0].strides));
             __pyx_v_prior = ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_row_binom.diminfo[0].strides)) + (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_col_binom.diminfo[0].strides)));
 
-            /* "lom/_cython/matrix_sampling.pyx":479
+            /* "lom/_cython/matrix_updates.pyx":479
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -8039,7 +8039,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
             default: break;
           }
 
-          /* "lom/_cython/matrix_sampling.pyx":474
+          /* "lom/_cython/matrix_updates.pyx":474
  *             if sampling_indicator[n,d] is True:
  * 
  *                 if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -8048,7 +8048,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_14draw_oneparent_onech
  */
         }
 
-        /* "lom/_cython/matrix_sampling.pyx":482
+        /* "lom/_cython/matrix_updates.pyx":482
  *                         prior = row_binom[row_densities[n]] + col_binom[col_densities[d]]
  * 
  *                 acc_par = lbda_pa*compute_g_alt_tilde_unified(u_pa[d,:], z_pa[n,:])             # <<<<<<<<<<<<<<
@@ -8095,7 +8095,7 @@ __pyx_t_19.shape[0] = __pyx_v_z_pa.shape[1];
 __pyx_t_19.strides[0] = __pyx_v_z_pa.strides[1];
     __pyx_t_19.suboffsets[0] = -1;
 
-__pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_unified(__pyx_t_18, __pyx_t_19));
+__pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unified(__pyx_t_18, __pyx_t_19));
         __PYX_XDEC_MEMVIEW(&__pyx_t_18, 1);
         __pyx_t_18.memview = NULL;
         __pyx_t_18.data = NULL;
@@ -8103,7 +8103,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_15matrix_sampling_com
         __pyx_t_19.memview = NULL;
         __pyx_t_19.data = NULL;
 
-        /* "lom/_cython/matrix_sampling.pyx":484
+        /* "lom/_cython/matrix_updates.pyx":484
  *                 acc_par = lbda_pa*compute_g_alt_tilde_unified(u_pa[d,:], z_pa[n,:])
  * 
  *                 acc_child = score_no_parents_unified(child[n,:], x[n,:], sibling, d)             # <<<<<<<<<<<<<<
@@ -8150,7 +8150,7 @@ __pyx_t_18.shape[0] = __pyx_v_x.shape[1];
 __pyx_t_18.strides[0] = __pyx_v_x.strides[1];
     __pyx_t_18.suboffsets[0] = -1;
 
-__pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__pyx_t_19, __pyx_t_18, __pyx_v_sibling, __pyx_v_d);
+__pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__pyx_t_19, __pyx_t_18, __pyx_v_sibling, __pyx_v_d);
         __PYX_XDEC_MEMVIEW(&__pyx_t_19, 1);
         __pyx_t_19.memview = NULL;
         __pyx_t_19.data = NULL;
@@ -8158,7 +8158,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
         __pyx_t_18.memview = NULL;
         __pyx_t_18.data = NULL;
 
-        /* "lom/_cython/matrix_sampling.pyx":485
+        /* "lom/_cython/matrix_updates.pyx":485
  * 
  *                 acc_child = score_no_parents_unified(child[n,:], x[n,:], sibling, d)
  *                 acc_child = acc_child * lbda             # <<<<<<<<<<<<<<
@@ -8167,16 +8167,16 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
  */
         __pyx_v_acc_child = (__pyx_v_acc_child * __pyx_v_lbda);
 
-        /* "lom/_cython/matrix_sampling.pyx":487
+        /* "lom/_cython/matrix_updates.pyx":487
  *                 acc_child = acc_child * lbda
  * 
  *                 p = sigmoid(acc_par + acc_child + prior)             # <<<<<<<<<<<<<<
  * 
  *                 x_old = x[n,d]
  */
-        __pyx_v_p = __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(((__pyx_v_acc_par + __pyx_v_acc_child) + __pyx_v_prior), 0);
+        __pyx_v_p = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(((__pyx_v_acc_par + __pyx_v_acc_child) + __pyx_v_prior), 0);
 
-        /* "lom/_cython/matrix_sampling.pyx":489
+        /* "lom/_cython/matrix_updates.pyx":489
  *                 p = sigmoid(acc_par + acc_child + prior)
  * 
  *                 x_old = x[n,d]             # <<<<<<<<<<<<<<
@@ -8185,9 +8185,9 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
  */
         __pyx_t_20 = __pyx_v_n;
         __pyx_t_21 = __pyx_v_d;
-        __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_20 * __pyx_v_x.strides[0]) ) + __pyx_t_21 * __pyx_v_x.strides[1]) )));
+        __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_20 * __pyx_v_x.strides[0]) ) + __pyx_t_21 * __pyx_v_x.strides[1]) )));
 
-        /* "lom/_cython/matrix_sampling.pyx":490
+        /* "lom/_cython/matrix_updates.pyx":490
  * 
  *                 x_old = x[n,d]
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])             # <<<<<<<<<<<<<<
@@ -8198,9 +8198,9 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
         __pyx_t_23 = __pyx_v_d;
         __pyx_t_24 = __pyx_v_n;
         __pyx_t_25 = __pyx_v_d;
-        *((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_24 * __pyx_v_x.strides[0]) ) + __pyx_t_25 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_22 * __pyx_v_x.strides[0]) ) + __pyx_t_23 * __pyx_v_x.strides[1]) ))), 0);
+        *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_24 * __pyx_v_x.strides[0]) ) + __pyx_t_25 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_22 * __pyx_v_x.strides[0]) ) + __pyx_t_23 * __pyx_v_x.strides[1]) ))), 0);
 
-        /* "lom/_cython/matrix_sampling.pyx":492
+        /* "lom/_cython/matrix_updates.pyx":492
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):             # <<<<<<<<<<<<<<
@@ -8215,12 +8215,12 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
         }
         __pyx_t_27 = __pyx_v_n;
         __pyx_t_28 = __pyx_v_d;
-        __pyx_t_26 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_27 * __pyx_v_x.strides[0]) ) + __pyx_t_28 * __pyx_v_x.strides[1]) ))) != __pyx_v_x_old) != 0);
+        __pyx_t_26 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_27 * __pyx_v_x.strides[0]) ) + __pyx_t_28 * __pyx_v_x.strides[1]) ))) != __pyx_v_x_old) != 0);
         __pyx_t_3 = __pyx_t_26;
         __pyx_L11_bool_binop_done:;
         if (__pyx_t_3) {
 
-          /* "lom/_cython/matrix_sampling.pyx":493
+          /* "lom/_cython/matrix_updates.pyx":493
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -8238,7 +8238,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
           }
           if (__pyx_t_3) {
 
-            /* "lom/_cython/matrix_sampling.pyx":494
+            /* "lom/_cython/matrix_updates.pyx":494
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]             # <<<<<<<<<<<<<<
@@ -8248,9 +8248,9 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
             __pyx_t_29 = __pyx_v_n;
             __pyx_t_30 = __pyx_v_d;
             __pyx_t_31 = __pyx_v_n;
-            *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_31, __pyx_pybuffernd_row_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_29 * __pyx_v_x.strides[0]) ) + __pyx_t_30 * __pyx_v_x.strides[1]) )));
+            *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_31, __pyx_pybuffernd_row_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_29 * __pyx_v_x.strides[0]) ) + __pyx_t_30 * __pyx_v_x.strides[1]) )));
 
-            /* "lom/_cython/matrix_sampling.pyx":493
+            /* "lom/_cython/matrix_updates.pyx":493
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -8260,7 +8260,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
             goto __pyx_L13;
           }
 
-          /* "lom/_cython/matrix_sampling.pyx":495
+          /* "lom/_cython/matrix_updates.pyx":495
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -8278,7 +8278,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
           }
           if (__pyx_t_3) {
 
-            /* "lom/_cython/matrix_sampling.pyx":496
+            /* "lom/_cython/matrix_updates.pyx":496
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):
  *                         col_densities[d] += x[n, d]             # <<<<<<<<<<<<<<
@@ -8288,9 +8288,9 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
             __pyx_t_32 = __pyx_v_n;
             __pyx_t_33 = __pyx_v_d;
             __pyx_t_34 = __pyx_v_d;
-            *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_34, __pyx_pybuffernd_col_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_32 * __pyx_v_x.strides[0]) ) + __pyx_t_33 * __pyx_v_x.strides[1]) )));
+            *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_34, __pyx_pybuffernd_col_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_32 * __pyx_v_x.strides[0]) ) + __pyx_t_33 * __pyx_v_x.strides[1]) )));
 
-            /* "lom/_cython/matrix_sampling.pyx":495
+            /* "lom/_cython/matrix_updates.pyx":495
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -8300,7 +8300,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
           }
           __pyx_L13:;
 
-          /* "lom/_cython/matrix_sampling.pyx":492
+          /* "lom/_cython/matrix_updates.pyx":492
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):             # <<<<<<<<<<<<<<
@@ -8309,7 +8309,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
  */
         }
 
-        /* "lom/_cython/matrix_sampling.pyx":472
+        /* "lom/_cython/matrix_updates.pyx":472
  *     for n in range(N):
  *         for d in range(D):
  *             if sampling_indicator[n,d] is True:             # <<<<<<<<<<<<<<
@@ -8320,7 +8320,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
     }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":442
+  /* "lom/_cython/matrix_updates.pyx":442
  * 
  * 
  * def draw_oneparent_onechild(             # <<<<<<<<<<<<<<
@@ -8344,7 +8344,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_row_binom.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_row_densities.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_oneparent_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_oneparent_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -8368,7 +8368,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":499
+/* "lom/_cython/matrix_updates.pyx":499
  * 
  * 
  * cpdef np.ndarray[data_type_t, ndim = 2] predict_single_latent(data_type_t[:] u,             # <<<<<<<<<<<<<<
@@ -8376,8 +8376,8 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_uni
  *     """
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_17predict_single_latent(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_latent(__Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_17predict_single_latent(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyArrayObject *__pyx_f_3lom_7_cython_14matrix_updates_predict_single_latent(__Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, CYTHON_UNUSED int __pyx_skip_dispatch) {
   int __pyx_v_N;
   int __pyx_v_D;
   int __pyx_v_n;
@@ -8409,7 +8409,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_lat
   __pyx_pybuffernd_x.data = NULL;
   __pyx_pybuffernd_x.rcbuffer = &__pyx_pybuffer_x;
 
-  /* "lom/_cython/matrix_sampling.pyx":505
+  /* "lom/_cython/matrix_updates.pyx":505
  *     is equivalent to the product between to binary vectors
  *     """
  *     cdef int N = z.shape[0]             # <<<<<<<<<<<<<<
@@ -8418,7 +8418,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_lat
  */
   __pyx_v_N = (__pyx_v_z.shape[0]);
 
-  /* "lom/_cython/matrix_sampling.pyx":506
+  /* "lom/_cython/matrix_updates.pyx":506
  *     """
  *     cdef int N = z.shape[0]
  *     cdef int D = u.shape[0]             # <<<<<<<<<<<<<<
@@ -8427,7 +8427,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_lat
  */
   __pyx_v_D = (__pyx_v_u.shape[0]);
 
-  /* "lom/_cython/matrix_sampling.pyx":509
+  /* "lom/_cython/matrix_updates.pyx":509
  *     cdef int n, d
  * 
  *     cdef np.ndarray[data_type_t, ndim=2] x = np.zeros([z.shape[0], u.shape[0]], dtype=np.int8)             # <<<<<<<<<<<<<<
@@ -8474,7 +8474,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_lat
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 2, 0, __pyx_stack) == -1)) {
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 2, 0, __pyx_stack) == -1)) {
       __pyx_v_x = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_x.rcbuffer->pybuffer.buf = NULL;
       __PYX_ERR(0, 509, __pyx_L1_error)
     } else {__pyx_pybuffernd_x.diminfo[0].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x.diminfo[0].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_x.diminfo[1].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_x.diminfo[1].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[1];
@@ -8484,7 +8484,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_lat
   __pyx_v_x = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":511
+  /* "lom/_cython/matrix_updates.pyx":511
  *     cdef np.ndarray[data_type_t, ndim=2] x = np.zeros([z.shape[0], u.shape[0]], dtype=np.int8)
  * 
  *     for n in range(N):             # <<<<<<<<<<<<<<
@@ -8495,7 +8495,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_lat
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_n = __pyx_t_8;
 
-    /* "lom/_cython/matrix_sampling.pyx":513
+    /* "lom/_cython/matrix_updates.pyx":513
  *     for n in range(N):
  *     # for n in prange(N, schedule='dynamic', nogil=True):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -8506,7 +8506,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_lat
     for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
       __pyx_v_d = __pyx_t_10;
 
-      /* "lom/_cython/matrix_sampling.pyx":514
+      /* "lom/_cython/matrix_updates.pyx":514
  *     # for n in prange(N, schedule='dynamic', nogil=True):
  *         for d in range(D):
  *             if (u[d] == 1) and (z[n] == 1):             # <<<<<<<<<<<<<<
@@ -8514,19 +8514,19 @@ static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_lat
  *     return x
  */
       __pyx_t_12 = __pyx_v_d;
-      __pyx_t_13 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=0 */ (__pyx_v_u.data + __pyx_t_12 * __pyx_v_u.strides[0]) ))) == 1) != 0);
+      __pyx_t_13 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_u.data + __pyx_t_12 * __pyx_v_u.strides[0]) ))) == 1) != 0);
       if (__pyx_t_13) {
       } else {
         __pyx_t_11 = __pyx_t_13;
         goto __pyx_L8_bool_binop_done;
       }
       __pyx_t_14 = __pyx_v_n;
-      __pyx_t_13 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=0 */ (__pyx_v_z.data + __pyx_t_14 * __pyx_v_z.strides[0]) ))) == 1) != 0);
+      __pyx_t_13 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_z.data + __pyx_t_14 * __pyx_v_z.strides[0]) ))) == 1) != 0);
       __pyx_t_11 = __pyx_t_13;
       __pyx_L8_bool_binop_done:;
       if (__pyx_t_11) {
 
-        /* "lom/_cython/matrix_sampling.pyx":515
+        /* "lom/_cython/matrix_updates.pyx":515
  *         for d in range(D):
  *             if (u[d] == 1) and (z[n] == 1):
  *                 x[n,d] = 1             # <<<<<<<<<<<<<<
@@ -8535,9 +8535,9 @@ static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_lat
  */
         __pyx_t_15 = __pyx_v_n;
         __pyx_t_16 = __pyx_v_d;
-        *__Pyx_BufPtrStrided2d(__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *, __pyx_pybuffernd_x.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_x.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_x.diminfo[1].strides) = 1;
+        *__Pyx_BufPtrStrided2d(__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *, __pyx_pybuffernd_x.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_x.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_x.diminfo[1].strides) = 1;
 
-        /* "lom/_cython/matrix_sampling.pyx":514
+        /* "lom/_cython/matrix_updates.pyx":514
  *     # for n in prange(N, schedule='dynamic', nogil=True):
  *         for d in range(D):
  *             if (u[d] == 1) and (z[n] == 1):             # <<<<<<<<<<<<<<
@@ -8548,7 +8548,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_lat
     }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":516
+  /* "lom/_cython/matrix_updates.pyx":516
  *             if (u[d] == 1) and (z[n] == 1):
  *                 x[n,d] = 1
  *     return x             # <<<<<<<<<<<<<<
@@ -8560,7 +8560,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_lat
   __pyx_r = ((PyArrayObject *)__pyx_v_x);
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_sampling.pyx":499
+  /* "lom/_cython/matrix_updates.pyx":499
  * 
  * 
  * cpdef np.ndarray[data_type_t, ndim = 2] predict_single_latent(data_type_t[:] u,             # <<<<<<<<<<<<<<
@@ -8581,7 +8581,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_lat
     __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_x.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.predict_single_latent", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.predict_single_latent", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   goto __pyx_L2;
   __pyx_L0:;
@@ -8594,9 +8594,9 @@ static PyArrayObject *__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_lat
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_17predict_single_latent(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_15matrix_sampling_16predict_single_latent[] = "\n    compute output matrix for a single latent dimension (deterministic).\n    is equivalent to the product between to binary vectors\n    ";
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_17predict_single_latent(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_17predict_single_latent(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_16predict_single_latent[] = "\n    compute output matrix for a single latent dimension (deterministic).\n    is equivalent to the product between to binary vectors\n    ";
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_17predict_single_latent(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
   PyObject *__pyx_r = 0;
@@ -8637,25 +8637,25 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_17predict_single_laten
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 499, __pyx_L3_error)
-    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 500, __pyx_L3_error)
+    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 499, __pyx_L3_error)
+    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 500, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("predict_single_latent", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 499, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.predict_single_latent", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.predict_single_latent", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_16predict_single_latent(__pyx_self, __pyx_v_u, __pyx_v_z);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_16predict_single_latent(__pyx_self, __pyx_v_u, __pyx_v_z);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_16predict_single_latent(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_16predict_single_latent(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -8663,7 +8663,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_16predict_single_laten
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 499, __pyx_L1_error) }
   if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 499, __pyx_L1_error) }
-  __pyx_t_1 = ((PyObject *)__pyx_f_3lom_7_cython_15matrix_sampling_predict_single_latent(__pyx_v_u, __pyx_v_z, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 499, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_f_3lom_7_cython_14matrix_updates_predict_single_latent(__pyx_v_u, __pyx_v_z, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 499, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -8672,7 +8672,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_16predict_single_laten
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.predict_single_latent", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.predict_single_latent", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_u, 1);
@@ -8682,7 +8682,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_16predict_single_laten
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":521
+/* "lom/_cython/matrix_updates.pyx":521
  * @boundscheck(False)
  * @wraparound(False)
  * cdef data_type_t compute_g_alt_tilde_unified(data_type_t[:] u,             # <<<<<<<<<<<<<<
@@ -8690,9 +8690,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_16predict_single_laten
  *     """
  */
 
-static __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_unified(__Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z) {
+static __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unified(__Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z) {
   int __pyx_v_i;
-  __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_r;
+  __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_r;
   Py_ssize_t __pyx_t_1;
   int __pyx_t_2;
   int __pyx_t_3;
@@ -8700,7 +8700,7 @@ static __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_f_3lom_7_cython
   int __pyx_t_5;
   Py_ssize_t __pyx_t_6;
 
-  /* "lom/_cython/matrix_sampling.pyx":529
+  /* "lom/_cython/matrix_updates.pyx":529
  * 
  *     cdef int i
  *     for i in range(u.shape[0]):             # <<<<<<<<<<<<<<
@@ -8711,7 +8711,7 @@ static __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_f_3lom_7_cython
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_i = __pyx_t_2;
 
-    /* "lom/_cython/matrix_sampling.pyx":530
+    /* "lom/_cython/matrix_updates.pyx":530
  *     cdef int i
  *     for i in range(u.shape[0]):
  *         if u[i] == 1 and z[i] == 1:             # <<<<<<<<<<<<<<
@@ -8719,19 +8719,19 @@ static __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_f_3lom_7_cython
  *     return -1
  */
     __pyx_t_4 = __pyx_v_i;
-    __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=0 */ (__pyx_v_u.data + __pyx_t_4 * __pyx_v_u.strides[0]) ))) == 1) != 0);
+    __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_u.data + __pyx_t_4 * __pyx_v_u.strides[0]) ))) == 1) != 0);
     if (__pyx_t_5) {
     } else {
       __pyx_t_3 = __pyx_t_5;
       goto __pyx_L6_bool_binop_done;
     }
     __pyx_t_6 = __pyx_v_i;
-    __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=0 */ (__pyx_v_z.data + __pyx_t_6 * __pyx_v_z.strides[0]) ))) == 1) != 0);
+    __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_z.data + __pyx_t_6 * __pyx_v_z.strides[0]) ))) == 1) != 0);
     __pyx_t_3 = __pyx_t_5;
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_3) {
 
-      /* "lom/_cython/matrix_sampling.pyx":531
+      /* "lom/_cython/matrix_updates.pyx":531
  *     for i in range(u.shape[0]):
  *         if u[i] == 1 and z[i] == 1:
  *             return 1             # <<<<<<<<<<<<<<
@@ -8741,7 +8741,7 @@ static __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_f_3lom_7_cython
       __pyx_r = 1;
       goto __pyx_L0;
 
-      /* "lom/_cython/matrix_sampling.pyx":530
+      /* "lom/_cython/matrix_updates.pyx":530
  *     cdef int i
  *     for i in range(u.shape[0]):
  *         if u[i] == 1 and z[i] == 1:             # <<<<<<<<<<<<<<
@@ -8751,7 +8751,7 @@ static __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_f_3lom_7_cython
     }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":532
+  /* "lom/_cython/matrix_updates.pyx":532
  *         if u[i] == 1 and z[i] == 1:
  *             return 1
  *     return -1             # <<<<<<<<<<<<<<
@@ -8761,7 +8761,7 @@ static __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_f_3lom_7_cython
   __pyx_r = -1;
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_sampling.pyx":521
+  /* "lom/_cython/matrix_updates.pyx":521
  * @boundscheck(False)
  * @wraparound(False)
  * cdef data_type_t compute_g_alt_tilde_unified(data_type_t[:] u,             # <<<<<<<<<<<<<<
@@ -8774,7 +8774,7 @@ static __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_f_3lom_7_cython
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":535
+/* "lom/_cython/matrix_updates.pyx":535
  * 
  * 
  * cdef (int, int) score_no_parents_balanced(             # <<<<<<<<<<<<<<
@@ -8782,7 +8782,7 @@ static __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_f_3lom_7_cython
  *     data_type_t[:] z, # (N x) L
  */
 
-static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_balanced(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, int __pyx_v_l, int __pyx_v_p_count, int __pyx_v_n_count) {
+static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_balanced(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, int __pyx_v_l, int __pyx_v_p_count, int __pyx_v_n_count) {
   int __pyx_v_L;
   int __pyx_v_D;
   int __pyx_v_alrdy_active;
@@ -8805,7 +8805,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
   Py_ssize_t __pyx_t_13;
   __pyx_ctuple_int__and_int __pyx_t_14;
 
-  /* "lom/_cython/matrix_sampling.pyx":543
+  /* "lom/_cython/matrix_updates.pyx":543
  *     int n_count) nogil:
  * 
  *     cdef int L = u.shape[1]             # <<<<<<<<<<<<<<
@@ -8814,7 +8814,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
   __pyx_v_L = (__pyx_v_u.shape[1]);
 
-  /* "lom/_cython/matrix_sampling.pyx":544
+  /* "lom/_cython/matrix_updates.pyx":544
  * 
  *     cdef int L = u.shape[1]
  *     cdef int D = u.shape[0]             # <<<<<<<<<<<<<<
@@ -8823,7 +8823,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
   __pyx_v_D = (__pyx_v_u.shape[0]);
 
-  /* "lom/_cython/matrix_sampling.pyx":546
+  /* "lom/_cython/matrix_updates.pyx":546
  *     cdef int D = u.shape[0]
  *     cdef bint alrdy_active
  *     cdef int score = 0             # <<<<<<<<<<<<<<
@@ -8832,7 +8832,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
   __pyx_v_score = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":547
+  /* "lom/_cython/matrix_updates.pyx":547
  *     cdef bint alrdy_active
  *     cdef int score = 0
  *     p_count = 0             # <<<<<<<<<<<<<<
@@ -8841,7 +8841,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
   __pyx_v_p_count = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":548
+  /* "lom/_cython/matrix_updates.pyx":548
  *     cdef int score = 0
  *     p_count = 0
  *     n_count = 0             # <<<<<<<<<<<<<<
@@ -8850,7 +8850,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
   __pyx_v_n_count = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":550
+  /* "lom/_cython/matrix_updates.pyx":550
  *     n_count = 0
  * 
  *     for d in range(D):             # <<<<<<<<<<<<<<
@@ -8861,7 +8861,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_d = __pyx_t_2;
 
-    /* "lom/_cython/matrix_sampling.pyx":551
+    /* "lom/_cython/matrix_updates.pyx":551
  * 
  *     for d in range(D):
  *         if u[d, l] != 1:             # <<<<<<<<<<<<<<
@@ -8870,10 +8870,10 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
     __pyx_t_3 = __pyx_v_d;
     __pyx_t_4 = __pyx_v_l;
-    __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_3 * __pyx_v_u.strides[0]) ) + __pyx_t_4 * __pyx_v_u.strides[1]) ))) != 1) != 0);
+    __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_3 * __pyx_v_u.strides[0]) ) + __pyx_t_4 * __pyx_v_u.strides[1]) ))) != 1) != 0);
     if (__pyx_t_5) {
 
-      /* "lom/_cython/matrix_sampling.pyx":552
+      /* "lom/_cython/matrix_updates.pyx":552
  *     for d in range(D):
  *         if u[d, l] != 1:
  *             continue             # <<<<<<<<<<<<<<
@@ -8882,7 +8882,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
       goto __pyx_L3_continue;
 
-      /* "lom/_cython/matrix_sampling.pyx":551
+      /* "lom/_cython/matrix_updates.pyx":551
  * 
  *     for d in range(D):
  *         if u[d, l] != 1:             # <<<<<<<<<<<<<<
@@ -8891,7 +8891,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
     }
 
-    /* "lom/_cython/matrix_sampling.pyx":554
+    /* "lom/_cython/matrix_updates.pyx":554
  *             continue
  * 
  *         alrdy_active = False             # <<<<<<<<<<<<<<
@@ -8900,7 +8900,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
     __pyx_v_alrdy_active = 0;
 
-    /* "lom/_cython/matrix_sampling.pyx":555
+    /* "lom/_cython/matrix_updates.pyx":555
  * 
  *         alrdy_active = False
  *         for l_prime in range(L):             # <<<<<<<<<<<<<<
@@ -8911,7 +8911,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_l_prime = __pyx_t_7;
 
-      /* "lom/_cython/matrix_sampling.pyx":556
+      /* "lom/_cython/matrix_updates.pyx":556
  *         alrdy_active = False
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -8919,14 +8919,14 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  *                 l_prime != l):
  */
       __pyx_t_8 = __pyx_v_l_prime;
-      __pyx_t_9 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=0 */ (__pyx_v_z.data + __pyx_t_8 * __pyx_v_z.strides[0]) ))) == 1) != 0);
+      __pyx_t_9 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_z.data + __pyx_t_8 * __pyx_v_z.strides[0]) ))) == 1) != 0);
       if (__pyx_t_9) {
       } else {
         __pyx_t_5 = __pyx_t_9;
         goto __pyx_L9_bool_binop_done;
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":557
+      /* "lom/_cython/matrix_updates.pyx":557
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and
  *                 u[d, l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -8935,14 +8935,14 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
       __pyx_t_10 = __pyx_v_d;
       __pyx_t_11 = __pyx_v_l_prime;
-      __pyx_t_9 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_10 * __pyx_v_u.strides[0]) ) + __pyx_t_11 * __pyx_v_u.strides[1]) ))) == 1) != 0);
+      __pyx_t_9 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_10 * __pyx_v_u.strides[0]) ) + __pyx_t_11 * __pyx_v_u.strides[1]) ))) == 1) != 0);
       if (__pyx_t_9) {
       } else {
         __pyx_t_5 = __pyx_t_9;
         goto __pyx_L9_bool_binop_done;
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":558
+      /* "lom/_cython/matrix_updates.pyx":558
  *             if (z[l_prime] == 1 and
  *                 u[d, l_prime] == 1 and
  *                 l_prime != l):             # <<<<<<<<<<<<<<
@@ -8953,7 +8953,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
       __pyx_t_5 = __pyx_t_9;
       __pyx_L9_bool_binop_done:;
 
-      /* "lom/_cython/matrix_sampling.pyx":556
+      /* "lom/_cython/matrix_updates.pyx":556
  *         alrdy_active = False
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -8962,7 +8962,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
       if (__pyx_t_5) {
 
-        /* "lom/_cython/matrix_sampling.pyx":559
+        /* "lom/_cython/matrix_updates.pyx":559
  *                 u[d, l_prime] == 1 and
  *                 l_prime != l):
  *                 alrdy_active = True             # <<<<<<<<<<<<<<
@@ -8971,7 +8971,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
         __pyx_v_alrdy_active = 1;
 
-        /* "lom/_cython/matrix_sampling.pyx":560
+        /* "lom/_cython/matrix_updates.pyx":560
  *                 l_prime != l):
  *                 alrdy_active = True
  *                 break             # <<<<<<<<<<<<<<
@@ -8980,7 +8980,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
         goto __pyx_L7_break;
 
-        /* "lom/_cython/matrix_sampling.pyx":556
+        /* "lom/_cython/matrix_updates.pyx":556
  *         alrdy_active = False
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -8991,7 +8991,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
     }
     __pyx_L7_break:;
 
-    /* "lom/_cython/matrix_sampling.pyx":562
+    /* "lom/_cython/matrix_updates.pyx":562
  *                 break
  * 
  *         if (alrdy_active is False):             # <<<<<<<<<<<<<<
@@ -9001,7 +9001,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
     __pyx_t_5 = ((__pyx_v_alrdy_active == 0) != 0);
     if (__pyx_t_5) {
 
-      /* "lom/_cython/matrix_sampling.pyx":563
+      /* "lom/_cython/matrix_updates.pyx":563
  * 
  *         if (alrdy_active is False):
  *             if x[d] == 1:             # <<<<<<<<<<<<<<
@@ -9009,10 +9009,10 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  *             elif x[d] == -1:
  */
       __pyx_t_12 = __pyx_v_d;
-      __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_12 * __pyx_v_x.strides[0]) ))) == 1) != 0);
+      __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_12 * __pyx_v_x.strides[0]) ))) == 1) != 0);
       if (__pyx_t_5) {
 
-        /* "lom/_cython/matrix_sampling.pyx":564
+        /* "lom/_cython/matrix_updates.pyx":564
  *         if (alrdy_active is False):
  *             if x[d] == 1:
  *                 p_count += 1             # <<<<<<<<<<<<<<
@@ -9021,7 +9021,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
         __pyx_v_p_count = (__pyx_v_p_count + 1);
 
-        /* "lom/_cython/matrix_sampling.pyx":563
+        /* "lom/_cython/matrix_updates.pyx":563
  * 
  *         if (alrdy_active is False):
  *             if x[d] == 1:             # <<<<<<<<<<<<<<
@@ -9031,7 +9031,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
         goto __pyx_L13;
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":565
+      /* "lom/_cython/matrix_updates.pyx":565
  *             if x[d] == 1:
  *                 p_count += 1
  *             elif x[d] == -1:             # <<<<<<<<<<<<<<
@@ -9039,10 +9039,10 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  * 
  */
       __pyx_t_13 = __pyx_v_d;
-      __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_13 * __pyx_v_x.strides[0]) ))) == -1L) != 0);
+      __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_13 * __pyx_v_x.strides[0]) ))) == -1L) != 0);
       if (__pyx_t_5) {
 
-        /* "lom/_cython/matrix_sampling.pyx":566
+        /* "lom/_cython/matrix_updates.pyx":566
  *                 p_count += 1
  *             elif x[d] == -1:
  *                 n_count -= 1             # <<<<<<<<<<<<<<
@@ -9051,7 +9051,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  */
         __pyx_v_n_count = (__pyx_v_n_count - 1);
 
-        /* "lom/_cython/matrix_sampling.pyx":565
+        /* "lom/_cython/matrix_updates.pyx":565
  *             if x[d] == 1:
  *                 p_count += 1
  *             elif x[d] == -1:             # <<<<<<<<<<<<<<
@@ -9061,7 +9061,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
       }
       __pyx_L13:;
 
-      /* "lom/_cython/matrix_sampling.pyx":562
+      /* "lom/_cython/matrix_updates.pyx":562
  *                 break
  * 
  *         if (alrdy_active is False):             # <<<<<<<<<<<<<<
@@ -9072,7 +9072,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
     __pyx_L3_continue:;
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":568
+  /* "lom/_cython/matrix_updates.pyx":568
  *                 n_count -= 1
  * 
  *     return p_count, n_count             # <<<<<<<<<<<<<<
@@ -9084,7 +9084,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
   __pyx_r = __pyx_t_14;
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_sampling.pyx":535
+  /* "lom/_cython/matrix_updates.pyx":535
  * 
  * 
  * cdef (int, int) score_no_parents_balanced(             # <<<<<<<<<<<<<<
@@ -9097,7 +9097,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":573
+/* "lom/_cython/matrix_updates.pyx":573
  * @boundscheck(False)
  * @wraparound(False)
  * cdef int score_no_parents_unified(             # <<<<<<<<<<<<<<
@@ -9105,7 +9105,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_15matrix_sampling_score_n
  *     data_type_t[:] z, # (N x) L
  */
 
-static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, int __pyx_v_l) {
+static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, int __pyx_v_l) {
   int __pyx_v_L;
   int __pyx_v_D;
   int __pyx_v_alrdy_active;
@@ -9126,7 +9126,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
   Py_ssize_t __pyx_t_11;
   Py_ssize_t __pyx_t_12;
 
-  /* "lom/_cython/matrix_sampling.pyx":582
+  /* "lom/_cython/matrix_updates.pyx":582
  *     """
  * 
  *     cdef int L = u.shape[1]             # <<<<<<<<<<<<<<
@@ -9135,7 +9135,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
  */
   __pyx_v_L = (__pyx_v_u.shape[1]);
 
-  /* "lom/_cython/matrix_sampling.pyx":583
+  /* "lom/_cython/matrix_updates.pyx":583
  * 
  *     cdef int L = u.shape[1]
  *     cdef int D = u.shape[0]             # <<<<<<<<<<<<<<
@@ -9144,7 +9144,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
  */
   __pyx_v_D = (__pyx_v_u.shape[0]);
 
-  /* "lom/_cython/matrix_sampling.pyx":585
+  /* "lom/_cython/matrix_updates.pyx":585
  *     cdef int D = u.shape[0]
  *     cdef bint alrdy_active
  *     cdef int score = 0             # <<<<<<<<<<<<<<
@@ -9153,7 +9153,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
  */
   __pyx_v_score = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":587
+  /* "lom/_cython/matrix_updates.pyx":587
  *     cdef int score = 0
  * 
  *     for d in range(D):             # <<<<<<<<<<<<<<
@@ -9164,7 +9164,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_d = __pyx_t_2;
 
-    /* "lom/_cython/matrix_sampling.pyx":588
+    /* "lom/_cython/matrix_updates.pyx":588
  * 
  *     for d in range(D):
  *         if u[d, l] != 1:             # <<<<<<<<<<<<<<
@@ -9173,10 +9173,10 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
  */
     __pyx_t_3 = __pyx_v_d;
     __pyx_t_4 = __pyx_v_l;
-    __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_3 * __pyx_v_u.strides[0]) ) + __pyx_t_4 * __pyx_v_u.strides[1]) ))) != 1) != 0);
+    __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_3 * __pyx_v_u.strides[0]) ) + __pyx_t_4 * __pyx_v_u.strides[1]) ))) != 1) != 0);
     if (__pyx_t_5) {
 
-      /* "lom/_cython/matrix_sampling.pyx":589
+      /* "lom/_cython/matrix_updates.pyx":589
  *     for d in range(D):
  *         if u[d, l] != 1:
  *             continue             # <<<<<<<<<<<<<<
@@ -9185,7 +9185,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
  */
       goto __pyx_L3_continue;
 
-      /* "lom/_cython/matrix_sampling.pyx":588
+      /* "lom/_cython/matrix_updates.pyx":588
  * 
  *     for d in range(D):
  *         if u[d, l] != 1:             # <<<<<<<<<<<<<<
@@ -9194,7 +9194,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
  */
     }
 
-    /* "lom/_cython/matrix_sampling.pyx":591
+    /* "lom/_cython/matrix_updates.pyx":591
  *             continue
  * 
  *         alrdy_active = False             # <<<<<<<<<<<<<<
@@ -9203,7 +9203,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
  */
     __pyx_v_alrdy_active = 0;
 
-    /* "lom/_cython/matrix_sampling.pyx":592
+    /* "lom/_cython/matrix_updates.pyx":592
  * 
  *         alrdy_active = False
  *         for l_prime in range(L):             # <<<<<<<<<<<<<<
@@ -9214,7 +9214,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_l_prime = __pyx_t_7;
 
-      /* "lom/_cython/matrix_sampling.pyx":593
+      /* "lom/_cython/matrix_updates.pyx":593
  *         alrdy_active = False
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -9222,14 +9222,14 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
  *                 l_prime != l):
  */
       __pyx_t_8 = __pyx_v_l_prime;
-      __pyx_t_9 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=0 */ (__pyx_v_z.data + __pyx_t_8 * __pyx_v_z.strides[0]) ))) == 1) != 0);
+      __pyx_t_9 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_z.data + __pyx_t_8 * __pyx_v_z.strides[0]) ))) == 1) != 0);
       if (__pyx_t_9) {
       } else {
         __pyx_t_5 = __pyx_t_9;
         goto __pyx_L9_bool_binop_done;
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":594
+      /* "lom/_cython/matrix_updates.pyx":594
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and
  *                 u[d, l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -9238,14 +9238,14 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
  */
       __pyx_t_10 = __pyx_v_d;
       __pyx_t_11 = __pyx_v_l_prime;
-      __pyx_t_9 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_10 * __pyx_v_u.strides[0]) ) + __pyx_t_11 * __pyx_v_u.strides[1]) ))) == 1) != 0);
+      __pyx_t_9 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_10 * __pyx_v_u.strides[0]) ) + __pyx_t_11 * __pyx_v_u.strides[1]) ))) == 1) != 0);
       if (__pyx_t_9) {
       } else {
         __pyx_t_5 = __pyx_t_9;
         goto __pyx_L9_bool_binop_done;
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":595
+      /* "lom/_cython/matrix_updates.pyx":595
  *             if (z[l_prime] == 1 and
  *                 u[d, l_prime] == 1 and
  *                 l_prime != l):             # <<<<<<<<<<<<<<
@@ -9256,7 +9256,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
       __pyx_t_5 = __pyx_t_9;
       __pyx_L9_bool_binop_done:;
 
-      /* "lom/_cython/matrix_sampling.pyx":593
+      /* "lom/_cython/matrix_updates.pyx":593
  *         alrdy_active = False
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -9265,7 +9265,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
  */
       if (__pyx_t_5) {
 
-        /* "lom/_cython/matrix_sampling.pyx":596
+        /* "lom/_cython/matrix_updates.pyx":596
  *                 u[d, l_prime] == 1 and
  *                 l_prime != l):
  *                 alrdy_active = True             # <<<<<<<<<<<<<<
@@ -9274,7 +9274,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
  */
         __pyx_v_alrdy_active = 1;
 
-        /* "lom/_cython/matrix_sampling.pyx":597
+        /* "lom/_cython/matrix_updates.pyx":597
  *                 l_prime != l):
  *                 alrdy_active = True
  *                 break             # <<<<<<<<<<<<<<
@@ -9283,7 +9283,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
  */
         goto __pyx_L7_break;
 
-        /* "lom/_cython/matrix_sampling.pyx":593
+        /* "lom/_cython/matrix_updates.pyx":593
  *         alrdy_active = False
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -9294,7 +9294,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
     }
     __pyx_L7_break:;
 
-    /* "lom/_cython/matrix_sampling.pyx":599
+    /* "lom/_cython/matrix_updates.pyx":599
  *                 break
  * 
  *         if (alrdy_active is False):             # <<<<<<<<<<<<<<
@@ -9304,7 +9304,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
     __pyx_t_5 = ((__pyx_v_alrdy_active == 0) != 0);
     if (__pyx_t_5) {
 
-      /* "lom/_cython/matrix_sampling.pyx":600
+      /* "lom/_cython/matrix_updates.pyx":600
  * 
  *         if (alrdy_active is False):
  *             score += x[d]             # <<<<<<<<<<<<<<
@@ -9312,9 +9312,9 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
  *     return score
  */
       __pyx_t_12 = __pyx_v_d;
-      __pyx_v_score = (__pyx_v_score + (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_12 * __pyx_v_x.strides[0]) ))));
+      __pyx_v_score = (__pyx_v_score + (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_12 * __pyx_v_x.strides[0]) ))));
 
-      /* "lom/_cython/matrix_sampling.pyx":599
+      /* "lom/_cython/matrix_updates.pyx":599
  *                 break
  * 
  *         if (alrdy_active is False):             # <<<<<<<<<<<<<<
@@ -9325,7 +9325,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
     __pyx_L3_continue:;
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":602
+  /* "lom/_cython/matrix_updates.pyx":602
  *             score += x[d]
  * 
  *     return score             # <<<<<<<<<<<<<<
@@ -9335,7 +9335,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
   __pyx_r = __pyx_v_score;
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_sampling.pyx":573
+  /* "lom/_cython/matrix_updates.pyx":573
  * @boundscheck(False)
  * @wraparound(False)
  * cdef int score_no_parents_unified(             # <<<<<<<<<<<<<<
@@ -9348,7 +9348,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":605
+/* "lom/_cython/matrix_updates.pyx":605
  * 
  * 
  * cpdef int swap_gibbs(float p) nogil:             # <<<<<<<<<<<<<<
@@ -9356,12 +9356,12 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__Py
  *     Flip according to standard gibbs sampler
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_19swap_gibbs(PyObject *__pyx_self, PyObject *__pyx_arg_p); /*proto*/
-static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs(float __pyx_v_p, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_19swap_gibbs(PyObject *__pyx_self, PyObject *__pyx_arg_p); /*proto*/
+static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs(float __pyx_v_p, CYTHON_UNUSED int __pyx_skip_dispatch) {
   int __pyx_r;
   int __pyx_t_1;
 
-  /* "lom/_cython/matrix_sampling.pyx":609
+  /* "lom/_cython/matrix_updates.pyx":609
  *     Flip according to standard gibbs sampler
  *     """
  *     if rand()/float(RAND_MAX) > p:             # <<<<<<<<<<<<<<
@@ -9371,7 +9371,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs(float __pyx_v_p, C
   __pyx_t_1 = (((((double)rand()) / ((double)RAND_MAX)) > __pyx_v_p) != 0);
   if (__pyx_t_1) {
 
-    /* "lom/_cython/matrix_sampling.pyx":610
+    /* "lom/_cython/matrix_updates.pyx":610
  *     """
  *     if rand()/float(RAND_MAX) > p:
  *         return -1             # <<<<<<<<<<<<<<
@@ -9381,7 +9381,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs(float __pyx_v_p, C
     __pyx_r = -1;
     goto __pyx_L0;
 
-    /* "lom/_cython/matrix_sampling.pyx":609
+    /* "lom/_cython/matrix_updates.pyx":609
  *     Flip according to standard gibbs sampler
  *     """
  *     if rand()/float(RAND_MAX) > p:             # <<<<<<<<<<<<<<
@@ -9390,7 +9390,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs(float __pyx_v_p, C
  */
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":612
+  /* "lom/_cython/matrix_updates.pyx":612
  *         return -1
  *     else:
  *         return 1             # <<<<<<<<<<<<<<
@@ -9402,7 +9402,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs(float __pyx_v_p, C
     goto __pyx_L0;
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":605
+  /* "lom/_cython/matrix_updates.pyx":605
  * 
  * 
  * cpdef int swap_gibbs(float p) nogil:             # <<<<<<<<<<<<<<
@@ -9416,9 +9416,9 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs(float __pyx_v_p, C
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_19swap_gibbs(PyObject *__pyx_self, PyObject *__pyx_arg_p); /*proto*/
-static char __pyx_doc_3lom_7_cython_15matrix_sampling_18swap_gibbs[] = "\n    Flip according to standard gibbs sampler\n    ";
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_19swap_gibbs(PyObject *__pyx_self, PyObject *__pyx_arg_p) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_19swap_gibbs(PyObject *__pyx_self, PyObject *__pyx_arg_p); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_18swap_gibbs[] = "\n    Flip according to standard gibbs sampler\n    ";
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_19swap_gibbs(PyObject *__pyx_self, PyObject *__pyx_arg_p) {
   float __pyx_v_p;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -9428,24 +9428,24 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_19swap_gibbs(PyObject 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.swap_gibbs", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.swap_gibbs", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_18swap_gibbs(__pyx_self, ((float)__pyx_v_p));
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_18swap_gibbs(__pyx_self, ((float)__pyx_v_p));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_18swap_gibbs(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_18swap_gibbs(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("swap_gibbs", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs(__pyx_v_p, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 605, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs(__pyx_v_p, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 605, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9454,7 +9454,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_18swap_gibbs(CYTHON_UN
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.swap_gibbs", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.swap_gibbs", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -9462,7 +9462,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_18swap_gibbs(CYTHON_UN
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":618
+/* "lom/_cython/matrix_updates.pyx":618
  * # @cython.wraparound(False)
  * @cython.cdivision(True)
  * cpdef int swap_metropolised_gibbs_unified(float p, data_type_t x) nogil:             # <<<<<<<<<<<<<<
@@ -9470,13 +9470,13 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_18swap_gibbs(CYTHON_UN
  *     Given the p(x=1) and the current state of x \in {-1,1}.
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_21swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unified(float __pyx_v_p, __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_21swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(float __pyx_v_p, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch) {
   float __pyx_v_alpha;
   int __pyx_r;
   int __pyx_t_1;
 
-  /* "lom/_cython/matrix_sampling.pyx":624
+  /* "lom/_cython/matrix_updates.pyx":624
  *     """
  *     cdef float alpha
  *     if x == 1:             # <<<<<<<<<<<<<<
@@ -9486,7 +9486,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
   __pyx_t_1 = ((__pyx_v_x == 1) != 0);
   if (__pyx_t_1) {
 
-    /* "lom/_cython/matrix_sampling.pyx":625
+    /* "lom/_cython/matrix_updates.pyx":625
  *     cdef float alpha
  *     if x == 1:
  *         if p <= .5:             # <<<<<<<<<<<<<<
@@ -9496,7 +9496,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
     __pyx_t_1 = ((__pyx_v_p <= .5) != 0);
     if (__pyx_t_1) {
 
-      /* "lom/_cython/matrix_sampling.pyx":626
+      /* "lom/_cython/matrix_updates.pyx":626
  *     if x == 1:
  *         if p <= .5:
  *             return -x             # <<<<<<<<<<<<<<
@@ -9506,7 +9506,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
       __pyx_r = (-__pyx_v_x);
       goto __pyx_L0;
 
-      /* "lom/_cython/matrix_sampling.pyx":625
+      /* "lom/_cython/matrix_updates.pyx":625
  *     cdef float alpha
  *     if x == 1:
  *         if p <= .5:             # <<<<<<<<<<<<<<
@@ -9515,7 +9515,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
  */
     }
 
-    /* "lom/_cython/matrix_sampling.pyx":629
+    /* "lom/_cython/matrix_updates.pyx":629
  *             # alpha = 1 # TODO, can return -x here
  *         else:
  *             alpha = (1-p)/p             # <<<<<<<<<<<<<<
@@ -9526,7 +9526,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
       __pyx_v_alpha = ((1.0 - __pyx_v_p) / __pyx_v_p);
     }
 
-    /* "lom/_cython/matrix_sampling.pyx":624
+    /* "lom/_cython/matrix_updates.pyx":624
  *     """
  *     cdef float alpha
  *     if x == 1:             # <<<<<<<<<<<<<<
@@ -9536,7 +9536,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
     goto __pyx_L3;
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":631
+  /* "lom/_cython/matrix_updates.pyx":631
  *             alpha = (1-p)/p
  *     else:
  *         if p >= .5:             # <<<<<<<<<<<<<<
@@ -9547,7 +9547,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
     __pyx_t_1 = ((__pyx_v_p >= .5) != 0);
     if (__pyx_t_1) {
 
-      /* "lom/_cython/matrix_sampling.pyx":632
+      /* "lom/_cython/matrix_updates.pyx":632
  *     else:
  *         if p >= .5:
  *             alpha = 1             # <<<<<<<<<<<<<<
@@ -9556,7 +9556,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
  */
       __pyx_v_alpha = 1.0;
 
-      /* "lom/_cython/matrix_sampling.pyx":631
+      /* "lom/_cython/matrix_updates.pyx":631
  *             alpha = (1-p)/p
  *     else:
  *         if p >= .5:             # <<<<<<<<<<<<<<
@@ -9566,7 +9566,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
       goto __pyx_L5;
     }
 
-    /* "lom/_cython/matrix_sampling.pyx":634
+    /* "lom/_cython/matrix_updates.pyx":634
  *             alpha = 1
  *         else:
  *             alpha = p/(1-p)             # <<<<<<<<<<<<<<
@@ -9580,7 +9580,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
   }
   __pyx_L3:;
 
-  /* "lom/_cython/matrix_sampling.pyx":635
+  /* "lom/_cython/matrix_updates.pyx":635
  *         else:
  *             alpha = p/(1-p)
  *     if rand()/float(RAND_MAX) < alpha:             # <<<<<<<<<<<<<<
@@ -9590,7 +9590,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
   __pyx_t_1 = (((((double)rand()) / ((double)RAND_MAX)) < __pyx_v_alpha) != 0);
   if (__pyx_t_1) {
 
-    /* "lom/_cython/matrix_sampling.pyx":636
+    /* "lom/_cython/matrix_updates.pyx":636
  *             alpha = p/(1-p)
  *     if rand()/float(RAND_MAX) < alpha:
  *         return -x             # <<<<<<<<<<<<<<
@@ -9600,7 +9600,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
     __pyx_r = (-__pyx_v_x);
     goto __pyx_L0;
 
-    /* "lom/_cython/matrix_sampling.pyx":635
+    /* "lom/_cython/matrix_updates.pyx":635
  *         else:
  *             alpha = p/(1-p)
  *     if rand()/float(RAND_MAX) < alpha:             # <<<<<<<<<<<<<<
@@ -9609,7 +9609,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
  */
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":638
+  /* "lom/_cython/matrix_updates.pyx":638
  *         return -x
  *     else:
  *         return x             # <<<<<<<<<<<<<<
@@ -9621,7 +9621,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
     goto __pyx_L0;
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":618
+  /* "lom/_cython/matrix_updates.pyx":618
  * # @cython.wraparound(False)
  * @cython.cdivision(True)
  * cpdef int swap_metropolised_gibbs_unified(float p, data_type_t x) nogil:             # <<<<<<<<<<<<<<
@@ -9635,11 +9635,11 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unifi
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_21swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_15matrix_sampling_20swap_metropolised_gibbs_unified[] = "\n    Given the p(x=1) and the current state of x \\in {-1,1}.\n    Draw new x according to metropolised Gibbs sampler\n    ";
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_21swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_21swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_20swap_metropolised_gibbs_unified[] = "\n    Given the p(x=1) and the current state of x \\in {-1,1}.\n    Draw new x according to metropolised Gibbs sampler\n    ";
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_21swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   float __pyx_v_p;
-  __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x;
+  __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("swap_metropolised_gibbs_unified (wrapper)", 0);
@@ -9685,24 +9685,24 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_21swap_metropolised_gi
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("swap_metropolised_gibbs_unified", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 618, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.swap_metropolised_gibbs_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.swap_metropolised_gibbs_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_20swap_metropolised_gibbs_unified(__pyx_self, __pyx_v_p, __pyx_v_x);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_20swap_metropolised_gibbs_unified(__pyx_self, __pyx_v_p, __pyx_v_x);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_20swap_metropolised_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_20swap_metropolised_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("swap_metropolised_gibbs_unified", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unified(__pyx_v_p, __pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 618, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, __pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 618, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9711,7 +9711,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_20swap_metropolised_gi
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.swap_metropolised_gibbs_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.swap_metropolised_gibbs_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -9719,7 +9719,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_20swap_metropolised_gi
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":642
+/* "lom/_cython/matrix_updates.pyx":642
  * 
  * @cython.cdivision(True)
  * cpdef int swap_gibbs_unified(float p, data_type_t x) nogil:             # <<<<<<<<<<<<<<
@@ -9727,12 +9727,12 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_20swap_metropolised_gi
  *     Given the p(x=1) and the current state of x \in {-1,1}.
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_23swap_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs_unified(float __pyx_v_p, CYTHON_UNUSED __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_23swap_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs_unified(float __pyx_v_p, CYTHON_UNUSED __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch) {
   int __pyx_r;
   int __pyx_t_1;
 
-  /* "lom/_cython/matrix_sampling.pyx":648
+  /* "lom/_cython/matrix_updates.pyx":648
  *     """
  *     cdef float alpha
  *     if rand()/float(RAND_MAX) < p:             # <<<<<<<<<<<<<<
@@ -9742,7 +9742,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs_unified(float __py
   __pyx_t_1 = (((((double)rand()) / ((double)RAND_MAX)) < __pyx_v_p) != 0);
   if (__pyx_t_1) {
 
-    /* "lom/_cython/matrix_sampling.pyx":649
+    /* "lom/_cython/matrix_updates.pyx":649
  *     cdef float alpha
  *     if rand()/float(RAND_MAX) < p:
  *         return 1             # <<<<<<<<<<<<<<
@@ -9752,7 +9752,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs_unified(float __py
     __pyx_r = 1;
     goto __pyx_L0;
 
-    /* "lom/_cython/matrix_sampling.pyx":648
+    /* "lom/_cython/matrix_updates.pyx":648
  *     """
  *     cdef float alpha
  *     if rand()/float(RAND_MAX) < p:             # <<<<<<<<<<<<<<
@@ -9761,7 +9761,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs_unified(float __py
  */
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":651
+  /* "lom/_cython/matrix_updates.pyx":651
  *         return 1
  *     else:
  *         return -1             # <<<<<<<<<<<<<<
@@ -9773,7 +9773,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs_unified(float __py
     goto __pyx_L0;
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":642
+  /* "lom/_cython/matrix_updates.pyx":642
  * 
  * @cython.cdivision(True)
  * cpdef int swap_gibbs_unified(float p, data_type_t x) nogil:             # <<<<<<<<<<<<<<
@@ -9787,11 +9787,11 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs_unified(float __py
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_23swap_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_15matrix_sampling_22swap_gibbs_unified[] = "\n    Given the p(x=1) and the current state of x \\in {-1,1}.\n    Draw new x according to a standard Gibbs sampler\n    ";
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_23swap_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_23swap_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_22swap_gibbs_unified[] = "\n    Given the p(x=1) and the current state of x \\in {-1,1}.\n    Draw new x according to a standard Gibbs sampler\n    ";
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_23swap_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   float __pyx_v_p;
-  __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x;
+  __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("swap_gibbs_unified (wrapper)", 0);
@@ -9837,24 +9837,24 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_23swap_gibbs_unified(P
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("swap_gibbs_unified", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 642, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.swap_gibbs_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.swap_gibbs_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_22swap_gibbs_unified(__pyx_self, __pyx_v_p, __pyx_v_x);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_22swap_gibbs_unified(__pyx_self, __pyx_v_p, __pyx_v_x);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_22swap_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_22swap_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("swap_gibbs_unified", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_15matrix_sampling_swap_gibbs_unified(__pyx_v_p, __pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 642, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs_unified(__pyx_v_p, __pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 642, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9863,7 +9863,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_22swap_gibbs_unified(C
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.swap_gibbs_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.swap_gibbs_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -9871,7 +9871,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_22swap_gibbs_unified(C
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":654
+/* "lom/_cython/matrix_updates.pyx":654
  * 
  * 
  * cpdef float sigmoid(float x) nogil:             # <<<<<<<<<<<<<<
@@ -9879,12 +9879,12 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_22swap_gibbs_unified(C
  *     p = 1/(1+exp(-x))
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_25sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
-static float __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(float __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_25sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
+static float __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(float __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch) {
   float __pyx_v_p;
   float __pyx_r;
 
-  /* "lom/_cython/matrix_sampling.pyx":656
+  /* "lom/_cython/matrix_updates.pyx":656
  * cpdef float sigmoid(float x) nogil:
  *     cdef float p
  *     p = 1/(1+exp(-x))             # <<<<<<<<<<<<<<
@@ -9893,7 +9893,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(float __pyx_v_x, CY
  */
   __pyx_v_p = (1.0 / (1.0 + exp((-__pyx_v_x))));
 
-  /* "lom/_cython/matrix_sampling.pyx":657
+  /* "lom/_cython/matrix_updates.pyx":657
  *     cdef float p
  *     p = 1/(1+exp(-x))
  *     return p             # <<<<<<<<<<<<<<
@@ -9903,7 +9903,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(float __pyx_v_x, CY
   __pyx_r = __pyx_v_p;
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_sampling.pyx":654
+  /* "lom/_cython/matrix_updates.pyx":654
  * 
  * 
  * cpdef float sigmoid(float x) nogil:             # <<<<<<<<<<<<<<
@@ -9917,8 +9917,8 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(float __pyx_v_x, CY
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_25sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_25sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_25sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_25sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x) {
   float __pyx_v_x;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -9928,24 +9928,24 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_25sigmoid(PyObject *__
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.sigmoid", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.sigmoid", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_24sigmoid(__pyx_self, ((float)__pyx_v_x));
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_24sigmoid(__pyx_self, ((float)__pyx_v_x));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_24sigmoid(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_x) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_24sigmoid(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_x) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("sigmoid", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(__pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 654, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 654, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9954,7 +9954,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_24sigmoid(CYTHON_UNUSE
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.sigmoid", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.sigmoid", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -9962,7 +9962,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_24sigmoid(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":660
+/* "lom/_cython/matrix_updates.pyx":660
  * 
  * 
  * cpdef inline void compute_pred_accuracy(data_type_t[:,:] x,             # <<<<<<<<<<<<<<
@@ -9970,8 +9970,8 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_24sigmoid(CYTHON_UNUSE
  *                                         data_type_t[:,:] z,
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_27compute_pred_accuracy(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static CYTHON_INLINE void __pyx_f_3lom_7_cython_15matrix_sampling_compute_pred_accuracy(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_rates, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_27compute_pred_accuracy(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static CYTHON_INLINE void __pyx_f_3lom_7_cython_14matrix_updates_compute_pred_accuracy(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_rates, CYTHON_UNUSED int __pyx_skip_dispatch) {
   int __pyx_v_TP;
   int __pyx_v_FP;
   int __pyx_v_TN;
@@ -9995,7 +9995,7 @@ static CYTHON_INLINE void __pyx_f_3lom_7_cython_15matrix_sampling_compute_pred_a
   Py_ssize_t __pyx_t_14;
   Py_ssize_t __pyx_t_15;
 
-  /* "lom/_cython/matrix_sampling.pyx":665
+  /* "lom/_cython/matrix_updates.pyx":665
  *                                         long[:] rates) nogil:
  *     """ Compute false/true positive/negative rates. """
  *     cdef int TP=0, FP=0, TN=0, FN=0             # <<<<<<<<<<<<<<
@@ -10007,7 +10007,7 @@ static CYTHON_INLINE void __pyx_f_3lom_7_cython_15matrix_sampling_compute_pred_a
   __pyx_v_TN = 0;
   __pyx_v_FN = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":669
+  /* "lom/_cython/matrix_updates.pyx":669
  * 
  *     # for n in prange(x.shape[0], schedule='dynamic', nogil=True):
  *     for n in range(x.shape[0]):             # <<<<<<<<<<<<<<
@@ -10018,7 +10018,7 @@ static CYTHON_INLINE void __pyx_f_3lom_7_cython_15matrix_sampling_compute_pred_a
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_n = __pyx_t_2;
 
-    /* "lom/_cython/matrix_sampling.pyx":670
+    /* "lom/_cython/matrix_updates.pyx":670
  *     # for n in prange(x.shape[0], schedule='dynamic', nogil=True):
  *     for n in range(x.shape[0]):
  *         for d in range(x.shape[1]):             # <<<<<<<<<<<<<<
@@ -10029,7 +10029,7 @@ static CYTHON_INLINE void __pyx_f_3lom_7_cython_15matrix_sampling_compute_pred_a
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_d = __pyx_t_4;
 
-      /* "lom/_cython/matrix_sampling.pyx":671
+      /* "lom/_cython/matrix_updates.pyx":671
  *     for n in range(x.shape[0]):
  *         for d in range(x.shape[1]):
  *             g_temp = compute_g_alt_tilde_unified(u[d,:], z[n,:])             # <<<<<<<<<<<<<<
@@ -10088,7 +10088,7 @@ __pyx_t_6.shape[0] = __pyx_v_z.shape[1];
 __pyx_t_6.strides[0] = __pyx_v_z.strides[1];
     __pyx_t_6.suboffsets[0] = -1;
 
-__pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_unified(__pyx_t_5, __pyx_t_6);
+__pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unified(__pyx_t_5, __pyx_t_6);
       __PYX_XDEC_MEMVIEW(&__pyx_t_5, 0);
       __pyx_t_5.memview = NULL;
       __pyx_t_5.data = NULL;
@@ -10096,7 +10096,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
       __pyx_t_6.memview = NULL;
       __pyx_t_6.data = NULL;
 
-      /* "lom/_cython/matrix_sampling.pyx":672
+      /* "lom/_cython/matrix_updates.pyx":672
  *         for d in range(x.shape[1]):
  *             g_temp = compute_g_alt_tilde_unified(u[d,:], z[n,:])
  *             if g_temp == -1:             # <<<<<<<<<<<<<<
@@ -10106,7 +10106,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
       __pyx_t_7 = ((__pyx_v_g_temp == -1L) != 0);
       if (__pyx_t_7) {
 
-        /* "lom/_cython/matrix_sampling.pyx":673
+        /* "lom/_cython/matrix_updates.pyx":673
  *             g_temp = compute_g_alt_tilde_unified(u[d,:], z[n,:])
  *             if g_temp == -1:
  *                 if x[n,d] == -1:             # <<<<<<<<<<<<<<
@@ -10115,10 +10115,10 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
  */
         __pyx_t_8 = __pyx_v_n;
         __pyx_t_9 = __pyx_v_d;
-        __pyx_t_7 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_8 * __pyx_v_x.strides[0]) ) + __pyx_t_9 * __pyx_v_x.strides[1]) ))) == -1L) != 0);
+        __pyx_t_7 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_8 * __pyx_v_x.strides[0]) ) + __pyx_t_9 * __pyx_v_x.strides[1]) ))) == -1L) != 0);
         if (__pyx_t_7) {
 
-          /* "lom/_cython/matrix_sampling.pyx":674
+          /* "lom/_cython/matrix_updates.pyx":674
  *             if g_temp == -1:
  *                 if x[n,d] == -1:
  *                     TN += 1             # <<<<<<<<<<<<<<
@@ -10127,7 +10127,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
  */
           __pyx_v_TN = (__pyx_v_TN + 1);
 
-          /* "lom/_cython/matrix_sampling.pyx":673
+          /* "lom/_cython/matrix_updates.pyx":673
  *             g_temp = compute_g_alt_tilde_unified(u[d,:], z[n,:])
  *             if g_temp == -1:
  *                 if x[n,d] == -1:             # <<<<<<<<<<<<<<
@@ -10137,7 +10137,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
           goto __pyx_L8;
         }
 
-        /* "lom/_cython/matrix_sampling.pyx":676
+        /* "lom/_cython/matrix_updates.pyx":676
  *                     TN += 1
  *                 else:
  *                     FN += 1             # <<<<<<<<<<<<<<
@@ -10149,7 +10149,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
         }
         __pyx_L8:;
 
-        /* "lom/_cython/matrix_sampling.pyx":672
+        /* "lom/_cython/matrix_updates.pyx":672
  *         for d in range(x.shape[1]):
  *             g_temp = compute_g_alt_tilde_unified(u[d,:], z[n,:])
  *             if g_temp == -1:             # <<<<<<<<<<<<<<
@@ -10159,7 +10159,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
         goto __pyx_L7;
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":678
+      /* "lom/_cython/matrix_updates.pyx":678
  *                     FN += 1
  *             else:
  *                 if x[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -10169,10 +10169,10 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
       /*else*/ {
         __pyx_t_10 = __pyx_v_n;
         __pyx_t_11 = __pyx_v_d;
-        __pyx_t_7 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_10 * __pyx_v_x.strides[0]) ) + __pyx_t_11 * __pyx_v_x.strides[1]) ))) == 1) != 0);
+        __pyx_t_7 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_10 * __pyx_v_x.strides[0]) ) + __pyx_t_11 * __pyx_v_x.strides[1]) ))) == 1) != 0);
         if (__pyx_t_7) {
 
-          /* "lom/_cython/matrix_sampling.pyx":679
+          /* "lom/_cython/matrix_updates.pyx":679
  *             else:
  *                 if x[n,d] == 1:
  *                     TP += 1             # <<<<<<<<<<<<<<
@@ -10181,7 +10181,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
  */
           __pyx_v_TP = (__pyx_v_TP + 1);
 
-          /* "lom/_cython/matrix_sampling.pyx":678
+          /* "lom/_cython/matrix_updates.pyx":678
  *                     FN += 1
  *             else:
  *                 if x[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -10191,7 +10191,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
           goto __pyx_L9;
         }
 
-        /* "lom/_cython/matrix_sampling.pyx":681
+        /* "lom/_cython/matrix_updates.pyx":681
  *                     TP += 1
  *                 else:
  *                     FP += 1             # <<<<<<<<<<<<<<
@@ -10207,7 +10207,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
     }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":683
+  /* "lom/_cython/matrix_updates.pyx":683
  *                     FP += 1
  * 
  *     rates[0] = TP             # <<<<<<<<<<<<<<
@@ -10217,7 +10217,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
   __pyx_t_12 = 0;
   *((long *) ( /* dim=0 */ (__pyx_v_rates.data + __pyx_t_12 * __pyx_v_rates.strides[0]) )) = __pyx_v_TP;
 
-  /* "lom/_cython/matrix_sampling.pyx":684
+  /* "lom/_cython/matrix_updates.pyx":684
  * 
  *     rates[0] = TP
  *     rates[1] = FP             # <<<<<<<<<<<<<<
@@ -10227,7 +10227,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
   __pyx_t_13 = 1;
   *((long *) ( /* dim=0 */ (__pyx_v_rates.data + __pyx_t_13 * __pyx_v_rates.strides[0]) )) = __pyx_v_FP;
 
-  /* "lom/_cython/matrix_sampling.pyx":685
+  /* "lom/_cython/matrix_updates.pyx":685
  *     rates[0] = TP
  *     rates[1] = FP
  *     rates[2] = TN             # <<<<<<<<<<<<<<
@@ -10237,7 +10237,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
   __pyx_t_14 = 2;
   *((long *) ( /* dim=0 */ (__pyx_v_rates.data + __pyx_t_14 * __pyx_v_rates.strides[0]) )) = __pyx_v_TN;
 
-  /* "lom/_cython/matrix_sampling.pyx":686
+  /* "lom/_cython/matrix_updates.pyx":686
  *     rates[1] = FP
  *     rates[2] = TN
  *     rates[3] = FN             # <<<<<<<<<<<<<<
@@ -10247,7 +10247,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
   __pyx_t_15 = 3;
   *((long *) ( /* dim=0 */ (__pyx_v_rates.data + __pyx_t_15 * __pyx_v_rates.strides[0]) )) = __pyx_v_FN;
 
-  /* "lom/_cython/matrix_sampling.pyx":688
+  /* "lom/_cython/matrix_updates.pyx":688
  *     rates[3] = FN
  * 
  *     return             # <<<<<<<<<<<<<<
@@ -10256,7 +10256,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
  */
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_sampling.pyx":660
+  /* "lom/_cython/matrix_updates.pyx":660
  * 
  * 
  * cpdef inline void compute_pred_accuracy(data_type_t[:,:] x,             # <<<<<<<<<<<<<<
@@ -10268,14 +10268,14 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_uni
   __pyx_L1_error:;
   __PYX_XDEC_MEMVIEW(&__pyx_t_5, 0);
   __PYX_XDEC_MEMVIEW(&__pyx_t_6, 0);
-  __Pyx_WriteUnraisable("lom._cython.matrix_sampling.compute_pred_accuracy", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 1);
+  __Pyx_WriteUnraisable("lom._cython.matrix_updates.compute_pred_accuracy", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 1);
   __pyx_L0:;
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_27compute_pred_accuracy(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_15matrix_sampling_26compute_pred_accuracy[] = " Compute false/true positive/negative rates. ";
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_27compute_pred_accuracy(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_27compute_pred_accuracy(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_26compute_pred_accuracy[] = " Compute false/true positive/negative rates. ";
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_27compute_pred_accuracy(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -10336,27 +10336,27 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_27compute_pred_accurac
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 660, __pyx_L3_error)
-    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 661, __pyx_L3_error)
-    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 662, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 660, __pyx_L3_error)
+    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 661, __pyx_L3_error)
+    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 662, __pyx_L3_error)
     __pyx_v_rates = __Pyx_PyObject_to_MemoryviewSlice_ds_long(values[3]); if (unlikely(!__pyx_v_rates.memview)) __PYX_ERR(0, 663, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("compute_pred_accuracy", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 660, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.compute_pred_accuracy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.compute_pred_accuracy", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_26compute_pred_accuracy(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_rates);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_26compute_pred_accuracy(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_rates);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_26compute_pred_accuracy(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_rates) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_26compute_pred_accuracy(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_rates) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -10366,7 +10366,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_26compute_pred_accurac
   if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 660, __pyx_L1_error) }
   if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 660, __pyx_L1_error) }
   if (unlikely(!__pyx_v_rates.memview)) { __Pyx_RaiseUnboundLocalError("rates"); __PYX_ERR(0, 660, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_15matrix_sampling_compute_pred_accuracy(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_rates, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 660, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_14matrix_updates_compute_pred_accuracy(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_rates, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 660, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -10375,7 +10375,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_26compute_pred_accurac
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.compute_pred_accuracy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.compute_pred_accuracy", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_x, 1);
@@ -10387,7 +10387,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_26compute_pred_accurac
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":692
+/* "lom/_cython/matrix_updates.pyx":692
  * @wraparound(False)
  * @boundscheck(False)
  * cpdef int compute_P_parallel(data_type_t[:,:] x,             # <<<<<<<<<<<<<<
@@ -10395,8 +10395,8 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_26compute_pred_accurac
  *                              data_type_t[:,:] z):
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_29compute_P_parallel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_f_3lom_7_cython_15matrix_sampling_compute_P_parallel(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_29compute_P_parallel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_f_3lom_7_cython_14matrix_updates_compute_P_parallel(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, CYTHON_UNUSED int __pyx_skip_dispatch) {
   int __pyx_v_n;
   int __pyx_v_d;
   CYTHON_UNUSED int __pyx_v_N;
@@ -10416,7 +10416,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_compute_P_parallel(__Pyx_memv
   int __pyx_t_10;
   __Pyx_RefNannySetupContext("compute_P_parallel", 0);
 
-  /* "lom/_cython/matrix_sampling.pyx":701
+  /* "lom/_cython/matrix_updates.pyx":701
  *     cdef:
  *         int n, d
  *         int N = x.shape[0]             # <<<<<<<<<<<<<<
@@ -10425,7 +10425,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_compute_P_parallel(__Pyx_memv
  */
   __pyx_v_N = (__pyx_v_x.shape[0]);
 
-  /* "lom/_cython/matrix_sampling.pyx":702
+  /* "lom/_cython/matrix_updates.pyx":702
  *         int n, d
  *         int N = x.shape[0]
  *         int D = x.shape[1]             # <<<<<<<<<<<<<<
@@ -10434,7 +10434,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_compute_P_parallel(__Pyx_memv
  */
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_sampling.pyx":703
+  /* "lom/_cython/matrix_updates.pyx":703
  *         int N = x.shape[0]
  *         int D = x.shape[1]
  *         int P = 0             # <<<<<<<<<<<<<<
@@ -10443,7 +10443,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_compute_P_parallel(__Pyx_memv
  */
   __pyx_v_P = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":705
+  /* "lom/_cython/matrix_updates.pyx":705
  *         int P = 0
  * 
  *     for n in prange(N, schedule='guided', nogil=True):             # <<<<<<<<<<<<<<
@@ -10496,7 +10496,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_compute_P_parallel(__Pyx_memv
                             /* Initialize private variables to invalid values */
                             __pyx_v_d = ((int)0xbad0bad0);
 
-                            /* "lom/_cython/matrix_sampling.pyx":706
+                            /* "lom/_cython/matrix_updates.pyx":706
  * 
  *     for n in prange(N, schedule='guided', nogil=True):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -10507,7 +10507,7 @@ static int __pyx_f_3lom_7_cython_15matrix_sampling_compute_P_parallel(__Pyx_memv
                             for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
                               __pyx_v_d = __pyx_t_5;
 
-                              /* "lom/_cython/matrix_sampling.pyx":707
+                              /* "lom/_cython/matrix_updates.pyx":707
  *     for n in prange(N, schedule='guided', nogil=True):
  *         for d in range(D):
  *             if compute_g_alt_tilde_unified(u[d,:], z[n,:]) == x[n, d]:             # <<<<<<<<<<<<<<
@@ -10568,7 +10568,7 @@ __pyx_t_7.strides[0] = __pyx_v_z.strides[1];
 
 __pyx_t_8 = __pyx_v_n;
                               __pyx_t_9 = __pyx_v_d;
-                              __pyx_t_10 = ((__pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_unified(__pyx_t_6, __pyx_t_7) == (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_8 * __pyx_v_x.strides[0]) ) + __pyx_t_9 * __pyx_v_x.strides[1]) )))) != 0);
+                              __pyx_t_10 = ((__pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unified(__pyx_t_6, __pyx_t_7) == (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_8 * __pyx_v_x.strides[0]) ) + __pyx_t_9 * __pyx_v_x.strides[1]) )))) != 0);
                               __PYX_XDEC_MEMVIEW(&__pyx_t_6, 0);
                               __pyx_t_6.memview = NULL;
                               __pyx_t_6.data = NULL;
@@ -10577,7 +10577,7 @@ __pyx_t_8 = __pyx_v_n;
                               __pyx_t_7.data = NULL;
                               if (__pyx_t_10) {
 
-                                /* "lom/_cython/matrix_sampling.pyx":708
+                                /* "lom/_cython/matrix_updates.pyx":708
  *         for d in range(D):
  *             if compute_g_alt_tilde_unified(u[d,:], z[n,:]) == x[n, d]:
  *                 P += 1             # <<<<<<<<<<<<<<
@@ -10586,7 +10586,7 @@ __pyx_t_8 = __pyx_v_n;
  */
                                 __pyx_v_P = (__pyx_v_P + 1);
 
-                                /* "lom/_cython/matrix_sampling.pyx":707
+                                /* "lom/_cython/matrix_updates.pyx":707
  *     for n in prange(N, schedule='guided', nogil=True):
  *         for d in range(D):
  *             if compute_g_alt_tilde_unified(u[d,:], z[n,:]) == x[n, d]:             # <<<<<<<<<<<<<<
@@ -10682,7 +10682,7 @@ __pyx_t_8 = __pyx_v_n;
         #endif
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":705
+      /* "lom/_cython/matrix_updates.pyx":705
  *         int P = 0
  * 
  *     for n in prange(N, schedule='guided', nogil=True):             # <<<<<<<<<<<<<<
@@ -10708,7 +10708,7 @@ __pyx_t_8 = __pyx_v_n;
       }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":710
+  /* "lom/_cython/matrix_updates.pyx":710
  *                 P += 1
  * 
  *     return P             # <<<<<<<<<<<<<<
@@ -10718,7 +10718,7 @@ __pyx_t_8 = __pyx_v_n;
   __pyx_r = __pyx_v_P;
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_sampling.pyx":692
+  /* "lom/_cython/matrix_updates.pyx":692
  * @wraparound(False)
  * @boundscheck(False)
  * cpdef int compute_P_parallel(data_type_t[:,:] x,             # <<<<<<<<<<<<<<
@@ -10730,7 +10730,7 @@ __pyx_t_8 = __pyx_v_n;
   __pyx_L1_error:;
   __PYX_XDEC_MEMVIEW(&__pyx_t_6, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_7, 1);
-  __Pyx_WriteUnraisable("lom._cython.matrix_sampling.compute_P_parallel", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("lom._cython.matrix_updates.compute_P_parallel", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -10738,9 +10738,9 @@ __pyx_t_8 = __pyx_v_n;
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_29compute_P_parallel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_15matrix_sampling_28compute_P_parallel[] = " \n    compute number of deterministically correct predictions \n    ";
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_29compute_P_parallel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_29compute_P_parallel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_28compute_P_parallel[] = " \n    compute number of deterministically correct predictions \n    ";
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_29compute_P_parallel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -10791,26 +10791,26 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_29compute_P_parallel(P
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 692, __pyx_L3_error)
-    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 693, __pyx_L3_error)
-    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 694, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 692, __pyx_L3_error)
+    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 693, __pyx_L3_error)
+    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 694, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("compute_P_parallel", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 692, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.compute_P_parallel", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.compute_P_parallel", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_28compute_P_parallel(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_28compute_P_parallel(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_28compute_P_parallel(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_28compute_P_parallel(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -10819,7 +10819,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_28compute_P_parallel(C
   if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 692, __pyx_L1_error) }
   if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 692, __pyx_L1_error) }
   if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 692, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_15matrix_sampling_compute_P_parallel(__pyx_v_x, __pyx_v_u, __pyx_v_z, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 692, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_14matrix_updates_compute_P_parallel(__pyx_v_x, __pyx_v_u, __pyx_v_z, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 692, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -10828,7 +10828,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_28compute_P_parallel(C
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.compute_P_parallel", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.compute_P_parallel", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_x, 1);
@@ -10839,7 +10839,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_28compute_P_parallel(C
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":713
+/* "lom/_cython/matrix_updates.pyx":713
  * 
  * 
  * cpdef long compute_P(data_type_t[:,:] x,             # <<<<<<<<<<<<<<
@@ -10847,8 +10847,8 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_28compute_P_parallel(C
  *                      data_type_t[:,:] z):
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_31compute_P(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static long __pyx_f_3lom_7_cython_15matrix_sampling_compute_P(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_31compute_P(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static long __pyx_f_3lom_7_cython_14matrix_updates_compute_P(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, CYTHON_UNUSED int __pyx_skip_dispatch) {
   long __pyx_v_P;
   int __pyx_v_d;
   int __pyx_v_n;
@@ -10865,7 +10865,7 @@ static long __pyx_f_3lom_7_cython_15matrix_sampling_compute_P(__Pyx_memviewslice
   int __pyx_t_9;
   __Pyx_RefNannySetupContext("compute_P", 0);
 
-  /* "lom/_cython/matrix_sampling.pyx":720
+  /* "lom/_cython/matrix_updates.pyx":720
  *     """
  * 
  *     cdef long P = 0             # <<<<<<<<<<<<<<
@@ -10874,7 +10874,7 @@ static long __pyx_f_3lom_7_cython_15matrix_sampling_compute_P(__Pyx_memviewslice
  */
   __pyx_v_P = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":724
+  /* "lom/_cython/matrix_updates.pyx":724
  * 
  *     # for n in range(x.shape[0]):
  *     for n in range(x.shape[0]):             # <<<<<<<<<<<<<<
@@ -10885,7 +10885,7 @@ static long __pyx_f_3lom_7_cython_15matrix_sampling_compute_P(__Pyx_memviewslice
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_n = __pyx_t_2;
 
-    /* "lom/_cython/matrix_sampling.pyx":725
+    /* "lom/_cython/matrix_updates.pyx":725
  *     # for n in range(x.shape[0]):
  *     for n in range(x.shape[0]):
  *         for d in range(x.shape[1]):             # <<<<<<<<<<<<<<
@@ -10896,7 +10896,7 @@ static long __pyx_f_3lom_7_cython_15matrix_sampling_compute_P(__Pyx_memviewslice
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_d = __pyx_t_4;
 
-      /* "lom/_cython/matrix_sampling.pyx":726
+      /* "lom/_cython/matrix_updates.pyx":726
  *     for n in range(x.shape[0]):
  *         for d in range(x.shape[1]):
  *             if compute_g_alt_tilde_unified(u[d,:], z[n,:]) == x[n, d]:             # <<<<<<<<<<<<<<
@@ -10945,7 +10945,7 @@ __pyx_t_6.strides[0] = __pyx_v_z.strides[1];
 
 __pyx_t_7 = __pyx_v_n;
       __pyx_t_8 = __pyx_v_d;
-      __pyx_t_9 = ((__pyx_f_3lom_7_cython_15matrix_sampling_compute_g_alt_tilde_unified(__pyx_t_5, __pyx_t_6) == (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_7 * __pyx_v_x.strides[0]) ) + __pyx_t_8 * __pyx_v_x.strides[1]) )))) != 0);
+      __pyx_t_9 = ((__pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unified(__pyx_t_5, __pyx_t_6) == (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_7 * __pyx_v_x.strides[0]) ) + __pyx_t_8 * __pyx_v_x.strides[1]) )))) != 0);
       __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
       __pyx_t_5.memview = NULL;
       __pyx_t_5.data = NULL;
@@ -10954,7 +10954,7 @@ __pyx_t_7 = __pyx_v_n;
       __pyx_t_6.data = NULL;
       if (__pyx_t_9) {
 
-        /* "lom/_cython/matrix_sampling.pyx":727
+        /* "lom/_cython/matrix_updates.pyx":727
  *         for d in range(x.shape[1]):
  *             if compute_g_alt_tilde_unified(u[d,:], z[n,:]) == x[n, d]:
  *                 P += 1             # <<<<<<<<<<<<<<
@@ -10963,7 +10963,7 @@ __pyx_t_7 = __pyx_v_n;
  */
         __pyx_v_P = (__pyx_v_P + 1);
 
-        /* "lom/_cython/matrix_sampling.pyx":726
+        /* "lom/_cython/matrix_updates.pyx":726
  *     for n in range(x.shape[0]):
  *         for d in range(x.shape[1]):
  *             if compute_g_alt_tilde_unified(u[d,:], z[n,:]) == x[n, d]:             # <<<<<<<<<<<<<<
@@ -10974,7 +10974,7 @@ __pyx_t_7 = __pyx_v_n;
     }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":728
+  /* "lom/_cython/matrix_updates.pyx":728
  *             if compute_g_alt_tilde_unified(u[d,:], z[n,:]) == x[n, d]:
  *                 P += 1
  *     return P             # <<<<<<<<<<<<<<
@@ -10984,7 +10984,7 @@ __pyx_t_7 = __pyx_v_n;
   __pyx_r = __pyx_v_P;
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_sampling.pyx":713
+  /* "lom/_cython/matrix_updates.pyx":713
  * 
  * 
  * cpdef long compute_P(data_type_t[:,:] x,             # <<<<<<<<<<<<<<
@@ -10996,7 +10996,7 @@ __pyx_t_7 = __pyx_v_n;
   __pyx_L1_error:;
   __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_6, 1);
-  __Pyx_WriteUnraisable("lom._cython.matrix_sampling.compute_P", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("lom._cython.matrix_updates.compute_P", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -11004,9 +11004,9 @@ __pyx_t_7 = __pyx_v_n;
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_31compute_P(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_15matrix_sampling_30compute_P[] = " \n    compute number of deterministically correct predictions \n    ";
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_31compute_P(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_31compute_P(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_30compute_P[] = " \n    compute number of deterministically correct predictions \n    ";
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_31compute_P(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -11057,26 +11057,26 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_31compute_P(PyObject *
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 713, __pyx_L3_error)
-    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 714, __pyx_L3_error)
-    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 715, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 713, __pyx_L3_error)
+    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 714, __pyx_L3_error)
+    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 715, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("compute_P", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 713, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.compute_P", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.compute_P", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_30compute_P(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_30compute_P(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_30compute_P(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_30compute_P(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -11085,7 +11085,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_30compute_P(CYTHON_UNU
   if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 713, __pyx_L1_error) }
   if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 713, __pyx_L1_error) }
   if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 713, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_f_3lom_7_cython_15matrix_sampling_compute_P(__pyx_v_x, __pyx_v_u, __pyx_v_z, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 713, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_f_3lom_7_cython_14matrix_updates_compute_P(__pyx_v_x, __pyx_v_u, __pyx_v_z, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 713, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -11094,7 +11094,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_30compute_P(CYTHON_UNU
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.compute_P", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.compute_P", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_x, 1);
@@ -11105,7 +11105,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_30compute_P(CYTHON_UNU
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":731
+/* "lom/_cython/matrix_updates.pyx":731
  * 
  * 
  * cpdef void probabilistc_output(double[:,:] x,             # <<<<<<<<<<<<<<
@@ -11113,8 +11113,8 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_30compute_P(CYTHON_UNU
  *                                double[:,:] z,
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_33probabilistc_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_33probabilistc_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L, CYTHON_UNUSED int __pyx_skip_dispatch) {
   float __pyx_v_p_dn;
   float __pyx_v_sgmd_lbda;
   int __pyx_v_d;
@@ -11135,16 +11135,16 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output(__Pyx_me
   Py_ssize_t __pyx_t_12;
   __Pyx_RefNannySetupContext("probabilistc_output", 0);
 
-  /* "lom/_cython/matrix_sampling.pyx":741
+  /* "lom/_cython/matrix_updates.pyx":741
  *     """
  * 
  *     sgmd_lbda = sigmoid(lbda)             # <<<<<<<<<<<<<<
  *     for d in range(D):
  *         for n in range(N):
  */
-  __pyx_v_sgmd_lbda = __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(__pyx_v_lbda, 0);
+  __pyx_v_sgmd_lbda = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_lbda, 0);
 
-  /* "lom/_cython/matrix_sampling.pyx":742
+  /* "lom/_cython/matrix_updates.pyx":742
  * 
  *     sgmd_lbda = sigmoid(lbda)
  *     for d in range(D):             # <<<<<<<<<<<<<<
@@ -11155,7 +11155,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output(__Pyx_me
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_d = __pyx_t_2;
 
-    /* "lom/_cython/matrix_sampling.pyx":743
+    /* "lom/_cython/matrix_updates.pyx":743
  *     sgmd_lbda = sigmoid(lbda)
  *     for d in range(D):
  *         for n in range(N):             # <<<<<<<<<<<<<<
@@ -11166,7 +11166,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output(__Pyx_me
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_n = __pyx_t_4;
 
-      /* "lom/_cython/matrix_sampling.pyx":744
+      /* "lom/_cython/matrix_updates.pyx":744
  *     for d in range(D):
  *         for n in range(N):
  *             p_dn = 1             # <<<<<<<<<<<<<<
@@ -11175,7 +11175,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output(__Pyx_me
  */
       __pyx_v_p_dn = 1.0;
 
-      /* "lom/_cython/matrix_sampling.pyx":745
+      /* "lom/_cython/matrix_updates.pyx":745
  *         for n in range(N):
  *             p_dn = 1
  *             for l in range(L):             # <<<<<<<<<<<<<<
@@ -11186,7 +11186,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output(__Pyx_me
       for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
         __pyx_v_l = __pyx_t_6;
 
-        /* "lom/_cython/matrix_sampling.pyx":746
+        /* "lom/_cython/matrix_updates.pyx":746
  *             p_dn = 1
  *             for l in range(L):
  *                 p_dn = p_dn * ( 1 - u[d,l]*z[n,l] )             # <<<<<<<<<<<<<<
@@ -11200,7 +11200,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output(__Pyx_me
         __pyx_v_p_dn = (__pyx_v_p_dn * (1.0 - ((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_7 * __pyx_v_u.strides[0]) ) + __pyx_t_8 * __pyx_v_u.strides[1]) ))) * (*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_z.data + __pyx_t_9 * __pyx_v_z.strides[0]) ) + __pyx_t_10 * __pyx_v_z.strides[1]) ))))));
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":747
+      /* "lom/_cython/matrix_updates.pyx":747
  *             for l in range(L):
  *                 p_dn = p_dn * ( 1 - u[d,l]*z[n,l] )
  *             x[n, d] = (sgmd_lbda * (1-p_dn) + (p_dn*(1-sgmd_lbda) ) )             # <<<<<<<<<<<<<<
@@ -11213,7 +11213,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output(__Pyx_me
     }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":731
+  /* "lom/_cython/matrix_updates.pyx":731
  * 
  * 
  * cpdef void probabilistc_output(double[:,:] x,             # <<<<<<<<<<<<<<
@@ -11226,8 +11226,8 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output(__Pyx_me
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_33probabilistc_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_33probabilistc_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_33probabilistc_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_33probabilistc_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -11330,18 +11330,18 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_33probabilistc_output(
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 731, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.probabilistc_output", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.probabilistc_output", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_32probabilistc_output(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_D, __pyx_v_N, __pyx_v_L);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_32probabilistc_output(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_D, __pyx_v_N, __pyx_v_L);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_32probabilistc_output(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_32probabilistc_output(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -11350,7 +11350,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_32probabilistc_output(
   if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 731, __pyx_L1_error) }
   if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 731, __pyx_L1_error) }
   if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 731, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_D, __pyx_v_N, __pyx_v_L, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 731, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_D, __pyx_v_N, __pyx_v_L, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 731, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -11359,7 +11359,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_32probabilistc_output(
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.probabilistc_output", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.probabilistc_output", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_x, 1);
@@ -11370,7 +11370,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_32probabilistc_output(
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":750
+/* "lom/_cython/matrix_updates.pyx":750
  * 
  * 
  * cpdef void probabilistic_output_maxmachine(double[:,:] x,             # <<<<<<<<<<<<<<
@@ -11378,8 +11378,8 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_32probabilistc_output(
  *                                            double[:,:] z,
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_35probabilistic_output_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistic_output_maxmachine(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_pvec, __Pyx_memviewslice __pyx_v_l_dcr, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_35probabilistic_output_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistic_output_maxmachine(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_pvec, __Pyx_memviewslice __pyx_v_l_dcr, CYTHON_UNUSED int __pyx_skip_dispatch) {
   int __pyx_v_D;
   int __pyx_v_L;
   int __pyx_v_N;
@@ -11447,7 +11447,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistic_output_maxmach
   __Pyx_RefNannySetupContext("probabilistic_output_maxmachine", 0);
   __PYX_INC_MEMVIEW(&__pyx_v_l_dcr, 1);
 
-  /* "lom/_cython/matrix_sampling.pyx":758
+  /* "lom/_cython/matrix_updates.pyx":758
  * 
  *     cdef float s1
  *     cdef int D = u.shape[0]             # <<<<<<<<<<<<<<
@@ -11456,7 +11456,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistic_output_maxmach
  */
   __pyx_v_D = (__pyx_v_u.shape[0]);
 
-  /* "lom/_cython/matrix_sampling.pyx":759
+  /* "lom/_cython/matrix_updates.pyx":759
  *     cdef float s1
  *     cdef int D = u.shape[0]
  *     cdef int L = u.shape[1]             # <<<<<<<<<<<<<<
@@ -11465,7 +11465,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistic_output_maxmach
  */
   __pyx_v_L = (__pyx_v_u.shape[1]);
 
-  /* "lom/_cython/matrix_sampling.pyx":760
+  /* "lom/_cython/matrix_updates.pyx":760
  *     cdef int D = u.shape[0]
  *     cdef int L = u.shape[1]
  *     cdef int N = z.shape[0]             # <<<<<<<<<<<<<<
@@ -11474,7 +11474,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistic_output_maxmach
  */
   __pyx_v_N = (__pyx_v_z.shape[0]);
 
-  /* "lom/_cython/matrix_sampling.pyx":773
+  /* "lom/_cython/matrix_updates.pyx":773
  * 
  *     # for d in prange(D, schedule=''dynamic'', nogil=False):
  *     for d in range(D):             # <<<<<<<<<<<<<<
@@ -11485,7 +11485,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistic_output_maxmach
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_d = __pyx_t_2;
 
-    /* "lom/_cython/matrix_sampling.pyx":774
+    /* "lom/_cython/matrix_updates.pyx":774
  *     # for d in prange(D, schedule=''dynamic'', nogil=False):
  *     for d in range(D):
  *         for n in range(N):             # <<<<<<<<<<<<<<
@@ -11496,7 +11496,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistic_output_maxmach
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_n = __pyx_t_4;
 
-      /* "lom/_cython/matrix_sampling.pyx":775
+      /* "lom/_cython/matrix_updates.pyx":775
  *     for d in range(D):
  *         for n in range(N):
  *             for l in range(L):             # <<<<<<<<<<<<<<
@@ -11507,7 +11507,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistic_output_maxmach
       for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
         __pyx_v_l = __pyx_t_6;
 
-        /* "lom/_cython/matrix_sampling.pyx":776
+        /* "lom/_cython/matrix_updates.pyx":776
  *         for n in range(N):
  *             for l in range(L):
  *                 l_dcr = np.array(np.argsort(np.multiply(             # <<<<<<<<<<<<<<
@@ -11530,7 +11530,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistic_output_maxmach
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-        /* "lom/_cython/matrix_sampling.pyx":777
+        /* "lom/_cython/matrix_updates.pyx":777
  *             for l in range(L):
  *                 l_dcr = np.array(np.argsort(np.multiply(
  *                     np.multiply(alpha[:-1], z[n,:]),u[d,:]))[::-1],             # <<<<<<<<<<<<<<
@@ -11766,7 +11766,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-        /* "lom/_cython/matrix_sampling.pyx":776
+        /* "lom/_cython/matrix_updates.pyx":776
  *         for n in range(N):
  *             for l in range(L):
  *                 l_dcr = np.array(np.argsort(np.multiply(             # <<<<<<<<<<<<<<
@@ -11779,7 +11779,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "lom/_cython/matrix_sampling.pyx":778
+        /* "lom/_cython/matrix_updates.pyx":778
  *                 l_dcr = np.array(np.argsort(np.multiply(
  *                     np.multiply(alpha[:-1], z[n,:]),u[d,:]))[::-1],
  *                                  dtype=np.int32)             # <<<<<<<<<<<<<<
@@ -11796,7 +11796,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_dtype, __pyx_t_9) < 0) __PYX_ERR(0, 778, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-        /* "lom/_cython/matrix_sampling.pyx":776
+        /* "lom/_cython/matrix_updates.pyx":776
  *         for n in range(N):
  *             for l in range(L):
  *                 l_dcr = np.array(np.argsort(np.multiply(             # <<<<<<<<<<<<<<
@@ -11816,7 +11816,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         __pyx_t_20.memview = NULL;
         __pyx_t_20.data = NULL;
 
-        /* "lom/_cython/matrix_sampling.pyx":781
+        /* "lom/_cython/matrix_updates.pyx":781
  *                 #print(l_dcr)
  *                 #print('lala')
  *                 pvec[l] = 1 - (z[n,l_dcr[l]] * u[d,l_dcr[l]])             # <<<<<<<<<<<<<<
@@ -11832,7 +11832,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         __pyx_t_27 = __pyx_v_l;
         *((double *) ( /* dim=0 */ (__pyx_v_pvec.data + __pyx_t_27 * __pyx_v_pvec.strides[0]) )) = (1.0 - ((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_z.data + __pyx_t_22 * __pyx_v_z.strides[0]) ) + __pyx_t_23 * __pyx_v_z.strides[1]) ))) * (*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_25 * __pyx_v_u.strides[0]) ) + __pyx_t_26 * __pyx_v_u.strides[1]) )))));
 
-        /* "lom/_cython/matrix_sampling.pyx":782
+        /* "lom/_cython/matrix_updates.pyx":782
  *                 #print('lala')
  *                 pvec[l] = 1 - (z[n,l_dcr[l]] * u[d,l_dcr[l]])
  *                 for l_prime in range(l):             # <<<<<<<<<<<<<<
@@ -11843,7 +11843,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         for (__pyx_t_28 = 0; __pyx_t_28 < __pyx_t_16; __pyx_t_28+=1) {
           __pyx_v_l_prime = __pyx_t_28;
 
-          /* "lom/_cython/matrix_sampling.pyx":783
+          /* "lom/_cython/matrix_updates.pyx":783
  *                 pvec[l] = 1 - (z[n,l_dcr[l]] * u[d,l_dcr[l]])
  *                 for l_prime in range(l):
  *                     pvec[l] = pvec[l] * pvec[l_prime]             # <<<<<<<<<<<<<<
@@ -11857,7 +11857,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         }
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":785
+      /* "lom/_cython/matrix_updates.pyx":785
  *                     pvec[l] = pvec[l] * pvec[l_prime]
  * 
  *             x[n,d] = z[n,l_dcr[0]]*u[d,l_dcr[0]]*alpha[l_dcr[0]]             # <<<<<<<<<<<<<<
@@ -11876,7 +11876,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
       __pyx_t_41 = __pyx_v_d;
       *((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_40 * __pyx_v_x.strides[0]) ) + __pyx_t_41 * __pyx_v_x.strides[1]) )) = (((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_z.data + __pyx_t_33 * __pyx_v_z.strides[0]) ) + __pyx_t_34 * __pyx_v_z.strides[1]) ))) * (*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_36 * __pyx_v_u.strides[0]) ) + __pyx_t_37 * __pyx_v_u.strides[1]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_alpha.data + __pyx_t_39 * __pyx_v_alpha.strides[0]) ))));
 
-      /* "lom/_cython/matrix_sampling.pyx":786
+      /* "lom/_cython/matrix_updates.pyx":786
  * 
  *             x[n,d] = z[n,l_dcr[0]]*u[d,l_dcr[0]]*alpha[l_dcr[0]]
  *             for l in range(1,L):             # <<<<<<<<<<<<<<
@@ -11887,7 +11887,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
       for (__pyx_t_6 = 1; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
         __pyx_v_l = __pyx_t_6;
 
-        /* "lom/_cython/matrix_sampling.pyx":787
+        /* "lom/_cython/matrix_updates.pyx":787
  *             x[n,d] = z[n,l_dcr[0]]*u[d,l_dcr[0]]*alpha[l_dcr[0]]
  *             for l in range(1,L):
  *                 x[n,d] += z[n,l_dcr[l]]*u[d,l_dcr[l]]*alpha[l_dcr[l]]*pvec[l-1]             # <<<<<<<<<<<<<<
@@ -11908,7 +11908,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         *((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_51 * __pyx_v_x.strides[0]) ) + __pyx_t_52 * __pyx_v_x.strides[1]) )) += ((((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_z.data + __pyx_t_43 * __pyx_v_z.strides[0]) ) + __pyx_t_44 * __pyx_v_z.strides[1]) ))) * (*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_46 * __pyx_v_u.strides[0]) ) + __pyx_t_47 * __pyx_v_u.strides[1]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_alpha.data + __pyx_t_49 * __pyx_v_alpha.strides[0]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_pvec.data + __pyx_t_50 * __pyx_v_pvec.strides[0]) ))));
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":789
+      /* "lom/_cython/matrix_updates.pyx":789
  *                 x[n,d] += z[n,l_dcr[l]]*u[d,l_dcr[l]]*alpha[l_dcr[l]]*pvec[l-1]
  *             # noise dimension
  *             x[n,d] += pvec[L-1]*alpha[L]             # <<<<<<<<<<<<<<
@@ -11923,7 +11923,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
     }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":750
+  /* "lom/_cython/matrix_updates.pyx":750
  * 
  * 
  * cpdef void probabilistic_output_maxmachine(double[:,:] x,             # <<<<<<<<<<<<<<
@@ -11947,15 +11947,15 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
   __Pyx_XDECREF(__pyx_t_18);
   __Pyx_XDECREF(__pyx_t_19);
   __PYX_XDEC_MEMVIEW(&__pyx_t_20, 1);
-  __Pyx_WriteUnraisable("lom._cython.matrix_sampling.probabilistic_output_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("lom._cython.matrix_updates.probabilistic_output_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_l_dcr, 1);
   __Pyx_RefNannyFinishContext();
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_35probabilistic_output_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_35probabilistic_output_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_35probabilistic_output_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_35probabilistic_output_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -12047,18 +12047,18 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_35probabilistic_output
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("probabilistic_output_maxmachine", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 750, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.probabilistic_output_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.probabilistic_output_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_34probabilistic_output_maxmachine(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_alpha, __pyx_v_pvec, __pyx_v_l_dcr);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_34probabilistic_output_maxmachine(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_alpha, __pyx_v_pvec, __pyx_v_l_dcr);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_34probabilistic_output_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_pvec, __Pyx_memviewslice __pyx_v_l_dcr) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_34probabilistic_output_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_pvec, __Pyx_memviewslice __pyx_v_l_dcr) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -12070,7 +12070,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_34probabilistic_output
   if (unlikely(!__pyx_v_alpha.memview)) { __Pyx_RaiseUnboundLocalError("alpha"); __PYX_ERR(0, 750, __pyx_L1_error) }
   if (unlikely(!__pyx_v_pvec.memview)) { __Pyx_RaiseUnboundLocalError("pvec"); __PYX_ERR(0, 750, __pyx_L1_error) }
   if (unlikely(!__pyx_v_l_dcr.memview)) { __Pyx_RaiseUnboundLocalError("l_dcr"); __PYX_ERR(0, 750, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_15matrix_sampling_probabilistic_output_maxmachine(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_alpha, __pyx_v_pvec, __pyx_v_l_dcr, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 750, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_14matrix_updates_probabilistic_output_maxmachine(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_alpha, __pyx_v_pvec, __pyx_v_l_dcr, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 750, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -12079,7 +12079,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_34probabilistic_output
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.probabilistic_output_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.probabilistic_output_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_x, 1);
@@ -12093,7 +12093,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_34probabilistic_output
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":793
+/* "lom/_cython/matrix_updates.pyx":793
  * 
  * 
  * cdef float parent_contribution_to_maxmachine(data_type_t[:,:] u_pa,             # <<<<<<<<<<<<<<
@@ -12101,7 +12101,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_34probabilistic_output
  *                                              double[:] logit_lbda_pa,
  */
 
-static float __pyx_f_3lom_7_cython_15matrix_sampling_parent_contribution_to_maxmachine(__Pyx_memviewslice __pyx_v_u_pa, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_logit_lbda_pa, __Pyx_memviewslice __pyx_v_idx_sorted, int __pyx_v_n, int __pyx_v_l) {
+static float __pyx_f_3lom_7_cython_14matrix_updates_parent_contribution_to_maxmachine(__Pyx_memviewslice __pyx_v_u_pa, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_logit_lbda_pa, __Pyx_memviewslice __pyx_v_idx_sorted, int __pyx_v_n, int __pyx_v_l) {
   int __pyx_v_m;
   int __pyx_v_M;
   float __pyx_r;
@@ -12121,7 +12121,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_parent_contribution_to_maxm
   Py_ssize_t __pyx_t_13;
   __Pyx_RefNannySetupContext("parent_contribution_to_maxmachine", 0);
 
-  /* "lom/_cython/matrix_sampling.pyx":802
+  /* "lom/_cython/matrix_updates.pyx":802
  *     """
  *     cdef int m
  *     cdef int M = u_pa.shape[1]             # <<<<<<<<<<<<<<
@@ -12130,7 +12130,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_parent_contribution_to_maxm
  */
   __pyx_v_M = (__pyx_v_u_pa.shape[1]);
 
-  /* "lom/_cython/matrix_sampling.pyx":804
+  /* "lom/_cython/matrix_updates.pyx":804
  *     cdef int M = u_pa.shape[1]
  * 
  *     for m in range(M):             # <<<<<<<<<<<<<<
@@ -12141,7 +12141,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_parent_contribution_to_maxm
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_m = __pyx_t_2;
 
-    /* "lom/_cython/matrix_sampling.pyx":805
+    /* "lom/_cython/matrix_updates.pyx":805
  * 
  *     for m in range(M):
  *         if (z_pa[n,idx_sorted[m]] == 1) and (u_pa[l,idx_sorted[m]] == 1):             # <<<<<<<<<<<<<<
@@ -12151,7 +12151,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_parent_contribution_to_maxm
     __pyx_t_4 = __pyx_v_m;
     __pyx_t_5 = __pyx_v_n;
     __pyx_t_6 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_4 * __pyx_v_idx_sorted.strides[0]) )));
-    __pyx_t_7 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_z_pa.data + __pyx_t_5 * __pyx_v_z_pa.strides[0]) ) + __pyx_t_6 * __pyx_v_z_pa.strides[1]) ))) == 1) != 0);
+    __pyx_t_7 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_z_pa.data + __pyx_t_5 * __pyx_v_z_pa.strides[0]) ) + __pyx_t_6 * __pyx_v_z_pa.strides[1]) ))) == 1) != 0);
     if (__pyx_t_7) {
     } else {
       __pyx_t_3 = __pyx_t_7;
@@ -12160,12 +12160,12 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_parent_contribution_to_maxm
     __pyx_t_8 = __pyx_v_m;
     __pyx_t_9 = __pyx_v_l;
     __pyx_t_10 = (*((int *) ( /* dim=0 */ (__pyx_v_idx_sorted.data + __pyx_t_8 * __pyx_v_idx_sorted.strides[0]) )));
-    __pyx_t_7 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u_pa.data + __pyx_t_9 * __pyx_v_u_pa.strides[0]) ) + __pyx_t_10 * __pyx_v_u_pa.strides[1]) ))) == 1) != 0);
+    __pyx_t_7 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u_pa.data + __pyx_t_9 * __pyx_v_u_pa.strides[0]) ) + __pyx_t_10 * __pyx_v_u_pa.strides[1]) ))) == 1) != 0);
     __pyx_t_3 = __pyx_t_7;
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_3) {
 
-      /* "lom/_cython/matrix_sampling.pyx":806
+      /* "lom/_cython/matrix_updates.pyx":806
  *     for m in range(M):
  *         if (z_pa[n,idx_sorted[m]] == 1) and (u_pa[l,idx_sorted[m]] == 1):
  *             return logit_lbda_pa[idx_sorted[m]]             # <<<<<<<<<<<<<<
@@ -12177,7 +12177,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_parent_contribution_to_maxm
       __pyx_r = (*((double *) ( /* dim=0 */ (__pyx_v_logit_lbda_pa.data + __pyx_t_12 * __pyx_v_logit_lbda_pa.strides[0]) )));
       goto __pyx_L0;
 
-      /* "lom/_cython/matrix_sampling.pyx":805
+      /* "lom/_cython/matrix_updates.pyx":805
  * 
  *     for m in range(M):
  *         if (z_pa[n,idx_sorted[m]] == 1) and (u_pa[l,idx_sorted[m]] == 1):             # <<<<<<<<<<<<<<
@@ -12187,7 +12187,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_parent_contribution_to_maxm
     }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":809
+  /* "lom/_cython/matrix_updates.pyx":809
  * 
  *     # if no inpute was on, return clamped
  *     return logit_lbda_pa[M]             # <<<<<<<<<<<<<<
@@ -12198,7 +12198,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_parent_contribution_to_maxm
   __pyx_r = (*((double *) ( /* dim=0 */ (__pyx_v_logit_lbda_pa.data + __pyx_t_13 * __pyx_v_logit_lbda_pa.strides[0]) )));
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_sampling.pyx":793
+  /* "lom/_cython/matrix_updates.pyx":793
  * 
  * 
  * cdef float parent_contribution_to_maxmachine(data_type_t[:,:] u_pa,             # <<<<<<<<<<<<<<
@@ -12212,7 +12212,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_parent_contribution_to_maxm
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":820
+/* "lom/_cython/matrix_updates.pyx":820
  * 
  * 
  * cdef void get_prior(np.float64_t[:] row_binom, np.float64_t[:] col_binom,             # <<<<<<<<<<<<<<
@@ -12220,7 +12220,7 @@ static float __pyx_f_3lom_7_cython_15matrix_sampling_parent_contribution_to_maxm
  *                      int n, int l, int prior_code, float prior):
  */
 
-static void __pyx_f_3lom_7_cython_15matrix_sampling_get_prior(__Pyx_memviewslice __pyx_v_row_binom, __Pyx_memviewslice __pyx_v_col_binom, __Pyx_memviewslice __pyx_v_row_densities, __Pyx_memviewslice __pyx_v_col_densities, int __pyx_v_n, int __pyx_v_l, int __pyx_v_prior_code, CYTHON_UNUSED float __pyx_v_prior) {
+static void __pyx_f_3lom_7_cython_14matrix_updates_get_prior(__Pyx_memviewslice __pyx_v_row_binom, __Pyx_memviewslice __pyx_v_col_binom, __Pyx_memviewslice __pyx_v_row_densities, __Pyx_memviewslice __pyx_v_col_densities, int __pyx_v_n, int __pyx_v_l, int __pyx_v_prior_code, CYTHON_UNUSED float __pyx_v_prior) {
   __Pyx_RefNannyDeclarations
   Py_ssize_t __pyx_t_1;
   Py_ssize_t __pyx_t_2;
@@ -12232,7 +12232,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_get_prior(__Pyx_memviewslice
   Py_ssize_t __pyx_t_8;
   __Pyx_RefNannySetupContext("get_prior", 0);
 
-  /* "lom/_cython/matrix_sampling.pyx":828
+  /* "lom/_cython/matrix_updates.pyx":828
  *     """
  * 
  *     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -12242,7 +12242,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_get_prior(__Pyx_memviewslice
   switch (__pyx_v_prior_code) {
     case 2:
 
-    /* "lom/_cython/matrix_sampling.pyx":829
+    /* "lom/_cython/matrix_updates.pyx":829
  * 
  *     if prior_code == 2:
  *         prior = row_binom[row_densities[n]]             # <<<<<<<<<<<<<<
@@ -12253,7 +12253,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_get_prior(__Pyx_memviewslice
     __pyx_t_2 = (*((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_row_densities.data + __pyx_t_1 * __pyx_v_row_densities.strides[0]) )));
     __pyx_v_prior = (*((__pyx_t_5numpy_float64_t *) ( /* dim=0 */ (__pyx_v_row_binom.data + __pyx_t_2 * __pyx_v_row_binom.strides[0]) )));
 
-    /* "lom/_cython/matrix_sampling.pyx":828
+    /* "lom/_cython/matrix_updates.pyx":828
  *     """
  * 
  *     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -12262,7 +12262,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_get_prior(__Pyx_memviewslice
  */
     break;
 
-    /* "lom/_cython/matrix_sampling.pyx":830
+    /* "lom/_cython/matrix_updates.pyx":830
  *     if prior_code == 2:
  *         prior = row_binom[row_densities[n]]
  *     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -12271,7 +12271,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_get_prior(__Pyx_memviewslice
  */
     case 3:
 
-    /* "lom/_cython/matrix_sampling.pyx":831
+    /* "lom/_cython/matrix_updates.pyx":831
  *         prior = row_binom[row_densities[n]]
  *     elif prior_code == 3:
  *         prior = col_binom[col_densities[l]]             # <<<<<<<<<<<<<<
@@ -12282,7 +12282,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_get_prior(__Pyx_memviewslice
     __pyx_t_4 = (*((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_col_densities.data + __pyx_t_3 * __pyx_v_col_densities.strides[0]) )));
     __pyx_v_prior = (*((__pyx_t_5numpy_float64_t *) ( /* dim=0 */ (__pyx_v_col_binom.data + __pyx_t_4 * __pyx_v_col_binom.strides[0]) )));
 
-    /* "lom/_cython/matrix_sampling.pyx":830
+    /* "lom/_cython/matrix_updates.pyx":830
  *     if prior_code == 2:
  *         prior = row_binom[row_densities[n]]
  *     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -12291,7 +12291,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_get_prior(__Pyx_memviewslice
  */
     break;
 
-    /* "lom/_cython/matrix_sampling.pyx":832
+    /* "lom/_cython/matrix_updates.pyx":832
  *     elif prior_code == 3:
  *         prior = col_binom[col_densities[l]]
  *     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -12300,7 +12300,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_get_prior(__Pyx_memviewslice
  */
     case 4:
 
-    /* "lom/_cython/matrix_sampling.pyx":833
+    /* "lom/_cython/matrix_updates.pyx":833
  *         prior = col_binom[col_densities[l]]
  *     elif prior_code == 4:
  *         prior = row_binom[row_densities[n]] + col_binom[col_densities[l]]             # <<<<<<<<<<<<<<
@@ -12313,7 +12313,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_get_prior(__Pyx_memviewslice
     __pyx_t_8 = (*((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_col_densities.data + __pyx_t_7 * __pyx_v_col_densities.strides[0]) )));
     __pyx_v_prior = ((*((__pyx_t_5numpy_float64_t *) ( /* dim=0 */ (__pyx_v_row_binom.data + __pyx_t_6 * __pyx_v_row_binom.strides[0]) ))) + (*((__pyx_t_5numpy_float64_t *) ( /* dim=0 */ (__pyx_v_col_binom.data + __pyx_t_8 * __pyx_v_col_binom.strides[0]) ))));
 
-    /* "lom/_cython/matrix_sampling.pyx":832
+    /* "lom/_cython/matrix_updates.pyx":832
  *     elif prior_code == 3:
  *         prior = col_binom[col_densities[l]]
  *     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -12324,7 +12324,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_get_prior(__Pyx_memviewslice
     default: break;
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":820
+  /* "lom/_cython/matrix_updates.pyx":820
  * 
  * 
  * cdef void get_prior(np.float64_t[:] row_binom, np.float64_t[:] col_binom,             # <<<<<<<<<<<<<<
@@ -12336,7 +12336,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_get_prior(__Pyx_memviewslice
   __Pyx_RefNannyFinishContext();
 }
 
-/* "lom/_cython/matrix_sampling.pyx":836
+/* "lom/_cython/matrix_updates.pyx":836
  * 
  * 
  * cdef void update_prior_counts(np.float64_t[:] row_binom, np.float64_t[:] col_binom,             # <<<<<<<<<<<<<<
@@ -12344,13 +12344,13 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_get_prior(__Pyx_memviewslice
  *                          data_type_t x_new, int n, int l, int prior_code) nogil:
  */
 
-static void __pyx_f_3lom_7_cython_15matrix_sampling_update_prior_counts(CYTHON_UNUSED __Pyx_memviewslice __pyx_v_row_binom, CYTHON_UNUSED __Pyx_memviewslice __pyx_v_col_binom, __Pyx_memviewslice __pyx_v_row_densities, __Pyx_memviewslice __pyx_v_col_densities, __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x_new, int __pyx_v_n, int __pyx_v_l, int __pyx_v_prior_code) {
+static void __pyx_f_3lom_7_cython_14matrix_updates_update_prior_counts(CYTHON_UNUSED __Pyx_memviewslice __pyx_v_row_binom, CYTHON_UNUSED __Pyx_memviewslice __pyx_v_col_binom, __Pyx_memviewslice __pyx_v_row_densities, __Pyx_memviewslice __pyx_v_col_densities, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x_new, int __pyx_v_n, int __pyx_v_l, int __pyx_v_prior_code) {
   Py_ssize_t __pyx_t_1;
   Py_ssize_t __pyx_t_2;
   Py_ssize_t __pyx_t_3;
   Py_ssize_t __pyx_t_4;
 
-  /* "lom/_cython/matrix_sampling.pyx":844
+  /* "lom/_cython/matrix_updates.pyx":844
  *     """
  * 
  *     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -12360,7 +12360,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_update_prior_counts(CYTHON_U
   switch (__pyx_v_prior_code) {
     case 2:
 
-    /* "lom/_cython/matrix_sampling.pyx":845
+    /* "lom/_cython/matrix_updates.pyx":845
  * 
  *     if prior_code == 2:
  *         row_densities[n] += x_new             # <<<<<<<<<<<<<<
@@ -12370,7 +12370,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_update_prior_counts(CYTHON_U
     __pyx_t_1 = __pyx_v_n;
     *((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_row_densities.data + __pyx_t_1 * __pyx_v_row_densities.strides[0]) )) += __pyx_v_x_new;
 
-    /* "lom/_cython/matrix_sampling.pyx":844
+    /* "lom/_cython/matrix_updates.pyx":844
  *     """
  * 
  *     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -12379,7 +12379,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_update_prior_counts(CYTHON_U
  */
     break;
 
-    /* "lom/_cython/matrix_sampling.pyx":846
+    /* "lom/_cython/matrix_updates.pyx":846
  *     if prior_code == 2:
  *         row_densities[n] += x_new
  *     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -12388,7 +12388,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_update_prior_counts(CYTHON_U
  */
     case 3:
 
-    /* "lom/_cython/matrix_sampling.pyx":847
+    /* "lom/_cython/matrix_updates.pyx":847
  *         row_densities[n] += x_new
  *     elif prior_code == 3:
  *         col_densities[l] += x_new             # <<<<<<<<<<<<<<
@@ -12398,7 +12398,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_update_prior_counts(CYTHON_U
     __pyx_t_2 = __pyx_v_l;
     *((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_col_densities.data + __pyx_t_2 * __pyx_v_col_densities.strides[0]) )) += __pyx_v_x_new;
 
-    /* "lom/_cython/matrix_sampling.pyx":846
+    /* "lom/_cython/matrix_updates.pyx":846
  *     if prior_code == 2:
  *         row_densities[n] += x_new
  *     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -12407,7 +12407,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_update_prior_counts(CYTHON_U
  */
     break;
 
-    /* "lom/_cython/matrix_sampling.pyx":848
+    /* "lom/_cython/matrix_updates.pyx":848
  *     elif prior_code == 3:
  *         col_densities[l] += x_new
  *     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -12416,7 +12416,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_update_prior_counts(CYTHON_U
  */
     case 4:
 
-    /* "lom/_cython/matrix_sampling.pyx":849
+    /* "lom/_cython/matrix_updates.pyx":849
  *         col_densities[l] += x_new
  *     elif prior_code == 4:
  *         row_densities[n] += x_new             # <<<<<<<<<<<<<<
@@ -12426,7 +12426,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_update_prior_counts(CYTHON_U
     __pyx_t_3 = __pyx_v_n;
     *((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_row_densities.data + __pyx_t_3 * __pyx_v_row_densities.strides[0]) )) += __pyx_v_x_new;
 
-    /* "lom/_cython/matrix_sampling.pyx":850
+    /* "lom/_cython/matrix_updates.pyx":850
  *     elif prior_code == 4:
  *         row_densities[n] += x_new
  *         col_densities[l] += x_new             # <<<<<<<<<<<<<<
@@ -12436,7 +12436,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_update_prior_counts(CYTHON_U
     __pyx_t_4 = __pyx_v_l;
     *((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_col_densities.data + __pyx_t_4 * __pyx_v_col_densities.strides[0]) )) += __pyx_v_x_new;
 
-    /* "lom/_cython/matrix_sampling.pyx":848
+    /* "lom/_cython/matrix_updates.pyx":848
  *     elif prior_code == 3:
  *         col_densities[l] += x_new
  *     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -12447,7 +12447,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_update_prior_counts(CYTHON_U
     default: break;
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":836
+  /* "lom/_cython/matrix_updates.pyx":836
  * 
  * 
  * cdef void update_prior_counts(np.float64_t[:] row_binom, np.float64_t[:] col_binom,             # <<<<<<<<<<<<<<
@@ -12458,7 +12458,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_update_prior_counts(CYTHON_U
   /* function exit code */
 }
 
-/* "lom/_cython/matrix_sampling.pyx":853
+/* "lom/_cython/matrix_updates.pyx":853
  * 
  * 
  * cpdef void probabilistc_output_indpndt(double[:,:] x,             # <<<<<<<<<<<<<<
@@ -12466,8 +12466,8 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_update_prior_counts(CYTHON_U
  *                                        double[:,:] z,
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_37probabilistc_output_indpndt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output_indpndt(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, double __pyx_v_mu, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_37probabilistc_output_indpndt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, double __pyx_v_mu, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L, CYTHON_UNUSED int __pyx_skip_dispatch) {
   float __pyx_v_p_dn;
   float __pyx_v_sgmd_lbda;
   float __pyx_v_sgmd_mu;
@@ -12489,25 +12489,25 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output_indpndt(
   Py_ssize_t __pyx_t_12;
   __Pyx_RefNannySetupContext("probabilistc_output_indpndt", 0);
 
-  /* "lom/_cython/matrix_sampling.pyx":864
+  /* "lom/_cython/matrix_updates.pyx":864
  *     """
  * 
  *     sgmd_lbda = sigmoid(lbda)             # <<<<<<<<<<<<<<
  *     sgmd_mu = sigmoid(mu)
  *     for d in range(D):
  */
-  __pyx_v_sgmd_lbda = __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(__pyx_v_lbda, 0);
+  __pyx_v_sgmd_lbda = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_lbda, 0);
 
-  /* "lom/_cython/matrix_sampling.pyx":865
+  /* "lom/_cython/matrix_updates.pyx":865
  * 
  *     sgmd_lbda = sigmoid(lbda)
  *     sgmd_mu = sigmoid(mu)             # <<<<<<<<<<<<<<
  *     for d in range(D):
  *         for n in range(N):
  */
-  __pyx_v_sgmd_mu = __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(__pyx_v_mu, 0);
+  __pyx_v_sgmd_mu = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_mu, 0);
 
-  /* "lom/_cython/matrix_sampling.pyx":866
+  /* "lom/_cython/matrix_updates.pyx":866
  *     sgmd_lbda = sigmoid(lbda)
  *     sgmd_mu = sigmoid(mu)
  *     for d in range(D):             # <<<<<<<<<<<<<<
@@ -12518,7 +12518,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output_indpndt(
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_d = __pyx_t_2;
 
-    /* "lom/_cython/matrix_sampling.pyx":867
+    /* "lom/_cython/matrix_updates.pyx":867
  *     sgmd_mu = sigmoid(mu)
  *     for d in range(D):
  *         for n in range(N):             # <<<<<<<<<<<<<<
@@ -12529,7 +12529,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output_indpndt(
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_n = __pyx_t_4;
 
-      /* "lom/_cython/matrix_sampling.pyx":868
+      /* "lom/_cython/matrix_updates.pyx":868
  *     for d in range(D):
  *         for n in range(N):
  *             p_dn = 1             # <<<<<<<<<<<<<<
@@ -12538,7 +12538,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output_indpndt(
  */
       __pyx_v_p_dn = 1.0;
 
-      /* "lom/_cython/matrix_sampling.pyx":869
+      /* "lom/_cython/matrix_updates.pyx":869
  *         for n in range(N):
  *             p_dn = 1
  *             for l in range(L):             # <<<<<<<<<<<<<<
@@ -12549,7 +12549,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output_indpndt(
       for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
         __pyx_v_l = __pyx_t_6;
 
-        /* "lom/_cython/matrix_sampling.pyx":870
+        /* "lom/_cython/matrix_updates.pyx":870
  *             p_dn = 1
  *             for l in range(L):
  *                 p_dn = p_dn * ( 1 - u[d,l]*z[n,l] )             # <<<<<<<<<<<<<<
@@ -12563,7 +12563,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output_indpndt(
         __pyx_v_p_dn = (__pyx_v_p_dn * (1.0 - ((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_7 * __pyx_v_u.strides[0]) ) + __pyx_t_8 * __pyx_v_u.strides[1]) ))) * (*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_z.data + __pyx_t_9 * __pyx_v_z.strides[0]) ) + __pyx_t_10 * __pyx_v_z.strides[1]) ))))));
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":871
+      /* "lom/_cython/matrix_updates.pyx":871
  *             for l in range(L):
  *                 p_dn = p_dn * ( 1 - u[d,l]*z[n,l] )
  *             x[n, d] = (sgmd_lbda * (1-p_dn) + (p_dn*(1-sgmd_mu) ) )             # <<<<<<<<<<<<<<
@@ -12576,7 +12576,7 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output_indpndt(
     }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":853
+  /* "lom/_cython/matrix_updates.pyx":853
  * 
  * 
  * cpdef void probabilistc_output_indpndt(double[:,:] x,             # <<<<<<<<<<<<<<
@@ -12589,8 +12589,8 @@ static void __pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output_indpndt(
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_37probabilistc_output_indpndt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_37probabilistc_output_indpndt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_37probabilistc_output_indpndt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_37probabilistc_output_indpndt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -12704,18 +12704,18 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_37probabilistc_output_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 853, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.probabilistc_output_indpndt", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.probabilistc_output_indpndt", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_36probabilistc_output_indpndt(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_mu, __pyx_v_D, __pyx_v_N, __pyx_v_L);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_36probabilistc_output_indpndt(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_mu, __pyx_v_D, __pyx_v_N, __pyx_v_L);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_36probabilistc_output_indpndt(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, double __pyx_v_mu, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_36probabilistc_output_indpndt(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, double __pyx_v_mu, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -12724,7 +12724,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_36probabilistc_output_
   if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 853, __pyx_L1_error) }
   if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 853, __pyx_L1_error) }
   if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 853, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_15matrix_sampling_probabilistc_output_indpndt(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_mu, __pyx_v_D, __pyx_v_N, __pyx_v_L, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 853, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_mu, __pyx_v_D, __pyx_v_N, __pyx_v_L, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 853, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -12733,7 +12733,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_36probabilistc_output_
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.probabilistc_output_indpndt", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.probabilistc_output_indpndt", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_x, 1);
@@ -12744,7 +12744,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_36probabilistc_output_
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_sampling.pyx":875
+/* "lom/_cython/matrix_updates.pyx":875
  * 
  * 
  * def draw_noparents_onechild_old_prior(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -12753,9 +12753,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_36probabilistc_output_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_39draw_noparents_onechild_old_prior(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3lom_7_cython_15matrix_sampling_39draw_noparents_onechild_old_prior = {"draw_noparents_onechild_old_prior", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_39draw_noparents_onechild_old_prior, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_39draw_noparents_onechild_old_prior(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_39draw_noparents_onechild_old_prior(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_3lom_7_cython_14matrix_updates_39draw_noparents_onechild_old_prior = {"draw_noparents_onechild_old_prior", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_39draw_noparents_onechild_old_prior, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_39draw_noparents_onechild_old_prior(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_sibling = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_child = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -12836,23 +12836,23 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_39draw_noparents_onech
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 875, __pyx_L3_error)
-    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 876, __pyx_L3_error)
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 877, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 875, __pyx_L3_error)
+    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 876, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 877, __pyx_L3_error)
     __pyx_v_lbda = __pyx_PyFloat_AsFloat(values[3]); if (unlikely((__pyx_v_lbda == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 878, __pyx_L3_error)
     __pyx_v_prior_config = ((PyObject*)values[4]);
-    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(values[5]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 880, __pyx_L3_error)
+    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[5]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 880, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_old_prior", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 875, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_noparents_onechild_old_prior", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_noparents_onechild_old_prior", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prior_config), (&PyList_Type), 1, "prior_config", 1))) __PYX_ERR(0, 879, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onechild_old_prior(__pyx_self, __pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_prior_config, __pyx_v_sampling_indicator);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechild_old_prior(__pyx_self, __pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_prior_config, __pyx_v_sampling_indicator);
 
   /* function exit code */
   goto __pyx_L0;
@@ -12863,7 +12863,7 @@ static PyObject *__pyx_pw_3lom_7_cython_15matrix_sampling_39draw_noparents_onech
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onechild_old_prior(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechild_old_prior(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator) {
   CYTHON_UNUSED PyArrayObject *__pyx_v_row_binom = 0;
   CYTHON_UNUSED PyArrayObject *__pyx_v_col_binom = 0;
   CYTHON_UNUSED PyArrayObject *__pyx_v_row_densities = 0;
@@ -12876,7 +12876,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
   int __pyx_v_d;
   CYTHON_UNUSED int __pyx_v_N;
   int __pyx_v_D;
-  CYTHON_UNUSED __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_v_x_old;
+  CYTHON_UNUSED __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x_old;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_col_binom;
   __Pyx_Buffer __pyx_pybuffer_col_binom;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_col_densities;
@@ -12923,7 +12923,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
   __pyx_pybuffernd_col_densities.data = NULL;
   __pyx_pybuffernd_col_densities.rcbuffer = &__pyx_pybuffer_col_densities;
 
-  /* "lom/_cython/matrix_sampling.pyx":883
+  /* "lom/_cython/matrix_updates.pyx":883
  * 
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]             # <<<<<<<<<<<<<<
@@ -12948,7 +12948,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
   __pyx_v_row_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":884
+  /* "lom/_cython/matrix_updates.pyx":884
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]             # <<<<<<<<<<<<<<
@@ -12973,7 +12973,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
   __pyx_v_col_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":885
+  /* "lom/_cython/matrix_updates.pyx":885
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]             # <<<<<<<<<<<<<<
@@ -12998,7 +12998,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
   __pyx_v_row_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":886
+  /* "lom/_cython/matrix_updates.pyx":886
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]             # <<<<<<<<<<<<<<
@@ -13023,7 +13023,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
   __pyx_v_col_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":887
+  /* "lom/_cython/matrix_updates.pyx":887
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]
  *     cdef int prior_code = prior_config[0]             # <<<<<<<<<<<<<<
@@ -13037,7 +13037,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
   __pyx_t_2 = __Pyx_PyInt_As_int(PyList_GET_ITEM(__pyx_v_prior_config, 0)); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 887, __pyx_L1_error)
   __pyx_v_prior_code = __pyx_t_2;
 
-  /* "lom/_cython/matrix_sampling.pyx":889
+  /* "lom/_cython/matrix_updates.pyx":889
  *     cdef int prior_code = prior_config[0]
  *     cdef float p, acc_child
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -13046,7 +13046,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/matrix_sampling.pyx":890
+  /* "lom/_cython/matrix_updates.pyx":890
  *     cdef float p, acc_child
  *     cdef float prior = 0
  *     cdef int n, d, N = x.shape[0], D = x.shape[1]             # <<<<<<<<<<<<<<
@@ -13056,7 +13056,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
   __pyx_v_N = (__pyx_v_x.shape[0]);
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_sampling.pyx":893
+  /* "lom/_cython/matrix_updates.pyx":893
  *     cdef data_type_t x_old
  * 
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -13066,7 +13066,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
   __pyx_t_3 = ((__pyx_v_prior_code == 1) != 0);
   if (__pyx_t_3) {
 
-    /* "lom/_cython/matrix_sampling.pyx":894
+    /* "lom/_cython/matrix_updates.pyx":894
  * 
  *     if prior_code == 1:
  *         prior = prior_config[1]             # <<<<<<<<<<<<<<
@@ -13080,7 +13080,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
     __pyx_t_4 = __pyx_PyFloat_AsFloat(PyList_GET_ITEM(__pyx_v_prior_config, 1)); if (unlikely((__pyx_t_4 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 894, __pyx_L1_error)
     __pyx_v_prior = __pyx_t_4;
 
-    /* "lom/_cython/matrix_sampling.pyx":893
+    /* "lom/_cython/matrix_updates.pyx":893
  *     cdef data_type_t x_old
  * 
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -13089,7 +13089,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
  */
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":897
+  /* "lom/_cython/matrix_updates.pyx":897
  * 
  *     # for n in range(N):
  *     for n in prange(N, schedule='dynamic', nogil=True):             # <<<<<<<<<<<<<<
@@ -13110,7 +13110,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
             int __pyx_parallel_temp1 = ((int)0xbad0bad0);
             int __pyx_parallel_temp2 = ((int)0xbad0bad0);
             float __pyx_parallel_temp3 = ((float)__PYX_NAN());
-            __pyx_t_3lom_7_cython_15matrix_sampling_data_type_t __pyx_parallel_temp4 = ((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t)'?');
+            __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_parallel_temp4 = ((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t)'?');
             const char *__pyx_parallel_filename = NULL; int __pyx_parallel_lineno = 0, __pyx_parallel_clineno = 0;
             PyObject *__pyx_parallel_exc_type = NULL, *__pyx_parallel_exc_value = NULL, *__pyx_parallel_exc_tb = NULL;
             int __pyx_parallel_why;
@@ -13145,9 +13145,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
                             __pyx_v_acc_child = ((float)__PYX_NAN());
                             __pyx_v_d = ((int)0xbad0bad0);
                             __pyx_v_p = ((float)__PYX_NAN());
-                            __pyx_v_x_old = ((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t)'?');
+                            __pyx_v_x_old = ((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t)'?');
 
-                            /* "lom/_cython/matrix_sampling.pyx":898
+                            /* "lom/_cython/matrix_updates.pyx":898
  *     # for n in range(N):
  *     for n in prange(N, schedule='dynamic', nogil=True):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -13158,7 +13158,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
                             for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
                               __pyx_v_d = __pyx_t_8;
 
-                              /* "lom/_cython/matrix_sampling.pyx":899
+                              /* "lom/_cython/matrix_updates.pyx":899
  *     for n in prange(N, schedule='dynamic', nogil=True):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -13167,10 +13167,10 @@ static PyObject *__pyx_pf_3lom_7_cython_15matrix_sampling_38draw_noparents_onech
  */
                               __pyx_t_9 = __pyx_v_n;
                               __pyx_t_10 = __pyx_v_d;
-                              __pyx_t_3 = (((*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_9 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_10 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
+                              __pyx_t_3 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_9 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_10 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
                               if (__pyx_t_3) {
 
-                                /* "lom/_cython/matrix_sampling.pyx":902
+                                /* "lom/_cython/matrix_updates.pyx":902
  * 
  *                 # compute the posterior
  *                 acc_child = lbda*score_no_parents_unified(child[n,:], x[n,:], sibling, d)             # <<<<<<<<<<<<<<
@@ -13229,7 +13229,7 @@ __pyx_t_12.shape[0] = __pyx_v_x.shape[1];
 __pyx_t_12.strides[0] = __pyx_v_x.strides[1];
     __pyx_t_12.suboffsets[0] = -1;
 
-__pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_score_no_parents_unified(__pyx_t_11, __pyx_t_12, __pyx_v_sibling, __pyx_v_d));
+__pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__pyx_t_11, __pyx_t_12, __pyx_v_sibling, __pyx_v_d));
                                 __PYX_XDEC_MEMVIEW(&__pyx_t_11, 0);
                                 __pyx_t_11.memview = NULL;
                                 __pyx_t_11.data = NULL;
@@ -13237,16 +13237,16 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
                                 __pyx_t_12.memview = NULL;
                                 __pyx_t_12.data = NULL;
 
-                                /* "lom/_cython/matrix_sampling.pyx":914
+                                /* "lom/_cython/matrix_updates.pyx":914
  *                 # p = sigmoid(acc_child + prior)
  * 
  *                 p = sigmoid(acc_child)             # <<<<<<<<<<<<<<
  * 
  *                 x_old = x[n,d]
  */
-                                __pyx_v_p = __pyx_f_3lom_7_cython_15matrix_sampling_sigmoid(__pyx_v_acc_child, 0);
+                                __pyx_v_p = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_acc_child, 0);
 
-                                /* "lom/_cython/matrix_sampling.pyx":916
+                                /* "lom/_cython/matrix_updates.pyx":916
  *                 p = sigmoid(acc_child)
  * 
  *                 x_old = x[n,d]             # <<<<<<<<<<<<<<
@@ -13255,9 +13255,9 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
  */
                                 __pyx_t_13 = __pyx_v_n;
                                 __pyx_t_14 = __pyx_v_d;
-                                __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_13 * __pyx_v_x.strides[0]) ) + __pyx_t_14 * __pyx_v_x.strides[1]) )));
+                                __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_13 * __pyx_v_x.strides[0]) ) + __pyx_t_14 * __pyx_v_x.strides[1]) )));
 
-                                /* "lom/_cython/matrix_sampling.pyx":917
+                                /* "lom/_cython/matrix_updates.pyx":917
  * 
  *                 x_old = x[n,d]
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])             # <<<<<<<<<<<<<<
@@ -13268,9 +13268,9 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
                                 __pyx_t_16 = __pyx_v_d;
                                 __pyx_t_17 = __pyx_v_n;
                                 __pyx_t_18 = __pyx_v_d;
-                                *((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_17 * __pyx_v_x.strides[0]) ) + __pyx_t_18 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_15matrix_sampling_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_15matrix_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_15 * __pyx_v_x.strides[0]) ) + __pyx_t_16 * __pyx_v_x.strides[1]) ))), 0);
+                                *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_17 * __pyx_v_x.strides[0]) ) + __pyx_t_18 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_15 * __pyx_v_x.strides[0]) ) + __pyx_t_16 * __pyx_v_x.strides[1]) ))), 0);
 
-                                /* "lom/_cython/matrix_sampling.pyx":899
+                                /* "lom/_cython/matrix_updates.pyx":899
  *     for n in prange(N, schedule='dynamic', nogil=True):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -13370,7 +13370,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
         #endif
       }
 
-      /* "lom/_cython/matrix_sampling.pyx":897
+      /* "lom/_cython/matrix_updates.pyx":897
  * 
  *     # for n in range(N):
  *     for n in prange(N, schedule='dynamic', nogil=True):             # <<<<<<<<<<<<<<
@@ -13396,7 +13396,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
       }
   }
 
-  /* "lom/_cython/matrix_sampling.pyx":875
+  /* "lom/_cython/matrix_updates.pyx":875
  * 
  * 
  * def draw_noparents_onechild_old_prior(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -13420,7 +13420,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15matrix_sampling_scor
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_row_binom.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_row_densities.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("lom._cython.matrix_sampling.draw_noparents_onechild_old_prior", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.draw_noparents_onechild_old_prior", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -28953,7 +28953,7 @@ static PyBufferProcs __pyx_tp_as_buffer_array = {
 
 static PyTypeObject __pyx_type___pyx_array = {
   PyVarObject_HEAD_INIT(0, 0)
-  "lom._cython.matrix_sampling.array", /*tp_name*/
+  "lom._cython.matrix_updates.array", /*tp_name*/
   sizeof(struct __pyx_array_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_array, /*tp_dealloc*/
@@ -29061,7 +29061,7 @@ static PyMethodDef __pyx_methods_Enum[] = {
 
 static PyTypeObject __pyx_type___pyx_MemviewEnum = {
   PyVarObject_HEAD_INIT(0, 0)
-  "lom._cython.matrix_sampling.Enum", /*tp_name*/
+  "lom._cython.matrix_updates.Enum", /*tp_name*/
   sizeof(struct __pyx_MemviewEnum_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_Enum, /*tp_dealloc*/
@@ -29311,7 +29311,7 @@ static PyBufferProcs __pyx_tp_as_buffer_memoryview = {
 
 static PyTypeObject __pyx_type___pyx_memoryview = {
   PyVarObject_HEAD_INIT(0, 0)
-  "lom._cython.matrix_sampling.memoryview", /*tp_name*/
+  "lom._cython.matrix_updates.memoryview", /*tp_name*/
   sizeof(struct __pyx_memoryview_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_memoryview, /*tp_dealloc*/
@@ -29438,7 +29438,7 @@ static struct PyGetSetDef __pyx_getsets__memoryviewslice[] = {
 
 static PyTypeObject __pyx_type___pyx_memoryviewslice = {
   PyVarObject_HEAD_INIT(0, 0)
-  "lom._cython.matrix_sampling._memoryviewslice", /*tp_name*/
+  "lom._cython.matrix_updates._memoryviewslice", /*tp_name*/
   sizeof(struct __pyx_memoryviewslice_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc__memoryviewslice, /*tp_dealloc*/
@@ -29503,34 +29503,34 @@ static PyTypeObject __pyx_type___pyx_memoryviewslice = {
 };
 
 static PyMethodDef __pyx_methods[] = {
-  {"predict_single_latent", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_17predict_single_latent, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_15matrix_sampling_16predict_single_latent},
-  {"swap_gibbs", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_19swap_gibbs, METH_O, __pyx_doc_3lom_7_cython_15matrix_sampling_18swap_gibbs},
-  {"swap_metropolised_gibbs_unified", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_21swap_metropolised_gibbs_unified, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_15matrix_sampling_20swap_metropolised_gibbs_unified},
-  {"swap_gibbs_unified", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_23swap_gibbs_unified, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_15matrix_sampling_22swap_gibbs_unified},
-  {"sigmoid", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_25sigmoid, METH_O, 0},
-  {"compute_pred_accuracy", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_27compute_pred_accuracy, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_15matrix_sampling_26compute_pred_accuracy},
-  {"compute_P_parallel", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_29compute_P_parallel, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_15matrix_sampling_28compute_P_parallel},
-  {"compute_P", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_31compute_P, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_15matrix_sampling_30compute_P},
-  {"probabilistc_output", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_33probabilistc_output, METH_VARARGS|METH_KEYWORDS, 0},
-  {"probabilistic_output_maxmachine", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_35probabilistic_output_maxmachine, METH_VARARGS|METH_KEYWORDS, 0},
-  {"probabilistc_output_indpndt", (PyCFunction)__pyx_pw_3lom_7_cython_15matrix_sampling_37probabilistc_output_indpndt, METH_VARARGS|METH_KEYWORDS, 0},
+  {"predict_single_latent", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_17predict_single_latent, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_16predict_single_latent},
+  {"swap_gibbs", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_19swap_gibbs, METH_O, __pyx_doc_3lom_7_cython_14matrix_updates_18swap_gibbs},
+  {"swap_metropolised_gibbs_unified", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_21swap_metropolised_gibbs_unified, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_20swap_metropolised_gibbs_unified},
+  {"swap_gibbs_unified", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_23swap_gibbs_unified, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_22swap_gibbs_unified},
+  {"sigmoid", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_25sigmoid, METH_O, 0},
+  {"compute_pred_accuracy", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_27compute_pred_accuracy, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_26compute_pred_accuracy},
+  {"compute_P_parallel", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_29compute_P_parallel, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_28compute_P_parallel},
+  {"compute_P", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_31compute_P, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_30compute_P},
+  {"probabilistc_output", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_33probabilistc_output, METH_VARARGS|METH_KEYWORDS, 0},
+  {"probabilistic_output_maxmachine", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_35probabilistic_output_maxmachine, METH_VARARGS|METH_KEYWORDS, 0},
+  {"probabilistc_output_indpndt", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_37probabilistc_output_indpndt, METH_VARARGS|METH_KEYWORDS, 0},
   {0, 0, 0, 0}
 };
 
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_matrix_sampling(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_matrix_updates(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_matrix_sampling},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_matrix_updates},
   {0, NULL}
 };
 #endif
 
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
-    "matrix_sampling",
+    "matrix_updates",
     __pyx_k_Logical_Operator_Machines_Cytho, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
@@ -29642,8 +29642,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_lbda_pa2, __pyx_k_lbda_pa2, sizeof(__pyx_k_lbda_pa2), 0, 0, 1, 1},
   {&__pyx_n_s_lbda_ratios, __pyx_k_lbda_ratios, sizeof(__pyx_k_lbda_ratios), 0, 0, 1, 1},
   {&__pyx_n_s_logit_lbda_pa, __pyx_k_logit_lbda_pa, sizeof(__pyx_k_logit_lbda_pa), 0, 0, 1, 1},
-  {&__pyx_n_s_lom__cython_matrix_sampling, __pyx_k_lom__cython_matrix_sampling, sizeof(__pyx_k_lom__cython_matrix_sampling), 0, 0, 1, 1},
-  {&__pyx_kp_s_lom__cython_matrix_sampling_pyx, __pyx_k_lom__cython_matrix_sampling_pyx, sizeof(__pyx_k_lom__cython_matrix_sampling_pyx), 0, 0, 1, 0},
+  {&__pyx_n_s_lom__cython_matrix_updates, __pyx_k_lom__cython_matrix_updates, sizeof(__pyx_k_lom__cython_matrix_updates), 0, 0, 1, 1},
+  {&__pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_k_lom__cython_matrix_updates_pyx, sizeof(__pyx_k_lom__cython_matrix_updates_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_memview, __pyx_k_memview, sizeof(__pyx_k_memview), 0, 0, 1, 1},
   {&__pyx_n_s_mode, __pyx_k_mode, sizeof(__pyx_k_mode), 0, 0, 1, 1},
@@ -29739,7 +29739,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "lom/_cython/matrix_sampling.pyx":777
+  /* "lom/_cython/matrix_updates.pyx":777
  *             for l in range(L):
  *                 l_dcr = np.array(np.argsort(np.multiply(
  *                     np.multiply(alpha[:-1], z[n,:]),u[d,:]))[::-1],             # <<<<<<<<<<<<<<
@@ -30050,7 +30050,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__29);
   __Pyx_GIVEREF(__pyx_tuple__29);
 
-  /* "lom/_cython/matrix_sampling.pyx":110
+  /* "lom/_cython/matrix_updates.pyx":110
  * 
  * 
  * def draw_noparents_onechild_maxmachine(data_type_t[:,:] x,  # N x D; z_nl             # <<<<<<<<<<<<<<
@@ -30060,9 +30060,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__30 = PyTuple_Pack(22, __pyx_n_s_x, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_idx_sorted, __pyx_n_s_prior_config, __pyx_n_s_lbda_ratios, __pyx_n_s_n, __pyx_n_s_l_idx, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_L, __pyx_n_s_D, __pyx_n_s_break_accumulator, __pyx_n_s_accumulator, __pyx_n_s_prior, __pyx_n_s_x_old, __pyx_n_s_row_binom, __pyx_n_s_col_binom, __pyx_n_s_row_densities, __pyx_n_s_col_densities, __pyx_n_s_prior_code); if (unlikely(!__pyx_tuple__30)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__30);
   __Pyx_GIVEREF(__pyx_tuple__30);
-  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(7, 0, 22, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__30, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_sampling_pyx, __pyx_n_s_draw_noparents_onechild_maxmachi, 110, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(7, 0, 22, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__30, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_noparents_onechild_maxmachi, 110, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(0, 110, __pyx_L1_error)
 
-  /* "lom/_cython/matrix_sampling.pyx":181
+  /* "lom/_cython/matrix_updates.pyx":181
  * 
  * 
  * def draw_oneparent_onechild_maxmachine(data_type_t[:,:] x,  # N x D; z_nl             # <<<<<<<<<<<<<<
@@ -30072,9 +30072,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__32 = PyTuple_Pack(27, __pyx_n_s_x, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_idx_sorted, __pyx_n_s_prior_config, __pyx_n_s_u_pa, __pyx_n_s_z_pa, __pyx_n_s_logit_lbda_pa, __pyx_n_s_idx_sorted_pa, __pyx_n_s_lbda_ratios, __pyx_n_s_row_binom, __pyx_n_s_col_binom, __pyx_n_s_row_densities, __pyx_n_s_col_densities, __pyx_n_s_prior_code, __pyx_n_s_n, __pyx_n_s_l_idx, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_L, __pyx_n_s_D, __pyx_n_s_break_accumulator, __pyx_n_s_accumulator_par, __pyx_n_s_accumulator_child, __pyx_n_s_prior, __pyx_n_s_x_old); if (unlikely(!__pyx_tuple__32)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__32);
   __Pyx_GIVEREF(__pyx_tuple__32);
-  __pyx_codeobj__33 = (PyObject*)__Pyx_PyCode_New(11, 0, 27, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__32, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_sampling_pyx, __pyx_n_s_draw_oneparent_onechild_maxmachi, 181, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__33)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __pyx_codeobj__33 = (PyObject*)__Pyx_PyCode_New(11, 0, 27, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__32, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_oneparent_onechild_maxmachi, 181, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__33)) __PYX_ERR(0, 181, __pyx_L1_error)
 
-  /* "lom/_cython/matrix_sampling.pyx":253
+  /* "lom/_cython/matrix_updates.pyx":253
  * 
  * 
  * def draw_balanced_or(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -30084,9 +30084,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__34 = PyTuple_Pack(15, __pyx_n_s_x, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda_p, __pyx_n_s_lbda_m, __pyx_n_s_p, __pyx_n_s_acc_child, __pyx_n_s_prior, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_x_old, __pyx_n_s_n_count, __pyx_n_s_p_count); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(0, 253, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__34);
   __Pyx_GIVEREF(__pyx_tuple__34);
-  __pyx_codeobj__35 = (PyObject*)__Pyx_PyCode_New(5, 0, 15, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__34, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_sampling_pyx, __pyx_n_s_draw_balanced_or, 253, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__35)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_codeobj__35 = (PyObject*)__Pyx_PyCode_New(5, 0, 15, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__34, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_balanced_or, 253, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__35)) __PYX_ERR(0, 253, __pyx_L1_error)
 
-  /* "lom/_cython/matrix_sampling.pyx":286
+  /* "lom/_cython/matrix_updates.pyx":286
  * 
  * 
  * def draw_noparents_onechild(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -30096,9 +30096,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__36 = PyTuple_Pack(13, __pyx_n_s_x, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_sampling_indicator, __pyx_n_s_p, __pyx_n_s_acc_child, __pyx_n_s_prior, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_x_old); if (unlikely(!__pyx_tuple__36)) __PYX_ERR(0, 286, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__36);
   __Pyx_GIVEREF(__pyx_tuple__36);
-  __pyx_codeobj__37 = (PyObject*)__Pyx_PyCode_New(5, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__36, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_sampling_pyx, __pyx_n_s_draw_noparents_onechild, 286, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__37)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __pyx_codeobj__37 = (PyObject*)__Pyx_PyCode_New(5, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__36, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_noparents_onechild, 286, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__37)) __PYX_ERR(0, 286, __pyx_L1_error)
 
-  /* "lom/_cython/matrix_sampling.pyx":312
+  /* "lom/_cython/matrix_updates.pyx":312
  * 
  * 
  * def draw_noparents_onechild_single_thread(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -30108,9 +30108,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__38 = PyTuple_Pack(13, __pyx_n_s_x, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_sampling_indicator, __pyx_n_s_p, __pyx_n_s_acc_child, __pyx_n_s_prior, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_x_old); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__38);
   __Pyx_GIVEREF(__pyx_tuple__38);
-  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(5, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_sampling_pyx, __pyx_n_s_draw_noparents_onechild_single_t, 312, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(5, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_noparents_onechild_single_t, 312, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 312, __pyx_L1_error)
 
-  /* "lom/_cython/matrix_sampling.pyx":337
+  /* "lom/_cython/matrix_updates.pyx":337
  * 
  * 
  * def draw_oneparent_nochild(             # <<<<<<<<<<<<<<
@@ -30120,9 +30120,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__40 = PyTuple_Pack(19, __pyx_n_s_x, __pyx_n_s_z_pa, __pyx_n_s_u_pa, __pyx_n_s_lbda_pa, __pyx_n_s_prior_config, __pyx_n_s_sampling_indicator, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_acc_par, __pyx_n_s_p, __pyx_n_s_prior, __pyx_n_s_x_old, __pyx_n_s_row_binom, __pyx_n_s_col_binom, __pyx_n_s_row_densities, __pyx_n_s_col_densities, __pyx_n_s_prior_code); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__40);
   __Pyx_GIVEREF(__pyx_tuple__40);
-  __pyx_codeobj__41 = (PyObject*)__Pyx_PyCode_New(6, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__40, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_sampling_pyx, __pyx_n_s_draw_oneparent_nochild, 337, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__41)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __pyx_codeobj__41 = (PyObject*)__Pyx_PyCode_New(6, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__40, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_oneparent_nochild, 337, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__41)) __PYX_ERR(0, 337, __pyx_L1_error)
 
-  /* "lom/_cython/matrix_sampling.pyx":385
+  /* "lom/_cython/matrix_updates.pyx":385
  * 
  * 
  * def draw_twoparents_nochild(             # <<<<<<<<<<<<<<
@@ -30132,9 +30132,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__42 = PyTuple_Pack(22, __pyx_n_s_x, __pyx_n_s_z_pa1, __pyx_n_s_u_pa1, __pyx_n_s_lbda_pa1, __pyx_n_s_z_pa2, __pyx_n_s_u_pa2, __pyx_n_s_lbda_pa2, __pyx_n_s_prior_config, __pyx_n_s_sampling_indicator, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_acc_par, __pyx_n_s_p, __pyx_n_s_prior, __pyx_n_s_x_old, __pyx_n_s_row_binom, __pyx_n_s_col_binom, __pyx_n_s_row_densities, __pyx_n_s_col_densities, __pyx_n_s_prior_code); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 385, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__42);
   __Pyx_GIVEREF(__pyx_tuple__42);
-  __pyx_codeobj__43 = (PyObject*)__Pyx_PyCode_New(9, 0, 22, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__42, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_sampling_pyx, __pyx_n_s_draw_twoparents_nochild, 385, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__43)) __PYX_ERR(0, 385, __pyx_L1_error)
+  __pyx_codeobj__43 = (PyObject*)__Pyx_PyCode_New(9, 0, 22, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__42, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_twoparents_nochild, 385, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__43)) __PYX_ERR(0, 385, __pyx_L1_error)
 
-  /* "lom/_cython/matrix_sampling.pyx":442
+  /* "lom/_cython/matrix_updates.pyx":442
  * 
  * 
  * def draw_oneparent_onechild(             # <<<<<<<<<<<<<<
@@ -30144,9 +30144,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__44 = PyTuple_Pack(23, __pyx_n_s_x, __pyx_n_s_z_pa, __pyx_n_s_u_pa, __pyx_n_s_lbda_pa, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_prior_config, __pyx_n_s_sampling_indicator, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_acc_par, __pyx_n_s_acc_child, __pyx_n_s_p, __pyx_n_s_prior, __pyx_n_s_x_old, __pyx_n_s_prior_code, __pyx_n_s_row_binom, __pyx_n_s_col_binom, __pyx_n_s_row_densities, __pyx_n_s_col_densities); if (unlikely(!__pyx_tuple__44)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__44);
   __Pyx_GIVEREF(__pyx_tuple__44);
-  __pyx_codeobj__45 = (PyObject*)__Pyx_PyCode_New(9, 0, 23, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__44, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_sampling_pyx, __pyx_n_s_draw_oneparent_onechild, 442, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__45)) __PYX_ERR(0, 442, __pyx_L1_error)
+  __pyx_codeobj__45 = (PyObject*)__Pyx_PyCode_New(9, 0, 23, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__44, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_oneparent_onechild, 442, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__45)) __PYX_ERR(0, 442, __pyx_L1_error)
 
-  /* "lom/_cython/matrix_sampling.pyx":875
+  /* "lom/_cython/matrix_updates.pyx":875
  * 
  * 
  * def draw_noparents_onechild_old_prior(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -30156,7 +30156,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__46 = PyTuple_Pack(19, __pyx_n_s_x, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_prior_config, __pyx_n_s_sampling_indicator, __pyx_n_s_row_binom, __pyx_n_s_col_binom, __pyx_n_s_row_densities, __pyx_n_s_col_densities, __pyx_n_s_prior_code, __pyx_n_s_p, __pyx_n_s_acc_child, __pyx_n_s_prior, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_x_old); if (unlikely(!__pyx_tuple__46)) __PYX_ERR(0, 875, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__46);
   __Pyx_GIVEREF(__pyx_tuple__46);
-  __pyx_codeobj__47 = (PyObject*)__Pyx_PyCode_New(6, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__46, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_sampling_pyx, __pyx_n_s_draw_noparents_onechild_old_prio, 875, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__47)) __PYX_ERR(0, 875, __pyx_L1_error)
+  __pyx_codeobj__47 = (PyObject*)__Pyx_PyCode_New(6, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__46, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_noparents_onechild_old_prio, 875, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__47)) __PYX_ERR(0, 875, __pyx_L1_error)
 
   /* "View.MemoryView":284
  *         return self.name
@@ -30248,11 +30248,11 @@ if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 }
 
 #if PY_MAJOR_VERSION < 3
-PyMODINIT_FUNC initmatrix_sampling(void); /*proto*/
-PyMODINIT_FUNC initmatrix_sampling(void)
+PyMODINIT_FUNC initmatrix_updates(void); /*proto*/
+PyMODINIT_FUNC initmatrix_updates(void)
 #else
-PyMODINIT_FUNC PyInit_matrix_sampling(void); /*proto*/
-PyMODINIT_FUNC PyInit_matrix_sampling(void)
+PyMODINIT_FUNC PyInit_matrix_updates(void); /*proto*/
+PyMODINIT_FUNC PyInit_matrix_updates(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -30292,7 +30292,7 @@ bad:
 }
 
 
-static int __pyx_pymod_exec_matrix_sampling(PyObject *__pyx_pyinit_module)
+static int __pyx_pymod_exec_matrix_updates(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
@@ -30312,7 +30312,7 @@ static int __pyx_pymod_exec_matrix_sampling(PyObject *__pyx_pyinit_module)
           Py_FatalError("failed to import 'refnanny' module");
   }
   #endif
-  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_matrix_sampling(void)", 0);
+  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_matrix_updates(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -30348,7 +30348,7 @@ static int __pyx_pymod_exec_matrix_sampling(PyObject *__pyx_pyinit_module)
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("matrix_sampling", __pyx_methods, __pyx_k_Logical_Operator_Machines_Cytho, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("matrix_updates", __pyx_methods, __pyx_k_Logical_Operator_Machines_Cytho, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -30367,14 +30367,14 @@ static int __pyx_pymod_exec_matrix_sampling(PyObject *__pyx_pyinit_module)
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_lom___cython__matrix_sampling) {
+  if (__pyx_module_is_main_lom___cython__matrix_updates) {
     if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "lom._cython.matrix_sampling")) {
-      if (unlikely(PyDict_SetItemString(modules, "lom._cython.matrix_sampling", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "lom._cython.matrix_updates")) {
+      if (unlikely(PyDict_SetItemString(modules, "lom._cython.matrix_updates", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -30445,7 +30445,7 @@ static int __pyx_pymod_exec_matrix_sampling(PyObject *__pyx_pyinit_module)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "lom/_cython/matrix_sampling.pyx":35
+  /* "lom/_cython/matrix_updates.pyx":35
  * 
  * cimport numpy as np
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -30457,7 +30457,7 @@ static int __pyx_pymod_exec_matrix_sampling(PyObject *__pyx_pyinit_module)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":41
+  /* "lom/_cython/matrix_updates.pyx":41
  * # 8bit coding is needed, because matrices can have
  * # entries in {-1,0,1}, where 0 indicates unobserved data
  * data_type = np.int8             # <<<<<<<<<<<<<<
@@ -30472,7 +30472,7 @@ static int __pyx_pymod_exec_matrix_sampling(PyObject *__pyx_pyinit_module)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_data_type, __pyx_t_2) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":44
+  /* "lom/_cython/matrix_updates.pyx":44
  * ctypedef np.int8_t data_type_t
  * 
  * data_type2 = np.int16             # <<<<<<<<<<<<<<
@@ -30487,115 +30487,115 @@ static int __pyx_pymod_exec_matrix_sampling(PyObject *__pyx_pyinit_module)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_data_type2, __pyx_t_1) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":110
+  /* "lom/_cython/matrix_updates.pyx":110
  * 
  * 
  * def draw_noparents_onechild_maxmachine(data_type_t[:,:] x,  # N x D; z_nl             # <<<<<<<<<<<<<<
  *                                        data_type_t[:,:] sibling, # D x Lc; u_dl
  *                                        data_type_t[:,:] child, # N x Lc; x_nd
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_15matrix_sampling_1draw_noparents_onechild_maxmachine, NULL, __pyx_n_s_lom__cython_matrix_sampling); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_1draw_noparents_onechild_maxmachine, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_noparents_onechild_maxmachi, __pyx_t_1) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":181
+  /* "lom/_cython/matrix_updates.pyx":181
  * 
  * 
  * def draw_oneparent_onechild_maxmachine(data_type_t[:,:] x,  # N x D; z_nl             # <<<<<<<<<<<<<<
  *                                        data_type_t[:,:] sibling, # D x Lc; u_dl
  *                                        data_type_t[:,:] child, # N x Lc; x_nd
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_15matrix_sampling_3draw_oneparent_onechild_maxmachine, NULL, __pyx_n_s_lom__cython_matrix_sampling); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_3draw_oneparent_onechild_maxmachine, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_oneparent_onechild_maxmachi, __pyx_t_1) < 0) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":253
+  /* "lom/_cython/matrix_updates.pyx":253
  * 
  * 
  * def draw_balanced_or(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
  *                      data_type_t[:,:] sibling, # D x Lc
  *                      data_type_t[:,:] child, # N x Lc
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_15matrix_sampling_5draw_balanced_or, NULL, __pyx_n_s_lom__cython_matrix_sampling); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_5draw_balanced_or, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 253, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_balanced_or, __pyx_t_1) < 0) __PYX_ERR(0, 253, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":286
+  /* "lom/_cython/matrix_updates.pyx":286
  * 
  * 
  * def draw_noparents_onechild(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
  *                            data_type_t[:,:] sibling, # D x Lc
  *                            data_type_t[:,:] child, # N x Lc
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_15matrix_sampling_7draw_noparents_onechild, NULL, __pyx_n_s_lom__cython_matrix_sampling); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_7draw_noparents_onechild, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 286, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_noparents_onechild, __pyx_t_1) < 0) __PYX_ERR(0, 286, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":312
+  /* "lom/_cython/matrix_updates.pyx":312
  * 
  * 
  * def draw_noparents_onechild_single_thread(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
  *                            data_type_t[:,:] sibling, # D x Lc
  *                            data_type_t[:,:] child, # N x Lc
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_15matrix_sampling_9draw_noparents_onechild_single_thread, NULL, __pyx_n_s_lom__cython_matrix_sampling); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_9draw_noparents_onechild_single_thread, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_noparents_onechild_single_t, __pyx_t_1) < 0) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":337
+  /* "lom/_cython/matrix_updates.pyx":337
  * 
  * 
  * def draw_oneparent_nochild(             # <<<<<<<<<<<<<<
  *     data_type_t[:,:] x,  # N x D
  *     data_type_t[:,:] z_pa, # N x Lp
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_15matrix_sampling_11draw_oneparent_nochild, NULL, __pyx_n_s_lom__cython_matrix_sampling); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_11draw_oneparent_nochild, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_oneparent_nochild, __pyx_t_1) < 0) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":385
+  /* "lom/_cython/matrix_updates.pyx":385
  * 
  * 
  * def draw_twoparents_nochild(             # <<<<<<<<<<<<<<
  *         data_type_t[:,:] x,  # N x D
  *         data_type_t[:,:] z_pa1, # N x Lp1
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_15matrix_sampling_13draw_twoparents_nochild, NULL, __pyx_n_s_lom__cython_matrix_sampling); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 385, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_13draw_twoparents_nochild, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 385, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_twoparents_nochild, __pyx_t_1) < 0) __PYX_ERR(0, 385, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":442
+  /* "lom/_cython/matrix_updates.pyx":442
  * 
  * 
  * def draw_oneparent_onechild(             # <<<<<<<<<<<<<<
  *         data_type_t[:,:] x,  # N x D
  *         data_type_t[:,:] z_pa, # N x Lp
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_15matrix_sampling_15draw_oneparent_onechild, NULL, __pyx_n_s_lom__cython_matrix_sampling); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 442, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_15draw_oneparent_onechild, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_oneparent_onechild, __pyx_t_1) < 0) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":875
+  /* "lom/_cython/matrix_updates.pyx":875
  * 
  * 
  * def draw_noparents_onechild_old_prior(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
  *                            data_type_t[:,:] sibling, # D x Lc
  *                            data_type_t[:,:] child, # N x Lc
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_15matrix_sampling_39draw_noparents_onechild_old_prior, NULL, __pyx_n_s_lom__cython_matrix_sampling); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 875, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_39draw_noparents_onechild_old_prior, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 875, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_noparents_onechild_old_prio, __pyx_t_1) < 0) __PYX_ERR(0, 875, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_sampling.pyx":1
+  /* "lom/_cython/matrix_updates.pyx":1
  * #!python             # <<<<<<<<<<<<<<
  * #cython: profile=False, language_level=3, boundscheck=False, wraparound=False, cdivision=True
  * 
@@ -30766,11 +30766,11 @@ static int __pyx_pymod_exec_matrix_sampling(PyObject *__pyx_pyinit_module)
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init lom._cython.matrix_sampling", 0, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init lom._cython.matrix_updates", 0, __pyx_lineno, __pyx_filename);
     }
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init lom._cython.matrix_sampling");
+    PyErr_SetString(PyExc_ImportError, "init lom._cython.matrix_updates");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -33466,7 +33466,7 @@ no_fail:
 }
 
 /* ObjectToMemviewSlice */
-      static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(PyObject *obj) {
+      static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(PyObject *obj) {
     __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
     __Pyx_BufFmt_StackElem stack[1];
     int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_STRIDED), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_STRIDED) };
@@ -33477,7 +33477,7 @@ no_fail:
     }
     retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, 0,
                                                  PyBUF_RECORDS, 2,
-                                                 &__Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t, stack,
+                                                 &__Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t, stack,
                                                  &result, obj);
     if (unlikely(retcode == -1))
         goto __pyx_fail;
@@ -33558,7 +33558,7 @@ __pyx_fail:
 }
 
 /* ObjectToMemviewSlice */
-      static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t(PyObject *obj) {
+      static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(PyObject *obj) {
     __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
     __Pyx_BufFmt_StackElem stack[1];
     int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_STRIDED) };
@@ -33569,7 +33569,7 @@ __pyx_fail:
     }
     retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, 0,
                                                  PyBUF_RECORDS, 1,
-                                                 &__Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_15matrix_sampling_data_type_t, stack,
+                                                 &__Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t, stack,
                                                  &result, obj);
     if (unlikely(retcode == -1))
         goto __pyx_fail;

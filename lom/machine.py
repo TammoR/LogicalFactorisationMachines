@@ -49,7 +49,7 @@ Finally, Machine.infer() draws samples from all matrices and updates
 each layers parameters until convergence and saves the following samples
 into each members' trace.
 
-Naming conventions:
+
 feature dimensions: d = 1...D
 object dimensions:  n = 1...N
 latent dimensions:  l = 1...L
@@ -77,14 +77,15 @@ TODOs
 """
 
 from __future__ import absolute_import, division, print_function # for python2 support
-import wrappers
-import lib
-import lom_sampling as sampling
-import cython_fcts as cf
-import cython_tensorm as cf_tensorm
-import numpy as np
 from numpy.random import binomial
+import numpy as np
 from random import shuffle
+import lom.auxiliary_functions as lib
+import lom.matrix_updates_c_wrappers as wrappers
+import lom.lambda_updates_c_wrappers as sampling
+import lom._cython.matrix_updates as cf
+import lom._cython.tensor_updates as cf_tensorm
+
 from IPython.core.debugger import Tracer
 
 __author__ = "Tammo Rukat"
@@ -94,7 +95,8 @@ __status__ = "Development"
 class Trace():
     """
     abstract base class implementing methods posterior traces arrays.
-    Inherited to MachineMatrix and MachineParameter
+    Inherited to MachineMatrix and MachineParameter. TODO MachineMatrix and MachineParameter
+    should be instances of the same class (?)
     """
     
     def __call__(self):
@@ -176,7 +178,7 @@ class MachineParameter(Trace):
         self.sampling_fct = None
         self.val = val
         self.attached_matrices = attached_matrices
-        self.correct_role_order()
+        self.correct_role_order() # TODO solve this more elegantly
         # make sure they are a tuple in order (observations/features)
         self.sampling_indicator = sampling_indicator
         self.noise_model = noise_model

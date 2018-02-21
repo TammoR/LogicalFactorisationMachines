@@ -15,12 +15,12 @@
         "include_dirs": [
             "/Users/trukat/anaconda3/envs/conda_lom/lib/python3.6/site-packages/numpy/core/include"
         ],
-        "name": "cython_tensorm",
+        "name": "lom._cython.tensor_updates",
         "sources": [
-            "lom/_cython/tensor_sampling.pyx"
+            "lom/_cython/tensor_updates.pyx"
         ]
     },
-    "module_name": "cython_tensorm"
+    "module_name": "lom._cython.tensor_updates"
 }
 END: Cython Metadata */
 
@@ -542,8 +542,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__lom___cython__tensor_sampling
-#define __PYX_HAVE_API__lom___cython__tensor_sampling
+#define __PYX_HAVE__lom___cython__tensor_updates
+#define __PYX_HAVE_API__lom___cython__tensor_updates
 #include <math.h>
 #include <string.h>
 #include <stdlib.h>
@@ -777,7 +777,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "lom/_cython/tensor_sampling.pyx",
+  "lom/_cython/tensor_updates.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1080,14 +1080,14 @@ typedef npy_double __pyx_t_5numpy_double_t;
  */
 typedef npy_longdouble __pyx_t_5numpy_longdouble_t;
 
-/* "lom/_cython/tensor_sampling.pyx":24
+/* "lom/_cython/tensor_updates.pyx":24
  * 
  * data_type = np.int8
  * ctypedef np.int8_t data_type_t             # <<<<<<<<<<<<<<
  * 
  * 
  */
-typedef __pyx_t_5numpy_int8_t __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t;
+typedef __pyx_t_5numpy_int8_t __pyx_t_3lom_7_cython_14tensor_updates_data_type_t;
 /* Declarations.proto */
 #if CYTHON_CCOMPLEX
   #ifdef __cplusplus
@@ -1791,10 +1791,10 @@ static int __Pyx_ValidateAndInit_memviewslice(
                 PyObject *original_obj);
 
 /* ObjectToMemviewSlice.proto */
-static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(PyObject *);
+static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(PyObject *);
 
 /* ObjectToMemviewSlice.proto */
-static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsdsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(PyObject *);
+static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsdsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(PyObject *);
 
 /* ObjectToMemviewSlice.proto */
 static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsdsds_float(PyObject *);
@@ -2014,7 +2014,7 @@ static PyTypeObject *__pyx_ptype_5numpy_ndarray = 0;
 static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;
 static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, char *, char *, int *); /*proto*/
 
-/* Module declarations from 'lom._cython.tensor_sampling' */
+/* Module declarations from 'lom._cython.tensor_updates' */
 static PyTypeObject *__pyx_array_type = 0;
 static PyTypeObject *__pyx_MemviewEnum_type = 0;
 static PyTypeObject *__pyx_memoryview_type = 0;
@@ -2026,15 +2026,15 @@ static PyObject *contiguous = 0;
 static PyObject *indirect_contiguous = 0;
 static int __pyx_memoryview_thread_locks_used;
 static PyThread_type_lock __pyx_memoryview_thread_locks[8];
-static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int); /*proto*/
-static long __pyx_f_3lom_7_cython_15tensor_sampling_compute_p_tensorm(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
-static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tp_fp_tensorm(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
-static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tn_fn_tensorm(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
-static __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_output(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice); /*proto*/
-static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, double, int __pyx_skip_dispatch); /*proto*/
-static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm_indp(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, double, double, int __pyx_skip_dispatch); /*proto*/
-static float __pyx_f_3lom_7_cython_15tensor_sampling_sigmoid(float, int __pyx_skip_dispatch); /*proto*/
-static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unified(float, __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t, int __pyx_skip_dispatch); /*proto*/
+static int __pyx_f_3lom_7_cython_14tensor_updates_score_tensor_parents(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int); /*proto*/
+static long __pyx_f_3lom_7_cython_14tensor_updates_compute_p_tensorm(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
+static PyObject *__pyx_f_3lom_7_cython_14tensor_updates_compute_tp_fp_tensorm(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
+static PyObject *__pyx_f_3lom_7_cython_14tensor_updates_compute_tn_fn_tensorm(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
+static __pyx_t_3lom_7_cython_14tensor_updates_data_type_t __pyx_f_3lom_7_cython_14tensor_updates_tensorm_single_output(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice); /*proto*/
+static void __pyx_f_3lom_7_cython_14tensor_updates_probabilistic_output_tensorm(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, double, int __pyx_skip_dispatch); /*proto*/
+static void __pyx_f_3lom_7_cython_14tensor_updates_probabilistic_output_tensorm_indp(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, double, double, int __pyx_skip_dispatch); /*proto*/
+static float __pyx_f_3lom_7_cython_14tensor_updates_sigmoid(float, int __pyx_skip_dispatch); /*proto*/
+static int __pyx_f_3lom_7_cython_14tensor_updates_swap_metropolised_gibbs_unified(float, __pyx_t_3lom_7_cython_14tensor_updates_data_type_t, int __pyx_skip_dispatch); /*proto*/
 static struct __pyx_array_obj *__pyx_array_new(PyObject *, Py_ssize_t, char *, char *, char *); /*proto*/
 static void *__pyx_align_pointer(void *, size_t); /*proto*/
 static PyObject *__pyx_memoryview_new(PyObject *, int, int, __Pyx_TypeInfo *); /*proto*/
@@ -2068,14 +2068,14 @@ static void __pyx_memoryview_refcount_objects_in_slice(char *, Py_ssize_t *, Py_
 static void __pyx_memoryview_slice_assign_scalar(__Pyx_memviewslice *, int, size_t, void *, int); /*proto*/
 static void __pyx_memoryview__slice_assign_scalar(char *, Py_ssize_t *, Py_ssize_t *, int, size_t, void *); /*proto*/
 static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *, PyObject *); /*proto*/
-static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t = { "data_type_t", NULL, sizeof(__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t), { 0 }, 0, IS_UNSIGNED(__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t) ? 'U' : 'I', IS_UNSIGNED(__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t), 0 };
+static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t = { "data_type_t", NULL, sizeof(__pyx_t_3lom_7_cython_14tensor_updates_data_type_t), { 0 }, 0, IS_UNSIGNED(__pyx_t_3lom_7_cython_14tensor_updates_data_type_t) ? 'U' : 'I', IS_UNSIGNED(__pyx_t_3lom_7_cython_14tensor_updates_data_type_t), 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_float = { "float", NULL, sizeof(float), { 0 }, 0, 'R', 0, 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_double = { "double", NULL, sizeof(double), { 0 }, 0, 'R', 0, 0 };
-#define __Pyx_MODULE_NAME "lom._cython.tensor_sampling"
-extern int __pyx_module_is_main_lom___cython__tensor_sampling;
-int __pyx_module_is_main_lom___cython__tensor_sampling = 0;
+#define __Pyx_MODULE_NAME "lom._cython.tensor_updates"
+extern int __pyx_module_is_main_lom___cython__tensor_updates;
+int __pyx_module_is_main_lom___cython__tensor_updates = 0;
 
-/* Implementation of 'lom._cython.tensor_sampling' */
+/* Implementation of 'lom._cython.tensor_updates' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -2104,6 +2104,7 @@ static const char __pyx_k_z[] = "z";
 static const char __pyx_k_cf[] = "cf";
 static const char __pyx_k_id[] = "id";
 static const char __pyx_k_np[] = "np";
+static const char __pyx_k__29[] = "*";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_obj[] = "obj";
 static const char __pyx_k_base[] = "base";
@@ -2169,7 +2170,6 @@ static const char __pyx_k_ImportError[] = "ImportError";
 static const char __pyx_k_MemoryError[] = "MemoryError";
 static const char __pyx_k_PickleError[] = "PickleError";
 static const char __pyx_k_child_count[] = "child_count";
-static const char __pyx_k_cython_fcts[] = "cython_fcts";
 static const char __pyx_k_logit_prior[] = "logit_prior";
 static const char __pyx_k_RuntimeError[] = "RuntimeError";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
@@ -2193,14 +2193,15 @@ static const char __pyx_k_MemoryView_of_r_at_0x_x[] = "<MemoryView of %r at 0x%x
 static const char __pyx_k_contiguous_and_indirect[] = "<contiguous and indirect>";
 static const char __pyx_k_Cannot_index_with_type_s[] = "Cannot index with type '%s'";
 static const char __pyx_k_Invalid_shape_in_axis_d_d[] = "Invalid shape in axis %d: %d.";
+static const char __pyx_k_lom__cython_matrix_updates[] = "lom._cython.matrix_updates";
+static const char __pyx_k_lom__cython_tensor_updates[] = "lom._cython.tensor_updates";
 static const char __pyx_k_itemsize_0_for_cython_array[] = "itemsize <= 0 for cython.array";
-static const char __pyx_k_lom__cython_tensor_sampling[] = "lom._cython.tensor_sampling";
 static const char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C contiguous";
 static const char __pyx_k_unable_to_allocate_array_data[] = "unable to allocate array data.";
+static const char __pyx_k_lom__cython_tensor_updates_pyx[] = "lom/_cython/tensor_updates.pyx";
 static const char __pyx_k_strided_and_direct_or_indirect[] = "<strided and direct or indirect>";
 static const char __pyx_k_Logical_Operator_Machines_Cytho[] = "\nLogical Operator Machines\nCython functions for sampling in TensOrMachine\n";
 static const char __pyx_k_draw_tensorm_noparents_onechild[] = "draw_tensorm_noparents_onechild";
-static const char __pyx_k_lom__cython_tensor_sampling_pyx[] = "lom/_cython/tensor_sampling.pyx";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_unknown_dtype_code_in_numpy_pxd[] = "unknown dtype code in numpy.pxd (%d)";
 static const char __pyx_k_Buffer_view_does_not_expose_stri[] = "Buffer view does not expose strides";
@@ -2252,6 +2253,7 @@ static PyObject *__pyx_n_s_TypeError;
 static PyObject *__pyx_kp_s_Unable_to_convert_item_to_object;
 static PyObject *__pyx_n_s_ValueError;
 static PyObject *__pyx_n_s_View_MemoryView;
+static PyObject *__pyx_n_s__29;
 static PyObject *__pyx_n_s_allocate_buffer;
 static PyObject *__pyx_n_s_base;
 static PyObject *__pyx_n_s_c;
@@ -2264,7 +2266,6 @@ static PyObject *__pyx_n_s_class;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_kp_s_contiguous_and_direct;
 static PyObject *__pyx_kp_s_contiguous_and_indirect;
-static PyObject *__pyx_n_s_cython_fcts;
 static PyObject *__pyx_n_s_d;
 static PyObject *__pyx_n_s_data_type;
 static PyObject *__pyx_n_s_dict;
@@ -2290,8 +2291,9 @@ static PyObject *__pyx_n_s_lbda;
 static PyObject *__pyx_n_s_lbda_m;
 static PyObject *__pyx_n_s_lbda_p;
 static PyObject *__pyx_n_s_logit_prior;
-static PyObject *__pyx_n_s_lom__cython_tensor_sampling;
-static PyObject *__pyx_kp_s_lom__cython_tensor_sampling_pyx;
+static PyObject *__pyx_n_s_lom__cython_matrix_updates;
+static PyObject *__pyx_n_s_lom__cython_tensor_updates;
+static PyObject *__pyx_kp_s_lom__cython_tensor_updates_pyx;
 static PyObject *__pyx_n_s_m;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_memview;
@@ -2355,15 +2357,15 @@ static PyObject *__pyx_n_s_v;
 static PyObject *__pyx_n_s_x;
 static PyObject *__pyx_n_s_x_old;
 static PyObject *__pyx_n_s_z;
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_draw_tensorm_noparents_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_sibling1, __Pyx_memviewslice __pyx_v_sibling2, __Pyx_memviewslice __pyx_v_sibling3, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, float __pyx_v_logit_prior); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_2draw_tensorm_indp_noparents_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_sibling1, __Pyx_memviewslice __pyx_v_sibling2, __Pyx_memviewslice __pyx_v_sibling3, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda_p, float __pyx_v_lbda_m); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_4compute_p_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_6compute_tp_fp_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_8compute_tn_fn_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_10probabilistic_output_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_v, double __pyx_v_lbda); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_12probabilistic_output_tensorm_indp(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_v, double __pyx_v_lbda_p, double __pyx_v_lbda_m); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_14sigmoid(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_x); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_16swap_metropolised_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_v_x); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_draw_tensorm_noparents_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_sibling1, __Pyx_memviewslice __pyx_v_sibling2, __Pyx_memviewslice __pyx_v_sibling3, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, float __pyx_v_logit_prior); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_2draw_tensorm_indp_noparents_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_sibling1, __Pyx_memviewslice __pyx_v_sibling2, __Pyx_memviewslice __pyx_v_sibling3, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda_p, float __pyx_v_lbda_m); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_4compute_p_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_6compute_tp_fp_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_8compute_tn_fn_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_10probabilistic_output_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_v, double __pyx_v_lbda); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_12probabilistic_output_tensorm_indp(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_v, double __pyx_v_lbda_p, double __pyx_v_lbda_m); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_14sigmoid(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_x); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_16swap_metropolised_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_14tensor_updates_data_type_t __pyx_v_x); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
@@ -2444,19 +2446,19 @@ static PyObject *__pyx_tuple__22;
 static PyObject *__pyx_tuple__26;
 static PyObject *__pyx_tuple__27;
 static PyObject *__pyx_tuple__28;
-static PyObject *__pyx_tuple__29;
-static PyObject *__pyx_tuple__31;
-static PyObject *__pyx_tuple__33;
+static PyObject *__pyx_tuple__30;
+static PyObject *__pyx_tuple__32;
 static PyObject *__pyx_tuple__34;
 static PyObject *__pyx_tuple__35;
 static PyObject *__pyx_tuple__36;
 static PyObject *__pyx_tuple__37;
 static PyObject *__pyx_tuple__38;
-static PyObject *__pyx_codeobj__30;
-static PyObject *__pyx_codeobj__32;
-static PyObject *__pyx_codeobj__39;
+static PyObject *__pyx_tuple__39;
+static PyObject *__pyx_codeobj__31;
+static PyObject *__pyx_codeobj__33;
+static PyObject *__pyx_codeobj__40;
 
-/* "lom/_cython/tensor_sampling.pyx":27
+/* "lom/_cython/tensor_updates.pyx":27
  * 
  * 
  * cdef int score_tensor_parents(             # <<<<<<<<<<<<<<
@@ -2464,7 +2466,7 @@ static PyObject *__pyx_codeobj__39;
  * 	data_type_t[:] sibling1_n,
  */
 
-static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_memviewslice __pyx_v_child_n, __Pyx_memviewslice __pyx_v_sibling1_n, __Pyx_memviewslice __pyx_v_sibling2, __Pyx_memviewslice __pyx_v_sibling3, int __pyx_v_l) {
+static int __pyx_f_3lom_7_cython_14tensor_updates_score_tensor_parents(__Pyx_memviewslice __pyx_v_child_n, __Pyx_memviewslice __pyx_v_sibling1_n, __Pyx_memviewslice __pyx_v_sibling2, __Pyx_memviewslice __pyx_v_sibling3, int __pyx_v_l) {
   int __pyx_v_L;
   int __pyx_v_D;
   int __pyx_v_M;
@@ -2494,7 +2496,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
   Py_ssize_t __pyx_t_18;
   Py_ssize_t __pyx_t_19;
 
-  /* "lom/_cython/tensor_sampling.pyx":38
+  /* "lom/_cython/tensor_updates.pyx":38
  * 	"""
  * 
  * 	cdef int L = sibling1_n.shape[0]             # <<<<<<<<<<<<<<
@@ -2503,7 +2505,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
   __pyx_v_L = (__pyx_v_sibling1_n.shape[0]);
 
-  /* "lom/_cython/tensor_sampling.pyx":39
+  /* "lom/_cython/tensor_updates.pyx":39
  * 
  * 	cdef int L = sibling1_n.shape[0]
  * 	cdef int D = sibling2.shape[0]             # <<<<<<<<<<<<<<
@@ -2512,7 +2514,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
   __pyx_v_D = (__pyx_v_sibling2.shape[0]);
 
-  /* "lom/_cython/tensor_sampling.pyx":40
+  /* "lom/_cython/tensor_updates.pyx":40
  * 	cdef int L = sibling1_n.shape[0]
  * 	cdef int D = sibling2.shape[0]
  * 	cdef int M = sibling3.shape[0]             # <<<<<<<<<<<<<<
@@ -2521,7 +2523,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
   __pyx_v_M = (__pyx_v_sibling3.shape[0]);
 
-  /* "lom/_cython/tensor_sampling.pyx":42
+  /* "lom/_cython/tensor_updates.pyx":42
  * 	cdef int M = sibling3.shape[0]
  * 	cdef bint alrdy_active
  * 	cdef int score = 0             # <<<<<<<<<<<<<<
@@ -2530,7 +2532,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
   __pyx_v_score = 0;
 
-  /* "lom/_cython/tensor_sampling.pyx":49
+  /* "lom/_cython/tensor_updates.pyx":49
  * 	# assert child_n.shape[1] == M
  * 
  * 	for d in range(D):             # <<<<<<<<<<<<<<
@@ -2541,7 +2543,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_d = __pyx_t_2;
 
-    /* "lom/_cython/tensor_sampling.pyx":50
+    /* "lom/_cython/tensor_updates.pyx":50
  * 
  * 	for d in range(D):
  * 		for m in range(M):             # <<<<<<<<<<<<<<
@@ -2552,7 +2554,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_m = __pyx_t_4;
 
-      /* "lom/_cython/tensor_sampling.pyx":51
+      /* "lom/_cython/tensor_updates.pyx":51
  * 	for d in range(D):
  * 		for m in range(M):
  * 			if (sibling2[d,l] != 1) or (sibling3[m,l] !=1):             # <<<<<<<<<<<<<<
@@ -2561,7 +2563,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
       __pyx_t_6 = __pyx_v_d;
       __pyx_t_7 = __pyx_v_l;
-      __pyx_t_8 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling2.data + __pyx_t_6 * __pyx_v_sibling2.strides[0]) ) + __pyx_t_7 * __pyx_v_sibling2.strides[1]) ))) != 1) != 0);
+      __pyx_t_8 = (((*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling2.data + __pyx_t_6 * __pyx_v_sibling2.strides[0]) ) + __pyx_t_7 * __pyx_v_sibling2.strides[1]) ))) != 1) != 0);
       if (!__pyx_t_8) {
       } else {
         __pyx_t_5 = __pyx_t_8;
@@ -2569,12 +2571,12 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
       }
       __pyx_t_9 = __pyx_v_m;
       __pyx_t_10 = __pyx_v_l;
-      __pyx_t_8 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling3.data + __pyx_t_9 * __pyx_v_sibling3.strides[0]) ) + __pyx_t_10 * __pyx_v_sibling3.strides[1]) ))) != 1) != 0);
+      __pyx_t_8 = (((*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling3.data + __pyx_t_9 * __pyx_v_sibling3.strides[0]) ) + __pyx_t_10 * __pyx_v_sibling3.strides[1]) ))) != 1) != 0);
       __pyx_t_5 = __pyx_t_8;
       __pyx_L8_bool_binop_done:;
       if (__pyx_t_5) {
 
-        /* "lom/_cython/tensor_sampling.pyx":52
+        /* "lom/_cython/tensor_updates.pyx":52
  * 		for m in range(M):
  * 			if (sibling2[d,l] != 1) or (sibling3[m,l] !=1):
  * 				continue             # <<<<<<<<<<<<<<
@@ -2583,7 +2585,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
         goto __pyx_L5_continue;
 
-        /* "lom/_cython/tensor_sampling.pyx":51
+        /* "lom/_cython/tensor_updates.pyx":51
  * 	for d in range(D):
  * 		for m in range(M):
  * 			if (sibling2[d,l] != 1) or (sibling3[m,l] !=1):             # <<<<<<<<<<<<<<
@@ -2592,7 +2594,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
       }
 
-      /* "lom/_cython/tensor_sampling.pyx":54
+      /* "lom/_cython/tensor_updates.pyx":54
  * 				continue
  * 
  * 			alrdy_active = False             # <<<<<<<<<<<<<<
@@ -2601,7 +2603,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
       __pyx_v_alrdy_active = 0;
 
-      /* "lom/_cython/tensor_sampling.pyx":55
+      /* "lom/_cython/tensor_updates.pyx":55
  * 
  * 			alrdy_active = False
  * 			for l_prime in range(L):             # <<<<<<<<<<<<<<
@@ -2612,7 +2614,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
       for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
         __pyx_v_l_prime = __pyx_t_12;
 
-        /* "lom/_cython/tensor_sampling.pyx":56
+        /* "lom/_cython/tensor_updates.pyx":56
  * 			alrdy_active = False
  * 			for l_prime in range(L):
  * 				if (sibling1_n[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -2620,14 +2622,14 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  * 					sibling3[m,l_prime] == 1 and
  */
         __pyx_t_13 = __pyx_v_l_prime;
-        __pyx_t_8 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=0 */ (__pyx_v_sibling1_n.data + __pyx_t_13 * __pyx_v_sibling1_n.strides[0]) ))) == 1) != 0);
+        __pyx_t_8 = (((*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_sibling1_n.data + __pyx_t_13 * __pyx_v_sibling1_n.strides[0]) ))) == 1) != 0);
         if (__pyx_t_8) {
         } else {
           __pyx_t_5 = __pyx_t_8;
           goto __pyx_L13_bool_binop_done;
         }
 
-        /* "lom/_cython/tensor_sampling.pyx":57
+        /* "lom/_cython/tensor_updates.pyx":57
  * 			for l_prime in range(L):
  * 				if (sibling1_n[l_prime] == 1 and
  * 					sibling2[d,l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -2636,14 +2638,14 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
         __pyx_t_14 = __pyx_v_d;
         __pyx_t_15 = __pyx_v_l_prime;
-        __pyx_t_8 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling2.data + __pyx_t_14 * __pyx_v_sibling2.strides[0]) ) + __pyx_t_15 * __pyx_v_sibling2.strides[1]) ))) == 1) != 0);
+        __pyx_t_8 = (((*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling2.data + __pyx_t_14 * __pyx_v_sibling2.strides[0]) ) + __pyx_t_15 * __pyx_v_sibling2.strides[1]) ))) == 1) != 0);
         if (__pyx_t_8) {
         } else {
           __pyx_t_5 = __pyx_t_8;
           goto __pyx_L13_bool_binop_done;
         }
 
-        /* "lom/_cython/tensor_sampling.pyx":58
+        /* "lom/_cython/tensor_updates.pyx":58
  * 				if (sibling1_n[l_prime] == 1 and
  * 					sibling2[d,l_prime] == 1 and
  * 					sibling3[m,l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -2652,14 +2654,14 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
         __pyx_t_16 = __pyx_v_m;
         __pyx_t_17 = __pyx_v_l_prime;
-        __pyx_t_8 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling3.data + __pyx_t_16 * __pyx_v_sibling3.strides[0]) ) + __pyx_t_17 * __pyx_v_sibling3.strides[1]) ))) == 1) != 0);
+        __pyx_t_8 = (((*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling3.data + __pyx_t_16 * __pyx_v_sibling3.strides[0]) ) + __pyx_t_17 * __pyx_v_sibling3.strides[1]) ))) == 1) != 0);
         if (__pyx_t_8) {
         } else {
           __pyx_t_5 = __pyx_t_8;
           goto __pyx_L13_bool_binop_done;
         }
 
-        /* "lom/_cython/tensor_sampling.pyx":59
+        /* "lom/_cython/tensor_updates.pyx":59
  * 					sibling2[d,l_prime] == 1 and
  * 					sibling3[m,l_prime] == 1 and
  * 					l_prime != l):             # <<<<<<<<<<<<<<
@@ -2670,7 +2672,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
         __pyx_t_5 = __pyx_t_8;
         __pyx_L13_bool_binop_done:;
 
-        /* "lom/_cython/tensor_sampling.pyx":56
+        /* "lom/_cython/tensor_updates.pyx":56
  * 			alrdy_active = False
  * 			for l_prime in range(L):
  * 				if (sibling1_n[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -2679,7 +2681,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
         if (__pyx_t_5) {
 
-          /* "lom/_cython/tensor_sampling.pyx":60
+          /* "lom/_cython/tensor_updates.pyx":60
  * 					sibling3[m,l_prime] == 1 and
  * 					l_prime != l):
  * 					alrdy_active = True             # <<<<<<<<<<<<<<
@@ -2688,7 +2690,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
           __pyx_v_alrdy_active = 1;
 
-          /* "lom/_cython/tensor_sampling.pyx":61
+          /* "lom/_cython/tensor_updates.pyx":61
  * 					l_prime != l):
  * 					alrdy_active = True
  * 					break             # <<<<<<<<<<<<<<
@@ -2697,7 +2699,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
           goto __pyx_L11_break;
 
-          /* "lom/_cython/tensor_sampling.pyx":56
+          /* "lom/_cython/tensor_updates.pyx":56
  * 			alrdy_active = False
  * 			for l_prime in range(L):
  * 				if (sibling1_n[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -2708,7 +2710,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
       }
       __pyx_L11_break:;
 
-      /* "lom/_cython/tensor_sampling.pyx":63
+      /* "lom/_cython/tensor_updates.pyx":63
  * 					break
  * 
  * 			if (alrdy_active is False):             # <<<<<<<<<<<<<<
@@ -2718,7 +2720,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
       __pyx_t_5 = ((__pyx_v_alrdy_active == 0) != 0);
       if (__pyx_t_5) {
 
-        /* "lom/_cython/tensor_sampling.pyx":64
+        /* "lom/_cython/tensor_updates.pyx":64
  * 
  * 			if (alrdy_active is False):
  * 				score += child_n[d,m]             # <<<<<<<<<<<<<<
@@ -2727,9 +2729,9 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
         __pyx_t_18 = __pyx_v_d;
         __pyx_t_19 = __pyx_v_m;
-        __pyx_v_score = (__pyx_v_score + (*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child_n.data + __pyx_t_18 * __pyx_v_child_n.strides[0]) ) + __pyx_t_19 * __pyx_v_child_n.strides[1]) ))));
+        __pyx_v_score = (__pyx_v_score + (*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child_n.data + __pyx_t_18 * __pyx_v_child_n.strides[0]) ) + __pyx_t_19 * __pyx_v_child_n.strides[1]) ))));
 
-        /* "lom/_cython/tensor_sampling.pyx":63
+        /* "lom/_cython/tensor_updates.pyx":63
  * 					break
  * 
  * 			if (alrdy_active is False):             # <<<<<<<<<<<<<<
@@ -2741,7 +2743,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
     }
   }
 
-  /* "lom/_cython/tensor_sampling.pyx":66
+  /* "lom/_cython/tensor_updates.pyx":66
  * 				score += child_n[d,m]
  * 
  * 	return score             # <<<<<<<<<<<<<<
@@ -2751,7 +2753,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
   __pyx_r = __pyx_v_score;
   goto __pyx_L0;
 
-  /* "lom/_cython/tensor_sampling.pyx":27
+  /* "lom/_cython/tensor_updates.pyx":27
  * 
  * 
  * cdef int score_tensor_parents(             # <<<<<<<<<<<<<<
@@ -2764,7 +2766,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
   return __pyx_r;
 }
 
-/* "lom/_cython/tensor_sampling.pyx":69
+/* "lom/_cython/tensor_updates.pyx":69
  * 
  * 
  * def draw_tensorm_noparents_onechild(             # <<<<<<<<<<<<<<
@@ -2773,9 +2775,9 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__Pyx_me
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_1draw_tensorm_noparents_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3lom_7_cython_15tensor_sampling_1draw_tensorm_noparents_onechild = {"draw_tensorm_noparents_onechild", (PyCFunction)__pyx_pw_3lom_7_cython_15tensor_sampling_1draw_tensorm_noparents_onechild, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_1draw_tensorm_noparents_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_1draw_tensorm_noparents_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_3lom_7_cython_14tensor_updates_1draw_tensorm_noparents_onechild = {"draw_tensorm_noparents_onechild", (PyCFunction)__pyx_pw_3lom_7_cython_14tensor_updates_1draw_tensorm_noparents_onechild, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_1draw_tensorm_noparents_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_sibling1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_sibling2 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_sibling3 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -2856,10 +2858,10 @@ static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_1draw_tensorm_noparent
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
     }
-    __pyx_v_sibling1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_sibling1.memview)) __PYX_ERR(0, 70, __pyx_L3_error)
-    __pyx_v_sibling2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling2.memview)) __PYX_ERR(0, 71, __pyx_L3_error)
-    __pyx_v_sibling3 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_sibling3.memview)) __PYX_ERR(0, 72, __pyx_L3_error)
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[3]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 73, __pyx_L3_error)
+    __pyx_v_sibling1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_sibling1.memview)) __PYX_ERR(0, 70, __pyx_L3_error)
+    __pyx_v_sibling2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling2.memview)) __PYX_ERR(0, 71, __pyx_L3_error)
+    __pyx_v_sibling3 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_sibling3.memview)) __PYX_ERR(0, 72, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[3]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 73, __pyx_L3_error)
     __pyx_v_lbda = __pyx_PyFloat_AsFloat(values[4]); if (unlikely((__pyx_v_lbda == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 74, __pyx_L3_error)
     __pyx_v_logit_prior = __pyx_PyFloat_AsFloat(values[5]); if (unlikely((__pyx_v_logit_prior == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 75, __pyx_L3_error)
   }
@@ -2867,18 +2869,18 @@ static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_1draw_tensorm_noparent
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("draw_tensorm_noparents_onechild", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 69, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.draw_tensorm_noparents_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.draw_tensorm_noparents_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15tensor_sampling_draw_tensorm_noparents_onechild(__pyx_self, __pyx_v_sibling1, __pyx_v_sibling2, __pyx_v_sibling3, __pyx_v_child, __pyx_v_lbda, __pyx_v_logit_prior);
+  __pyx_r = __pyx_pf_3lom_7_cython_14tensor_updates_draw_tensorm_noparents_onechild(__pyx_self, __pyx_v_sibling1, __pyx_v_sibling2, __pyx_v_sibling3, __pyx_v_child, __pyx_v_lbda, __pyx_v_logit_prior);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_draw_tensorm_noparents_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_sibling1, __Pyx_memviewslice __pyx_v_sibling2, __Pyx_memviewslice __pyx_v_sibling3, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, float __pyx_v_logit_prior) {
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_draw_tensorm_noparents_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_sibling1, __Pyx_memviewslice __pyx_v_sibling2, __Pyx_memviewslice __pyx_v_sibling3, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, float __pyx_v_logit_prior) {
   float __pyx_v_p;
   float __pyx_v_child_contribution;
   CYTHON_UNUSED float __pyx_v_prior;
@@ -2903,7 +2905,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_draw_tensorm_noparents
   Py_ssize_t __pyx_t_11;
   __Pyx_RefNannySetupContext("draw_tensorm_noparents_onechild", 0);
 
-  /* "lom/_cython/tensor_sampling.pyx":78
+  /* "lom/_cython/tensor_updates.pyx":78
  * 
  * 	cdef float p, child_contribution
  * 	cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -2912,7 +2914,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_draw_tensorm_noparents
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/tensor_sampling.pyx":80
+  /* "lom/_cython/tensor_updates.pyx":80
  * 	cdef float prior = 0
  * 	cdef int n, d, m, l
  * 	cdef int N = sibling1.shape[0], L = sibling1.shape[1]             # <<<<<<<<<<<<<<
@@ -2922,7 +2924,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_draw_tensorm_noparents
   __pyx_v_N = (__pyx_v_sibling1.shape[0]);
   __pyx_v_L = (__pyx_v_sibling1.shape[1]);
 
-  /* "lom/_cython/tensor_sampling.pyx":81
+  /* "lom/_cython/tensor_updates.pyx":81
  * 	cdef int n, d, m, l
  * 	cdef int N = sibling1.shape[0], L = sibling1.shape[1]
  * 	cdef int D = sibling2.shape[0],             # <<<<<<<<<<<<<<
@@ -2931,7 +2933,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_draw_tensorm_noparents
  */
   __pyx_v_D = (__pyx_v_sibling2.shape[0]);
 
-  /* "lom/_cython/tensor_sampling.pyx":82
+  /* "lom/_cython/tensor_updates.pyx":82
  * 	cdef int N = sibling1.shape[0], L = sibling1.shape[1]
  * 	cdef int D = sibling2.shape[0],
  * 	cdef int M = sibling3.shape[0],             # <<<<<<<<<<<<<<
@@ -2940,7 +2942,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_draw_tensorm_noparents
  */
   __pyx_v_M = (__pyx_v_sibling3.shape[0]);
 
-  /* "lom/_cython/tensor_sampling.pyx":85
+  /* "lom/_cython/tensor_updates.pyx":85
  * 	cdef data_type_t x_old
  * 
  * 	for n in prange(N, schedule='dynamic', nogil=True):             # <<<<<<<<<<<<<<
@@ -2996,7 +2998,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_draw_tensorm_noparents
                             __pyx_v_l = ((int)0xbad0bad0);
                             __pyx_v_p = ((float)__PYX_NAN());
 
-                            /* "lom/_cython/tensor_sampling.pyx":86
+                            /* "lom/_cython/tensor_updates.pyx":86
  * 
  * 	for n in prange(N, schedule='dynamic', nogil=True):
  * 		for l in range(L):             # <<<<<<<<<<<<<<
@@ -3007,7 +3009,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_draw_tensorm_noparents
                             for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
                               __pyx_v_l = __pyx_t_5;
 
-                              /* "lom/_cython/tensor_sampling.pyx":88
+                              /* "lom/_cython/tensor_updates.pyx":88
  * 		for l in range(L):
  * 			child_contribution = lbda*score_tensor_parents(
  * 									child[n,:,:],             # <<<<<<<<<<<<<<
@@ -3046,7 +3048,7 @@ __pyx_t_6.strides[1] = __pyx_v_child.strides[2];
 
 __pyx_t_7.data = __pyx_v_sibling1.data;
 
-                              /* "lom/_cython/tensor_sampling.pyx":89
+                              /* "lom/_cython/tensor_updates.pyx":89
  * 			child_contribution = lbda*score_tensor_parents(
  * 									child[n,:,:],
  * 									sibling1[n,:],             # <<<<<<<<<<<<<<
@@ -3078,9 +3080,9 @@ __pyx_t_7.shape[0] = __pyx_v_sibling1.shape[1];
 __pyx_t_7.strides[0] = __pyx_v_sibling1.strides[1];
     __pyx_t_7.suboffsets[0] = -1;
 
-__pyx_v_child_contribution = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__pyx_t_6, __pyx_t_7, __pyx_v_sibling2, __pyx_v_sibling3, __pyx_v_l));
+__pyx_v_child_contribution = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14tensor_updates_score_tensor_parents(__pyx_t_6, __pyx_t_7, __pyx_v_sibling2, __pyx_v_sibling3, __pyx_v_l));
 
-                              /* "lom/_cython/tensor_sampling.pyx":87
+                              /* "lom/_cython/tensor_updates.pyx":87
  * 	for n in prange(N, schedule='dynamic', nogil=True):
  * 		for l in range(L):
  * 			child_contribution = lbda*score_tensor_parents(             # <<<<<<<<<<<<<<
@@ -3094,16 +3096,16 @@ __pyx_v_child_contribution = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15tensor_samp
                               __pyx_t_7.memview = NULL;
                               __pyx_t_7.data = NULL;
 
-                              /* "lom/_cython/tensor_sampling.pyx":94
+                              /* "lom/_cython/tensor_updates.pyx":94
  * 									l)
  * 
  * 			p = sigmoid(child_contribution + logit_prior)             # <<<<<<<<<<<<<<
  * 			sibling1[n,l] = swap_metropolised_gibbs_unified(p, sibling1[n,l])
  * 
  */
-                              __pyx_v_p = __pyx_f_3lom_7_cython_15tensor_sampling_sigmoid((__pyx_v_child_contribution + __pyx_v_logit_prior), 0);
+                              __pyx_v_p = __pyx_f_3lom_7_cython_14tensor_updates_sigmoid((__pyx_v_child_contribution + __pyx_v_logit_prior), 0);
 
-                              /* "lom/_cython/tensor_sampling.pyx":95
+                              /* "lom/_cython/tensor_updates.pyx":95
  * 
  * 			p = sigmoid(child_contribution + logit_prior)
  * 			sibling1[n,l] = swap_metropolised_gibbs_unified(p, sibling1[n,l])             # <<<<<<<<<<<<<<
@@ -3114,7 +3116,7 @@ __pyx_v_child_contribution = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15tensor_samp
                               __pyx_t_9 = __pyx_v_l;
                               __pyx_t_10 = __pyx_v_n;
                               __pyx_t_11 = __pyx_v_l;
-                              *((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling1.data + __pyx_t_10 * __pyx_v_sibling1.strides[0]) ) + __pyx_t_11 * __pyx_v_sibling1.strides[1]) )) = __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling1.data + __pyx_t_8 * __pyx_v_sibling1.strides[0]) ) + __pyx_t_9 * __pyx_v_sibling1.strides[1]) ))), 0);
+                              *((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling1.data + __pyx_t_10 * __pyx_v_sibling1.strides[0]) ) + __pyx_t_11 * __pyx_v_sibling1.strides[1]) )) = __pyx_f_3lom_7_cython_14tensor_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling1.data + __pyx_t_8 * __pyx_v_sibling1.strides[0]) ) + __pyx_t_9 * __pyx_v_sibling1.strides[1]) ))), 0);
                             }
                             goto __pyx_L13;
                             __pyx_L8_error:;
@@ -3138,7 +3140,7 @@ __pyx_v_child_contribution = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15tensor_samp
                             goto __pyx_L12;
                             __pyx_L12:;
                             #ifdef _OPENMP
-                            #pragma omp critical(__pyx_parallel_lastprivates4)
+                            #pragma omp critical(__pyx_parallel_lastprivates0)
                             #endif /* _OPENMP */
                             {
                                 __pyx_parallel_temp0 = __pyx_v_child_contribution;
@@ -3205,7 +3207,7 @@ __pyx_v_child_contribution = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15tensor_samp
         #endif
       }
 
-      /* "lom/_cython/tensor_sampling.pyx":85
+      /* "lom/_cython/tensor_updates.pyx":85
  * 	cdef data_type_t x_old
  * 
  * 	for n in prange(N, schedule='dynamic', nogil=True):             # <<<<<<<<<<<<<<
@@ -3231,7 +3233,7 @@ __pyx_v_child_contribution = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15tensor_samp
       }
   }
 
-  /* "lom/_cython/tensor_sampling.pyx":69
+  /* "lom/_cython/tensor_updates.pyx":69
  * 
  * 
  * def draw_tensorm_noparents_onechild(             # <<<<<<<<<<<<<<
@@ -3245,7 +3247,7 @@ __pyx_v_child_contribution = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15tensor_samp
   __pyx_L1_error:;
   __PYX_XDEC_MEMVIEW(&__pyx_t_6, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_7, 1);
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.draw_tensorm_noparents_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.draw_tensorm_noparents_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_sibling1, 1);
@@ -3257,7 +3259,7 @@ __pyx_v_child_contribution = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15tensor_samp
   return __pyx_r;
 }
 
-/* "lom/_cython/tensor_sampling.pyx":99
+/* "lom/_cython/tensor_updates.pyx":99
  * 
  * 
  * def draw_tensorm_indp_noparents_onechild(             # <<<<<<<<<<<<<<
@@ -3266,9 +3268,9 @@ __pyx_v_child_contribution = (__pyx_v_lbda * __pyx_f_3lom_7_cython_15tensor_samp
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_3draw_tensorm_indp_noparents_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3lom_7_cython_15tensor_sampling_3draw_tensorm_indp_noparents_onechild = {"draw_tensorm_indp_noparents_onechild", (PyCFunction)__pyx_pw_3lom_7_cython_15tensor_sampling_3draw_tensorm_indp_noparents_onechild, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_3draw_tensorm_indp_noparents_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_3draw_tensorm_indp_noparents_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_3lom_7_cython_14tensor_updates_3draw_tensorm_indp_noparents_onechild = {"draw_tensorm_indp_noparents_onechild", (PyCFunction)__pyx_pw_3lom_7_cython_14tensor_updates_3draw_tensorm_indp_noparents_onechild, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_3draw_tensorm_indp_noparents_onechild(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_sibling1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_sibling2 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_sibling3 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -3349,10 +3351,10 @@ static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_3draw_tensorm_indp_nop
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
     }
-    __pyx_v_sibling1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_sibling1.memview)) __PYX_ERR(0, 100, __pyx_L3_error)
-    __pyx_v_sibling2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling2.memview)) __PYX_ERR(0, 101, __pyx_L3_error)
-    __pyx_v_sibling3 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_sibling3.memview)) __PYX_ERR(0, 102, __pyx_L3_error)
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[3]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 103, __pyx_L3_error)
+    __pyx_v_sibling1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_sibling1.memview)) __PYX_ERR(0, 100, __pyx_L3_error)
+    __pyx_v_sibling2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling2.memview)) __PYX_ERR(0, 101, __pyx_L3_error)
+    __pyx_v_sibling3 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_sibling3.memview)) __PYX_ERR(0, 102, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[3]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 103, __pyx_L3_error)
     __pyx_v_lbda_p = __pyx_PyFloat_AsFloat(values[4]); if (unlikely((__pyx_v_lbda_p == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 104, __pyx_L3_error)
     __pyx_v_lbda_m = __pyx_PyFloat_AsFloat(values[5]); if (unlikely((__pyx_v_lbda_m == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 105, __pyx_L3_error)
   }
@@ -3360,18 +3362,18 @@ static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_3draw_tensorm_indp_nop
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("draw_tensorm_indp_noparents_onechild", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 99, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.draw_tensorm_indp_noparents_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.draw_tensorm_indp_noparents_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15tensor_sampling_2draw_tensorm_indp_noparents_onechild(__pyx_self, __pyx_v_sibling1, __pyx_v_sibling2, __pyx_v_sibling3, __pyx_v_child, __pyx_v_lbda_p, __pyx_v_lbda_m);
+  __pyx_r = __pyx_pf_3lom_7_cython_14tensor_updates_2draw_tensorm_indp_noparents_onechild(__pyx_self, __pyx_v_sibling1, __pyx_v_sibling2, __pyx_v_sibling3, __pyx_v_child, __pyx_v_lbda_p, __pyx_v_lbda_m);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_2draw_tensorm_indp_noparents_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_sibling1, __Pyx_memviewslice __pyx_v_sibling2, __Pyx_memviewslice __pyx_v_sibling3, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda_p, float __pyx_v_lbda_m) {
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_2draw_tensorm_indp_noparents_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_sibling1, __Pyx_memviewslice __pyx_v_sibling2, __Pyx_memviewslice __pyx_v_sibling3, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda_p, float __pyx_v_lbda_m) {
   float __pyx_v_p;
   float __pyx_v_child_count;
   CYTHON_UNUSED float __pyx_v_prior;
@@ -3395,7 +3397,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_2draw_tensorm_indp_nop
   Py_ssize_t __pyx_t_10;
   __Pyx_RefNannySetupContext("draw_tensorm_indp_noparents_onechild", 0);
 
-  /* "lom/_cython/tensor_sampling.pyx":108
+  /* "lom/_cython/tensor_updates.pyx":108
  * 
  * 	cdef float p, child_count
  * 	cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -3404,7 +3406,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_2draw_tensorm_indp_nop
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/tensor_sampling.pyx":110
+  /* "lom/_cython/tensor_updates.pyx":110
  * 	cdef float prior = 0
  * 	cdef int n, d, m, l
  * 	cdef int N = sibling1.shape[0], L = sibling1.shape[1]             # <<<<<<<<<<<<<<
@@ -3414,7 +3416,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_2draw_tensorm_indp_nop
   __pyx_v_N = (__pyx_v_sibling1.shape[0]);
   __pyx_v_L = (__pyx_v_sibling1.shape[1]);
 
-  /* "lom/_cython/tensor_sampling.pyx":111
+  /* "lom/_cython/tensor_updates.pyx":111
  * 	cdef int n, d, m, l
  * 	cdef int N = sibling1.shape[0], L = sibling1.shape[1]
  * 	cdef int D = sibling2.shape[0],             # <<<<<<<<<<<<<<
@@ -3423,7 +3425,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_2draw_tensorm_indp_nop
  */
   __pyx_v_D = (__pyx_v_sibling2.shape[0]);
 
-  /* "lom/_cython/tensor_sampling.pyx":112
+  /* "lom/_cython/tensor_updates.pyx":112
  * 	cdef int N = sibling1.shape[0], L = sibling1.shape[1]
  * 	cdef int D = sibling2.shape[0],
  * 	cdef int M = sibling3.shape[0],             # <<<<<<<<<<<<<<
@@ -3432,7 +3434,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_2draw_tensorm_indp_nop
  */
   __pyx_v_M = (__pyx_v_sibling3.shape[0]);
 
-  /* "lom/_cython/tensor_sampling.pyx":115
+  /* "lom/_cython/tensor_updates.pyx":115
  * 	cdef data_type_t x_old
  * 
  * 	for n in range(N):             # <<<<<<<<<<<<<<
@@ -3443,7 +3445,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_2draw_tensorm_indp_nop
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_n = __pyx_t_2;
 
-    /* "lom/_cython/tensor_sampling.pyx":116
+    /* "lom/_cython/tensor_updates.pyx":116
  * 
  * 	for n in range(N):
  * 		for l in range(L):             # <<<<<<<<<<<<<<
@@ -3454,7 +3456,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_2draw_tensorm_indp_nop
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_l = __pyx_t_4;
 
-      /* "lom/_cython/tensor_sampling.pyx":118
+      /* "lom/_cython/tensor_updates.pyx":118
  * 		for l in range(L):
  * 			child_count = score_tensor_parents(
  * 									child[n,:,:],             # <<<<<<<<<<<<<<
@@ -3487,7 +3489,7 @@ __pyx_t_5.strides[1] = __pyx_v_child.strides[2];
 
 __pyx_t_6.data = __pyx_v_sibling1.data;
 
-      /* "lom/_cython/tensor_sampling.pyx":119
+      /* "lom/_cython/tensor_updates.pyx":119
  * 			child_count = score_tensor_parents(
  * 									child[n,:,:],
  * 									sibling1[n,:],             # <<<<<<<<<<<<<<
@@ -3513,9 +3515,9 @@ __pyx_t_6.shape[0] = __pyx_v_sibling1.shape[1];
 __pyx_t_6.strides[0] = __pyx_v_sibling1.strides[1];
     __pyx_t_6.suboffsets[0] = -1;
 
-__pyx_v_child_count = __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_parents(__pyx_t_5, __pyx_t_6, __pyx_v_sibling2, __pyx_v_sibling3, __pyx_v_l);
+__pyx_v_child_count = __pyx_f_3lom_7_cython_14tensor_updates_score_tensor_parents(__pyx_t_5, __pyx_t_6, __pyx_v_sibling2, __pyx_v_sibling3, __pyx_v_l);
 
-      /* "lom/_cython/tensor_sampling.pyx":117
+      /* "lom/_cython/tensor_updates.pyx":117
  * 	for n in range(N):
  * 		for l in range(L):
  * 			child_count = score_tensor_parents(             # <<<<<<<<<<<<<<
@@ -3529,7 +3531,7 @@ __pyx_v_child_count = __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_paren
       __pyx_t_6.memview = NULL;
       __pyx_t_6.data = NULL;
 
-      /* "lom/_cython/tensor_sampling.pyx":124
+      /* "lom/_cython/tensor_updates.pyx":124
  * 									l)
  * 
  * 			p = 1/( 1 + ( 1 + exp(-child_count*lbda_m) ) /\             # <<<<<<<<<<<<<<
@@ -3538,7 +3540,7 @@ __pyx_v_child_count = __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_paren
  */
       __pyx_v_p = (1.0 / (1.0 + ((1.0 + exp(((-__pyx_v_child_count) * __pyx_v_lbda_m))) / (1.0 + exp((__pyx_v_child_count * __pyx_v_lbda_p))))));
 
-      /* "lom/_cython/tensor_sampling.pyx":128
+      /* "lom/_cython/tensor_updates.pyx":128
  * 
  * 			# sibling1[n,l] = cf.swap_gibbs_unified(p, sibling1[n,l])
  * 			sibling1[n,l] = swap_metropolised_gibbs_unified(p, sibling1[n,l])             # <<<<<<<<<<<<<<
@@ -3549,11 +3551,11 @@ __pyx_v_child_count = __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_paren
       __pyx_t_8 = __pyx_v_l;
       __pyx_t_9 = __pyx_v_n;
       __pyx_t_10 = __pyx_v_l;
-      *((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling1.data + __pyx_t_9 * __pyx_v_sibling1.strides[0]) ) + __pyx_t_10 * __pyx_v_sibling1.strides[1]) )) = __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling1.data + __pyx_t_7 * __pyx_v_sibling1.strides[0]) ) + __pyx_t_8 * __pyx_v_sibling1.strides[1]) ))), 0);
+      *((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling1.data + __pyx_t_9 * __pyx_v_sibling1.strides[0]) ) + __pyx_t_10 * __pyx_v_sibling1.strides[1]) )) = __pyx_f_3lom_7_cython_14tensor_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sibling1.data + __pyx_t_7 * __pyx_v_sibling1.strides[0]) ) + __pyx_t_8 * __pyx_v_sibling1.strides[1]) ))), 0);
     }
   }
 
-  /* "lom/_cython/tensor_sampling.pyx":99
+  /* "lom/_cython/tensor_updates.pyx":99
  * 
  * 
  * def draw_tensorm_indp_noparents_onechild(             # <<<<<<<<<<<<<<
@@ -3567,7 +3569,7 @@ __pyx_v_child_count = __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_paren
   __pyx_L1_error:;
   __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_6, 1);
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.draw_tensorm_indp_noparents_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.draw_tensorm_indp_noparents_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_sibling1, 1);
@@ -3579,7 +3581,7 @@ __pyx_v_child_count = __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_paren
   return __pyx_r;
 }
 
-/* "lom/_cython/tensor_sampling.pyx":134
+/* "lom/_cython/tensor_updates.pyx":134
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef long compute_p_tensorm(             # <<<<<<<<<<<<<<
@@ -3587,8 +3589,8 @@ __pyx_v_child_count = __pyx_f_3lom_7_cython_15tensor_sampling_score_tensor_paren
  * 	data_type_t[:,:] parent1,
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_5compute_p_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static long __pyx_f_3lom_7_cython_15tensor_sampling_compute_p_tensorm(__Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_5compute_p_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static long __pyx_f_3lom_7_cython_14tensor_updates_compute_p_tensorm(__Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3, CYTHON_UNUSED int __pyx_skip_dispatch) {
   long __pyx_v_P;
   int __pyx_v_n;
   int __pyx_v_d;
@@ -3610,7 +3612,7 @@ static long __pyx_f_3lom_7_cython_15tensor_sampling_compute_p_tensorm(__Pyx_memv
   int __pyx_t_13;
   __Pyx_RefNannySetupContext("compute_p_tensorm", 0);
 
-  /* "lom/_cython/tensor_sampling.pyx":143
+  /* "lom/_cython/tensor_updates.pyx":143
  * 	"""
  * 
  * 	cdef long P = 0             # <<<<<<<<<<<<<<
@@ -3619,7 +3621,7 @@ static long __pyx_f_3lom_7_cython_15tensor_sampling_compute_p_tensorm(__Pyx_memv
  */
   __pyx_v_P = 0;
 
-  /* "lom/_cython/tensor_sampling.pyx":152
+  /* "lom/_cython/tensor_updates.pyx":152
  * 
  * 	# for n in prange(child.shape[0], schedule='dynamic', nogil=True):
  * 	for n in range(child.shape[0]):             # <<<<<<<<<<<<<<
@@ -3630,7 +3632,7 @@ static long __pyx_f_3lom_7_cython_15tensor_sampling_compute_p_tensorm(__Pyx_memv
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_n = __pyx_t_2;
 
-    /* "lom/_cython/tensor_sampling.pyx":153
+    /* "lom/_cython/tensor_updates.pyx":153
  * 	# for n in prange(child.shape[0], schedule='dynamic', nogil=True):
  * 	for n in range(child.shape[0]):
  * 		for d in range(child.shape[1]):             # <<<<<<<<<<<<<<
@@ -3641,7 +3643,7 @@ static long __pyx_f_3lom_7_cython_15tensor_sampling_compute_p_tensorm(__Pyx_memv
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_d = __pyx_t_4;
 
-      /* "lom/_cython/tensor_sampling.pyx":154
+      /* "lom/_cython/tensor_updates.pyx":154
  * 	for n in range(child.shape[0]):
  * 		for d in range(child.shape[1]):
  * 			for m in range(child.shape[2]):             # <<<<<<<<<<<<<<
@@ -3652,7 +3654,7 @@ static long __pyx_f_3lom_7_cython_15tensor_sampling_compute_p_tensorm(__Pyx_memv
       for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
         __pyx_v_m = __pyx_t_6;
 
-        /* "lom/_cython/tensor_sampling.pyx":155
+        /* "lom/_cython/tensor_updates.pyx":155
  * 		for d in range(child.shape[1]):
  * 			for m in range(child.shape[2]):
  * 				if child[n, d, m] == tensorm_single_output(parent1[n,:],             # <<<<<<<<<<<<<<
@@ -3684,7 +3686,7 @@ __pyx_t_10.strides[0] = __pyx_v_parent1.strides[1];
 
 __pyx_t_11.data = __pyx_v_parent2.data;
 
-        /* "lom/_cython/tensor_sampling.pyx":156
+        /* "lom/_cython/tensor_updates.pyx":156
  * 			for m in range(child.shape[2]):
  * 				if child[n, d, m] == tensorm_single_output(parent1[n,:],
  * 				                                          parent2[d,:],             # <<<<<<<<<<<<<<
@@ -3712,7 +3714,7 @@ __pyx_t_11.strides[0] = __pyx_v_parent2.strides[1];
 
 __pyx_t_12.data = __pyx_v_parent3.data;
 
-        /* "lom/_cython/tensor_sampling.pyx":157
+        /* "lom/_cython/tensor_updates.pyx":157
  * 				if child[n, d, m] == tensorm_single_output(parent1[n,:],
  * 				                                          parent2[d,:],
  * 				                                          parent3[m,:]):             # <<<<<<<<<<<<<<
@@ -3738,9 +3740,9 @@ __pyx_t_12.shape[0] = __pyx_v_parent3.shape[1];
 __pyx_t_12.strides[0] = __pyx_v_parent3.strides[1];
     __pyx_t_12.suboffsets[0] = -1;
 
-__pyx_t_13 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_7 * __pyx_v_child.strides[0]) ) + __pyx_t_8 * __pyx_v_child.strides[1]) ) + __pyx_t_9 * __pyx_v_child.strides[2]) ))) == __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_output(__pyx_t_10, __pyx_t_11, __pyx_t_12)) != 0);
+__pyx_t_13 = (((*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_7 * __pyx_v_child.strides[0]) ) + __pyx_t_8 * __pyx_v_child.strides[1]) ) + __pyx_t_9 * __pyx_v_child.strides[2]) ))) == __pyx_f_3lom_7_cython_14tensor_updates_tensorm_single_output(__pyx_t_10, __pyx_t_11, __pyx_t_12)) != 0);
 
-        /* "lom/_cython/tensor_sampling.pyx":155
+        /* "lom/_cython/tensor_updates.pyx":155
  * 		for d in range(child.shape[1]):
  * 			for m in range(child.shape[2]):
  * 				if child[n, d, m] == tensorm_single_output(parent1[n,:],             # <<<<<<<<<<<<<<
@@ -3758,7 +3760,7 @@ __pyx_t_13 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* d
         __pyx_t_12.data = NULL;
         if (__pyx_t_13) {
 
-          /* "lom/_cython/tensor_sampling.pyx":158
+          /* "lom/_cython/tensor_updates.pyx":158
  * 				                                          parent2[d,:],
  * 				                                          parent3[m,:]):
  * 					P += 1             # <<<<<<<<<<<<<<
@@ -3767,7 +3769,7 @@ __pyx_t_13 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* d
  */
           __pyx_v_P = (__pyx_v_P + 1);
 
-          /* "lom/_cython/tensor_sampling.pyx":155
+          /* "lom/_cython/tensor_updates.pyx":155
  * 		for d in range(child.shape[1]):
  * 			for m in range(child.shape[2]):
  * 				if child[n, d, m] == tensorm_single_output(parent1[n,:],             # <<<<<<<<<<<<<<
@@ -3779,7 +3781,7 @@ __pyx_t_13 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* d
     }
   }
 
-  /* "lom/_cython/tensor_sampling.pyx":159
+  /* "lom/_cython/tensor_updates.pyx":159
  * 				                                          parent3[m,:]):
  * 					P += 1
  * 	return P             # <<<<<<<<<<<<<<
@@ -3789,7 +3791,7 @@ __pyx_t_13 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* d
   __pyx_r = __pyx_v_P;
   goto __pyx_L0;
 
-  /* "lom/_cython/tensor_sampling.pyx":134
+  /* "lom/_cython/tensor_updates.pyx":134
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef long compute_p_tensorm(             # <<<<<<<<<<<<<<
@@ -3802,7 +3804,7 @@ __pyx_t_13 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* d
   __PYX_XDEC_MEMVIEW(&__pyx_t_10, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_12, 1);
-  __Pyx_WriteUnraisable("lom._cython.tensor_sampling.compute_p_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("lom._cython.tensor_updates.compute_p_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -3810,9 +3812,9 @@ __pyx_t_13 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* d
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_5compute_p_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_15tensor_sampling_4compute_p_tensorm[] = " \n\tcompute number of deterministically correct predictions \n\t";
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_5compute_p_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_5compute_p_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14tensor_updates_4compute_p_tensorm[] = " \n\tcompute number of deterministically correct predictions \n\t";
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_5compute_p_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_child = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_parent1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_parent2 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -3873,27 +3875,27 @@ static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_5compute_p_tensorm(PyO
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 135, __pyx_L3_error)
-    __pyx_v_parent1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_parent1.memview)) __PYX_ERR(0, 136, __pyx_L3_error)
-    __pyx_v_parent2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_parent2.memview)) __PYX_ERR(0, 137, __pyx_L3_error)
-    __pyx_v_parent3 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[3]); if (unlikely(!__pyx_v_parent3.memview)) __PYX_ERR(0, 138, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 135, __pyx_L3_error)
+    __pyx_v_parent1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_parent1.memview)) __PYX_ERR(0, 136, __pyx_L3_error)
+    __pyx_v_parent2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_parent2.memview)) __PYX_ERR(0, 137, __pyx_L3_error)
+    __pyx_v_parent3 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[3]); if (unlikely(!__pyx_v_parent3.memview)) __PYX_ERR(0, 138, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("compute_p_tensorm", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 134, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.compute_p_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.compute_p_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15tensor_sampling_4compute_p_tensorm(__pyx_self, __pyx_v_child, __pyx_v_parent1, __pyx_v_parent2, __pyx_v_parent3);
+  __pyx_r = __pyx_pf_3lom_7_cython_14tensor_updates_4compute_p_tensorm(__pyx_self, __pyx_v_child, __pyx_v_parent1, __pyx_v_parent2, __pyx_v_parent3);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_4compute_p_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3) {
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_4compute_p_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3903,7 +3905,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_4compute_p_tensorm(CYT
   if (unlikely(!__pyx_v_parent1.memview)) { __Pyx_RaiseUnboundLocalError("parent1"); __PYX_ERR(0, 134, __pyx_L1_error) }
   if (unlikely(!__pyx_v_parent2.memview)) { __Pyx_RaiseUnboundLocalError("parent2"); __PYX_ERR(0, 134, __pyx_L1_error) }
   if (unlikely(!__pyx_v_parent3.memview)) { __Pyx_RaiseUnboundLocalError("parent3"); __PYX_ERR(0, 134, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_f_3lom_7_cython_15tensor_sampling_compute_p_tensorm(__pyx_v_child, __pyx_v_parent1, __pyx_v_parent2, __pyx_v_parent3, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_f_3lom_7_cython_14tensor_updates_compute_p_tensorm(__pyx_v_child, __pyx_v_parent1, __pyx_v_parent2, __pyx_v_parent3, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 134, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3912,7 +3914,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_4compute_p_tensorm(CYT
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.compute_p_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.compute_p_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_child, 1);
@@ -3924,7 +3926,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_4compute_p_tensorm(CYT
   return __pyx_r;
 }
 
-/* "lom/_cython/tensor_sampling.pyx":163
+/* "lom/_cython/tensor_updates.pyx":163
  * 
  * 
  * cpdef compute_tp_fp_tensorm(             # <<<<<<<<<<<<<<
@@ -3932,8 +3934,8 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_4compute_p_tensorm(CYT
  * 	data_type_t[:,:] parent1,
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_7compute_tp_fp_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tp_fp_tensorm(__Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_7compute_tp_fp_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_f_3lom_7_cython_14tensor_updates_compute_tp_fp_tensorm(__Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3, CYTHON_UNUSED int __pyx_skip_dispatch) {
   long __pyx_v_TP;
   long __pyx_v_FP;
   int __pyx_v_n;
@@ -3963,7 +3965,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tp_fp_tensorm(_
   PyObject *__pyx_t_19 = NULL;
   __Pyx_RefNannySetupContext("compute_tp_fp_tensorm", 0);
 
-  /* "lom/_cython/tensor_sampling.pyx":172
+  /* "lom/_cython/tensor_updates.pyx":172
  * 	"""
  * 
  * 	cdef long TP = 0             # <<<<<<<<<<<<<<
@@ -3972,7 +3974,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tp_fp_tensorm(_
  */
   __pyx_v_TP = 0;
 
-  /* "lom/_cython/tensor_sampling.pyx":173
+  /* "lom/_cython/tensor_updates.pyx":173
  * 
  * 	cdef long TP = 0
  * 	cdef long FP = 0             # <<<<<<<<<<<<<<
@@ -3981,7 +3983,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tp_fp_tensorm(_
  */
   __pyx_v_FP = 0;
 
-  /* "lom/_cython/tensor_sampling.pyx":177
+  /* "lom/_cython/tensor_updates.pyx":177
  * 	cdef int prediction
  * 
  * 	assert child.shape[0] == parent1.shape[0]             # <<<<<<<<<<<<<<
@@ -3997,7 +3999,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tp_fp_tensorm(_
   }
   #endif
 
-  /* "lom/_cython/tensor_sampling.pyx":178
+  /* "lom/_cython/tensor_updates.pyx":178
  * 
  * 	assert child.shape[0] == parent1.shape[0]
  * 	assert child.shape[1] == parent2.shape[0]             # <<<<<<<<<<<<<<
@@ -4013,7 +4015,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tp_fp_tensorm(_
   }
   #endif
 
-  /* "lom/_cython/tensor_sampling.pyx":179
+  /* "lom/_cython/tensor_updates.pyx":179
  * 	assert child.shape[0] == parent1.shape[0]
  * 	assert child.shape[1] == parent2.shape[0]
  * 	assert child.shape[2] == parent3.shape[0]             # <<<<<<<<<<<<<<
@@ -4029,7 +4031,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tp_fp_tensorm(_
   }
   #endif
 
-  /* "lom/_cython/tensor_sampling.pyx":182
+  /* "lom/_cython/tensor_updates.pyx":182
  * 
  * 	# for n in prange(child.shape[0], schedule=dynamic, nogil=True):
  * 	for n in range(child.shape[0]):             # <<<<<<<<<<<<<<
@@ -4040,7 +4042,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tp_fp_tensorm(_
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_n = __pyx_t_2;
 
-    /* "lom/_cython/tensor_sampling.pyx":183
+    /* "lom/_cython/tensor_updates.pyx":183
  * 	# for n in prange(child.shape[0], schedule=dynamic, nogil=True):
  * 	for n in range(child.shape[0]):
  * 		for d in range(child.shape[1]):             # <<<<<<<<<<<<<<
@@ -4051,7 +4053,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tp_fp_tensorm(_
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_d = __pyx_t_4;
 
-      /* "lom/_cython/tensor_sampling.pyx":184
+      /* "lom/_cython/tensor_updates.pyx":184
  * 	for n in range(child.shape[0]):
  * 		for d in range(child.shape[1]):
  * 			for m in range(child.shape[2]):             # <<<<<<<<<<<<<<
@@ -4062,7 +4064,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tp_fp_tensorm(_
       for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
         __pyx_v_m = __pyx_t_6;
 
-        /* "lom/_cython/tensor_sampling.pyx":186
+        /* "lom/_cython/tensor_updates.pyx":186
  * 			for m in range(child.shape[2]):
  * 				prediction = tensorm_single_output(
  * 								parent1[n,:],             # <<<<<<<<<<<<<<
@@ -4091,7 +4093,7 @@ __pyx_t_7.strides[0] = __pyx_v_parent1.strides[1];
 
 __pyx_t_8.data = __pyx_v_parent2.data;
 
-        /* "lom/_cython/tensor_sampling.pyx":187
+        /* "lom/_cython/tensor_updates.pyx":187
  * 				prediction = tensorm_single_output(
  * 								parent1[n,:],
  * 								parent2[d,:],             # <<<<<<<<<<<<<<
@@ -4119,7 +4121,7 @@ __pyx_t_8.strides[0] = __pyx_v_parent2.strides[1];
 
 __pyx_t_9.data = __pyx_v_parent3.data;
 
-        /* "lom/_cython/tensor_sampling.pyx":188
+        /* "lom/_cython/tensor_updates.pyx":188
  * 								parent1[n,:],
  * 								parent2[d,:],
  * 								parent3[m,:])             # <<<<<<<<<<<<<<
@@ -4145,9 +4147,9 @@ __pyx_t_9.shape[0] = __pyx_v_parent3.shape[1];
 __pyx_t_9.strides[0] = __pyx_v_parent3.strides[1];
     __pyx_t_9.suboffsets[0] = -1;
 
-__pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_output(__pyx_t_7, __pyx_t_8, __pyx_t_9);
+__pyx_v_prediction = __pyx_f_3lom_7_cython_14tensor_updates_tensorm_single_output(__pyx_t_7, __pyx_t_8, __pyx_t_9);
 
-        /* "lom/_cython/tensor_sampling.pyx":185
+        /* "lom/_cython/tensor_updates.pyx":185
  * 		for d in range(child.shape[1]):
  * 			for m in range(child.shape[2]):
  * 				prediction = tensorm_single_output(             # <<<<<<<<<<<<<<
@@ -4164,7 +4166,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
         __pyx_t_9.memview = NULL;
         __pyx_t_9.data = NULL;
 
-        /* "lom/_cython/tensor_sampling.pyx":189
+        /* "lom/_cython/tensor_updates.pyx":189
  * 								parent2[d,:],
  * 								parent3[m,:])
  * 				if prediction == 1:             # <<<<<<<<<<<<<<
@@ -4174,7 +4176,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
         __pyx_t_10 = ((__pyx_v_prediction == 1) != 0);
         if (__pyx_t_10) {
 
-          /* "lom/_cython/tensor_sampling.pyx":190
+          /* "lom/_cython/tensor_updates.pyx":190
  * 								parent3[m,:])
  * 				if prediction == 1:
  * 					if child[n, d ,m] == 1:             # <<<<<<<<<<<<<<
@@ -4184,10 +4186,10 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
           __pyx_t_11 = __pyx_v_n;
           __pyx_t_12 = __pyx_v_d;
           __pyx_t_13 = __pyx_v_m;
-          __pyx_t_10 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_11 * __pyx_v_child.strides[0]) ) + __pyx_t_12 * __pyx_v_child.strides[1]) ) + __pyx_t_13 * __pyx_v_child.strides[2]) ))) == 1) != 0);
+          __pyx_t_10 = (((*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_11 * __pyx_v_child.strides[0]) ) + __pyx_t_12 * __pyx_v_child.strides[1]) ) + __pyx_t_13 * __pyx_v_child.strides[2]) ))) == 1) != 0);
           if (__pyx_t_10) {
 
-            /* "lom/_cython/tensor_sampling.pyx":191
+            /* "lom/_cython/tensor_updates.pyx":191
  * 				if prediction == 1:
  * 					if child[n, d ,m] == 1:
  * 						TP += 1             # <<<<<<<<<<<<<<
@@ -4196,7 +4198,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
  */
             __pyx_v_TP = (__pyx_v_TP + 1);
 
-            /* "lom/_cython/tensor_sampling.pyx":190
+            /* "lom/_cython/tensor_updates.pyx":190
  * 								parent3[m,:])
  * 				if prediction == 1:
  * 					if child[n, d ,m] == 1:             # <<<<<<<<<<<<<<
@@ -4206,7 +4208,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
             goto __pyx_L10;
           }
 
-          /* "lom/_cython/tensor_sampling.pyx":192
+          /* "lom/_cython/tensor_updates.pyx":192
  * 					if child[n, d ,m] == 1:
  * 						TP += 1
  * 					elif child[n, d, m] == -1:             # <<<<<<<<<<<<<<
@@ -4216,10 +4218,10 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
           __pyx_t_14 = __pyx_v_n;
           __pyx_t_15 = __pyx_v_d;
           __pyx_t_16 = __pyx_v_m;
-          __pyx_t_10 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_14 * __pyx_v_child.strides[0]) ) + __pyx_t_15 * __pyx_v_child.strides[1]) ) + __pyx_t_16 * __pyx_v_child.strides[2]) ))) == -1L) != 0);
+          __pyx_t_10 = (((*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_14 * __pyx_v_child.strides[0]) ) + __pyx_t_15 * __pyx_v_child.strides[1]) ) + __pyx_t_16 * __pyx_v_child.strides[2]) ))) == -1L) != 0);
           if (__pyx_t_10) {
 
-            /* "lom/_cython/tensor_sampling.pyx":193
+            /* "lom/_cython/tensor_updates.pyx":193
  * 						TP += 1
  * 					elif child[n, d, m] == -1:
  * 						FP += 1             # <<<<<<<<<<<<<<
@@ -4228,7 +4230,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
  */
             __pyx_v_FP = (__pyx_v_FP + 1);
 
-            /* "lom/_cython/tensor_sampling.pyx":192
+            /* "lom/_cython/tensor_updates.pyx":192
  * 					if child[n, d ,m] == 1:
  * 						TP += 1
  * 					elif child[n, d, m] == -1:             # <<<<<<<<<<<<<<
@@ -4238,7 +4240,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
           }
           __pyx_L10:;
 
-          /* "lom/_cython/tensor_sampling.pyx":189
+          /* "lom/_cython/tensor_updates.pyx":189
  * 								parent2[d,:],
  * 								parent3[m,:])
  * 				if prediction == 1:             # <<<<<<<<<<<<<<
@@ -4250,7 +4252,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
     }
   }
 
-  /* "lom/_cython/tensor_sampling.pyx":194
+  /* "lom/_cython/tensor_updates.pyx":194
  * 					elif child[n, d, m] == -1:
  * 						FP += 1
  * 	return TP, FP             # <<<<<<<<<<<<<<
@@ -4274,7 +4276,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
   __pyx_t_19 = 0;
   goto __pyx_L0;
 
-  /* "lom/_cython/tensor_sampling.pyx":163
+  /* "lom/_cython/tensor_updates.pyx":163
  * 
  * 
  * cpdef compute_tp_fp_tensorm(             # <<<<<<<<<<<<<<
@@ -4290,7 +4292,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
   __Pyx_XDECREF(__pyx_t_17);
   __Pyx_XDECREF(__pyx_t_18);
   __Pyx_XDECREF(__pyx_t_19);
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.compute_tp_fp_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.compute_tp_fp_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4299,9 +4301,9 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_7compute_tp_fp_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_15tensor_sampling_6compute_tp_fp_tensorm[] = " \n\tcompute TP/FP deterministically\n\t";
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_7compute_tp_fp_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_7compute_tp_fp_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14tensor_updates_6compute_tp_fp_tensorm[] = " \n\tcompute TP/FP deterministically\n\t";
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_7compute_tp_fp_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_child = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_parent1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_parent2 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -4362,27 +4364,27 @@ static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_7compute_tp_fp_tensorm
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 164, __pyx_L3_error)
-    __pyx_v_parent1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_parent1.memview)) __PYX_ERR(0, 165, __pyx_L3_error)
-    __pyx_v_parent2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_parent2.memview)) __PYX_ERR(0, 166, __pyx_L3_error)
-    __pyx_v_parent3 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[3]); if (unlikely(!__pyx_v_parent3.memview)) __PYX_ERR(0, 167, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 164, __pyx_L3_error)
+    __pyx_v_parent1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_parent1.memview)) __PYX_ERR(0, 165, __pyx_L3_error)
+    __pyx_v_parent2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_parent2.memview)) __PYX_ERR(0, 166, __pyx_L3_error)
+    __pyx_v_parent3 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[3]); if (unlikely(!__pyx_v_parent3.memview)) __PYX_ERR(0, 167, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("compute_tp_fp_tensorm", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 163, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.compute_tp_fp_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.compute_tp_fp_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15tensor_sampling_6compute_tp_fp_tensorm(__pyx_self, __pyx_v_child, __pyx_v_parent1, __pyx_v_parent2, __pyx_v_parent3);
+  __pyx_r = __pyx_pf_3lom_7_cython_14tensor_updates_6compute_tp_fp_tensorm(__pyx_self, __pyx_v_child, __pyx_v_parent1, __pyx_v_parent2, __pyx_v_parent3);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_6compute_tp_fp_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3) {
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_6compute_tp_fp_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4392,7 +4394,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_6compute_tp_fp_tensorm
   if (unlikely(!__pyx_v_parent1.memview)) { __Pyx_RaiseUnboundLocalError("parent1"); __PYX_ERR(0, 163, __pyx_L1_error) }
   if (unlikely(!__pyx_v_parent2.memview)) { __Pyx_RaiseUnboundLocalError("parent2"); __PYX_ERR(0, 163, __pyx_L1_error) }
   if (unlikely(!__pyx_v_parent3.memview)) { __Pyx_RaiseUnboundLocalError("parent3"); __PYX_ERR(0, 163, __pyx_L1_error) }
-  __pyx_t_1 = __pyx_f_3lom_7_cython_15tensor_sampling_compute_tp_fp_tensorm(__pyx_v_child, __pyx_v_parent1, __pyx_v_parent2, __pyx_v_parent3, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_3lom_7_cython_14tensor_updates_compute_tp_fp_tensorm(__pyx_v_child, __pyx_v_parent1, __pyx_v_parent2, __pyx_v_parent3, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4401,7 +4403,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_6compute_tp_fp_tensorm
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.compute_tp_fp_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.compute_tp_fp_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_child, 1);
@@ -4413,7 +4415,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_6compute_tp_fp_tensorm
   return __pyx_r;
 }
 
-/* "lom/_cython/tensor_sampling.pyx":197
+/* "lom/_cython/tensor_updates.pyx":197
  * 
  * 
  * cpdef compute_tn_fn_tensorm(             # <<<<<<<<<<<<<<
@@ -4421,8 +4423,8 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_6compute_tp_fp_tensorm
  * 	data_type_t[:,:] parent1,
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_9compute_tn_fn_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tn_fn_tensorm(__Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_9compute_tn_fn_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_f_3lom_7_cython_14tensor_updates_compute_tn_fn_tensorm(__Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3, CYTHON_UNUSED int __pyx_skip_dispatch) {
   long __pyx_v_TN;
   long __pyx_v_FN;
   int __pyx_v_n;
@@ -4452,7 +4454,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tn_fn_tensorm(_
   PyObject *__pyx_t_19 = NULL;
   __Pyx_RefNannySetupContext("compute_tn_fn_tensorm", 0);
 
-  /* "lom/_cython/tensor_sampling.pyx":206
+  /* "lom/_cython/tensor_updates.pyx":206
  * 	"""
  * 
  * 	cdef long TN = 0             # <<<<<<<<<<<<<<
@@ -4461,7 +4463,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tn_fn_tensorm(_
  */
   __pyx_v_TN = 0;
 
-  /* "lom/_cython/tensor_sampling.pyx":207
+  /* "lom/_cython/tensor_updates.pyx":207
  * 
  * 	cdef long TN = 0
  * 	cdef long FN = 0             # <<<<<<<<<<<<<<
@@ -4470,7 +4472,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tn_fn_tensorm(_
  */
   __pyx_v_FN = 0;
 
-  /* "lom/_cython/tensor_sampling.pyx":211
+  /* "lom/_cython/tensor_updates.pyx":211
  * 	cdef int prediction
  * 
  * 	assert child.shape[0] == parent1.shape[0]             # <<<<<<<<<<<<<<
@@ -4486,7 +4488,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tn_fn_tensorm(_
   }
   #endif
 
-  /* "lom/_cython/tensor_sampling.pyx":212
+  /* "lom/_cython/tensor_updates.pyx":212
  * 
  * 	assert child.shape[0] == parent1.shape[0]
  * 	assert child.shape[1] == parent2.shape[0]             # <<<<<<<<<<<<<<
@@ -4502,7 +4504,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tn_fn_tensorm(_
   }
   #endif
 
-  /* "lom/_cython/tensor_sampling.pyx":213
+  /* "lom/_cython/tensor_updates.pyx":213
  * 	assert child.shape[0] == parent1.shape[0]
  * 	assert child.shape[1] == parent2.shape[0]
  * 	assert child.shape[2] == parent3.shape[0]             # <<<<<<<<<<<<<<
@@ -4518,7 +4520,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tn_fn_tensorm(_
   }
   #endif
 
-  /* "lom/_cython/tensor_sampling.pyx":216
+  /* "lom/_cython/tensor_updates.pyx":216
  * 
  * 	# for n in prange(child.shape[0], schedule=dynamic, nogil=True):
  * 	for n in range(child.shape[0]):             # <<<<<<<<<<<<<<
@@ -4529,7 +4531,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tn_fn_tensorm(_
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_n = __pyx_t_2;
 
-    /* "lom/_cython/tensor_sampling.pyx":217
+    /* "lom/_cython/tensor_updates.pyx":217
  * 	# for n in prange(child.shape[0], schedule=dynamic, nogil=True):
  * 	for n in range(child.shape[0]):
  * 		for d in range(child.shape[1]):             # <<<<<<<<<<<<<<
@@ -4540,7 +4542,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tn_fn_tensorm(_
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_d = __pyx_t_4;
 
-      /* "lom/_cython/tensor_sampling.pyx":218
+      /* "lom/_cython/tensor_updates.pyx":218
  * 	for n in range(child.shape[0]):
  * 		for d in range(child.shape[1]):
  * 			for m in range(child.shape[2]):             # <<<<<<<<<<<<<<
@@ -4551,7 +4553,7 @@ static PyObject *__pyx_f_3lom_7_cython_15tensor_sampling_compute_tn_fn_tensorm(_
       for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
         __pyx_v_m = __pyx_t_6;
 
-        /* "lom/_cython/tensor_sampling.pyx":220
+        /* "lom/_cython/tensor_updates.pyx":220
  * 			for m in range(child.shape[2]):
  * 				prediction = tensorm_single_output(
  * 								parent1[n,:],             # <<<<<<<<<<<<<<
@@ -4580,7 +4582,7 @@ __pyx_t_7.strides[0] = __pyx_v_parent1.strides[1];
 
 __pyx_t_8.data = __pyx_v_parent2.data;
 
-        /* "lom/_cython/tensor_sampling.pyx":221
+        /* "lom/_cython/tensor_updates.pyx":221
  * 				prediction = tensorm_single_output(
  * 								parent1[n,:],
  * 								parent2[d,:],             # <<<<<<<<<<<<<<
@@ -4608,7 +4610,7 @@ __pyx_t_8.strides[0] = __pyx_v_parent2.strides[1];
 
 __pyx_t_9.data = __pyx_v_parent3.data;
 
-        /* "lom/_cython/tensor_sampling.pyx":222
+        /* "lom/_cython/tensor_updates.pyx":222
  * 								parent1[n,:],
  * 								parent2[d,:],
  * 								parent3[m,:])             # <<<<<<<<<<<<<<
@@ -4634,9 +4636,9 @@ __pyx_t_9.shape[0] = __pyx_v_parent3.shape[1];
 __pyx_t_9.strides[0] = __pyx_v_parent3.strides[1];
     __pyx_t_9.suboffsets[0] = -1;
 
-__pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_output(__pyx_t_7, __pyx_t_8, __pyx_t_9);
+__pyx_v_prediction = __pyx_f_3lom_7_cython_14tensor_updates_tensorm_single_output(__pyx_t_7, __pyx_t_8, __pyx_t_9);
 
-        /* "lom/_cython/tensor_sampling.pyx":219
+        /* "lom/_cython/tensor_updates.pyx":219
  * 		for d in range(child.shape[1]):
  * 			for m in range(child.shape[2]):
  * 				prediction = tensorm_single_output(             # <<<<<<<<<<<<<<
@@ -4653,7 +4655,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
         __pyx_t_9.memview = NULL;
         __pyx_t_9.data = NULL;
 
-        /* "lom/_cython/tensor_sampling.pyx":223
+        /* "lom/_cython/tensor_updates.pyx":223
  * 								parent2[d,:],
  * 								parent3[m,:])
  * 				if prediction == -1:             # <<<<<<<<<<<<<<
@@ -4663,7 +4665,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
         __pyx_t_10 = ((__pyx_v_prediction == -1L) != 0);
         if (__pyx_t_10) {
 
-          /* "lom/_cython/tensor_sampling.pyx":224
+          /* "lom/_cython/tensor_updates.pyx":224
  * 								parent3[m,:])
  * 				if prediction == -1:
  * 					if child[n, d ,m] == -1:             # <<<<<<<<<<<<<<
@@ -4673,10 +4675,10 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
           __pyx_t_11 = __pyx_v_n;
           __pyx_t_12 = __pyx_v_d;
           __pyx_t_13 = __pyx_v_m;
-          __pyx_t_10 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_11 * __pyx_v_child.strides[0]) ) + __pyx_t_12 * __pyx_v_child.strides[1]) ) + __pyx_t_13 * __pyx_v_child.strides[2]) ))) == -1L) != 0);
+          __pyx_t_10 = (((*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_11 * __pyx_v_child.strides[0]) ) + __pyx_t_12 * __pyx_v_child.strides[1]) ) + __pyx_t_13 * __pyx_v_child.strides[2]) ))) == -1L) != 0);
           if (__pyx_t_10) {
 
-            /* "lom/_cython/tensor_sampling.pyx":225
+            /* "lom/_cython/tensor_updates.pyx":225
  * 				if prediction == -1:
  * 					if child[n, d ,m] == -1:
  * 						TN += 1             # <<<<<<<<<<<<<<
@@ -4685,7 +4687,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
  */
             __pyx_v_TN = (__pyx_v_TN + 1);
 
-            /* "lom/_cython/tensor_sampling.pyx":224
+            /* "lom/_cython/tensor_updates.pyx":224
  * 								parent3[m,:])
  * 				if prediction == -1:
  * 					if child[n, d ,m] == -1:             # <<<<<<<<<<<<<<
@@ -4695,7 +4697,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
             goto __pyx_L10;
           }
 
-          /* "lom/_cython/tensor_sampling.pyx":226
+          /* "lom/_cython/tensor_updates.pyx":226
  * 					if child[n, d ,m] == -1:
  * 						TN += 1
  * 					elif child[n, d, m] == 1:             # <<<<<<<<<<<<<<
@@ -4705,10 +4707,10 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
           __pyx_t_14 = __pyx_v_n;
           __pyx_t_15 = __pyx_v_d;
           __pyx_t_16 = __pyx_v_m;
-          __pyx_t_10 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_14 * __pyx_v_child.strides[0]) ) + __pyx_t_15 * __pyx_v_child.strides[1]) ) + __pyx_t_16 * __pyx_v_child.strides[2]) ))) == 1) != 0);
+          __pyx_t_10 = (((*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_child.data + __pyx_t_14 * __pyx_v_child.strides[0]) ) + __pyx_t_15 * __pyx_v_child.strides[1]) ) + __pyx_t_16 * __pyx_v_child.strides[2]) ))) == 1) != 0);
           if (__pyx_t_10) {
 
-            /* "lom/_cython/tensor_sampling.pyx":227
+            /* "lom/_cython/tensor_updates.pyx":227
  * 						TN += 1
  * 					elif child[n, d, m] == 1:
  * 						FN += 1             # <<<<<<<<<<<<<<
@@ -4717,7 +4719,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
  */
             __pyx_v_FN = (__pyx_v_FN + 1);
 
-            /* "lom/_cython/tensor_sampling.pyx":226
+            /* "lom/_cython/tensor_updates.pyx":226
  * 					if child[n, d ,m] == -1:
  * 						TN += 1
  * 					elif child[n, d, m] == 1:             # <<<<<<<<<<<<<<
@@ -4727,7 +4729,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
           }
           __pyx_L10:;
 
-          /* "lom/_cython/tensor_sampling.pyx":223
+          /* "lom/_cython/tensor_updates.pyx":223
  * 								parent2[d,:],
  * 								parent3[m,:])
  * 				if prediction == -1:             # <<<<<<<<<<<<<<
@@ -4739,7 +4741,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
     }
   }
 
-  /* "lom/_cython/tensor_sampling.pyx":228
+  /* "lom/_cython/tensor_updates.pyx":228
  * 					elif child[n, d, m] == 1:
  * 						FN += 1
  * 	return TN, FN             # <<<<<<<<<<<<<<
@@ -4763,7 +4765,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
   __pyx_t_19 = 0;
   goto __pyx_L0;
 
-  /* "lom/_cython/tensor_sampling.pyx":197
+  /* "lom/_cython/tensor_updates.pyx":197
  * 
  * 
  * cpdef compute_tn_fn_tensorm(             # <<<<<<<<<<<<<<
@@ -4779,7 +4781,7 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
   __Pyx_XDECREF(__pyx_t_17);
   __Pyx_XDECREF(__pyx_t_18);
   __Pyx_XDECREF(__pyx_t_19);
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.compute_tn_fn_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.compute_tn_fn_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4788,9 +4790,9 @@ __pyx_v_prediction = __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_outp
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_9compute_tn_fn_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_15tensor_sampling_8compute_tn_fn_tensorm[] = " \n\tcompute TP/FP deterministically\n\t";
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_9compute_tn_fn_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_9compute_tn_fn_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14tensor_updates_8compute_tn_fn_tensorm[] = " \n\tcompute TP/FP deterministically\n\t";
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_9compute_tn_fn_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_child = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_parent1 = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_parent2 = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -4851,27 +4853,27 @@ static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_9compute_tn_fn_tensorm
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[0]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 198, __pyx_L3_error)
-    __pyx_v_parent1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[1]); if (unlikely(!__pyx_v_parent1.memview)) __PYX_ERR(0, 199, __pyx_L3_error)
-    __pyx_v_parent2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[2]); if (unlikely(!__pyx_v_parent2.memview)) __PYX_ERR(0, 200, __pyx_L3_error)
-    __pyx_v_parent3 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(values[3]); if (unlikely(!__pyx_v_parent3.memview)) __PYX_ERR(0, 201, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 198, __pyx_L3_error)
+    __pyx_v_parent1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_parent1.memview)) __PYX_ERR(0, 199, __pyx_L3_error)
+    __pyx_v_parent2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_parent2.memview)) __PYX_ERR(0, 200, __pyx_L3_error)
+    __pyx_v_parent3 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(values[3]); if (unlikely(!__pyx_v_parent3.memview)) __PYX_ERR(0, 201, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("compute_tn_fn_tensorm", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 197, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.compute_tn_fn_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.compute_tn_fn_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15tensor_sampling_8compute_tn_fn_tensorm(__pyx_self, __pyx_v_child, __pyx_v_parent1, __pyx_v_parent2, __pyx_v_parent3);
+  __pyx_r = __pyx_pf_3lom_7_cython_14tensor_updates_8compute_tn_fn_tensorm(__pyx_self, __pyx_v_child, __pyx_v_parent1, __pyx_v_parent2, __pyx_v_parent3);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_8compute_tn_fn_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3) {
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_8compute_tn_fn_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_child, __Pyx_memviewslice __pyx_v_parent1, __Pyx_memviewslice __pyx_v_parent2, __Pyx_memviewslice __pyx_v_parent3) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4881,7 +4883,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_8compute_tn_fn_tensorm
   if (unlikely(!__pyx_v_parent1.memview)) { __Pyx_RaiseUnboundLocalError("parent1"); __PYX_ERR(0, 197, __pyx_L1_error) }
   if (unlikely(!__pyx_v_parent2.memview)) { __Pyx_RaiseUnboundLocalError("parent2"); __PYX_ERR(0, 197, __pyx_L1_error) }
   if (unlikely(!__pyx_v_parent3.memview)) { __Pyx_RaiseUnboundLocalError("parent3"); __PYX_ERR(0, 197, __pyx_L1_error) }
-  __pyx_t_1 = __pyx_f_3lom_7_cython_15tensor_sampling_compute_tn_fn_tensorm(__pyx_v_child, __pyx_v_parent1, __pyx_v_parent2, __pyx_v_parent3, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 197, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_3lom_7_cython_14tensor_updates_compute_tn_fn_tensorm(__pyx_v_child, __pyx_v_parent1, __pyx_v_parent2, __pyx_v_parent3, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4890,7 +4892,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_8compute_tn_fn_tensorm
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.compute_tn_fn_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.compute_tn_fn_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_child, 1);
@@ -4902,7 +4904,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_8compute_tn_fn_tensorm
   return __pyx_r;
 }
 
-/* "lom/_cython/tensor_sampling.pyx":233
+/* "lom/_cython/tensor_updates.pyx":233
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef data_type_t tensorm_single_output(             # <<<<<<<<<<<<<<
@@ -4910,9 +4912,9 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_8compute_tn_fn_tensorm
  * 	data_type_t[:] u,
  */
 
-static __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_f_3lom_7_cython_15tensor_sampling_tensorm_single_output(__Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_v) {
+static __pyx_t_3lom_7_cython_14tensor_updates_data_type_t __pyx_f_3lom_7_cython_14tensor_updates_tensorm_single_output(__Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_v) {
   int __pyx_v_i;
-  __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_r;
+  __pyx_t_3lom_7_cython_14tensor_updates_data_type_t __pyx_r;
   Py_ssize_t __pyx_t_1;
   int __pyx_t_2;
   int __pyx_t_3;
@@ -4921,7 +4923,7 @@ static __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_f_3lom_7_cython
   Py_ssize_t __pyx_t_6;
   Py_ssize_t __pyx_t_7;
 
-  /* "lom/_cython/tensor_sampling.pyx":245
+  /* "lom/_cython/tensor_updates.pyx":245
  * 
  * 	cdef int i
  * 	for i in range(u.shape[0]):             # <<<<<<<<<<<<<<
@@ -4932,7 +4934,7 @@ static __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_f_3lom_7_cython
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_i = __pyx_t_2;
 
-    /* "lom/_cython/tensor_sampling.pyx":246
+    /* "lom/_cython/tensor_updates.pyx":246
  * 	cdef int i
  * 	for i in range(u.shape[0]):
  * 		if u[i] == 1 and z[i] == 1 and v[i] == 1:             # <<<<<<<<<<<<<<
@@ -4940,26 +4942,26 @@ static __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_f_3lom_7_cython
  * 	return -1
  */
     __pyx_t_4 = __pyx_v_i;
-    __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=0 */ (__pyx_v_u.data + __pyx_t_4 * __pyx_v_u.strides[0]) ))) == 1) != 0);
+    __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_u.data + __pyx_t_4 * __pyx_v_u.strides[0]) ))) == 1) != 0);
     if (__pyx_t_5) {
     } else {
       __pyx_t_3 = __pyx_t_5;
       goto __pyx_L6_bool_binop_done;
     }
     __pyx_t_6 = __pyx_v_i;
-    __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=0 */ (__pyx_v_z.data + __pyx_t_6 * __pyx_v_z.strides[0]) ))) == 1) != 0);
+    __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_z.data + __pyx_t_6 * __pyx_v_z.strides[0]) ))) == 1) != 0);
     if (__pyx_t_5) {
     } else {
       __pyx_t_3 = __pyx_t_5;
       goto __pyx_L6_bool_binop_done;
     }
     __pyx_t_7 = __pyx_v_i;
-    __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_15tensor_sampling_data_type_t *) ( /* dim=0 */ (__pyx_v_v.data + __pyx_t_7 * __pyx_v_v.strides[0]) ))) == 1) != 0);
+    __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_14tensor_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_v.data + __pyx_t_7 * __pyx_v_v.strides[0]) ))) == 1) != 0);
     __pyx_t_3 = __pyx_t_5;
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_3) {
 
-      /* "lom/_cython/tensor_sampling.pyx":247
+      /* "lom/_cython/tensor_updates.pyx":247
  * 	for i in range(u.shape[0]):
  * 		if u[i] == 1 and z[i] == 1 and v[i] == 1:
  * 			return 1             # <<<<<<<<<<<<<<
@@ -4969,7 +4971,7 @@ static __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_f_3lom_7_cython
       __pyx_r = 1;
       goto __pyx_L0;
 
-      /* "lom/_cython/tensor_sampling.pyx":246
+      /* "lom/_cython/tensor_updates.pyx":246
  * 	cdef int i
  * 	for i in range(u.shape[0]):
  * 		if u[i] == 1 and z[i] == 1 and v[i] == 1:             # <<<<<<<<<<<<<<
@@ -4979,7 +4981,7 @@ static __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_f_3lom_7_cython
     }
   }
 
-  /* "lom/_cython/tensor_sampling.pyx":248
+  /* "lom/_cython/tensor_updates.pyx":248
  * 		if u[i] == 1 and z[i] == 1 and v[i] == 1:
  * 			return 1
  * 	return -1             # <<<<<<<<<<<<<<
@@ -4989,7 +4991,7 @@ static __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_f_3lom_7_cython
   __pyx_r = -1;
   goto __pyx_L0;
 
-  /* "lom/_cython/tensor_sampling.pyx":233
+  /* "lom/_cython/tensor_updates.pyx":233
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef data_type_t tensorm_single_output(             # <<<<<<<<<<<<<<
@@ -5002,7 +5004,7 @@ static __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_f_3lom_7_cython
   return __pyx_r;
 }
 
-/* "lom/_cython/tensor_sampling.pyx":252
+/* "lom/_cython/tensor_updates.pyx":252
  * 
  * 
  * cpdef void probabilistic_output_tensorm(             # <<<<<<<<<<<<<<
@@ -5010,8 +5012,8 @@ static __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_f_3lom_7_cython
  * 	double[:,:] z,
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_11probabilistic_output_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_v, double __pyx_v_lbda, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_11probabilistic_output_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static void __pyx_f_3lom_7_cython_14tensor_updates_probabilistic_output_tensorm(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_v, double __pyx_v_lbda, CYTHON_UNUSED int __pyx_skip_dispatch) {
   float __pyx_v_sgmd_lbda;
   int __pyx_v_N;
   int __pyx_v_D;
@@ -5048,7 +5050,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
   Py_ssize_t __pyx_t_23;
   __Pyx_RefNannySetupContext("probabilistic_output_tensorm", 0);
 
-  /* "lom/_cython/tensor_sampling.pyx":262
+  /* "lom/_cython/tensor_updates.pyx":262
  * 	Output for or-link
  * 	"""
  * 	cdef int N = z.shape[0]             # <<<<<<<<<<<<<<
@@ -5057,7 +5059,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
  */
   __pyx_v_N = (__pyx_v_z.shape[0]);
 
-  /* "lom/_cython/tensor_sampling.pyx":263
+  /* "lom/_cython/tensor_updates.pyx":263
  * 	"""
  * 	cdef int N = z.shape[0]
  * 	cdef int D = u.shape[0]             # <<<<<<<<<<<<<<
@@ -5066,7 +5068,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
  */
   __pyx_v_D = (__pyx_v_u.shape[0]);
 
-  /* "lom/_cython/tensor_sampling.pyx":264
+  /* "lom/_cython/tensor_updates.pyx":264
  * 	cdef int N = z.shape[0]
  * 	cdef int D = u.shape[0]
  * 	cdef int M = v.shape[0]             # <<<<<<<<<<<<<<
@@ -5075,7 +5077,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
  */
   __pyx_v_M = (__pyx_v_v.shape[0]);
 
-  /* "lom/_cython/tensor_sampling.pyx":265
+  /* "lom/_cython/tensor_updates.pyx":265
  * 	cdef int D = u.shape[0]
  * 	cdef int M = v.shape[0]
  * 	cdef int L = v.shape[1]             # <<<<<<<<<<<<<<
@@ -5084,7 +5086,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
  */
   __pyx_v_L = (__pyx_v_v.shape[1]);
 
-  /* "lom/_cython/tensor_sampling.pyx":267
+  /* "lom/_cython/tensor_updates.pyx":267
  * 	cdef int L = v.shape[1]
  * 
  * 	sgmd_lbda = cf.sigmoid(lbda)             # <<<<<<<<<<<<<<
@@ -5148,7 +5150,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_sgmd_lbda = __pyx_t_6;
 
-  /* "lom/_cython/tensor_sampling.pyx":269
+  /* "lom/_cython/tensor_updates.pyx":269
  * 	sgmd_lbda = cf.sigmoid(lbda)
  * 
  * 	for d in range(D):             # <<<<<<<<<<<<<<
@@ -5159,7 +5161,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_d = __pyx_t_8;
 
-    /* "lom/_cython/tensor_sampling.pyx":270
+    /* "lom/_cython/tensor_updates.pyx":270
  * 
  * 	for d in range(D):
  * 		for n in range(N):             # <<<<<<<<<<<<<<
@@ -5170,7 +5172,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
     for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
       __pyx_v_n = __pyx_t_10;
 
-      /* "lom/_cython/tensor_sampling.pyx":271
+      /* "lom/_cython/tensor_updates.pyx":271
  * 	for d in range(D):
  * 		for n in range(N):
  * 			for m in range(M):             # <<<<<<<<<<<<<<
@@ -5181,7 +5183,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
       for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
         __pyx_v_m = __pyx_t_12;
 
-        /* "lom/_cython/tensor_sampling.pyx":272
+        /* "lom/_cython/tensor_updates.pyx":272
  * 		for n in range(N):
  * 			for m in range(M):
  * 				p = 1             # <<<<<<<<<<<<<<
@@ -5191,7 +5193,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
         __Pyx_INCREF(__pyx_int_1);
         __Pyx_XDECREF_SET(__pyx_v_p, __pyx_int_1);
 
-        /* "lom/_cython/tensor_sampling.pyx":273
+        /* "lom/_cython/tensor_updates.pyx":273
  * 			for m in range(M):
  * 				p = 1
  * 				for l in range(L):             # <<<<<<<<<<<<<<
@@ -5202,7 +5204,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
         for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
           __pyx_v_l = __pyx_t_14;
 
-          /* "lom/_cython/tensor_sampling.pyx":274
+          /* "lom/_cython/tensor_updates.pyx":274
  * 				p = 1
  * 				for l in range(L):
  * 					p = p * ( 1 - z[n,l]*u[d,l]*v[m,l] )             # <<<<<<<<<<<<<<
@@ -5223,7 +5225,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
           __Pyx_DECREF_SET(__pyx_v_p, __pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "lom/_cython/tensor_sampling.pyx":275
+          /* "lom/_cython/tensor_updates.pyx":275
  * 				for l in range(L):
  * 					p = p * ( 1 - z[n,l]*u[d,l]*v[m,l] )
  * 					x[n, d, m] = (sgmd_lbda * (1-p) + (p*(1-sgmd_lbda) ) )             # <<<<<<<<<<<<<<
@@ -5258,7 +5260,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
     }
   }
 
-  /* "lom/_cython/tensor_sampling.pyx":252
+  /* "lom/_cython/tensor_updates.pyx":252
  * 
  * 
  * cpdef void probabilistic_output_tensorm(             # <<<<<<<<<<<<<<
@@ -5274,15 +5276,15 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_WriteUnraisable("lom._cython.tensor_sampling.probabilistic_output_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("lom._cython.tensor_updates.probabilistic_output_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_p);
   __Pyx_RefNannyFinishContext();
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_11probabilistic_output_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_11probabilistic_output_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_11probabilistic_output_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_11probabilistic_output_tensorm(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -5363,18 +5365,18 @@ static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_11probabilistic_output
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("probabilistic_output_tensorm", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 252, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.probabilistic_output_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.probabilistic_output_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15tensor_sampling_10probabilistic_output_tensorm(__pyx_self, __pyx_v_x, __pyx_v_z, __pyx_v_u, __pyx_v_v, __pyx_v_lbda);
+  __pyx_r = __pyx_pf_3lom_7_cython_14tensor_updates_10probabilistic_output_tensorm(__pyx_self, __pyx_v_x, __pyx_v_z, __pyx_v_u, __pyx_v_v, __pyx_v_lbda);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_10probabilistic_output_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_v, double __pyx_v_lbda) {
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_10probabilistic_output_tensorm(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_v, double __pyx_v_lbda) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5384,7 +5386,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_10probabilistic_output
   if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 252, __pyx_L1_error) }
   if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 252, __pyx_L1_error) }
   if (unlikely(!__pyx_v_v.memview)) { __Pyx_RaiseUnboundLocalError("v"); __PYX_ERR(0, 252, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm(__pyx_v_x, __pyx_v_z, __pyx_v_u, __pyx_v_v, __pyx_v_lbda, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_14tensor_updates_probabilistic_output_tensorm(__pyx_v_x, __pyx_v_z, __pyx_v_u, __pyx_v_v, __pyx_v_lbda, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5393,7 +5395,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_10probabilistic_output
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.probabilistic_output_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.probabilistic_output_tensorm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_x, 1);
@@ -5405,7 +5407,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_10probabilistic_output
   return __pyx_r;
 }
 
-/* "lom/_cython/tensor_sampling.pyx":278
+/* "lom/_cython/tensor_updates.pyx":278
  * 
  * 
  * cpdef void probabilistic_output_tensorm_indp(             # <<<<<<<<<<<<<<
@@ -5413,8 +5415,8 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_10probabilistic_output
  * 	double[:,:] z,
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_13probabilistic_output_tensorm_indp(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm_indp(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_v, double __pyx_v_lbda_p, double __pyx_v_lbda_m, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_13probabilistic_output_tensorm_indp(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static void __pyx_f_3lom_7_cython_14tensor_updates_probabilistic_output_tensorm_indp(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_v, double __pyx_v_lbda_p, double __pyx_v_lbda_m, CYTHON_UNUSED int __pyx_skip_dispatch) {
   float __pyx_v_sgmd_lbda_p;
   float __pyx_v_sgmd_lbda_m;
   int __pyx_v_N;
@@ -5453,7 +5455,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
   Py_ssize_t __pyx_t_24;
   __Pyx_RefNannySetupContext("probabilistic_output_tensorm_indp", 0);
 
-  /* "lom/_cython/tensor_sampling.pyx":289
+  /* "lom/_cython/tensor_updates.pyx":289
  * 	Output for or-link
  * 	"""
  * 	cdef int N = z.shape[0]             # <<<<<<<<<<<<<<
@@ -5462,7 +5464,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
  */
   __pyx_v_N = (__pyx_v_z.shape[0]);
 
-  /* "lom/_cython/tensor_sampling.pyx":290
+  /* "lom/_cython/tensor_updates.pyx":290
  * 	"""
  * 	cdef int N = z.shape[0]
  * 	cdef int D = u.shape[0]             # <<<<<<<<<<<<<<
@@ -5471,7 +5473,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
  */
   __pyx_v_D = (__pyx_v_u.shape[0]);
 
-  /* "lom/_cython/tensor_sampling.pyx":291
+  /* "lom/_cython/tensor_updates.pyx":291
  * 	cdef int N = z.shape[0]
  * 	cdef int D = u.shape[0]
  * 	cdef int M = v.shape[0]             # <<<<<<<<<<<<<<
@@ -5480,7 +5482,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
  */
   __pyx_v_M = (__pyx_v_v.shape[0]);
 
-  /* "lom/_cython/tensor_sampling.pyx":292
+  /* "lom/_cython/tensor_updates.pyx":292
  * 	cdef int D = u.shape[0]
  * 	cdef int M = v.shape[0]
  * 	cdef int L = v.shape[1]             # <<<<<<<<<<<<<<
@@ -5489,7 +5491,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
  */
   __pyx_v_L = (__pyx_v_v.shape[1]);
 
-  /* "lom/_cython/tensor_sampling.pyx":294
+  /* "lom/_cython/tensor_updates.pyx":294
  * 	cdef int L = v.shape[1]
  * 
  * 	sgmd_lbda_p = cf.sigmoid(lbda_p)             # <<<<<<<<<<<<<<
@@ -5553,7 +5555,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_sgmd_lbda_p = __pyx_t_6;
 
-  /* "lom/_cython/tensor_sampling.pyx":295
+  /* "lom/_cython/tensor_updates.pyx":295
  * 
  * 	sgmd_lbda_p = cf.sigmoid(lbda_p)
  * 	sgmd_lbda_m = cf.sigmoid(lbda_m)             # <<<<<<<<<<<<<<
@@ -5617,7 +5619,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_sgmd_lbda_m = __pyx_t_6;
 
-  /* "lom/_cython/tensor_sampling.pyx":297
+  /* "lom/_cython/tensor_updates.pyx":297
  * 	sgmd_lbda_m = cf.sigmoid(lbda_m)
  * 
  * 	for d in range(D):             # <<<<<<<<<<<<<<
@@ -5628,7 +5630,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_d = __pyx_t_8;
 
-    /* "lom/_cython/tensor_sampling.pyx":298
+    /* "lom/_cython/tensor_updates.pyx":298
  * 
  * 	for d in range(D):
  * 		for n in range(N):             # <<<<<<<<<<<<<<
@@ -5639,7 +5641,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
     for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
       __pyx_v_n = __pyx_t_10;
 
-      /* "lom/_cython/tensor_sampling.pyx":299
+      /* "lom/_cython/tensor_updates.pyx":299
  * 	for d in range(D):
  * 		for n in range(N):
  * 			for m in range(M):             # <<<<<<<<<<<<<<
@@ -5650,7 +5652,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
       for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
         __pyx_v_m = __pyx_t_12;
 
-        /* "lom/_cython/tensor_sampling.pyx":300
+        /* "lom/_cython/tensor_updates.pyx":300
  * 		for n in range(N):
  * 			for m in range(M):
  * 				p = 1             # <<<<<<<<<<<<<<
@@ -5660,7 +5662,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
         __Pyx_INCREF(__pyx_int_1);
         __Pyx_XDECREF_SET(__pyx_v_p, __pyx_int_1);
 
-        /* "lom/_cython/tensor_sampling.pyx":301
+        /* "lom/_cython/tensor_updates.pyx":301
  * 			for m in range(M):
  * 				p = 1
  * 				for l in range(L):             # <<<<<<<<<<<<<<
@@ -5671,7 +5673,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
         for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
           __pyx_v_l = __pyx_t_14;
 
-          /* "lom/_cython/tensor_sampling.pyx":302
+          /* "lom/_cython/tensor_updates.pyx":302
  * 				p = 1
  * 				for l in range(L):
  * 					p = p * ( 1 - z[n,l]*u[d,l]*v[m,l] )             # <<<<<<<<<<<<<<
@@ -5692,7 +5694,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
           __Pyx_DECREF_SET(__pyx_v_p, __pyx_t_5);
           __pyx_t_5 = 0;
 
-          /* "lom/_cython/tensor_sampling.pyx":303
+          /* "lom/_cython/tensor_updates.pyx":303
  * 				for l in range(L):
  * 					p = p * ( 1 - z[n,l]*u[d,l]*v[m,l] )
  * 					x[n, d, m] = (sgmd_lbda_p * (1-p) + (p*(1-sgmd_lbda_m) ) )             # <<<<<<<<<<<<<<
@@ -5727,7 +5729,7 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
     }
   }
 
-  /* "lom/_cython/tensor_sampling.pyx":278
+  /* "lom/_cython/tensor_updates.pyx":278
  * 
  * 
  * cpdef void probabilistic_output_tensorm_indp(             # <<<<<<<<<<<<<<
@@ -5743,15 +5745,15 @@ static void __pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_WriteUnraisable("lom._cython.tensor_sampling.probabilistic_output_tensorm_indp", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("lom._cython.tensor_updates.probabilistic_output_tensorm_indp", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_p);
   __Pyx_RefNannyFinishContext();
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_13probabilistic_output_tensorm_indp(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_13probabilistic_output_tensorm_indp(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_13probabilistic_output_tensorm_indp(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_13probabilistic_output_tensorm_indp(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -5843,18 +5845,18 @@ static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_13probabilistic_output
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("probabilistic_output_tensorm_indp", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 278, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.probabilistic_output_tensorm_indp", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.probabilistic_output_tensorm_indp", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15tensor_sampling_12probabilistic_output_tensorm_indp(__pyx_self, __pyx_v_x, __pyx_v_z, __pyx_v_u, __pyx_v_v, __pyx_v_lbda_p, __pyx_v_lbda_m);
+  __pyx_r = __pyx_pf_3lom_7_cython_14tensor_updates_12probabilistic_output_tensorm_indp(__pyx_self, __pyx_v_x, __pyx_v_z, __pyx_v_u, __pyx_v_v, __pyx_v_lbda_p, __pyx_v_lbda_m);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_12probabilistic_output_tensorm_indp(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_v, double __pyx_v_lbda_p, double __pyx_v_lbda_m) {
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_12probabilistic_output_tensorm_indp(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_v, double __pyx_v_lbda_p, double __pyx_v_lbda_m) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5864,7 +5866,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_12probabilistic_output
   if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 278, __pyx_L1_error) }
   if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 278, __pyx_L1_error) }
   if (unlikely(!__pyx_v_v.memview)) { __Pyx_RaiseUnboundLocalError("v"); __PYX_ERR(0, 278, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_15tensor_sampling_probabilistic_output_tensorm_indp(__pyx_v_x, __pyx_v_z, __pyx_v_u, __pyx_v_v, __pyx_v_lbda_p, __pyx_v_lbda_m, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_14tensor_updates_probabilistic_output_tensorm_indp(__pyx_v_x, __pyx_v_z, __pyx_v_u, __pyx_v_v, __pyx_v_lbda_p, __pyx_v_lbda_m, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5873,7 +5875,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_12probabilistic_output
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.probabilistic_output_tensorm_indp", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.probabilistic_output_tensorm_indp", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_x, 1);
@@ -5885,7 +5887,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_12probabilistic_output
   return __pyx_r;
 }
 
-/* "lom/_cython/tensor_sampling.pyx":309
+/* "lom/_cython/tensor_updates.pyx":309
  * ## but getting nogil error when called form there(? TODO)
  * 
  * cpdef float sigmoid(float x) nogil:             # <<<<<<<<<<<<<<
@@ -5893,12 +5895,12 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_12probabilistic_output
  * 	p = 1/(1+exp(-x))
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_15sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
-static float __pyx_f_3lom_7_cython_15tensor_sampling_sigmoid(float __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_15sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
+static float __pyx_f_3lom_7_cython_14tensor_updates_sigmoid(float __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch) {
   float __pyx_v_p;
   float __pyx_r;
 
-  /* "lom/_cython/tensor_sampling.pyx":311
+  /* "lom/_cython/tensor_updates.pyx":311
  * cpdef float sigmoid(float x) nogil:
  * 	cdef float p
  * 	p = 1/(1+exp(-x))             # <<<<<<<<<<<<<<
@@ -5907,7 +5909,7 @@ static float __pyx_f_3lom_7_cython_15tensor_sampling_sigmoid(float __pyx_v_x, CY
  */
   __pyx_v_p = (1.0 / (1.0 + exp((-__pyx_v_x))));
 
-  /* "lom/_cython/tensor_sampling.pyx":312
+  /* "lom/_cython/tensor_updates.pyx":312
  * 	cdef float p
  * 	p = 1/(1+exp(-x))
  * 	return p             # <<<<<<<<<<<<<<
@@ -5917,7 +5919,7 @@ static float __pyx_f_3lom_7_cython_15tensor_sampling_sigmoid(float __pyx_v_x, CY
   __pyx_r = __pyx_v_p;
   goto __pyx_L0;
 
-  /* "lom/_cython/tensor_sampling.pyx":309
+  /* "lom/_cython/tensor_updates.pyx":309
  * ## but getting nogil error when called form there(? TODO)
  * 
  * cpdef float sigmoid(float x) nogil:             # <<<<<<<<<<<<<<
@@ -5931,8 +5933,8 @@ static float __pyx_f_3lom_7_cython_15tensor_sampling_sigmoid(float __pyx_v_x, CY
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_15sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_15sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_15sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_15sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x) {
   float __pyx_v_x;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -5942,24 +5944,24 @@ static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_15sigmoid(PyObject *__
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.sigmoid", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.sigmoid", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15tensor_sampling_14sigmoid(__pyx_self, ((float)__pyx_v_x));
+  __pyx_r = __pyx_pf_3lom_7_cython_14tensor_updates_14sigmoid(__pyx_self, ((float)__pyx_v_x));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_14sigmoid(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_x) {
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_14sigmoid(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_x) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("sigmoid", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_3lom_7_cython_15tensor_sampling_sigmoid(__pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_3lom_7_cython_14tensor_updates_sigmoid(__pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5968,7 +5970,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_14sigmoid(CYTHON_UNUSE
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.sigmoid", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.sigmoid", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5976,7 +5978,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_14sigmoid(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "lom/_cython/tensor_sampling.pyx":316
+/* "lom/_cython/tensor_updates.pyx":316
  * 
  * @cython.cdivision(True)
  * cpdef int swap_metropolised_gibbs_unified(float p, data_type_t x) nogil:             # <<<<<<<<<<<<<<
@@ -5984,13 +5986,13 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_14sigmoid(CYTHON_UNUSE
  * 	Given the p(x=1) and the current state of x \in {-1,1}.
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_17swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unified(float __pyx_v_p, __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_17swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_f_3lom_7_cython_14tensor_updates_swap_metropolised_gibbs_unified(float __pyx_v_p, __pyx_t_3lom_7_cython_14tensor_updates_data_type_t __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch) {
   float __pyx_v_alpha;
   int __pyx_r;
   int __pyx_t_1;
 
-  /* "lom/_cython/tensor_sampling.pyx":322
+  /* "lom/_cython/tensor_updates.pyx":322
  * 	"""
  * 	cdef float alpha
  * 	if x == 1:             # <<<<<<<<<<<<<<
@@ -6000,7 +6002,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
   __pyx_t_1 = ((__pyx_v_x == 1) != 0);
   if (__pyx_t_1) {
 
-    /* "lom/_cython/tensor_sampling.pyx":323
+    /* "lom/_cython/tensor_updates.pyx":323
  * 	cdef float alpha
  * 	if x == 1:
  * 		if p <= .5:             # <<<<<<<<<<<<<<
@@ -6010,7 +6012,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
     __pyx_t_1 = ((__pyx_v_p <= .5) != 0);
     if (__pyx_t_1) {
 
-      /* "lom/_cython/tensor_sampling.pyx":324
+      /* "lom/_cython/tensor_updates.pyx":324
  * 	if x == 1:
  * 		if p <= .5:
  * 			alpha = 1 # TODO, can return -x here             # <<<<<<<<<<<<<<
@@ -6019,7 +6021,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
  */
       __pyx_v_alpha = 1.0;
 
-      /* "lom/_cython/tensor_sampling.pyx":323
+      /* "lom/_cython/tensor_updates.pyx":323
  * 	cdef float alpha
  * 	if x == 1:
  * 		if p <= .5:             # <<<<<<<<<<<<<<
@@ -6029,7 +6031,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
       goto __pyx_L4;
     }
 
-    /* "lom/_cython/tensor_sampling.pyx":326
+    /* "lom/_cython/tensor_updates.pyx":326
  * 			alpha = 1 # TODO, can return -x here
  * 		else:
  * 			alpha = (1-p)/p             # <<<<<<<<<<<<<<
@@ -6041,7 +6043,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
     }
     __pyx_L4:;
 
-    /* "lom/_cython/tensor_sampling.pyx":322
+    /* "lom/_cython/tensor_updates.pyx":322
  * 	"""
  * 	cdef float alpha
  * 	if x == 1:             # <<<<<<<<<<<<<<
@@ -6051,7 +6053,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
     goto __pyx_L3;
   }
 
-  /* "lom/_cython/tensor_sampling.pyx":328
+  /* "lom/_cython/tensor_updates.pyx":328
  * 			alpha = (1-p)/p
  * 	else:
  * 		if p >= .5:             # <<<<<<<<<<<<<<
@@ -6062,7 +6064,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
     __pyx_t_1 = ((__pyx_v_p >= .5) != 0);
     if (__pyx_t_1) {
 
-      /* "lom/_cython/tensor_sampling.pyx":329
+      /* "lom/_cython/tensor_updates.pyx":329
  * 	else:
  * 		if p >= .5:
  * 			alpha = 1             # <<<<<<<<<<<<<<
@@ -6071,7 +6073,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
  */
       __pyx_v_alpha = 1.0;
 
-      /* "lom/_cython/tensor_sampling.pyx":328
+      /* "lom/_cython/tensor_updates.pyx":328
  * 			alpha = (1-p)/p
  * 	else:
  * 		if p >= .5:             # <<<<<<<<<<<<<<
@@ -6081,7 +6083,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
       goto __pyx_L5;
     }
 
-    /* "lom/_cython/tensor_sampling.pyx":331
+    /* "lom/_cython/tensor_updates.pyx":331
  * 			alpha = 1
  * 		else:
  * 			alpha = p/(1-p)             # <<<<<<<<<<<<<<
@@ -6095,7 +6097,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
   }
   __pyx_L3:;
 
-  /* "lom/_cython/tensor_sampling.pyx":332
+  /* "lom/_cython/tensor_updates.pyx":332
  * 		else:
  * 			alpha = p/(1-p)
  * 	if rand()/float(RAND_MAX) < alpha:             # <<<<<<<<<<<<<<
@@ -6105,7 +6107,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
   __pyx_t_1 = (((((double)rand()) / ((double)RAND_MAX)) < __pyx_v_alpha) != 0);
   if (__pyx_t_1) {
 
-    /* "lom/_cython/tensor_sampling.pyx":333
+    /* "lom/_cython/tensor_updates.pyx":333
  * 			alpha = p/(1-p)
  * 	if rand()/float(RAND_MAX) < alpha:
  * 		return -x             # <<<<<<<<<<<<<<
@@ -6115,7 +6117,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
     __pyx_r = (-__pyx_v_x);
     goto __pyx_L0;
 
-    /* "lom/_cython/tensor_sampling.pyx":332
+    /* "lom/_cython/tensor_updates.pyx":332
  * 		else:
  * 			alpha = p/(1-p)
  * 	if rand()/float(RAND_MAX) < alpha:             # <<<<<<<<<<<<<<
@@ -6124,7 +6126,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
  */
   }
 
-  /* "lom/_cython/tensor_sampling.pyx":335
+  /* "lom/_cython/tensor_updates.pyx":335
  * 		return -x
  * 	else:
  * 		return x             # <<<<<<<<<<<<<<
@@ -6134,7 +6136,7 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
     goto __pyx_L0;
   }
 
-  /* "lom/_cython/tensor_sampling.pyx":316
+  /* "lom/_cython/tensor_updates.pyx":316
  * 
  * @cython.cdivision(True)
  * cpdef int swap_metropolised_gibbs_unified(float p, data_type_t x) nogil:             # <<<<<<<<<<<<<<
@@ -6148,11 +6150,11 @@ static int __pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unifi
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_17swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_15tensor_sampling_16swap_metropolised_gibbs_unified[] = "\n\tGiven the p(x=1) and the current state of x \\in {-1,1}.\n\tDraw new x according to metropolised Gibbs sampler\n\t";
-static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_17swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_17swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14tensor_updates_16swap_metropolised_gibbs_unified[] = "\n\tGiven the p(x=1) and the current state of x \\in {-1,1}.\n\tDraw new x according to metropolised Gibbs sampler\n\t";
+static PyObject *__pyx_pw_3lom_7_cython_14tensor_updates_17swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   float __pyx_v_p;
-  __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_v_x;
+  __pyx_t_3lom_7_cython_14tensor_updates_data_type_t __pyx_v_x;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("swap_metropolised_gibbs_unified (wrapper)", 0);
@@ -6198,24 +6200,24 @@ static PyObject *__pyx_pw_3lom_7_cython_15tensor_sampling_17swap_metropolised_gi
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("swap_metropolised_gibbs_unified", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 316, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.swap_metropolised_gibbs_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.swap_metropolised_gibbs_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_15tensor_sampling_16swap_metropolised_gibbs_unified(__pyx_self, __pyx_v_p, __pyx_v_x);
+  __pyx_r = __pyx_pf_3lom_7_cython_14tensor_updates_16swap_metropolised_gibbs_unified(__pyx_self, __pyx_v_p, __pyx_v_x);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_16swap_metropolised_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_15tensor_sampling_data_type_t __pyx_v_x) {
+static PyObject *__pyx_pf_3lom_7_cython_14tensor_updates_16swap_metropolised_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_14tensor_updates_data_type_t __pyx_v_x) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("swap_metropolised_gibbs_unified", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_15tensor_sampling_swap_metropolised_gibbs_unified(__pyx_v_p, __pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_14tensor_updates_swap_metropolised_gibbs_unified(__pyx_v_p, __pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 316, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6224,7 +6226,7 @@ static PyObject *__pyx_pf_3lom_7_cython_15tensor_sampling_16swap_metropolised_gi
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("lom._cython.tensor_sampling.swap_metropolised_gibbs_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("lom._cython.tensor_updates.swap_metropolised_gibbs_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -21743,7 +21745,7 @@ static PyBufferProcs __pyx_tp_as_buffer_array = {
 
 static PyTypeObject __pyx_type___pyx_array = {
   PyVarObject_HEAD_INIT(0, 0)
-  "lom._cython.tensor_sampling.array", /*tp_name*/
+  "lom._cython.tensor_updates.array", /*tp_name*/
   sizeof(struct __pyx_array_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_array, /*tp_dealloc*/
@@ -21851,7 +21853,7 @@ static PyMethodDef __pyx_methods_Enum[] = {
 
 static PyTypeObject __pyx_type___pyx_MemviewEnum = {
   PyVarObject_HEAD_INIT(0, 0)
-  "lom._cython.tensor_sampling.Enum", /*tp_name*/
+  "lom._cython.tensor_updates.Enum", /*tp_name*/
   sizeof(struct __pyx_MemviewEnum_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_Enum, /*tp_dealloc*/
@@ -22101,7 +22103,7 @@ static PyBufferProcs __pyx_tp_as_buffer_memoryview = {
 
 static PyTypeObject __pyx_type___pyx_memoryview = {
   PyVarObject_HEAD_INIT(0, 0)
-  "lom._cython.tensor_sampling.memoryview", /*tp_name*/
+  "lom._cython.tensor_updates.memoryview", /*tp_name*/
   sizeof(struct __pyx_memoryview_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_memoryview, /*tp_dealloc*/
@@ -22228,7 +22230,7 @@ static struct PyGetSetDef __pyx_getsets__memoryviewslice[] = {
 
 static PyTypeObject __pyx_type___pyx_memoryviewslice = {
   PyVarObject_HEAD_INIT(0, 0)
-  "lom._cython.tensor_sampling._memoryviewslice", /*tp_name*/
+  "lom._cython.tensor_updates._memoryviewslice", /*tp_name*/
   sizeof(struct __pyx_memoryviewslice_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc__memoryviewslice, /*tp_dealloc*/
@@ -22293,30 +22295,30 @@ static PyTypeObject __pyx_type___pyx_memoryviewslice = {
 };
 
 static PyMethodDef __pyx_methods[] = {
-  {"compute_p_tensorm", (PyCFunction)__pyx_pw_3lom_7_cython_15tensor_sampling_5compute_p_tensorm, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_15tensor_sampling_4compute_p_tensorm},
-  {"compute_tp_fp_tensorm", (PyCFunction)__pyx_pw_3lom_7_cython_15tensor_sampling_7compute_tp_fp_tensorm, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_15tensor_sampling_6compute_tp_fp_tensorm},
-  {"compute_tn_fn_tensorm", (PyCFunction)__pyx_pw_3lom_7_cython_15tensor_sampling_9compute_tn_fn_tensorm, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_15tensor_sampling_8compute_tn_fn_tensorm},
-  {"probabilistic_output_tensorm", (PyCFunction)__pyx_pw_3lom_7_cython_15tensor_sampling_11probabilistic_output_tensorm, METH_VARARGS|METH_KEYWORDS, 0},
-  {"probabilistic_output_tensorm_indp", (PyCFunction)__pyx_pw_3lom_7_cython_15tensor_sampling_13probabilistic_output_tensorm_indp, METH_VARARGS|METH_KEYWORDS, 0},
-  {"sigmoid", (PyCFunction)__pyx_pw_3lom_7_cython_15tensor_sampling_15sigmoid, METH_O, 0},
-  {"swap_metropolised_gibbs_unified", (PyCFunction)__pyx_pw_3lom_7_cython_15tensor_sampling_17swap_metropolised_gibbs_unified, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_15tensor_sampling_16swap_metropolised_gibbs_unified},
+  {"compute_p_tensorm", (PyCFunction)__pyx_pw_3lom_7_cython_14tensor_updates_5compute_p_tensorm, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14tensor_updates_4compute_p_tensorm},
+  {"compute_tp_fp_tensorm", (PyCFunction)__pyx_pw_3lom_7_cython_14tensor_updates_7compute_tp_fp_tensorm, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14tensor_updates_6compute_tp_fp_tensorm},
+  {"compute_tn_fn_tensorm", (PyCFunction)__pyx_pw_3lom_7_cython_14tensor_updates_9compute_tn_fn_tensorm, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14tensor_updates_8compute_tn_fn_tensorm},
+  {"probabilistic_output_tensorm", (PyCFunction)__pyx_pw_3lom_7_cython_14tensor_updates_11probabilistic_output_tensorm, METH_VARARGS|METH_KEYWORDS, 0},
+  {"probabilistic_output_tensorm_indp", (PyCFunction)__pyx_pw_3lom_7_cython_14tensor_updates_13probabilistic_output_tensorm_indp, METH_VARARGS|METH_KEYWORDS, 0},
+  {"sigmoid", (PyCFunction)__pyx_pw_3lom_7_cython_14tensor_updates_15sigmoid, METH_O, 0},
+  {"swap_metropolised_gibbs_unified", (PyCFunction)__pyx_pw_3lom_7_cython_14tensor_updates_17swap_metropolised_gibbs_unified, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14tensor_updates_16swap_metropolised_gibbs_unified},
   {0, 0, 0, 0}
 };
 
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_tensor_sampling(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_tensor_updates(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_tensor_sampling},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_tensor_updates},
   {0, NULL}
 };
 #endif
 
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
-    "tensor_sampling",
+    "tensor_updates",
     __pyx_k_Logical_Operator_Machines_Cytho, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
@@ -22368,6 +22370,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_Unable_to_convert_item_to_object, __pyx_k_Unable_to_convert_item_to_object, sizeof(__pyx_k_Unable_to_convert_item_to_object), 0, 0, 1, 0},
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
   {&__pyx_n_s_View_MemoryView, __pyx_k_View_MemoryView, sizeof(__pyx_k_View_MemoryView), 0, 0, 1, 1},
+  {&__pyx_n_s__29, __pyx_k__29, sizeof(__pyx_k__29), 0, 0, 1, 1},
   {&__pyx_n_s_allocate_buffer, __pyx_k_allocate_buffer, sizeof(__pyx_k_allocate_buffer), 0, 0, 1, 1},
   {&__pyx_n_s_base, __pyx_k_base, sizeof(__pyx_k_base), 0, 0, 1, 1},
   {&__pyx_n_s_c, __pyx_k_c, sizeof(__pyx_k_c), 0, 0, 1, 1},
@@ -22380,7 +22383,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_kp_s_contiguous_and_direct, __pyx_k_contiguous_and_direct, sizeof(__pyx_k_contiguous_and_direct), 0, 0, 1, 0},
   {&__pyx_kp_s_contiguous_and_indirect, __pyx_k_contiguous_and_indirect, sizeof(__pyx_k_contiguous_and_indirect), 0, 0, 1, 0},
-  {&__pyx_n_s_cython_fcts, __pyx_k_cython_fcts, sizeof(__pyx_k_cython_fcts), 0, 0, 1, 1},
   {&__pyx_n_s_d, __pyx_k_d, sizeof(__pyx_k_d), 0, 0, 1, 1},
   {&__pyx_n_s_data_type, __pyx_k_data_type, sizeof(__pyx_k_data_type), 0, 0, 1, 1},
   {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
@@ -22406,8 +22408,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_lbda_m, __pyx_k_lbda_m, sizeof(__pyx_k_lbda_m), 0, 0, 1, 1},
   {&__pyx_n_s_lbda_p, __pyx_k_lbda_p, sizeof(__pyx_k_lbda_p), 0, 0, 1, 1},
   {&__pyx_n_s_logit_prior, __pyx_k_logit_prior, sizeof(__pyx_k_logit_prior), 0, 0, 1, 1},
-  {&__pyx_n_s_lom__cython_tensor_sampling, __pyx_k_lom__cython_tensor_sampling, sizeof(__pyx_k_lom__cython_tensor_sampling), 0, 0, 1, 1},
-  {&__pyx_kp_s_lom__cython_tensor_sampling_pyx, __pyx_k_lom__cython_tensor_sampling_pyx, sizeof(__pyx_k_lom__cython_tensor_sampling_pyx), 0, 0, 1, 0},
+  {&__pyx_n_s_lom__cython_matrix_updates, __pyx_k_lom__cython_matrix_updates, sizeof(__pyx_k_lom__cython_matrix_updates), 0, 0, 1, 1},
+  {&__pyx_n_s_lom__cython_tensor_updates, __pyx_k_lom__cython_tensor_updates, sizeof(__pyx_k_lom__cython_tensor_updates), 0, 0, 1, 1},
+  {&__pyx_kp_s_lom__cython_tensor_updates_pyx, __pyx_k_lom__cython_tensor_updates_pyx, sizeof(__pyx_k_lom__cython_tensor_updates_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_m, __pyx_k_m, sizeof(__pyx_k_m), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_memview, __pyx_k_memview, sizeof(__pyx_k_memview), 0, 0, 1, 1},
@@ -22793,29 +22796,29 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__28);
   __Pyx_GIVEREF(__pyx_tuple__28);
 
-  /* "lom/_cython/tensor_sampling.pyx":69
+  /* "lom/_cython/tensor_updates.pyx":69
  * 
  * 
  * def draw_tensorm_noparents_onechild(             # <<<<<<<<<<<<<<
  * 	data_type_t[:,:] sibling1,
  * 	data_type_t[:,:] sibling2,
  */
-  __pyx_tuple__29 = PyTuple_Pack(18, __pyx_n_s_sibling1, __pyx_n_s_sibling2, __pyx_n_s_sibling3, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_logit_prior, __pyx_n_s_p, __pyx_n_s_child_contribution, __pyx_n_s_prior, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_m, __pyx_n_s_l, __pyx_n_s_N, __pyx_n_s_L, __pyx_n_s_D, __pyx_n_s_M, __pyx_n_s_x_old); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 69, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__29);
-  __Pyx_GIVEREF(__pyx_tuple__29);
-  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(6, 0, 18, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_tensor_sampling_pyx, __pyx_n_s_draw_tensorm_noparents_onechild, 69, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __pyx_tuple__30 = PyTuple_Pack(18, __pyx_n_s_sibling1, __pyx_n_s_sibling2, __pyx_n_s_sibling3, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_logit_prior, __pyx_n_s_p, __pyx_n_s_child_contribution, __pyx_n_s_prior, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_m, __pyx_n_s_l, __pyx_n_s_N, __pyx_n_s_L, __pyx_n_s_D, __pyx_n_s_M, __pyx_n_s_x_old); if (unlikely(!__pyx_tuple__30)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__30);
+  __Pyx_GIVEREF(__pyx_tuple__30);
+  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(6, 0, 18, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__30, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_tensor_updates_pyx, __pyx_n_s_draw_tensorm_noparents_onechild, 69, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(0, 69, __pyx_L1_error)
 
-  /* "lom/_cython/tensor_sampling.pyx":99
+  /* "lom/_cython/tensor_updates.pyx":99
  * 
  * 
  * def draw_tensorm_indp_noparents_onechild(             # <<<<<<<<<<<<<<
  * 	data_type_t[:,:] sibling1,
  * 	data_type_t[:,:] sibling2,
  */
-  __pyx_tuple__31 = PyTuple_Pack(18, __pyx_n_s_sibling1, __pyx_n_s_sibling2, __pyx_n_s_sibling3, __pyx_n_s_child, __pyx_n_s_lbda_p, __pyx_n_s_lbda_m, __pyx_n_s_p, __pyx_n_s_child_count, __pyx_n_s_prior, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_m, __pyx_n_s_l, __pyx_n_s_N, __pyx_n_s_L, __pyx_n_s_D, __pyx_n_s_M, __pyx_n_s_x_old); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(0, 99, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__31);
-  __Pyx_GIVEREF(__pyx_tuple__31);
-  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(6, 0, 18, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_tensor_sampling_pyx, __pyx_n_s_draw_tensorm_indp_noparents_onec, 99, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 99, __pyx_L1_error)
+  __pyx_tuple__32 = PyTuple_Pack(18, __pyx_n_s_sibling1, __pyx_n_s_sibling2, __pyx_n_s_sibling3, __pyx_n_s_child, __pyx_n_s_lbda_p, __pyx_n_s_lbda_m, __pyx_n_s_p, __pyx_n_s_child_count, __pyx_n_s_prior, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_m, __pyx_n_s_l, __pyx_n_s_N, __pyx_n_s_L, __pyx_n_s_D, __pyx_n_s_M, __pyx_n_s_x_old); if (unlikely(!__pyx_tuple__32)) __PYX_ERR(0, 99, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__32);
+  __Pyx_GIVEREF(__pyx_tuple__32);
+  __pyx_codeobj__33 = (PyObject*)__Pyx_PyCode_New(6, 0, 18, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__32, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_tensor_updates_pyx, __pyx_n_s_draw_tensorm_indp_noparents_onec, 99, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__33)) __PYX_ERR(0, 99, __pyx_L1_error)
 
   /* "View.MemoryView":284
  *         return self.name
@@ -22824,9 +22827,9 @@ static int __Pyx_InitCachedConstants(void) {
  * cdef strided = Enum("<strided and direct>") # default
  * cdef indirect = Enum("<strided and indirect>")
  */
-  __pyx_tuple__33 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct_or_indirect); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(2, 284, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__33);
-  __Pyx_GIVEREF(__pyx_tuple__33);
+  __pyx_tuple__34 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct_or_indirect); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(2, 284, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__34);
+  __Pyx_GIVEREF(__pyx_tuple__34);
 
   /* "View.MemoryView":285
  * 
@@ -22835,9 +22838,9 @@ static int __Pyx_InitCachedConstants(void) {
  * cdef indirect = Enum("<strided and indirect>")
  * 
  */
-  __pyx_tuple__34 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(2, 285, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__34);
-  __Pyx_GIVEREF(__pyx_tuple__34);
+  __pyx_tuple__35 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(2, 285, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__35);
+  __Pyx_GIVEREF(__pyx_tuple__35);
 
   /* "View.MemoryView":286
  * cdef generic = Enum("<strided and direct or indirect>")
@@ -22846,9 +22849,9 @@ static int __Pyx_InitCachedConstants(void) {
  * 
  * 
  */
-  __pyx_tuple__35 = PyTuple_Pack(1, __pyx_kp_s_strided_and_indirect); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(2, 286, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__35);
-  __Pyx_GIVEREF(__pyx_tuple__35);
+  __pyx_tuple__36 = PyTuple_Pack(1, __pyx_kp_s_strided_and_indirect); if (unlikely(!__pyx_tuple__36)) __PYX_ERR(2, 286, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__36);
+  __Pyx_GIVEREF(__pyx_tuple__36);
 
   /* "View.MemoryView":289
  * 
@@ -22857,9 +22860,9 @@ static int __Pyx_InitCachedConstants(void) {
  * cdef indirect_contiguous = Enum("<contiguous and indirect>")
  * 
  */
-  __pyx_tuple__36 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_direct); if (unlikely(!__pyx_tuple__36)) __PYX_ERR(2, 289, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__36);
-  __Pyx_GIVEREF(__pyx_tuple__36);
+  __pyx_tuple__37 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_direct); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(2, 289, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__37);
+  __Pyx_GIVEREF(__pyx_tuple__37);
 
   /* "View.MemoryView":290
  * 
@@ -22868,19 +22871,19 @@ static int __Pyx_InitCachedConstants(void) {
  * 
  * 
  */
-  __pyx_tuple__37 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_indirect); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(2, 290, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__37);
-  __Pyx_GIVEREF(__pyx_tuple__37);
+  __pyx_tuple__38 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_indirect); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(2, 290, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__38);
+  __Pyx_GIVEREF(__pyx_tuple__38);
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_Enum(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     if __pyx_checksum != 0xb068931:
  *         from pickle import PickleError as __pyx_PickleError
  */
-  __pyx_tuple__38 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__38);
-  __Pyx_GIVEREF(__pyx_tuple__38);
-  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__39 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__39);
+  __Pyx_GIVEREF(__pyx_tuple__39);
+  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -22907,11 +22910,11 @@ if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 }
 
 #if PY_MAJOR_VERSION < 3
-PyMODINIT_FUNC inittensor_sampling(void); /*proto*/
-PyMODINIT_FUNC inittensor_sampling(void)
+PyMODINIT_FUNC inittensor_updates(void); /*proto*/
+PyMODINIT_FUNC inittensor_updates(void)
 #else
-PyMODINIT_FUNC PyInit_tensor_sampling(void); /*proto*/
-PyMODINIT_FUNC PyInit_tensor_sampling(void)
+PyMODINIT_FUNC PyInit_tensor_updates(void); /*proto*/
+PyMODINIT_FUNC PyInit_tensor_updates(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -22951,7 +22954,7 @@ bad:
 }
 
 
-static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
+static int __pyx_pymod_exec_tensor_updates(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
@@ -22971,7 +22974,7 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
           Py_FatalError("failed to import 'refnanny' module");
   }
   #endif
-  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_tensor_sampling(void)", 0);
+  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_tensor_updates(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -23007,7 +23010,7 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("tensor_sampling", __pyx_methods, __pyx_k_Logical_Operator_Machines_Cytho, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("tensor_updates", __pyx_methods, __pyx_k_Logical_Operator_Machines_Cytho, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -23026,14 +23029,14 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_lom___cython__tensor_sampling) {
+  if (__pyx_module_is_main_lom___cython__tensor_updates) {
     if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "lom._cython.tensor_sampling")) {
-      if (unlikely(PyDict_SetItemString(modules, "lom._cython.tensor_sampling", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "lom._cython.tensor_updates")) {
+      if (unlikely(PyDict_SetItemString(modules, "lom._cython.tensor_updates", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -23104,7 +23107,7 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "lom/_cython/tensor_sampling.pyx":16
+  /* "lom/_cython/tensor_updates.pyx":16
  * from libc.stdlib cimport rand, RAND_MAX
  * from libc.stdlib cimport malloc
  * from IPython.core.debugger import Tracer             # <<<<<<<<<<<<<<
@@ -23125,11 +23128,11 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "lom/_cython/tensor_sampling.pyx":20
+  /* "lom/_cython/tensor_updates.pyx":20
  * 
  * cimport numpy as np
  * import numpy as np             # <<<<<<<<<<<<<<
- * import cython_fcts as cf
+ * import lom._cython.matrix_updates as cf
  * 
  */
   __pyx_t_2 = __Pyx_Import(__pyx_n_s_numpy, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
@@ -23137,66 +23140,72 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_2) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "lom/_cython/tensor_sampling.pyx":21
+  /* "lom/_cython/tensor_updates.pyx":21
  * cimport numpy as np
  * import numpy as np
- * import cython_fcts as cf             # <<<<<<<<<<<<<<
+ * import lom._cython.matrix_updates as cf             # <<<<<<<<<<<<<<
  * 
  * data_type = np.int8
  */
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_cython_fcts, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_cf, __pyx_t_2) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_INCREF(__pyx_n_s__29);
+  __Pyx_GIVEREF(__pyx_n_s__29);
+  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s__29);
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_lom__cython_matrix_updates, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_cf, __pyx_t_1) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/tensor_sampling.pyx":23
- * import cython_fcts as cf
+  /* "lom/_cython/tensor_updates.pyx":23
+ * import lom._cython.matrix_updates as cf
  * 
  * data_type = np.int8             # <<<<<<<<<<<<<<
  * ctypedef np.int8_t data_type_t
  * 
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_int8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_data_type, __pyx_t_1) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_int8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_data_type, __pyx_t_2) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "lom/_cython/tensor_sampling.pyx":69
+  /* "lom/_cython/tensor_updates.pyx":69
  * 
  * 
  * def draw_tensorm_noparents_onechild(             # <<<<<<<<<<<<<<
  * 	data_type_t[:,:] sibling1,
  * 	data_type_t[:,:] sibling2,
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_15tensor_sampling_1draw_tensorm_noparents_onechild, NULL, __pyx_n_s_lom__cython_tensor_sampling); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_tensorm_noparents_onechild, __pyx_t_1) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14tensor_updates_1draw_tensorm_noparents_onechild, NULL, __pyx_n_s_lom__cython_tensor_updates); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_tensorm_noparents_onechild, __pyx_t_2) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "lom/_cython/tensor_sampling.pyx":99
+  /* "lom/_cython/tensor_updates.pyx":99
  * 
  * 
  * def draw_tensorm_indp_noparents_onechild(             # <<<<<<<<<<<<<<
  * 	data_type_t[:,:] sibling1,
  * 	data_type_t[:,:] sibling2,
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_15tensor_sampling_3draw_tensorm_indp_noparents_onechild, NULL, __pyx_n_s_lom__cython_tensor_sampling); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_tensorm_indp_noparents_onec, __pyx_t_1) < 0) __PYX_ERR(0, 99, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14tensor_updates_3draw_tensorm_indp_noparents_onechild, NULL, __pyx_n_s_lom__cython_tensor_updates); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 99, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_tensorm_indp_noparents_onec, __pyx_t_2) < 0) __PYX_ERR(0, 99, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "lom/_cython/tensor_sampling.pyx":1
+  /* "lom/_cython/tensor_updates.pyx":1
  * #!/usr/bin/env python             # <<<<<<<<<<<<<<
  * #cython: profile=False, language_level=3, boundscheck=False, wraparound=False, cdivision=True
  * # #cython --compile-args=-fopenmp --link-args=-fopenmp --force -a
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "View.MemoryView":207
  *         info.obj = self
@@ -23205,10 +23214,10 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
  * 
  *     def __dealloc__(array self):
  */
-  __pyx_t_1 = __pyx_capsule_create(((void *)(&__pyx_array_getbuffer)), ((char *)"getbuffer(obj, view, flags)")); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 207, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_array_type->tp_dict, __pyx_n_s_pyx_getbuffer, __pyx_t_1) < 0) __PYX_ERR(2, 207, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = __pyx_capsule_create(((void *)(&__pyx_array_getbuffer)), ((char *)"getbuffer(obj, view, flags)")); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 207, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem((PyObject *)__pyx_array_type->tp_dict, __pyx_n_s_pyx_getbuffer, __pyx_t_2) < 0) __PYX_ERR(2, 207, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_array_type);
 
   /* "View.MemoryView":284
@@ -23218,12 +23227,12 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
  * cdef strided = Enum("<strided and direct>") # default
  * cdef indirect = Enum("<strided and indirect>")
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__33, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 284, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__34, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 284, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_XGOTREF(generic);
-  __Pyx_DECREF_SET(generic, __pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_DECREF_SET(generic, __pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_2);
+  __pyx_t_2 = 0;
 
   /* "View.MemoryView":285
  * 
@@ -23232,12 +23241,12 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
  * cdef indirect = Enum("<strided and indirect>")
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__34, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 285, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__35, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 285, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_XGOTREF(strided);
-  __Pyx_DECREF_SET(strided, __pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_DECREF_SET(strided, __pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_2);
+  __pyx_t_2 = 0;
 
   /* "View.MemoryView":286
  * cdef generic = Enum("<strided and direct or indirect>")
@@ -23246,12 +23255,12 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
  * 
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__35, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 286, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__36, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 286, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_XGOTREF(indirect);
-  __Pyx_DECREF_SET(indirect, __pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_DECREF_SET(indirect, __pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_2);
+  __pyx_t_2 = 0;
 
   /* "View.MemoryView":289
  * 
@@ -23260,12 +23269,12 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
  * cdef indirect_contiguous = Enum("<contiguous and indirect>")
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__36, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 289, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__37, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 289, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_XGOTREF(contiguous);
-  __Pyx_DECREF_SET(contiguous, __pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_DECREF_SET(contiguous, __pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_2);
+  __pyx_t_2 = 0;
 
   /* "View.MemoryView":290
  * 
@@ -23274,12 +23283,12 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
  * 
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__37, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 290, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__38, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 290, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_XGOTREF(indirect_contiguous);
-  __Pyx_DECREF_SET(indirect_contiguous, __pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_DECREF_SET(indirect_contiguous, __pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_2);
+  __pyx_t_2 = 0;
 
   /* "View.MemoryView":314
  * 
@@ -23314,10 +23323,10 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
  * 
  * 
  */
-  __pyx_t_1 = __pyx_capsule_create(((void *)(&__pyx_memoryview_getbuffer)), ((char *)"getbuffer(obj, view, flags)")); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 537, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_memoryview_type->tp_dict, __pyx_n_s_pyx_getbuffer, __pyx_t_1) < 0) __PYX_ERR(2, 537, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = __pyx_capsule_create(((void *)(&__pyx_memoryview_getbuffer)), ((char *)"getbuffer(obj, view, flags)")); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 537, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem((PyObject *)__pyx_memoryview_type->tp_dict, __pyx_n_s_pyx_getbuffer, __pyx_t_2) < 0) __PYX_ERR(2, 537, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_memoryview_type);
 
   /* "View.MemoryView":983
@@ -23327,10 +23336,10 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
  * 
  * 
  */
-  __pyx_t_1 = __pyx_capsule_create(((void *)(&__pyx_memoryview_getbuffer)), ((char *)"getbuffer(obj, view, flags)")); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 983, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_memoryviewslice_type->tp_dict, __pyx_n_s_pyx_getbuffer, __pyx_t_1) < 0) __PYX_ERR(2, 983, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = __pyx_capsule_create(((void *)(&__pyx_memoryview_getbuffer)), ((char *)"getbuffer(obj, view, flags)")); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 983, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem((PyObject *)__pyx_memoryviewslice_type->tp_dict, __pyx_n_s_pyx_getbuffer, __pyx_t_2) < 0) __PYX_ERR(2, 983, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_memoryviewslice_type);
 
   /* "(tree fragment)":1
@@ -23338,10 +23347,10 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
  *     if __pyx_checksum != 0xb068931:
  *         from pickle import PickleError as __pyx_PickleError
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_15View_dot_MemoryView_1__pyx_unpickle_Enum, NULL, __pyx_n_s_View_MemoryView); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Enum, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_15View_dot_MemoryView_1__pyx_unpickle_Enum, NULL, __pyx_n_s_View_MemoryView); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Enum, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "(tree fragment)":9
  *         __pyx_unpickle_Enum__set_state(<Enum> __pyx_result, __pyx_state)
@@ -23359,11 +23368,11 @@ static int __pyx_pymod_exec_tensor_sampling(PyObject *__pyx_pyinit_module)
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init lom._cython.tensor_sampling", 0, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init lom._cython.tensor_updates", 0, __pyx_lineno, __pyx_filename);
     }
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init lom._cython.tensor_sampling");
+    PyErr_SetString(PyExc_ImportError, "init lom._cython.tensor_updates");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -26128,7 +26137,7 @@ no_fail:
 }
 
 /* ObjectToMemviewSlice */
-      static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(PyObject *obj) {
+      static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(PyObject *obj) {
     __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
     __Pyx_BufFmt_StackElem stack[1];
     int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_STRIDED), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_STRIDED) };
@@ -26139,7 +26148,7 @@ no_fail:
     }
     retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, 0,
                                                  PyBUF_RECORDS, 2,
-                                                 &__Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t, stack,
+                                                 &__Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t, stack,
                                                  &result, obj);
     if (unlikely(retcode == -1))
         goto __pyx_fail;
@@ -26151,7 +26160,7 @@ __pyx_fail:
 }
 
 /* ObjectToMemviewSlice */
-      static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsdsds_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t(PyObject *obj) {
+      static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsdsds_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t(PyObject *obj) {
     __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
     __Pyx_BufFmt_StackElem stack[1];
     int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_STRIDED), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_STRIDED), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_STRIDED) };
@@ -26162,7 +26171,7 @@ __pyx_fail:
     }
     retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, 0,
                                                  PyBUF_RECORDS, 3,
-                                                 &__Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_15tensor_sampling_data_type_t, stack,
+                                                 &__Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_14tensor_updates_data_type_t, stack,
                                                  &result, obj);
     if (unlikely(retcode == -1))
         goto __pyx_fail;
