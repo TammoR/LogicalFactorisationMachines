@@ -15,21 +15,45 @@ import warnings
 
 import lom._cython.matrix_updates as cf
 import lom._cython.tensor_updates as cf_tensorm
+import lom._numba.matrix_updates_numba as numba_mu
+
+
+def draw_noparents_onechild_wrapper(mat):
+
+    transpose_order = tuple([mat.child_axis] + [mat.sibling.child_axis])
+
+    if hasattr(mat.layer.machine, 'framework'):    
+        framework = mat.layer.machine.framework
+    else:
+        framework = 'cython'
+
+    if framework == 'numba':
+
+        numba_mu.draw_Z_numba(
+            mat(),
+            mat.sibling(),
+            mat.child().transpose(transpose_order),
+            mat.lbda())
+
+    else:
+        cf.draw_noparents_onechild(
+            mat(),  # NxD
+            mat.sibling(),  # sibling u: D x Lc
+            mat.child().transpose(transpose_order),  # child observation: N x Lc
+            mat.lbda(),  # own parameter: double
+            mat.sampling_indicator)
 
 
 def draw_balanced_or(mat):
     """
     mat() and child need to share their first dimension. otherwise transpose.
     """
-    if '2' in mat.role:
-        child = mat.child().transpose()
-    else:
-        child = mat.child()
+    transpose_order = tuple([mat.child_axis] + [mat.sibling.child_axis])
     
     cf.draw_balanced_or(
         mat(),
         mat.sibling(),
-        child,
+        mat.child.transpose(transpose_order),
         mat.lbda(),
         mat.lbda()*(1/mat.lbda.balance_factor)
         )
@@ -37,19 +61,12 @@ def draw_balanced_or(mat):
 
 def draw_tensorm_noparents_onechild_wrapper(mat):
 
-    # this can be done more nicely, and also for simple OrM 
-    # to improve code reusage! TODO
-    mat_idx = int(mat.role[-1])-1 # integer indicating (z,u,v)
-    siblings = [x for i,x in enumerate(mat.lbda.attached_matrices) if i != mat_idx]
-    # transpose data such that dimensions agree with parent matrices
-    transpose_order = (mat_idx, 
-                      int(siblings[0].role[-1])-1,
-                      int(siblings[1].role[-1])-1)
+    transpose_order = tuple([mat.child_axis] +\
+                            [x.child_axis for x in mat.get_siblings])
 
     cf_tensorm.draw_tensorm_noparents_onechild(
         mat(),
-        siblings[0](),
-        siblings[1](),
+        *[x.val for x in mat.get_siblings],
         mat.child().transpose(transpose_order),
         mat.lbda(),
         mat.logit_prior
@@ -76,22 +93,26 @@ def draw_tensorm_indp_noparents_onechild_wrapper(mat):
         )
 
 
-def draw_z_noparents_onechild_wrapper(mat):
 
-    cf.draw_noparents_onechild(
-        mat(),  # NxD
-        mat.sibling(),  # sibling u: D x Lc
-        mat.child(),  # child observation: N x Lc
-        mat.lbda(),  # own parameter: double
-        mat.sampling_indicator)
+
+
+# def draw_z_noparents_onechild_wrapper(mat):
+
+#     cf.draw_noparents_onechild(
+#         mat(),  # NxD
+#         mat.sibling(),  # sibling u: D x Lc
+#         mat.child(),  # child observation: N x Lc
+#         mat.lbda(),  # own parameter: double
+#         mat.sampling_indicator)
     
-def draw_u_noparents_onechild_wrapper(mat):
-    cf.draw_noparents_onechild(
-        mat(), # NxD
-        mat.sibling(), # sibling u: D x Lc
-        mat.child().transpose(), # child observation: N x Lc
-        mat.lbda(), # own parameter: double
-        mat.sampling_indicator)
+# def draw_u_noparents_onechild_wrapper(mat):
+#     cf.draw_noparents_onechild(
+#         mat(), # NxD
+#         mat.sibling(), # sibling u: D x Lc
+#         mat.child().transpose(), # child observation: N x Lc
+#         mat.lbda(), # own parameter: double
+#         mat.sampling_indicator)
+
 
 def draw_u_noparents_onechild_wrapper_single_thread(mat):
     cf.draw_noparents_onechild_single_thread(
@@ -172,35 +193,51 @@ def draw_u_oneparent_onechild_wrapper(mat):
         mat.prior_config,
         mat.sampling_indicator)
 
-def draw_u_noparents_onechild_maxmachine(mat):
 
-    # provide order of dimensions by assoicated noise
-    l_statistic = mat.layer.lbda()[:-1]    
-    l_order = np.array(np.argsort(-l_statistic), dtype=np.int32)
-    
-    cf.draw_noparents_onechild_maxmachine(
-        mat(), 
-        mat.sibling(),
-        mat.child().transpose(),
-        mat.lbda(),
-        l_order,
-        mat.prior_config,
-        mat.layer.lbda_ratios)
-
-
-def draw_z_noparents_onechild_maxmachine(mat):
+def draw_noparents_onechild_maxmachine(mat):
     
     # provide order of dimensions by assoicated noise    
     l_order = np.array(np.argsort(-mat.layer.lbda()[:-1]), dtype=np.int32)
+    transpose_order = tuple([mat.child_axis] + [mat.sibling.child_axis])
     
     cf.draw_noparents_onechild_maxmachine(
         mat(),
         mat.sibling(),
-        mat.child(),
+        mat.child().transpose(transpose_order),
         mat.lbda(),
         l_order,
         mat.prior_config,
-        mat.layer.lbda_ratios)
+        mat.layer.lbda_ratios)    
+
+# def draw_u_noparents_onechild_maxmachine(mat):
+
+#     # provide order of dimensions by assoicated noise
+#     l_statistic = mat.layer.lbda()[:-1]    
+#     l_order = np.array(np.argsort(-l_statistic), dtype=np.int32)
+    
+#     cf.draw_noparents_onechild_maxmachine(
+#         mat(), 
+#         mat.sibling(),
+#         mat.child().transpose(),
+#         mat.lbda(),
+#         l_order,
+#         mat.prior_config,
+#         mat.layer.lbda_ratios)
+
+
+# def draw_z_noparents_onechild_maxmachine(mat):
+    
+#     # provide order of dimensions by assoicated noise    
+#     l_order = np.array(np.argsort(-mat.layer.lbda()[:-1]), dtype=np.int32)
+    
+#     cf.draw_noparents_onechild_maxmachine(
+#         mat(),
+#         mat.sibling(),
+#         mat.child(),
+#         mat.lbda(),
+#         l_order,
+#         mat.prior_config,
+#         mat.layer.lbda_ratios)
     
             
 def draw_u_oneparent_onechild_maxmachine(mat):

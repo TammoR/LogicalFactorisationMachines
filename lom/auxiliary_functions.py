@@ -16,6 +16,8 @@ import lom.matrix_updates_c_wrappers as wrappers
 import lom.lambda_updates_c_wrappers as sampling
 import lom._cython.matrix_updates as cf
 
+from numpy.random import binomial
+
 # optional scipy dependencies
 def expit(x):
 	"""
@@ -809,3 +811,31 @@ def all_columsn_are_disjoint(mat):
     return not np.any([np.all(mat[mat[:,i]==1,j]==1) 
                        for i,j in list(itertools.permutations(range(L),2))])
     
+
+def random_machine_matrix(p, shape):
+	return 2*np.array(binomial(n=1, p=p, size=shape), dtype=np.int8)-1
+
+
+
+def generate_orm_product():
+	"""
+	Generate random matrix U, Z and their Boolean product X.
+	returns: U, Z, X in {-1, 1} representation.
+	Ascertain that different U[d,:] and Z[n,:] are disjoint.
+	"""
+
+	def disjoint_columns_mat(N=100, D=20, L=3):
+		while True:
+			mat = np.array(np.random.rand(N,L) > .5, dtype=np.int8)
+			if all_columsn_are_disjoint(mat):
+				return mat
+	
+	U = disjoint_columns_mat()
+	Z = disjoint_columns_mat()
+
+	X = np.array(np.dot(Z==1, U.transpose()==1), dtype=np.int8)
+
+	# map to {-1, 0, 1} reprst.
+	X = 2*X-1; U=2*U-1; Z=2*Z-1
+
+	return U, Z, X	

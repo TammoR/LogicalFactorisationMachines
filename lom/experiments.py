@@ -5,12 +5,12 @@ Functions to automatize experiments
 """
 
 import numpy as np
-import lib
 import sys
 import tempfile
 import sklearn
 from IPython.core.debugger import Tracer
 
+import lom.auxiliary_functions as lib
 import lom
 import lom.matrix_updates_c_wrappers as wrappers
 import lom.lambda_updates_c_wrappers as sampling

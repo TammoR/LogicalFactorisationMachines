@@ -8,6 +8,7 @@ import numpy as np
 import lom.matrix_updates_c_wrappers as wrappers
 import lom._cython.matrix_updates as cf
 import lom._cython.tensor_updates as cf_tensorm
+import lom._numba.lambda_updates_numba as lambda_updates_numba
 
 def draw_lbda_max(parm):
 	"""
@@ -178,26 +179,32 @@ def draw_lbda_or(parm):
 	Update a Machine parameter to its MLE / MAP estimate
 	"""
 
-	# TODO: for some obscure reason this is faster than compute_P_parallel
-	P = cf.compute_P(parm.attached_matrices[0].child(),
-							  parm.attached_matrices[1](),
-							  parm.attached_matrices[0]())
+	if parm.layer.machine.framework == 'numba':
+		lambda_updates_numba.draw_lbda_or_numba(parm)
 
-	# effectie number of observations (precompute for speedup TODO (not crucial))
-	ND = (np.prod(parm.attached_matrices[0].child().shape) -\
-					np.count_nonzero(parm.attached_matrices[0].child() == 0))
 
-	# Flat prior
-	if parm.prior_config[0] == 0:
-		# use Laplace rule of succession
-		parm.val = -np.log( ( (ND+2) / (float(P)+1) ) - 1  )
-		#parm.val = np.max([0, np.min([1000, -np.log( (ND) / (float(P)-1) )])])
+	elif parm.layer.machine.framework == 'cython':
 
-	# Beta prior
-	elif parm.prior_config[0] == 1:
-		alpha = parm.prior_config[1][0]
-		beta  = parm.prior_config[1][1]
-		parm.val = -np.log( (ND + alpha - 1) / (float(P) + alpha + beta -2) - 1 )        
+		# TODO: for some obscure reason this is faster than compute_P_parallel
+		P = cf.compute_P(parm.attached_matrices[0].child(),
+								  parm.attached_matrices[1](),
+								  parm.attached_matrices[0]())
+
+		# effectie number of observations (precompute for speedup TODO (not crucial))
+		ND = (np.prod(parm.attached_matrices[0].child().shape) -\
+						np.count_nonzero(parm.attached_matrices[0].child() == 0))
+
+		# Flat prior
+		if parm.prior_config[0] == 0:
+			# use Laplace rule of succession
+			parm.val = -np.log( ( (ND+2) / (float(P)+1) ) - 1  )
+			#parm.val = np.max([0, np.min([1000, -np.log( (ND) / (float(P)-1) )])])
+
+		# Beta prior
+		elif parm.prior_config[0] == 1:
+			alpha = parm.prior_config[1][0]
+			beta  = parm.prior_config[1][1]
+			parm.val = -np.log( (ND + alpha - 1) / (float(P) + alpha + beta -2) - 1 )        
 
 
 def infer_sampling_fct_mat(mat):
@@ -236,18 +243,13 @@ def infer_sampling_fct_mat(mat):
 
 	# matrix with one child...
 	elif mat.child:
-		# ... and no parent
+
+		# ... and no parent # like here, we don't need extra fcts for u/z
 		if not mat.parents:
-			if mat.role == 'dim1':
-				if mat.layer.noise_model == 'max-link':
-					mat.sampling_fct = wrappers.draw_z_noparents_onechild_maxmachine
-				elif mat.layer.noise_model == 'or-link':
-					mat.sampling_fct = wrappers.draw_z_noparents_onechild_wrapper
-			elif mat.role == 'dim2':
-				if mat.layer.noise_model == 'max-link':
-					mat.sampling_fct = wrappers.draw_u_noparents_onechild_maxmachine
-				elif mat.layer.noise_model == 'or-link':
-					mat.sampling_fct = wrappers.draw_u_noparents_onechild_wrapper       
+			if mat.layer.noise_model == 'max-link':
+				mat.sampling_fct = wrappers.draw_noparents_onechild_maxmachine
+			elif mat.layer.noise_model == 'or-link':
+				mat.sampling_fct = wrappers.draw_noparents_onechild_wrapper   
 
 		# ... and one parent 
 		elif len(mat.parent_layers) == 1:

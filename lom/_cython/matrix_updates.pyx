@@ -293,7 +293,6 @@ def draw_noparents_onechild(data_type_t[:,:] x,  # N x D
     cdef float p, acc_child
     cdef float prior = 0
     cdef int n, d, N = x.shape[0], D = x.shape[1]
-    cdef data_type_t x_old
     
     # for n in range(N):
     for n in prange(N, schedule='guided', nogil=True):
@@ -305,7 +304,6 @@ def draw_noparents_onechild(data_type_t[:,:] x,  # N x D
 
                 p = sigmoid(acc_child)
 
-                x_old = x[n,d]
                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
 
 
@@ -570,7 +568,7 @@ cdef (int, int) score_no_parents_balanced(
     
 @boundscheck(False)
 @wraparound(False)
-cdef int score_no_parents_unified(
+cpdef int score_no_parents_unified(
     data_type_t[:] x, # (N x) D
     data_type_t[:] z, # (N x) L 
     data_type_t[:,:] u, # D x L
@@ -629,7 +627,8 @@ cpdef int swap_metropolised_gibbs_unified(float p, data_type_t x) nogil:
             alpha = (1-p)/p
     else:
         if p >= .5:
-            alpha = 1
+            return -x
+            # alpha = 1
         else:
             alpha = p/(1-p)
     if rand()/float(RAND_MAX) < alpha:

@@ -260,7 +260,8 @@ class MachineMatrix(Trace):
 
     def __init__(self, val=None, shape=None, sibling=None, 
                  parents=None, child=None, lbda=None, p_init=.5,
-                 role=None, sampling_indicator = True, parent_layers = None):
+                 role=None, sampling_indicator = True, parent_layers = None,
+                 child_axis = None):
         """
         role (str): 'features (dim2)' or 'observations (dim1)' or 'data'. Try to infer if not provided
         """
@@ -280,6 +281,7 @@ class MachineMatrix(Trace):
         self.child = child
         self.sibling = sibling
         self.lbda = lbda
+        self.child_axis = child_axis
         
         # ascertain that we have enough information to initiliase the matrix
         assert (val is not None) or (shape is not None and p_init is not None)
@@ -323,6 +325,13 @@ class MachineMatrix(Trace):
         # all information about the prior
         self.prior_config = [None for i in range(6)]
         self.set_prior()
+
+    @property
+    def get_siblings(self):
+
+        siblings = [f for f in self.child.parents if f is not self]
+
+        return sorted(siblings, key=lambda f: f.child_axis)
 
             
     def add_parent_layer(self, layer):
@@ -890,11 +899,11 @@ class Machine():
 
         z = self.add_matrix(shape=shape_z, 
                             child=child, p_init=z_init,
-                            role='dim1')
+                            role='dim1', child_axis=0)
         
         u = self.add_matrix(shape=shape_u, sibling=z, 
                             child=child, p_init=u_init,
-                            role='dim2')
+                            role='dim2', child_axis=1)
 
         if 'or-link' in noise_model:
             lbda = self.add_parameter(attached_matrices=(z,u), 
@@ -930,6 +939,7 @@ class Machine():
 
         layer = MachineLayer(z, u, lbda, size, child, noise_model)
 
+        layer.machine = self
         self.layers.append(layer)
 
         return layer
@@ -958,15 +968,15 @@ class Machine():
 
         u = self.add_matrix(shape=shape_u, 
                             child=child, p_init=u_init,
-                            role='dim2')
+                            role='dim2', child_axis=1)
 
         z = self.add_matrix(shape=shape_z, sibling=u,
                             child=child, p_init=z_init,
-                            role='dim1')
+                            role='dim1', child_axis=0)
         
         v = self.add_matrix(shape=shape_v, sibling=z, 
                             child=child, p_init=v_init,
-                            role='dim3')
+                            role='dim3', child_axis=2)
 
         if priors is not None:
             z.logit_prior, u.logit_prior, v.logit_prior = priors
@@ -998,13 +1008,18 @@ class Machine():
             layer = MachineLayer(z, u, (lbda_p, lbda_m), size, child, noise_model, v)
 
         self.layers.append(layer)
+        layer.machine = self
+
+        for factor_matrix in layer.members()[0].child.parents:
+            factor_matrix.sampling_fct = wrappers.draw_tensorm_noparents_onechild_wrapper
+        layer.lbda.sampling_fct = sampling.draw_lbda_tensorm
 
         return layer
     
 
     def add_matrix(self, val=None, shape=None, sibling=None,
                    parents=None, child=None, lbda=None, p_init=.5,
-                   role=None, sampling_indicator=True):
+                   role=None, sampling_indicator=True, child_axis=5):
 
         # ascertain the correct coding as [-1,0,1] integers, 
         # where 0 is unobserved.
@@ -1012,7 +1027,8 @@ class Machine():
             val = np.array(val, dtype=np.int8)
 
         mat = MachineMatrix(val, shape, sibling, parents, child,
-                            lbda, p_init, role, sampling_indicator)
+                            lbda, p_init, role, sampling_indicator,
+                            None, child_axis)
 
         self.members.append(mat)
         return mat
