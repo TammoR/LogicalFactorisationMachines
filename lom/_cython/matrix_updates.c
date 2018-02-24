@@ -1166,7 +1166,7 @@ typedef npy_cdouble __pyx_t_5numpy_complex_t;
 struct __pyx_ctuple_int__and_int;
 typedef struct __pyx_ctuple_int__and_int __pyx_ctuple_int__and_int;
 
-/* "lom/_cython/matrix_updates.pyx":535
+/* "lom/_cython/matrix_updates.pyx":533
  * 
  * 
  * cdef (int, int) score_no_parents_balanced(             # <<<<<<<<<<<<<<
@@ -1959,10 +1959,10 @@ __pyx_memoryview_copy_new_contig(const __Pyx_memviewslice *from_mvs,
                                  int dtype_is_object);
 
 /* CIntFromPy.proto */
-static CYTHON_INLINE npy_int8 __Pyx_PyInt_As_npy_int8(PyObject *);
+static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
 
 /* CIntFromPy.proto */
-static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
+static CYTHON_INLINE npy_int8 __Pyx_PyInt_As_npy_int8(PyObject *);
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *);
@@ -2069,7 +2069,7 @@ static float __pyx_f_3lom_7_cython_14matrix_updates_child_node_contribution_to_m
 static PyArrayObject *__pyx_f_3lom_7_cython_14matrix_updates_predict_single_latent(__Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
 static __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unified(__Pyx_memviewslice, __Pyx_memviewslice); /*proto*/
 static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_balanced(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int, int, int); /*proto*/
-static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int); /*proto*/
+static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int, int __pyx_skip_dispatch); /*proto*/
 static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs(float, int __pyx_skip_dispatch); /*proto*/
 static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(float, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t, int __pyx_skip_dispatch); /*proto*/
 static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs_unified(float, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t, int __pyx_skip_dispatch); /*proto*/
@@ -2142,6 +2142,7 @@ static const char __pyx_k_N[] = "N";
 static const char __pyx_k_O[] = "O";
 static const char __pyx_k_c[] = "c";
 static const char __pyx_k_d[] = "d";
+static const char __pyx_k_l[] = "l";
 static const char __pyx_k_n[] = "n";
 static const char __pyx_k_p[] = "p";
 static const char __pyx_k_u[] = "u";
@@ -2384,6 +2385,7 @@ static PyObject *__pyx_n_s_int32;
 static PyObject *__pyx_n_s_int8;
 static PyObject *__pyx_n_s_itemsize;
 static PyObject *__pyx_kp_s_itemsize_0_for_cython_array;
+static PyObject *__pyx_n_s_l;
 static PyObject *__pyx_n_s_l_dcr;
 static PyObject *__pyx_n_s_l_idx;
 static PyObject *__pyx_n_s_lbda;
@@ -2478,17 +2480,18 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
 static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z_pa1, __Pyx_memviewslice __pyx_v_u_pa1, double __pyx_v_lbda_pa1, __Pyx_memviewslice __pyx_v_z_pa2, __Pyx_memviewslice __pyx_v_u_pa2, double __pyx_v_lbda_pa2, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
 static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechild(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z_pa, __Pyx_memviewslice __pyx_v_u_pa, double __pyx_v_lbda_pa, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
 static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_16predict_single_latent(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_18swap_gibbs(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_20swap_metropolised_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_22swap_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_24sigmoid(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_x); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_26compute_pred_accuracy(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_rates); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_28compute_P_parallel(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_30compute_P(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_32probabilistc_output(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_34probabilistic_output_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_pvec, __Pyx_memviewslice __pyx_v_l_dcr); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_36probabilistc_output_indpndt(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, double __pyx_v_mu, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L); /* proto */
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechild_old_prior(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_18score_no_parents_unified(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, int __pyx_v_l); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_20swap_gibbs(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_22swap_metropolised_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_24swap_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_26sigmoid(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_x); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_28compute_pred_accuracy(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_rates); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_30compute_P_parallel(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_32compute_P(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_34probabilistc_output(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_36probabilistic_output_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_pvec, __Pyx_memviewslice __pyx_v_l_dcr); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38probabilistc_output_indpndt(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, double __pyx_v_mu, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L); /* proto */
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_40draw_noparents_onechild_old_prior(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
@@ -5205,7 +5208,6 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_6draw_noparents_onechil
   int __pyx_v_d;
   CYTHON_UNUSED int __pyx_v_N;
   int __pyx_v_D;
-  CYTHON_UNUSED __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x_old;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -5222,8 +5224,6 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_6draw_noparents_onechil
   Py_ssize_t __pyx_t_12;
   Py_ssize_t __pyx_t_13;
   Py_ssize_t __pyx_t_14;
-  Py_ssize_t __pyx_t_15;
-  Py_ssize_t __pyx_t_16;
   __Pyx_RefNannySetupContext("draw_noparents_onechild", 0);
 
   /* "lom/_cython/matrix_updates.pyx":294
@@ -5231,7 +5231,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_6draw_noparents_onechil
  *     cdef float p, acc_child
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
  *     cdef int n, d, N = x.shape[0], D = x.shape[1]
- *     cdef data_type_t x_old
+ * 
  */
   __pyx_v_prior = 0.0;
 
@@ -5239,13 +5239,13 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_6draw_noparents_onechil
  *     cdef float p, acc_child
  *     cdef float prior = 0
  *     cdef int n, d, N = x.shape[0], D = x.shape[1]             # <<<<<<<<<<<<<<
- *     cdef data_type_t x_old
  * 
+ *     # for n in range(N):
  */
   __pyx_v_N = (__pyx_v_x.shape[0]);
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_updates.pyx":299
+  /* "lom/_cython/matrix_updates.pyx":298
  * 
  *     # for n in range(N):
  *     for n in prange(N, schedule='guided', nogil=True):             # <<<<<<<<<<<<<<
@@ -5266,7 +5266,6 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_6draw_noparents_onechil
             int __pyx_parallel_temp1 = ((int)0xbad0bad0);
             int __pyx_parallel_temp2 = ((int)0xbad0bad0);
             float __pyx_parallel_temp3 = ((float)__PYX_NAN());
-            __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_parallel_temp4 = ((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t)'?');
             const char *__pyx_parallel_filename = NULL; int __pyx_parallel_lineno = 0, __pyx_parallel_clineno = 0;
             PyObject *__pyx_parallel_exc_type = NULL, *__pyx_parallel_exc_value = NULL, *__pyx_parallel_exc_tb = NULL;
             int __pyx_parallel_why;
@@ -5281,7 +5280,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_6draw_noparents_onechil
             if (__pyx_t_3 > 0)
             {
                 #ifdef _OPENMP
-                #pragma omp parallel private(__pyx_t_11, __pyx_t_12, __pyx_t_13, __pyx_t_14, __pyx_t_15, __pyx_t_16, __pyx_t_4, __pyx_t_5, __pyx_t_6, __pyx_t_7, __pyx_t_8) firstprivate(__pyx_t_10, __pyx_t_9) private(__pyx_filename, __pyx_lineno, __pyx_clineno) shared(__pyx_parallel_why, __pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb)
+                #pragma omp parallel private(__pyx_t_11, __pyx_t_12, __pyx_t_13, __pyx_t_14, __pyx_t_4, __pyx_t_5, __pyx_t_6, __pyx_t_7, __pyx_t_8) firstprivate(__pyx_t_10, __pyx_t_9) private(__pyx_filename, __pyx_lineno, __pyx_clineno) shared(__pyx_parallel_why, __pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb)
                 #endif /* _OPENMP */
                 {
                     #ifdef _OPENMP
@@ -5291,7 +5290,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_6draw_noparents_onechil
                     Py_BEGIN_ALLOW_THREADS
                     #endif /* _OPENMP */
                     #ifdef _OPENMP
-                    #pragma omp for lastprivate(__pyx_v_acc_child) lastprivate(__pyx_v_d) firstprivate(__pyx_v_n) lastprivate(__pyx_v_n) lastprivate(__pyx_v_p) lastprivate(__pyx_v_x_old) schedule(guided)
+                    #pragma omp for lastprivate(__pyx_v_acc_child) lastprivate(__pyx_v_d) firstprivate(__pyx_v_n) lastprivate(__pyx_v_n) lastprivate(__pyx_v_p) schedule(guided)
                     #endif /* _OPENMP */
                     for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_3; __pyx_t_2++){
                         if (__pyx_parallel_why < 2)
@@ -5301,9 +5300,8 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_6draw_noparents_onechil
                             __pyx_v_acc_child = ((float)__PYX_NAN());
                             __pyx_v_d = ((int)0xbad0bad0);
                             __pyx_v_p = ((float)__PYX_NAN());
-                            __pyx_v_x_old = ((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t)'?');
 
-                            /* "lom/_cython/matrix_updates.pyx":300
+                            /* "lom/_cython/matrix_updates.pyx":299
  *     # for n in range(N):
  *     for n in prange(N, schedule='guided', nogil=True):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -5314,7 +5312,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_6draw_noparents_onechil
                             for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
                               __pyx_v_d = __pyx_t_5;
 
-                              /* "lom/_cython/matrix_updates.pyx":301
+                              /* "lom/_cython/matrix_updates.pyx":300
  *     for n in prange(N, schedule='guided', nogil=True):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -5326,7 +5324,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_6draw_noparents_onechil
                               __pyx_t_8 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_6 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_7 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
                               if (__pyx_t_8) {
 
-                                /* "lom/_cython/matrix_updates.pyx":304
+                                /* "lom/_cython/matrix_updates.pyx":303
  * 
  *                 # compute the posterior
  *                 acc_child = lbda*score_no_parents_unified(child[n,:], x[n,:], sibling, d)             # <<<<<<<<<<<<<<
@@ -5350,7 +5348,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_6draw_noparents_onechil
             #ifdef WITH_THREAD
             PyGILState_Release(__pyx_gilstate_save);
             #endif
-        __PYX_ERR(0, 304, __pyx_L8_error)
+        __PYX_ERR(0, 303, __pyx_L8_error)
     }
         __pyx_t_9.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -5376,7 +5374,7 @@ __pyx_t_10.data = __pyx_v_x.data;
             #ifdef WITH_THREAD
             PyGILState_Release(__pyx_gilstate_save);
             #endif
-        __PYX_ERR(0, 304, __pyx_L8_error)
+        __PYX_ERR(0, 303, __pyx_L8_error)
     }
         __pyx_t_10.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -5385,7 +5383,7 @@ __pyx_t_10.shape[0] = __pyx_v_x.shape[1];
 __pyx_t_10.strides[0] = __pyx_v_x.strides[1];
     __pyx_t_10.suboffsets[0] = -1;
 
-__pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__pyx_t_9, __pyx_t_10, __pyx_v_sibling, __pyx_v_d));
+__pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__pyx_t_9, __pyx_t_10, __pyx_v_sibling, __pyx_v_d, 0));
                                 __PYX_XDEC_MEMVIEW(&__pyx_t_9, 0);
                                 __pyx_t_9.memview = NULL;
                                 __pyx_t_9.data = NULL;
@@ -5393,40 +5391,29 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
                                 __pyx_t_10.memview = NULL;
                                 __pyx_t_10.data = NULL;
 
-                                /* "lom/_cython/matrix_updates.pyx":306
+                                /* "lom/_cython/matrix_updates.pyx":305
  *                 acc_child = lbda*score_no_parents_unified(child[n,:], x[n,:], sibling, d)
  * 
  *                 p = sigmoid(acc_child)             # <<<<<<<<<<<<<<
  * 
- *                 x_old = x[n,d]
+ *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  */
                                 __pyx_v_p = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_acc_child, 0);
 
-                                /* "lom/_cython/matrix_updates.pyx":308
+                                /* "lom/_cython/matrix_updates.pyx":307
  *                 p = sigmoid(acc_child)
  * 
- *                 x_old = x[n,d]             # <<<<<<<<<<<<<<
- *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
- * 
- */
-                                __pyx_t_11 = __pyx_v_n;
-                                __pyx_t_12 = __pyx_v_d;
-                                __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_11 * __pyx_v_x.strides[0]) ) + __pyx_t_12 * __pyx_v_x.strides[1]) )));
-
-                                /* "lom/_cython/matrix_updates.pyx":309
- * 
- *                 x_old = x[n,d]
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])             # <<<<<<<<<<<<<<
  * 
  * 
  */
+                                __pyx_t_11 = __pyx_v_n;
+                                __pyx_t_12 = __pyx_v_d;
                                 __pyx_t_13 = __pyx_v_n;
                                 __pyx_t_14 = __pyx_v_d;
-                                __pyx_t_15 = __pyx_v_n;
-                                __pyx_t_16 = __pyx_v_d;
-                                *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_15 * __pyx_v_x.strides[0]) ) + __pyx_t_16 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_13 * __pyx_v_x.strides[0]) ) + __pyx_t_14 * __pyx_v_x.strides[1]) ))), 0);
+                                *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_13 * __pyx_v_x.strides[0]) ) + __pyx_t_14 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_11 * __pyx_v_x.strides[0]) ) + __pyx_t_12 * __pyx_v_x.strides[1]) ))), 0);
 
-                                /* "lom/_cython/matrix_updates.pyx":301
+                                /* "lom/_cython/matrix_updates.pyx":300
  *     for n in prange(N, schedule='guided', nogil=True):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -5464,7 +5451,6 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
                                 __pyx_parallel_temp1 = __pyx_v_d;
                                 __pyx_parallel_temp2 = __pyx_v_n;
                                 __pyx_parallel_temp3 = __pyx_v_p;
-                                __pyx_parallel_temp4 = __pyx_v_x_old;
                             }
                             __pyx_L14:;
                             #ifdef _OPENMP
@@ -5500,7 +5486,6 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
               __pyx_v_d = __pyx_parallel_temp1;
               __pyx_v_n = __pyx_parallel_temp2;
               __pyx_v_p = __pyx_parallel_temp3;
-              __pyx_v_x_old = __pyx_parallel_temp4;
               switch (__pyx_parallel_why) {
                     case 4:
                 {
@@ -5526,7 +5511,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
         #endif
       }
 
-      /* "lom/_cython/matrix_updates.pyx":299
+      /* "lom/_cython/matrix_updates.pyx":298
  * 
  *     # for n in range(N):
  *     for n in prange(N, schedule='guided', nogil=True):             # <<<<<<<<<<<<<<
@@ -5578,7 +5563,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":312
+/* "lom/_cython/matrix_updates.pyx":310
  * 
  * 
  * def draw_noparents_onechild_single_thread(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -5627,29 +5612,29 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_9draw_noparents_onechil
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_sibling)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_single_thread", 1, 5, 5, 1); __PYX_ERR(0, 312, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_single_thread", 1, 5, 5, 1); __PYX_ERR(0, 310, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_child)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_single_thread", 1, 5, 5, 2); __PYX_ERR(0, 312, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_single_thread", 1, 5, 5, 2); __PYX_ERR(0, 310, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lbda)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_single_thread", 1, 5, 5, 3); __PYX_ERR(0, 312, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_single_thread", 1, 5, 5, 3); __PYX_ERR(0, 310, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_sampling_indicator)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_single_thread", 1, 5, 5, 4); __PYX_ERR(0, 312, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_single_thread", 1, 5, 5, 4); __PYX_ERR(0, 310, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "draw_noparents_onechild_single_thread") < 0)) __PYX_ERR(0, 312, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "draw_noparents_onechild_single_thread") < 0)) __PYX_ERR(0, 310, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -5660,15 +5645,15 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_9draw_noparents_onechil
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 312, __pyx_L3_error)
-    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 313, __pyx_L3_error)
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 314, __pyx_L3_error)
-    __pyx_v_lbda = __pyx_PyFloat_AsFloat(values[3]); if (unlikely((__pyx_v_lbda == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 315, __pyx_L3_error)
-    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[4]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 316, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 310, __pyx_L3_error)
+    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 311, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 312, __pyx_L3_error)
+    __pyx_v_lbda = __pyx_PyFloat_AsFloat(values[3]); if (unlikely((__pyx_v_lbda == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 313, __pyx_L3_error)
+    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[4]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 314, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_single_thread", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 312, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_single_thread", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 310, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lom._cython.matrix_updates.draw_noparents_onechild_single_thread", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5709,7 +5694,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_8draw_noparents_onechil
   Py_ssize_t __pyx_t_15;
   __Pyx_RefNannySetupContext("draw_noparents_onechild_single_thread", 0);
 
-  /* "lom/_cython/matrix_updates.pyx":319
+  /* "lom/_cython/matrix_updates.pyx":317
  * 
  *     cdef float p, acc_child
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -5718,7 +5703,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_8draw_noparents_onechil
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/matrix_updates.pyx":320
+  /* "lom/_cython/matrix_updates.pyx":318
  *     cdef float p, acc_child
  *     cdef float prior = 0
  *     cdef int n, d, N = x.shape[0], D = x.shape[1]             # <<<<<<<<<<<<<<
@@ -5728,7 +5713,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_8draw_noparents_onechil
   __pyx_v_N = (__pyx_v_x.shape[0]);
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_updates.pyx":323
+  /* "lom/_cython/matrix_updates.pyx":321
  *     cdef data_type_t x_old
  * 
  *     for n in range(N):             # <<<<<<<<<<<<<<
@@ -5739,7 +5724,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_8draw_noparents_onechil
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_n = __pyx_t_2;
 
-    /* "lom/_cython/matrix_updates.pyx":324
+    /* "lom/_cython/matrix_updates.pyx":322
  * 
  *     for n in range(N):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -5750,7 +5735,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_8draw_noparents_onechil
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_d = __pyx_t_4;
 
-      /* "lom/_cython/matrix_updates.pyx":325
+      /* "lom/_cython/matrix_updates.pyx":323
  *     for n in range(N):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -5762,7 +5747,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_8draw_noparents_onechil
       __pyx_t_7 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_5 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_6 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
       if (__pyx_t_7) {
 
-        /* "lom/_cython/matrix_updates.pyx":328
+        /* "lom/_cython/matrix_updates.pyx":326
  * 
  *                 # compute the posterior
  *                 acc_child = lbda*score_no_parents_unified(child[n,:], x[n,:], sibling, d)             # <<<<<<<<<<<<<<
@@ -5780,7 +5765,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_8draw_noparents_onechil
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 328, __pyx_L1_error)
+        __PYX_ERR(0, 326, __pyx_L1_error)
     }
         __pyx_t_8.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -5800,7 +5785,7 @@ __pyx_t_9.data = __pyx_v_x.data;
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 328, __pyx_L1_error)
+        __PYX_ERR(0, 326, __pyx_L1_error)
     }
         __pyx_t_9.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -5809,7 +5794,7 @@ __pyx_t_9.shape[0] = __pyx_v_x.shape[1];
 __pyx_t_9.strides[0] = __pyx_v_x.strides[1];
     __pyx_t_9.suboffsets[0] = -1;
 
-__pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__pyx_t_8, __pyx_t_9, __pyx_v_sibling, __pyx_v_d));
+__pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__pyx_t_8, __pyx_t_9, __pyx_v_sibling, __pyx_v_d, 0));
         __PYX_XDEC_MEMVIEW(&__pyx_t_8, 1);
         __pyx_t_8.memview = NULL;
         __pyx_t_8.data = NULL;
@@ -5817,7 +5802,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
         __pyx_t_9.memview = NULL;
         __pyx_t_9.data = NULL;
 
-        /* "lom/_cython/matrix_updates.pyx":330
+        /* "lom/_cython/matrix_updates.pyx":328
  *                 acc_child = lbda*score_no_parents_unified(child[n,:], x[n,:], sibling, d)
  * 
  *                 p = sigmoid(acc_child)             # <<<<<<<<<<<<<<
@@ -5826,7 +5811,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
  */
         __pyx_v_p = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_acc_child, 0);
 
-        /* "lom/_cython/matrix_updates.pyx":332
+        /* "lom/_cython/matrix_updates.pyx":330
  *                 p = sigmoid(acc_child)
  * 
  *                 x_old = x[n,d]             # <<<<<<<<<<<<<<
@@ -5837,7 +5822,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
         __pyx_t_11 = __pyx_v_d;
         __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_10 * __pyx_v_x.strides[0]) ) + __pyx_t_11 * __pyx_v_x.strides[1]) )));
 
-        /* "lom/_cython/matrix_updates.pyx":333
+        /* "lom/_cython/matrix_updates.pyx":331
  * 
  *                 x_old = x[n,d]
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])             # <<<<<<<<<<<<<<
@@ -5850,7 +5835,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
         __pyx_t_15 = __pyx_v_d;
         *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_14 * __pyx_v_x.strides[0]) ) + __pyx_t_15 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_12 * __pyx_v_x.strides[0]) ) + __pyx_t_13 * __pyx_v_x.strides[1]) ))), 0);
 
-        /* "lom/_cython/matrix_updates.pyx":325
+        /* "lom/_cython/matrix_updates.pyx":323
  *     for n in range(N):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -5861,7 +5846,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
     }
   }
 
-  /* "lom/_cython/matrix_updates.pyx":312
+  /* "lom/_cython/matrix_updates.pyx":310
  * 
  * 
  * def draw_noparents_onechild_single_thread(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -5887,7 +5872,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":337
+/* "lom/_cython/matrix_updates.pyx":335
  * 
  * 
  * def draw_oneparent_nochild(             # <<<<<<<<<<<<<<
@@ -5939,35 +5924,35 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_11draw_oneparent_nochil
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z_pa)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_oneparent_nochild", 1, 6, 6, 1); __PYX_ERR(0, 337, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_oneparent_nochild", 1, 6, 6, 1); __PYX_ERR(0, 335, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_pa)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_oneparent_nochild", 1, 6, 6, 2); __PYX_ERR(0, 337, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_oneparent_nochild", 1, 6, 6, 2); __PYX_ERR(0, 335, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lbda_pa)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_oneparent_nochild", 1, 6, 6, 3); __PYX_ERR(0, 337, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_oneparent_nochild", 1, 6, 6, 3); __PYX_ERR(0, 335, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_prior_config)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_oneparent_nochild", 1, 6, 6, 4); __PYX_ERR(0, 337, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_oneparent_nochild", 1, 6, 6, 4); __PYX_ERR(0, 335, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_sampling_indicator)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_oneparent_nochild", 1, 6, 6, 5); __PYX_ERR(0, 337, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_oneparent_nochild", 1, 6, 6, 5); __PYX_ERR(0, 335, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "draw_oneparent_nochild") < 0)) __PYX_ERR(0, 337, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "draw_oneparent_nochild") < 0)) __PYX_ERR(0, 335, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
       goto __pyx_L5_argtuple_error;
@@ -5979,22 +5964,22 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_11draw_oneparent_nochil
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 338, __pyx_L3_error)
-    __pyx_v_z_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_z_pa.memview)) __PYX_ERR(0, 339, __pyx_L3_error)
-    __pyx_v_u_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_u_pa.memview)) __PYX_ERR(0, 340, __pyx_L3_error)
-    __pyx_v_lbda_pa = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_lbda_pa == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 341, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 336, __pyx_L3_error)
+    __pyx_v_z_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_z_pa.memview)) __PYX_ERR(0, 337, __pyx_L3_error)
+    __pyx_v_u_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_u_pa.memview)) __PYX_ERR(0, 338, __pyx_L3_error)
+    __pyx_v_lbda_pa = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_lbda_pa == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 339, __pyx_L3_error)
     __pyx_v_prior_config = ((PyObject*)values[4]);
-    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[5]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 343, __pyx_L3_error)
+    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[5]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 341, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("draw_oneparent_nochild", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 337, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("draw_oneparent_nochild", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 335, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lom._cython.matrix_updates.draw_oneparent_nochild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prior_config), (&PyList_Type), 1, "prior_config", 1))) __PYX_ERR(0, 342, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prior_config), (&PyList_Type), 1, "prior_config", 1))) __PYX_ERR(0, 340, __pyx_L1_error)
   __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochild(__pyx_self, __pyx_v_x, __pyx_v_z_pa, __pyx_v_u_pa, __pyx_v_lbda_pa, __pyx_v_prior_config, __pyx_v_sampling_indicator);
 
   /* function exit code */
@@ -6082,7 +6067,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
   __pyx_pybuffernd_col_densities.data = NULL;
   __pyx_pybuffernd_col_densities.rcbuffer = &__pyx_pybuffer_col_densities;
 
-  /* "lom/_cython/matrix_updates.pyx":345
+  /* "lom/_cython/matrix_updates.pyx":343
  *     data_type_t[:,:] sampling_indicator): # N x D
  * 
  *     cdef int n, d, N = x.shape[0], D=x.shape[1]             # <<<<<<<<<<<<<<
@@ -6092,7 +6077,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
   __pyx_v_N = (__pyx_v_x.shape[0]);
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_updates.pyx":347
+  /* "lom/_cython/matrix_updates.pyx":345
  *     cdef int n, d, N = x.shape[0], D=x.shape[1]
  *     cdef float acc_par, p
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -6101,7 +6086,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/matrix_updates.pyx":350
+  /* "lom/_cython/matrix_updates.pyx":348
  *     cdef data_type_t x_old
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]             # <<<<<<<<<<<<<<
@@ -6110,23 +6095,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 350, __pyx_L1_error)
+    __PYX_ERR(0, 348, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 2)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 2), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 350, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 2)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 2), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 348, __pyx_L1_error)
   __pyx_t_1 = PyList_GET_ITEM(__pyx_v_prior_config, 2);
   __Pyx_INCREF(__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_row_binom.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_1), &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_row_binom = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 350, __pyx_L1_error)
+      __PYX_ERR(0, 348, __pyx_L1_error)
     } else {__pyx_pybuffernd_row_binom.diminfo[0].strides = __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_row_binom.diminfo[0].shape = __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_row_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":351
+  /* "lom/_cython/matrix_updates.pyx":349
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]             # <<<<<<<<<<<<<<
@@ -6135,23 +6120,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 351, __pyx_L1_error)
+    __PYX_ERR(0, 349, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 3)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 3), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 351, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 3)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 3), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 349, __pyx_L1_error)
   __pyx_t_1 = PyList_GET_ITEM(__pyx_v_prior_config, 3);
   __Pyx_INCREF(__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_col_binom.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_1), &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_col_binom = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 351, __pyx_L1_error)
+      __PYX_ERR(0, 349, __pyx_L1_error)
     } else {__pyx_pybuffernd_col_binom.diminfo[0].strides = __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_col_binom.diminfo[0].shape = __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_col_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":352
+  /* "lom/_cython/matrix_updates.pyx":350
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]             # <<<<<<<<<<<<<<
@@ -6160,23 +6145,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 352, __pyx_L1_error)
+    __PYX_ERR(0, 350, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 4)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 4), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 352, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 4)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 4), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 350, __pyx_L1_error)
   __pyx_t_1 = PyList_GET_ITEM(__pyx_v_prior_config, 4);
   __Pyx_INCREF(__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_row_densities.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_1), &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_row_densities = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 352, __pyx_L1_error)
+      __PYX_ERR(0, 350, __pyx_L1_error)
     } else {__pyx_pybuffernd_row_densities.diminfo[0].strides = __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_row_densities.diminfo[0].shape = __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_row_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":353
+  /* "lom/_cython/matrix_updates.pyx":351
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]             # <<<<<<<<<<<<<<
@@ -6185,23 +6170,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 353, __pyx_L1_error)
+    __PYX_ERR(0, 351, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 5)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 5), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 353, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 5)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 5), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 351, __pyx_L1_error)
   __pyx_t_1 = PyList_GET_ITEM(__pyx_v_prior_config, 5);
   __Pyx_INCREF(__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_col_densities.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_1), &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_col_densities = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 353, __pyx_L1_error)
+      __PYX_ERR(0, 351, __pyx_L1_error)
     } else {__pyx_pybuffernd_col_densities.diminfo[0].strides = __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_col_densities.diminfo[0].shape = __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_col_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":354
+  /* "lom/_cython/matrix_updates.pyx":352
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]
  *     cdef int prior_code = prior_config[0]             # <<<<<<<<<<<<<<
@@ -6210,12 +6195,12 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 354, __pyx_L1_error)
+    __PYX_ERR(0, 352, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_PyInt_As_int(PyList_GET_ITEM(__pyx_v_prior_config, 0)); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(PyList_GET_ITEM(__pyx_v_prior_config, 0)); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 352, __pyx_L1_error)
   __pyx_v_prior_code = __pyx_t_2;
 
-  /* "lom/_cython/matrix_updates.pyx":356
+  /* "lom/_cython/matrix_updates.pyx":354
  *     cdef int prior_code = prior_config[0]
  * 
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -6225,7 +6210,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
   __pyx_t_3 = ((__pyx_v_prior_code == 1) != 0);
   if (__pyx_t_3) {
 
-    /* "lom/_cython/matrix_updates.pyx":357
+    /* "lom/_cython/matrix_updates.pyx":355
  * 
  *     if prior_code == 1:
  *         prior = prior_config[1]             # <<<<<<<<<<<<<<
@@ -6234,12 +6219,12 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
  */
     if (unlikely(__pyx_v_prior_config == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 357, __pyx_L1_error)
+      __PYX_ERR(0, 355, __pyx_L1_error)
     }
-    __pyx_t_4 = __pyx_PyFloat_AsFloat(PyList_GET_ITEM(__pyx_v_prior_config, 1)); if (unlikely((__pyx_t_4 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 357, __pyx_L1_error)
+    __pyx_t_4 = __pyx_PyFloat_AsFloat(PyList_GET_ITEM(__pyx_v_prior_config, 1)); if (unlikely((__pyx_t_4 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 355, __pyx_L1_error)
     __pyx_v_prior = __pyx_t_4;
 
-    /* "lom/_cython/matrix_updates.pyx":356
+    /* "lom/_cython/matrix_updates.pyx":354
  *     cdef int prior_code = prior_config[0]
  * 
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -6248,7 +6233,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
  */
   }
 
-  /* "lom/_cython/matrix_updates.pyx":359
+  /* "lom/_cython/matrix_updates.pyx":357
  *         prior = prior_config[1]
  * 
  *     for n in range(N):             # <<<<<<<<<<<<<<
@@ -6259,7 +6244,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_2; __pyx_t_5+=1) {
     __pyx_v_n = __pyx_t_5;
 
-    /* "lom/_cython/matrix_updates.pyx":361
+    /* "lom/_cython/matrix_updates.pyx":359
  *     for n in range(N):
  *     # for n in prange(N, schedule='dynamic', nogil=True): # parallelise
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -6270,7 +6255,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_d = __pyx_t_7;
 
-      /* "lom/_cython/matrix_updates.pyx":362
+      /* "lom/_cython/matrix_updates.pyx":360
  *     # for n in prange(N, schedule='dynamic', nogil=True): # parallelise
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -6282,7 +6267,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
       __pyx_t_3 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_8 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_9 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
       if (__pyx_t_3) {
 
-        /* "lom/_cython/matrix_updates.pyx":364
+        /* "lom/_cython/matrix_updates.pyx":362
  *             if sampling_indicator[n,d] == 1:
  * 
  *                 if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -6292,7 +6277,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
         __pyx_t_3 = ((__pyx_v_prior_code > 1) != 0);
         if (__pyx_t_3) {
 
-          /* "lom/_cython/matrix_updates.pyx":365
+          /* "lom/_cython/matrix_updates.pyx":363
  * 
  *                 if prior_code > 1:
  *                     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -6302,7 +6287,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
           switch (__pyx_v_prior_code) {
             case 2:
 
-            /* "lom/_cython/matrix_updates.pyx":366
+            /* "lom/_cython/matrix_updates.pyx":364
  *                 if prior_code > 1:
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]             # <<<<<<<<<<<<<<
@@ -6313,7 +6298,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
             __pyx_t_11 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_row_densities.diminfo[0].strides));
             __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_row_binom.diminfo[0].strides));
 
-            /* "lom/_cython/matrix_updates.pyx":365
+            /* "lom/_cython/matrix_updates.pyx":363
  * 
  *                 if prior_code > 1:
  *                     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -6322,7 +6307,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
  */
             break;
 
-            /* "lom/_cython/matrix_updates.pyx":367
+            /* "lom/_cython/matrix_updates.pyx":365
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -6331,7 +6316,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
  */
             case 3:
 
-            /* "lom/_cython/matrix_updates.pyx":368
+            /* "lom/_cython/matrix_updates.pyx":366
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]             # <<<<<<<<<<<<<<
@@ -6342,7 +6327,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
             __pyx_t_13 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_col_densities.diminfo[0].strides));
             __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_col_binom.diminfo[0].strides));
 
-            /* "lom/_cython/matrix_updates.pyx":367
+            /* "lom/_cython/matrix_updates.pyx":365
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -6351,7 +6336,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
  */
             break;
 
-            /* "lom/_cython/matrix_updates.pyx":369
+            /* "lom/_cython/matrix_updates.pyx":367
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -6360,7 +6345,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
  */
             case 4:
 
-            /* "lom/_cython/matrix_updates.pyx":370
+            /* "lom/_cython/matrix_updates.pyx":368
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:
  *                         prior = row_binom[row_densities[n]] + col_binom[col_densities[d]]             # <<<<<<<<<<<<<<
@@ -6373,7 +6358,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
             __pyx_t_17 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_col_densities.diminfo[0].strides));
             __pyx_v_prior = ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_row_binom.diminfo[0].strides)) + (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_col_binom.diminfo[0].strides)));
 
-            /* "lom/_cython/matrix_updates.pyx":369
+            /* "lom/_cython/matrix_updates.pyx":367
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -6384,7 +6369,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
             default: break;
           }
 
-          /* "lom/_cython/matrix_updates.pyx":364
+          /* "lom/_cython/matrix_updates.pyx":362
  *             if sampling_indicator[n,d] == 1:
  * 
  *                 if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -6393,7 +6378,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
  */
         }
 
-        /* "lom/_cython/matrix_updates.pyx":372
+        /* "lom/_cython/matrix_updates.pyx":370
  *                         prior = row_binom[row_densities[n]] + col_binom[col_densities[d]]
  * 
  *                 acc_par = lbda_pa*compute_g_alt_tilde_unified(u_pa[d,:], z_pa[n,:])             # <<<<<<<<<<<<<<
@@ -6411,7 +6396,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_10draw_oneparent_nochil
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 372, __pyx_L1_error)
+        __PYX_ERR(0, 370, __pyx_L1_error)
     }
         __pyx_t_18.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -6431,7 +6416,7 @@ __pyx_t_19.data = __pyx_v_z_pa.data;
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 372, __pyx_L1_error)
+        __PYX_ERR(0, 370, __pyx_L1_error)
     }
         __pyx_t_19.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -6448,7 +6433,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
         __pyx_t_19.memview = NULL;
         __pyx_t_19.data = NULL;
 
-        /* "lom/_cython/matrix_updates.pyx":373
+        /* "lom/_cython/matrix_updates.pyx":371
  * 
  *                 acc_par = lbda_pa*compute_g_alt_tilde_unified(u_pa[d,:], z_pa[n,:])
  *                 p = sigmoid(acc_par + prior)             # <<<<<<<<<<<<<<
@@ -6457,7 +6442,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
  */
         __pyx_v_p = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid((__pyx_v_acc_par + __pyx_v_prior), 0);
 
-        /* "lom/_cython/matrix_updates.pyx":374
+        /* "lom/_cython/matrix_updates.pyx":372
  *                 acc_par = lbda_pa*compute_g_alt_tilde_unified(u_pa[d,:], z_pa[n,:])
  *                 p = sigmoid(acc_par + prior)
  *                 x_old = x[n,d]             # <<<<<<<<<<<<<<
@@ -6468,7 +6453,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
         __pyx_t_21 = __pyx_v_d;
         __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_20 * __pyx_v_x.strides[0]) ) + __pyx_t_21 * __pyx_v_x.strides[1]) )));
 
-        /* "lom/_cython/matrix_updates.pyx":375
+        /* "lom/_cython/matrix_updates.pyx":373
  *                 p = sigmoid(acc_par + prior)
  *                 x_old = x[n,d]
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])             # <<<<<<<<<<<<<<
@@ -6481,7 +6466,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
         __pyx_t_25 = __pyx_v_d;
         *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_24 * __pyx_v_x.strides[0]) ) + __pyx_t_25 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_22 * __pyx_v_x.strides[0]) ) + __pyx_t_23 * __pyx_v_x.strides[1]) ))), 0);
 
-        /* "lom/_cython/matrix_updates.pyx":377
+        /* "lom/_cython/matrix_updates.pyx":375
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):             # <<<<<<<<<<<<<<
@@ -6501,7 +6486,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
         __pyx_L11_bool_binop_done:;
         if (__pyx_t_3) {
 
-          /* "lom/_cython/matrix_updates.pyx":378
+          /* "lom/_cython/matrix_updates.pyx":376
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -6519,7 +6504,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
           }
           if (__pyx_t_3) {
 
-            /* "lom/_cython/matrix_updates.pyx":379
+            /* "lom/_cython/matrix_updates.pyx":377
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]             # <<<<<<<<<<<<<<
@@ -6531,7 +6516,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
             __pyx_t_31 = __pyx_v_n;
             *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_31, __pyx_pybuffernd_row_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_29 * __pyx_v_x.strides[0]) ) + __pyx_t_30 * __pyx_v_x.strides[1]) )));
 
-            /* "lom/_cython/matrix_updates.pyx":378
+            /* "lom/_cython/matrix_updates.pyx":376
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -6541,7 +6526,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
             goto __pyx_L13;
           }
 
-          /* "lom/_cython/matrix_updates.pyx":380
+          /* "lom/_cython/matrix_updates.pyx":378
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -6559,7 +6544,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
           }
           if (__pyx_t_3) {
 
-            /* "lom/_cython/matrix_updates.pyx":381
+            /* "lom/_cython/matrix_updates.pyx":379
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):
  *                         col_densities[d] += x[n, d]             # <<<<<<<<<<<<<<
@@ -6571,7 +6556,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
             __pyx_t_34 = __pyx_v_d;
             *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_34, __pyx_pybuffernd_col_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_32 * __pyx_v_x.strides[0]) ) + __pyx_t_33 * __pyx_v_x.strides[1]) )));
 
-            /* "lom/_cython/matrix_updates.pyx":380
+            /* "lom/_cython/matrix_updates.pyx":378
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -6581,7 +6566,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
           }
           __pyx_L13:;
 
-          /* "lom/_cython/matrix_updates.pyx":377
+          /* "lom/_cython/matrix_updates.pyx":375
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):             # <<<<<<<<<<<<<<
@@ -6590,7 +6575,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
  */
         }
 
-        /* "lom/_cython/matrix_updates.pyx":362
+        /* "lom/_cython/matrix_updates.pyx":360
  *     # for n in prange(N, schedule='dynamic', nogil=True): # parallelise
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -6601,7 +6586,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
     }
   }
 
-  /* "lom/_cython/matrix_updates.pyx":337
+  /* "lom/_cython/matrix_updates.pyx":335
  * 
  * 
  * def draw_oneparent_nochild(             # <<<<<<<<<<<<<<
@@ -6647,7 +6632,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":385
+/* "lom/_cython/matrix_updates.pyx":383
  * 
  * 
  * def draw_twoparents_nochild(             # <<<<<<<<<<<<<<
@@ -6708,53 +6693,53 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_13draw_twoparents_nochi
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z_pa1)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 1); __PYX_ERR(0, 385, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 1); __PYX_ERR(0, 383, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_pa1)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 2); __PYX_ERR(0, 385, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 2); __PYX_ERR(0, 383, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lbda_pa1)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 3); __PYX_ERR(0, 385, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 3); __PYX_ERR(0, 383, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z_pa2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 4); __PYX_ERR(0, 385, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 4); __PYX_ERR(0, 383, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_pa2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 5); __PYX_ERR(0, 385, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 5); __PYX_ERR(0, 383, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (likely((values[6] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lbda_pa2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 6); __PYX_ERR(0, 385, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 6); __PYX_ERR(0, 383, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
         if (likely((values[7] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_prior_config)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 7); __PYX_ERR(0, 385, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 7); __PYX_ERR(0, 383, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  8:
         if (likely((values[8] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_sampling_indicator)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 8); __PYX_ERR(0, 385, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, 8); __PYX_ERR(0, 383, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "draw_twoparents_nochild") < 0)) __PYX_ERR(0, 385, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "draw_twoparents_nochild") < 0)) __PYX_ERR(0, 383, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 9) {
       goto __pyx_L5_argtuple_error;
@@ -6769,25 +6754,25 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_13draw_twoparents_nochi
       values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
       values[8] = PyTuple_GET_ITEM(__pyx_args, 8);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 386, __pyx_L3_error)
-    __pyx_v_z_pa1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_z_pa1.memview)) __PYX_ERR(0, 387, __pyx_L3_error)
-    __pyx_v_u_pa1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_u_pa1.memview)) __PYX_ERR(0, 388, __pyx_L3_error)
-    __pyx_v_lbda_pa1 = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_lbda_pa1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 389, __pyx_L3_error)
-    __pyx_v_z_pa2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[4]); if (unlikely(!__pyx_v_z_pa2.memview)) __PYX_ERR(0, 390, __pyx_L3_error)
-    __pyx_v_u_pa2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[5]); if (unlikely(!__pyx_v_u_pa2.memview)) __PYX_ERR(0, 391, __pyx_L3_error)
-    __pyx_v_lbda_pa2 = __pyx_PyFloat_AsDouble(values[6]); if (unlikely((__pyx_v_lbda_pa2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 392, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 384, __pyx_L3_error)
+    __pyx_v_z_pa1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_z_pa1.memview)) __PYX_ERR(0, 385, __pyx_L3_error)
+    __pyx_v_u_pa1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_u_pa1.memview)) __PYX_ERR(0, 386, __pyx_L3_error)
+    __pyx_v_lbda_pa1 = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_lbda_pa1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 387, __pyx_L3_error)
+    __pyx_v_z_pa2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[4]); if (unlikely(!__pyx_v_z_pa2.memview)) __PYX_ERR(0, 388, __pyx_L3_error)
+    __pyx_v_u_pa2 = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[5]); if (unlikely(!__pyx_v_u_pa2.memview)) __PYX_ERR(0, 389, __pyx_L3_error)
+    __pyx_v_lbda_pa2 = __pyx_PyFloat_AsDouble(values[6]); if (unlikely((__pyx_v_lbda_pa2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 390, __pyx_L3_error)
     __pyx_v_prior_config = ((PyObject*)values[7]);
-    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[8]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 394, __pyx_L3_error)
+    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[8]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 392, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 385, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("draw_twoparents_nochild", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 383, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lom._cython.matrix_updates.draw_twoparents_nochild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prior_config), (&PyList_Type), 1, "prior_config", 1))) __PYX_ERR(0, 393, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prior_config), (&PyList_Type), 1, "prior_config", 1))) __PYX_ERR(0, 391, __pyx_L1_error)
   __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochild(__pyx_self, __pyx_v_x, __pyx_v_z_pa1, __pyx_v_u_pa1, __pyx_v_lbda_pa1, __pyx_v_z_pa2, __pyx_v_u_pa2, __pyx_v_lbda_pa2, __pyx_v_prior_config, __pyx_v_sampling_indicator);
 
   /* function exit code */
@@ -6877,7 +6862,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
   __pyx_pybuffernd_col_densities.data = NULL;
   __pyx_pybuffernd_col_densities.rcbuffer = &__pyx_pybuffer_col_densities;
 
-  /* "lom/_cython/matrix_updates.pyx":396
+  /* "lom/_cython/matrix_updates.pyx":394
  *         data_type_t[:,:] sampling_indicator): # N x D
  * 
  *     cdef int n, d, N = x.shape[0], D=x.shape[1]             # <<<<<<<<<<<<<<
@@ -6887,7 +6872,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
   __pyx_v_N = (__pyx_v_x.shape[0]);
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_updates.pyx":398
+  /* "lom/_cython/matrix_updates.pyx":396
  *     cdef int n, d, N = x.shape[0], D=x.shape[1]
  *     cdef float acc_par, p
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -6896,7 +6881,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/matrix_updates.pyx":402
+  /* "lom/_cython/matrix_updates.pyx":400
  * 
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]             # <<<<<<<<<<<<<<
@@ -6905,23 +6890,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 402, __pyx_L1_error)
+    __PYX_ERR(0, 400, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 2)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 2), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 402, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 2)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 2), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 400, __pyx_L1_error)
   __pyx_t_1 = PyList_GET_ITEM(__pyx_v_prior_config, 2);
   __Pyx_INCREF(__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_row_binom.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_1), &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_row_binom = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 402, __pyx_L1_error)
+      __PYX_ERR(0, 400, __pyx_L1_error)
     } else {__pyx_pybuffernd_row_binom.diminfo[0].strides = __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_row_binom.diminfo[0].shape = __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_row_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":403
+  /* "lom/_cython/matrix_updates.pyx":401
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]             # <<<<<<<<<<<<<<
@@ -6930,23 +6915,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 403, __pyx_L1_error)
+    __PYX_ERR(0, 401, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 3)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 3), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 403, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 3)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 3), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 401, __pyx_L1_error)
   __pyx_t_1 = PyList_GET_ITEM(__pyx_v_prior_config, 3);
   __Pyx_INCREF(__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_col_binom.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_1), &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_col_binom = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 403, __pyx_L1_error)
+      __PYX_ERR(0, 401, __pyx_L1_error)
     } else {__pyx_pybuffernd_col_binom.diminfo[0].strides = __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_col_binom.diminfo[0].shape = __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_col_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":404
+  /* "lom/_cython/matrix_updates.pyx":402
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]             # <<<<<<<<<<<<<<
@@ -6955,23 +6940,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 404, __pyx_L1_error)
+    __PYX_ERR(0, 402, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 4)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 4), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 404, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 4)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 4), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 402, __pyx_L1_error)
   __pyx_t_1 = PyList_GET_ITEM(__pyx_v_prior_config, 4);
   __Pyx_INCREF(__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_row_densities.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_1), &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_row_densities = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 404, __pyx_L1_error)
+      __PYX_ERR(0, 402, __pyx_L1_error)
     } else {__pyx_pybuffernd_row_densities.diminfo[0].strides = __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_row_densities.diminfo[0].shape = __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_row_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":405
+  /* "lom/_cython/matrix_updates.pyx":403
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]             # <<<<<<<<<<<<<<
@@ -6980,23 +6965,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 405, __pyx_L1_error)
+    __PYX_ERR(0, 403, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 5)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 5), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 405, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 5)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 5), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 403, __pyx_L1_error)
   __pyx_t_1 = PyList_GET_ITEM(__pyx_v_prior_config, 5);
   __Pyx_INCREF(__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_col_densities.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_1), &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_col_densities = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 405, __pyx_L1_error)
+      __PYX_ERR(0, 403, __pyx_L1_error)
     } else {__pyx_pybuffernd_col_densities.diminfo[0].strides = __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_col_densities.diminfo[0].shape = __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_col_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":406
+  /* "lom/_cython/matrix_updates.pyx":404
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]
  *     cdef int prior_code = prior_config[0]             # <<<<<<<<<<<<<<
@@ -7005,12 +6990,12 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 406, __pyx_L1_error)
+    __PYX_ERR(0, 404, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_PyInt_As_int(PyList_GET_ITEM(__pyx_v_prior_config, 0)); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 406, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(PyList_GET_ITEM(__pyx_v_prior_config, 0)); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 404, __pyx_L1_error)
   __pyx_v_prior_code = __pyx_t_2;
 
-  /* "lom/_cython/matrix_updates.pyx":410
+  /* "lom/_cython/matrix_updates.pyx":408
  * 
  *     # independent bernoulli prior
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -7020,7 +7005,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
   __pyx_t_3 = ((__pyx_v_prior_code == 1) != 0);
   if (__pyx_t_3) {
 
-    /* "lom/_cython/matrix_updates.pyx":411
+    /* "lom/_cython/matrix_updates.pyx":409
  *     # independent bernoulli prior
  *     if prior_code == 1:
  *         prior = prior_config[1]             # <<<<<<<<<<<<<<
@@ -7029,12 +7014,12 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
  */
     if (unlikely(__pyx_v_prior_config == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 411, __pyx_L1_error)
+      __PYX_ERR(0, 409, __pyx_L1_error)
     }
-    __pyx_t_4 = __pyx_PyFloat_AsFloat(PyList_GET_ITEM(__pyx_v_prior_config, 1)); if (unlikely((__pyx_t_4 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 411, __pyx_L1_error)
+    __pyx_t_4 = __pyx_PyFloat_AsFloat(PyList_GET_ITEM(__pyx_v_prior_config, 1)); if (unlikely((__pyx_t_4 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 409, __pyx_L1_error)
     __pyx_v_prior = __pyx_t_4;
 
-    /* "lom/_cython/matrix_updates.pyx":410
+    /* "lom/_cython/matrix_updates.pyx":408
  * 
  *     # independent bernoulli prior
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -7043,7 +7028,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
  */
   }
 
-  /* "lom/_cython/matrix_updates.pyx":414
+  /* "lom/_cython/matrix_updates.pyx":412
  * 
  *     # for n in prange(N, schedule='dynamic', nogil=True): # parallelise
  *     for n in range(N):             # <<<<<<<<<<<<<<
@@ -7054,7 +7039,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_2; __pyx_t_5+=1) {
     __pyx_v_n = __pyx_t_5;
 
-    /* "lom/_cython/matrix_updates.pyx":415
+    /* "lom/_cython/matrix_updates.pyx":413
  *     # for n in prange(N, schedule='dynamic', nogil=True): # parallelise
  *     for n in range(N):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -7065,7 +7050,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_d = __pyx_t_7;
 
-      /* "lom/_cython/matrix_updates.pyx":416
+      /* "lom/_cython/matrix_updates.pyx":414
  *     for n in range(N):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -7077,7 +7062,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
       __pyx_t_3 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_8 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_9 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
       if (__pyx_t_3) {
 
-        /* "lom/_cython/matrix_updates.pyx":418
+        /* "lom/_cython/matrix_updates.pyx":416
  *             if sampling_indicator[n,d] == 1:
  * 
  *                 if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -7087,7 +7072,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
         __pyx_t_3 = ((__pyx_v_prior_code > 1) != 0);
         if (__pyx_t_3) {
 
-          /* "lom/_cython/matrix_updates.pyx":419
+          /* "lom/_cython/matrix_updates.pyx":417
  * 
  *                 if prior_code > 1:
  *                     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -7097,7 +7082,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
           switch (__pyx_v_prior_code) {
             case 2:
 
-            /* "lom/_cython/matrix_updates.pyx":420
+            /* "lom/_cython/matrix_updates.pyx":418
  *                 if prior_code > 1:
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]             # <<<<<<<<<<<<<<
@@ -7108,7 +7093,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
             __pyx_t_11 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_row_densities.diminfo[0].strides));
             __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_row_binom.diminfo[0].strides));
 
-            /* "lom/_cython/matrix_updates.pyx":419
+            /* "lom/_cython/matrix_updates.pyx":417
  * 
  *                 if prior_code > 1:
  *                     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -7117,7 +7102,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
  */
             break;
 
-            /* "lom/_cython/matrix_updates.pyx":421
+            /* "lom/_cython/matrix_updates.pyx":419
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -7126,7 +7111,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
  */
             case 3:
 
-            /* "lom/_cython/matrix_updates.pyx":422
+            /* "lom/_cython/matrix_updates.pyx":420
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]             # <<<<<<<<<<<<<<
@@ -7137,7 +7122,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
             __pyx_t_13 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_col_densities.diminfo[0].strides));
             __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_col_binom.diminfo[0].strides));
 
-            /* "lom/_cython/matrix_updates.pyx":421
+            /* "lom/_cython/matrix_updates.pyx":419
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -7146,7 +7131,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
  */
             break;
 
-            /* "lom/_cython/matrix_updates.pyx":423
+            /* "lom/_cython/matrix_updates.pyx":421
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -7155,7 +7140,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
  */
             case 4:
 
-            /* "lom/_cython/matrix_updates.pyx":424
+            /* "lom/_cython/matrix_updates.pyx":422
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:
  *                         prior = row_binom[row_densities[n]] + col_binom[col_densities[d]]             # <<<<<<<<<<<<<<
@@ -7168,7 +7153,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
             __pyx_t_17 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_col_densities.diminfo[0].strides));
             __pyx_v_prior = ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_row_binom.diminfo[0].strides)) + (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_col_binom.diminfo[0].strides)));
 
-            /* "lom/_cython/matrix_updates.pyx":423
+            /* "lom/_cython/matrix_updates.pyx":421
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -7179,7 +7164,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
             default: break;
           }
 
-          /* "lom/_cython/matrix_updates.pyx":418
+          /* "lom/_cython/matrix_updates.pyx":416
  *             if sampling_indicator[n,d] == 1:
  * 
  *                 if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -7188,7 +7173,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
  */
         }
 
-        /* "lom/_cython/matrix_updates.pyx":427
+        /* "lom/_cython/matrix_updates.pyx":425
  * 
  *                 # accumulate over all parents
  *                 acc_par = lbda_pa1*compute_g_alt_tilde_unified(u_pa1[d,:], z_pa1[n,:]) +\             # <<<<<<<<<<<<<<
@@ -7206,7 +7191,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_12draw_twoparents_nochi
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 427, __pyx_L1_error)
+        __PYX_ERR(0, 425, __pyx_L1_error)
     }
         __pyx_t_18.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -7226,7 +7211,7 @@ __pyx_t_19.data = __pyx_v_z_pa1.data;
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 427, __pyx_L1_error)
+        __PYX_ERR(0, 425, __pyx_L1_error)
     }
         __pyx_t_19.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -7237,7 +7222,7 @@ __pyx_t_19.strides[0] = __pyx_v_z_pa1.strides[1];
 
 __pyx_t_20.data = __pyx_v_u_pa2.data;
 
-        /* "lom/_cython/matrix_updates.pyx":428
+        /* "lom/_cython/matrix_updates.pyx":426
  *                 # accumulate over all parents
  *                 acc_par = lbda_pa1*compute_g_alt_tilde_unified(u_pa1[d,:], z_pa1[n,:]) +\
  *                   lbda_pa2*compute_g_alt_tilde_unified(u_pa2[d,:], z_pa2[n,:])             # <<<<<<<<<<<<<<
@@ -7254,7 +7239,7 @@ __pyx_t_20.data = __pyx_v_u_pa2.data;
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 428, __pyx_L1_error)
+        __PYX_ERR(0, 426, __pyx_L1_error)
     }
         __pyx_t_20.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -7274,7 +7259,7 @@ __pyx_t_21.data = __pyx_v_z_pa2.data;
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 428, __pyx_L1_error)
+        __PYX_ERR(0, 426, __pyx_L1_error)
     }
         __pyx_t_21.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -7285,7 +7270,7 @@ __pyx_t_21.strides[0] = __pyx_v_z_pa2.strides[1];
 
 __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unified(__pyx_t_18, __pyx_t_19)) + (__pyx_v_lbda_pa2 * __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unified(__pyx_t_20, __pyx_t_21)));
 
-        /* "lom/_cython/matrix_updates.pyx":427
+        /* "lom/_cython/matrix_updates.pyx":425
  * 
  *                 # accumulate over all parents
  *                 acc_par = lbda_pa1*compute_g_alt_tilde_unified(u_pa1[d,:], z_pa1[n,:]) +\             # <<<<<<<<<<<<<<
@@ -7305,7 +7290,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_co
         __pyx_t_21.memview = NULL;
         __pyx_t_21.data = NULL;
 
-        /* "lom/_cython/matrix_updates.pyx":430
+        /* "lom/_cython/matrix_updates.pyx":428
  *                   lbda_pa2*compute_g_alt_tilde_unified(u_pa2[d,:], z_pa2[n,:])
  * 
  *                 p = sigmoid(acc_par + prior)             # <<<<<<<<<<<<<<
@@ -7314,7 +7299,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_co
  */
         __pyx_v_p = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid((__pyx_v_acc_par + __pyx_v_prior), 0);
 
-        /* "lom/_cython/matrix_updates.pyx":431
+        /* "lom/_cython/matrix_updates.pyx":429
  * 
  *                 p = sigmoid(acc_par + prior)
  *                 x_old = x[n,d]             # <<<<<<<<<<<<<<
@@ -7325,7 +7310,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_co
         __pyx_t_23 = __pyx_v_d;
         __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_22 * __pyx_v_x.strides[0]) ) + __pyx_t_23 * __pyx_v_x.strides[1]) )));
 
-        /* "lom/_cython/matrix_updates.pyx":432
+        /* "lom/_cython/matrix_updates.pyx":430
  *                 p = sigmoid(acc_par + prior)
  *                 x_old = x[n,d]
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])             # <<<<<<<<<<<<<<
@@ -7338,7 +7323,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_co
         __pyx_t_27 = __pyx_v_d;
         *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_26 * __pyx_v_x.strides[0]) ) + __pyx_t_27 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_24 * __pyx_v_x.strides[0]) ) + __pyx_t_25 * __pyx_v_x.strides[1]) ))), 0);
 
-        /* "lom/_cython/matrix_updates.pyx":434
+        /* "lom/_cython/matrix_updates.pyx":432
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):             # <<<<<<<<<<<<<<
@@ -7358,7 +7343,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_co
         __pyx_L11_bool_binop_done:;
         if (__pyx_t_3) {
 
-          /* "lom/_cython/matrix_updates.pyx":435
+          /* "lom/_cython/matrix_updates.pyx":433
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -7376,7 +7361,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_co
           }
           if (__pyx_t_3) {
 
-            /* "lom/_cython/matrix_updates.pyx":436
+            /* "lom/_cython/matrix_updates.pyx":434
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]             # <<<<<<<<<<<<<<
@@ -7388,7 +7373,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_co
             __pyx_t_33 = __pyx_v_n;
             *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_33, __pyx_pybuffernd_row_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_31 * __pyx_v_x.strides[0]) ) + __pyx_t_32 * __pyx_v_x.strides[1]) )));
 
-            /* "lom/_cython/matrix_updates.pyx":435
+            /* "lom/_cython/matrix_updates.pyx":433
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -7398,7 +7383,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_co
             goto __pyx_L13;
           }
 
-          /* "lom/_cython/matrix_updates.pyx":437
+          /* "lom/_cython/matrix_updates.pyx":435
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -7416,7 +7401,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_co
           }
           if (__pyx_t_3) {
 
-            /* "lom/_cython/matrix_updates.pyx":438
+            /* "lom/_cython/matrix_updates.pyx":436
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):
  *                         col_densities[d] += x[n, d]             # <<<<<<<<<<<<<<
@@ -7428,7 +7413,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_co
             __pyx_t_36 = __pyx_v_d;
             *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_36, __pyx_pybuffernd_col_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_34 * __pyx_v_x.strides[0]) ) + __pyx_t_35 * __pyx_v_x.strides[1]) )));
 
-            /* "lom/_cython/matrix_updates.pyx":437
+            /* "lom/_cython/matrix_updates.pyx":435
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -7438,7 +7423,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_co
           }
           __pyx_L13:;
 
-          /* "lom/_cython/matrix_updates.pyx":434
+          /* "lom/_cython/matrix_updates.pyx":432
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):             # <<<<<<<<<<<<<<
@@ -7447,7 +7432,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_co
  */
         }
 
-        /* "lom/_cython/matrix_updates.pyx":416
+        /* "lom/_cython/matrix_updates.pyx":414
  *     for n in range(N):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -7458,7 +7443,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_co
     }
   }
 
-  /* "lom/_cython/matrix_updates.pyx":385
+  /* "lom/_cython/matrix_updates.pyx":383
  * 
  * 
  * def draw_twoparents_nochild(             # <<<<<<<<<<<<<<
@@ -7508,7 +7493,7 @@ __pyx_v_acc_par = ((__pyx_v_lbda_pa1 * __pyx_f_3lom_7_cython_14matrix_updates_co
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":442
+/* "lom/_cython/matrix_updates.pyx":440
  * 
  * 
  * def draw_oneparent_onechild(             # <<<<<<<<<<<<<<
@@ -7569,53 +7554,53 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_15draw_oneparent_onechi
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z_pa)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 1); __PYX_ERR(0, 442, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 1); __PYX_ERR(0, 440, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_pa)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 2); __PYX_ERR(0, 442, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 2); __PYX_ERR(0, 440, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lbda_pa)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 3); __PYX_ERR(0, 442, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 3); __PYX_ERR(0, 440, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_sibling)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 4); __PYX_ERR(0, 442, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 4); __PYX_ERR(0, 440, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_child)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 5); __PYX_ERR(0, 442, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 5); __PYX_ERR(0, 440, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (likely((values[6] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lbda)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 6); __PYX_ERR(0, 442, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 6); __PYX_ERR(0, 440, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
         if (likely((values[7] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_prior_config)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 7); __PYX_ERR(0, 442, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 7); __PYX_ERR(0, 440, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  8:
         if (likely((values[8] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_sampling_indicator)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 8); __PYX_ERR(0, 442, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, 8); __PYX_ERR(0, 440, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "draw_oneparent_onechild") < 0)) __PYX_ERR(0, 442, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "draw_oneparent_onechild") < 0)) __PYX_ERR(0, 440, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 9) {
       goto __pyx_L5_argtuple_error;
@@ -7630,25 +7615,25 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_15draw_oneparent_onechi
       values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
       values[8] = PyTuple_GET_ITEM(__pyx_args, 8);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 443, __pyx_L3_error)
-    __pyx_v_z_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_z_pa.memview)) __PYX_ERR(0, 444, __pyx_L3_error)
-    __pyx_v_u_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_u_pa.memview)) __PYX_ERR(0, 445, __pyx_L3_error)
-    __pyx_v_lbda_pa = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_lbda_pa == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 446, __pyx_L3_error)
-    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[4]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 447, __pyx_L3_error)
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[5]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 448, __pyx_L3_error)
-    __pyx_v_lbda = __pyx_PyFloat_AsFloat(values[6]); if (unlikely((__pyx_v_lbda == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 449, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 441, __pyx_L3_error)
+    __pyx_v_z_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_z_pa.memview)) __PYX_ERR(0, 442, __pyx_L3_error)
+    __pyx_v_u_pa = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_u_pa.memview)) __PYX_ERR(0, 443, __pyx_L3_error)
+    __pyx_v_lbda_pa = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_lbda_pa == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 444, __pyx_L3_error)
+    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[4]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 445, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[5]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 446, __pyx_L3_error)
+    __pyx_v_lbda = __pyx_PyFloat_AsFloat(values[6]); if (unlikely((__pyx_v_lbda == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 447, __pyx_L3_error)
     __pyx_v_prior_config = ((PyObject*)values[7]);
-    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[8]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 451, __pyx_L3_error)
+    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[8]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 449, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 442, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("draw_oneparent_onechild", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 440, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lom._cython.matrix_updates.draw_oneparent_onechild", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prior_config), (&PyList_Type), 1, "prior_config", 1))) __PYX_ERR(0, 450, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prior_config), (&PyList_Type), 1, "prior_config", 1))) __PYX_ERR(0, 448, __pyx_L1_error)
   __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechild(__pyx_self, __pyx_v_x, __pyx_v_z_pa, __pyx_v_u_pa, __pyx_v_lbda_pa, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_prior_config, __pyx_v_sampling_indicator);
 
   /* function exit code */
@@ -7737,7 +7722,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
   __pyx_pybuffernd_col_densities.data = NULL;
   __pyx_pybuffernd_col_densities.rcbuffer = &__pyx_pybuffer_col_densities;
 
-  /* "lom/_cython/matrix_updates.pyx":453
+  /* "lom/_cython/matrix_updates.pyx":451
  *         data_type_t[:,:] sampling_indicator): # N x D
  * 
  *     cdef int n, d, N = x.shape[0], D=x.shape[1]             # <<<<<<<<<<<<<<
@@ -7747,7 +7732,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
   __pyx_v_N = (__pyx_v_x.shape[0]);
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_updates.pyx":455
+  /* "lom/_cython/matrix_updates.pyx":453
  *     cdef int n, d, N = x.shape[0], D=x.shape[1]
  *     cdef float acc_par, acc_child, p
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -7756,7 +7741,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/matrix_updates.pyx":459
+  /* "lom/_cython/matrix_updates.pyx":457
  * 
  *     # unpack prior config
  *     cdef int prior_code = prior_config[0]             # <<<<<<<<<<<<<<
@@ -7765,12 +7750,12 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 459, __pyx_L1_error)
+    __PYX_ERR(0, 457, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyInt_As_int(PyList_GET_ITEM(__pyx_v_prior_config, 0)); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 459, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(PyList_GET_ITEM(__pyx_v_prior_config, 0)); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 457, __pyx_L1_error)
   __pyx_v_prior_code = __pyx_t_1;
 
-  /* "lom/_cython/matrix_updates.pyx":460
+  /* "lom/_cython/matrix_updates.pyx":458
  *     # unpack prior config
  *     cdef int prior_code = prior_config[0]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]             # <<<<<<<<<<<<<<
@@ -7779,23 +7764,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 460, __pyx_L1_error)
+    __PYX_ERR(0, 458, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 2)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 2), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 460, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 2)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 2), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 458, __pyx_L1_error)
   __pyx_t_2 = PyList_GET_ITEM(__pyx_v_prior_config, 2);
   __Pyx_INCREF(__pyx_t_2);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_row_binom.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_2), &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_row_binom = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 460, __pyx_L1_error)
+      __PYX_ERR(0, 458, __pyx_L1_error)
     } else {__pyx_pybuffernd_row_binom.diminfo[0].strides = __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_row_binom.diminfo[0].shape = __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_row_binom = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":461
+  /* "lom/_cython/matrix_updates.pyx":459
  *     cdef int prior_code = prior_config[0]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]             # <<<<<<<<<<<<<<
@@ -7804,23 +7789,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 461, __pyx_L1_error)
+    __PYX_ERR(0, 459, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 3)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 3), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 461, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 3)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 3), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 459, __pyx_L1_error)
   __pyx_t_2 = PyList_GET_ITEM(__pyx_v_prior_config, 3);
   __Pyx_INCREF(__pyx_t_2);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_col_binom.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_2), &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_col_binom = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 461, __pyx_L1_error)
+      __PYX_ERR(0, 459, __pyx_L1_error)
     } else {__pyx_pybuffernd_col_binom.diminfo[0].strides = __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_col_binom.diminfo[0].shape = __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_col_binom = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":462
+  /* "lom/_cython/matrix_updates.pyx":460
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]             # <<<<<<<<<<<<<<
@@ -7829,23 +7814,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 462, __pyx_L1_error)
+    __PYX_ERR(0, 460, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 4)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 4), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 462, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 4)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 4), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 460, __pyx_L1_error)
   __pyx_t_2 = PyList_GET_ITEM(__pyx_v_prior_config, 4);
   __Pyx_INCREF(__pyx_t_2);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_row_densities.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_2), &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_row_densities = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 462, __pyx_L1_error)
+      __PYX_ERR(0, 460, __pyx_L1_error)
     } else {__pyx_pybuffernd_row_densities.diminfo[0].strides = __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_row_densities.diminfo[0].shape = __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_row_densities = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":463
+  /* "lom/_cython/matrix_updates.pyx":461
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]             # <<<<<<<<<<<<<<
@@ -7854,23 +7839,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 463, __pyx_L1_error)
+    __PYX_ERR(0, 461, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 5)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 5), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 463, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 5)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 5), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 461, __pyx_L1_error)
   __pyx_t_2 = PyList_GET_ITEM(__pyx_v_prior_config, 5);
   __Pyx_INCREF(__pyx_t_2);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_col_densities.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_2), &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_col_densities = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 463, __pyx_L1_error)
+      __PYX_ERR(0, 461, __pyx_L1_error)
     } else {__pyx_pybuffernd_col_densities.diminfo[0].strides = __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_col_densities.diminfo[0].shape = __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_col_densities = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":466
+  /* "lom/_cython/matrix_updates.pyx":464
  * 
  *     # independent bernoulli prior
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -7880,7 +7865,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
   __pyx_t_3 = ((__pyx_v_prior_code == 1) != 0);
   if (__pyx_t_3) {
 
-    /* "lom/_cython/matrix_updates.pyx":467
+    /* "lom/_cython/matrix_updates.pyx":465
  *     # independent bernoulli prior
  *     if prior_code == 1:
  *         prior = prior_config[1]             # <<<<<<<<<<<<<<
@@ -7889,12 +7874,12 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
  */
     if (unlikely(__pyx_v_prior_config == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 467, __pyx_L1_error)
+      __PYX_ERR(0, 465, __pyx_L1_error)
     }
-    __pyx_t_4 = __pyx_PyFloat_AsFloat(PyList_GET_ITEM(__pyx_v_prior_config, 1)); if (unlikely((__pyx_t_4 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 467, __pyx_L1_error)
+    __pyx_t_4 = __pyx_PyFloat_AsFloat(PyList_GET_ITEM(__pyx_v_prior_config, 1)); if (unlikely((__pyx_t_4 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 465, __pyx_L1_error)
     __pyx_v_prior = __pyx_t_4;
 
-    /* "lom/_cython/matrix_updates.pyx":466
+    /* "lom/_cython/matrix_updates.pyx":464
  * 
  *     # independent bernoulli prior
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -7903,7 +7888,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
  */
   }
 
-  /* "lom/_cython/matrix_updates.pyx":470
+  /* "lom/_cython/matrix_updates.pyx":468
  * 
  *     # for n in prange(N, schedule='dynamic', nogil=True):
  *     for n in range(N):             # <<<<<<<<<<<<<<
@@ -7914,7 +7899,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_1; __pyx_t_5+=1) {
     __pyx_v_n = __pyx_t_5;
 
-    /* "lom/_cython/matrix_updates.pyx":471
+    /* "lom/_cython/matrix_updates.pyx":469
  *     # for n in prange(N, schedule='dynamic', nogil=True):
  *     for n in range(N):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -7925,7 +7910,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_d = __pyx_t_7;
 
-      /* "lom/_cython/matrix_updates.pyx":472
+      /* "lom/_cython/matrix_updates.pyx":470
  *     for n in range(N):
  *         for d in range(D):
  *             if sampling_indicator[n,d] is True:             # <<<<<<<<<<<<<<
@@ -7937,7 +7922,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
       __pyx_t_3 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_8 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_9 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
       if (__pyx_t_3) {
 
-        /* "lom/_cython/matrix_updates.pyx":474
+        /* "lom/_cython/matrix_updates.pyx":472
  *             if sampling_indicator[n,d] is True:
  * 
  *                 if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -7947,7 +7932,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
         __pyx_t_3 = ((__pyx_v_prior_code > 1) != 0);
         if (__pyx_t_3) {
 
-          /* "lom/_cython/matrix_updates.pyx":475
+          /* "lom/_cython/matrix_updates.pyx":473
  * 
  *                 if prior_code > 1:
  *                     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -7957,7 +7942,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
           switch (__pyx_v_prior_code) {
             case 2:
 
-            /* "lom/_cython/matrix_updates.pyx":476
+            /* "lom/_cython/matrix_updates.pyx":474
  *                 if prior_code > 1:
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]             # <<<<<<<<<<<<<<
@@ -7968,7 +7953,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
             __pyx_t_11 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_row_densities.diminfo[0].strides));
             __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_row_binom.diminfo[0].strides));
 
-            /* "lom/_cython/matrix_updates.pyx":475
+            /* "lom/_cython/matrix_updates.pyx":473
  * 
  *                 if prior_code > 1:
  *                     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -7977,7 +7962,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
  */
             break;
 
-            /* "lom/_cython/matrix_updates.pyx":477
+            /* "lom/_cython/matrix_updates.pyx":475
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -7986,7 +7971,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
  */
             case 3:
 
-            /* "lom/_cython/matrix_updates.pyx":478
+            /* "lom/_cython/matrix_updates.pyx":476
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]             # <<<<<<<<<<<<<<
@@ -7997,7 +7982,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
             __pyx_t_13 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_col_densities.diminfo[0].strides));
             __pyx_v_prior = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_col_binom.diminfo[0].strides));
 
-            /* "lom/_cython/matrix_updates.pyx":477
+            /* "lom/_cython/matrix_updates.pyx":475
  *                     if prior_code == 2:
  *                         prior = row_binom[row_densities[n]]
  *                     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -8006,7 +7991,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
  */
             break;
 
-            /* "lom/_cython/matrix_updates.pyx":479
+            /* "lom/_cython/matrix_updates.pyx":477
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -8015,7 +8000,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
  */
             case 4:
 
-            /* "lom/_cython/matrix_updates.pyx":480
+            /* "lom/_cython/matrix_updates.pyx":478
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:
  *                         prior = row_binom[row_densities[n]] + col_binom[col_densities[d]]             # <<<<<<<<<<<<<<
@@ -8028,7 +8013,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
             __pyx_t_17 = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_col_densities.diminfo[0].strides));
             __pyx_v_prior = ((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_row_binom.diminfo[0].strides)) + (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_col_binom.diminfo[0].strides)));
 
-            /* "lom/_cython/matrix_updates.pyx":479
+            /* "lom/_cython/matrix_updates.pyx":477
  *                     elif prior_code == 3:
  *                         prior = col_binom[col_densities[d]]
  *                     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -8039,7 +8024,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
             default: break;
           }
 
-          /* "lom/_cython/matrix_updates.pyx":474
+          /* "lom/_cython/matrix_updates.pyx":472
  *             if sampling_indicator[n,d] is True:
  * 
  *                 if prior_code > 1:             # <<<<<<<<<<<<<<
@@ -8048,7 +8033,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
  */
         }
 
-        /* "lom/_cython/matrix_updates.pyx":482
+        /* "lom/_cython/matrix_updates.pyx":480
  *                         prior = row_binom[row_densities[n]] + col_binom[col_densities[d]]
  * 
  *                 acc_par = lbda_pa*compute_g_alt_tilde_unified(u_pa[d,:], z_pa[n,:])             # <<<<<<<<<<<<<<
@@ -8066,7 +8051,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_14draw_oneparent_onechi
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 482, __pyx_L1_error)
+        __PYX_ERR(0, 480, __pyx_L1_error)
     }
         __pyx_t_18.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -8086,7 +8071,7 @@ __pyx_t_19.data = __pyx_v_z_pa.data;
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 482, __pyx_L1_error)
+        __PYX_ERR(0, 480, __pyx_L1_error)
     }
         __pyx_t_19.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -8103,7 +8088,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
         __pyx_t_19.memview = NULL;
         __pyx_t_19.data = NULL;
 
-        /* "lom/_cython/matrix_updates.pyx":484
+        /* "lom/_cython/matrix_updates.pyx":482
  *                 acc_par = lbda_pa*compute_g_alt_tilde_unified(u_pa[d,:], z_pa[n,:])
  * 
  *                 acc_child = score_no_parents_unified(child[n,:], x[n,:], sibling, d)             # <<<<<<<<<<<<<<
@@ -8121,7 +8106,7 @@ __pyx_v_acc_par = (__pyx_v_lbda_pa * __pyx_f_3lom_7_cython_14matrix_updates_comp
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 484, __pyx_L1_error)
+        __PYX_ERR(0, 482, __pyx_L1_error)
     }
         __pyx_t_19.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -8141,7 +8126,7 @@ __pyx_t_18.data = __pyx_v_x.data;
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 484, __pyx_L1_error)
+        __PYX_ERR(0, 482, __pyx_L1_error)
     }
         __pyx_t_18.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -8150,7 +8135,7 @@ __pyx_t_18.shape[0] = __pyx_v_x.shape[1];
 __pyx_t_18.strides[0] = __pyx_v_x.strides[1];
     __pyx_t_18.suboffsets[0] = -1;
 
-__pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__pyx_t_19, __pyx_t_18, __pyx_v_sibling, __pyx_v_d);
+__pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__pyx_t_19, __pyx_t_18, __pyx_v_sibling, __pyx_v_d, 0);
         __PYX_XDEC_MEMVIEW(&__pyx_t_19, 1);
         __pyx_t_19.memview = NULL;
         __pyx_t_19.data = NULL;
@@ -8158,7 +8143,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
         __pyx_t_18.memview = NULL;
         __pyx_t_18.data = NULL;
 
-        /* "lom/_cython/matrix_updates.pyx":485
+        /* "lom/_cython/matrix_updates.pyx":483
  * 
  *                 acc_child = score_no_parents_unified(child[n,:], x[n,:], sibling, d)
  *                 acc_child = acc_child * lbda             # <<<<<<<<<<<<<<
@@ -8167,7 +8152,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
  */
         __pyx_v_acc_child = (__pyx_v_acc_child * __pyx_v_lbda);
 
-        /* "lom/_cython/matrix_updates.pyx":487
+        /* "lom/_cython/matrix_updates.pyx":485
  *                 acc_child = acc_child * lbda
  * 
  *                 p = sigmoid(acc_par + acc_child + prior)             # <<<<<<<<<<<<<<
@@ -8176,7 +8161,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
  */
         __pyx_v_p = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(((__pyx_v_acc_par + __pyx_v_acc_child) + __pyx_v_prior), 0);
 
-        /* "lom/_cython/matrix_updates.pyx":489
+        /* "lom/_cython/matrix_updates.pyx":487
  *                 p = sigmoid(acc_par + acc_child + prior)
  * 
  *                 x_old = x[n,d]             # <<<<<<<<<<<<<<
@@ -8187,7 +8172,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
         __pyx_t_21 = __pyx_v_d;
         __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_20 * __pyx_v_x.strides[0]) ) + __pyx_t_21 * __pyx_v_x.strides[1]) )));
 
-        /* "lom/_cython/matrix_updates.pyx":490
+        /* "lom/_cython/matrix_updates.pyx":488
  * 
  *                 x_old = x[n,d]
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])             # <<<<<<<<<<<<<<
@@ -8200,7 +8185,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
         __pyx_t_25 = __pyx_v_d;
         *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_24 * __pyx_v_x.strides[0]) ) + __pyx_t_25 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_22 * __pyx_v_x.strides[0]) ) + __pyx_t_23 * __pyx_v_x.strides[1]) ))), 0);
 
-        /* "lom/_cython/matrix_updates.pyx":492
+        /* "lom/_cython/matrix_updates.pyx":490
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):             # <<<<<<<<<<<<<<
@@ -8220,7 +8205,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
         __pyx_L11_bool_binop_done:;
         if (__pyx_t_3) {
 
-          /* "lom/_cython/matrix_updates.pyx":493
+          /* "lom/_cython/matrix_updates.pyx":491
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -8238,7 +8223,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
           }
           if (__pyx_t_3) {
 
-            /* "lom/_cython/matrix_updates.pyx":494
+            /* "lom/_cython/matrix_updates.pyx":492
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]             # <<<<<<<<<<<<<<
@@ -8250,7 +8235,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
             __pyx_t_31 = __pyx_v_n;
             *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf, __pyx_t_31, __pyx_pybuffernd_row_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_29 * __pyx_v_x.strides[0]) ) + __pyx_t_30 * __pyx_v_x.strides[1]) )));
 
-            /* "lom/_cython/matrix_updates.pyx":493
+            /* "lom/_cython/matrix_updates.pyx":491
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):
  *                     if (prior_code == 2) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -8260,7 +8245,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
             goto __pyx_L13;
           }
 
-          /* "lom/_cython/matrix_updates.pyx":495
+          /* "lom/_cython/matrix_updates.pyx":493
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -8278,7 +8263,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
           }
           if (__pyx_t_3) {
 
-            /* "lom/_cython/matrix_updates.pyx":496
+            /* "lom/_cython/matrix_updates.pyx":494
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):
  *                         col_densities[d] += x[n, d]             # <<<<<<<<<<<<<<
@@ -8290,7 +8275,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
             __pyx_t_34 = __pyx_v_d;
             *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf, __pyx_t_34, __pyx_pybuffernd_col_densities.diminfo[0].strides) += (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_32 * __pyx_v_x.strides[0]) ) + __pyx_t_33 * __pyx_v_x.strides[1]) )));
 
-            /* "lom/_cython/matrix_updates.pyx":495
+            /* "lom/_cython/matrix_updates.pyx":493
  *                     if (prior_code == 2) or (prior_code == 4):
  *                         row_densities[n] += x[n, d]
  *                     elif (prior_code == 3) or (prior_code == 4):             # <<<<<<<<<<<<<<
@@ -8300,7 +8285,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
           }
           __pyx_L13:;
 
-          /* "lom/_cython/matrix_updates.pyx":492
+          /* "lom/_cython/matrix_updates.pyx":490
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])
  * 
  *                 if (prior_code > 1) and (x[n, d] != x_old):             # <<<<<<<<<<<<<<
@@ -8309,7 +8294,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
  */
         }
 
-        /* "lom/_cython/matrix_updates.pyx":472
+        /* "lom/_cython/matrix_updates.pyx":470
  *     for n in range(N):
  *         for d in range(D):
  *             if sampling_indicator[n,d] is True:             # <<<<<<<<<<<<<<
@@ -8320,7 +8305,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
     }
   }
 
-  /* "lom/_cython/matrix_updates.pyx":442
+  /* "lom/_cython/matrix_updates.pyx":440
  * 
  * 
  * def draw_oneparent_onechild(             # <<<<<<<<<<<<<<
@@ -8368,7 +8353,7 @@ __pyx_v_acc_child = __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unif
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":499
+/* "lom/_cython/matrix_updates.pyx":497
  * 
  * 
  * cpdef np.ndarray[data_type_t, ndim = 2] predict_single_latent(data_type_t[:] u,             # <<<<<<<<<<<<<<
@@ -8409,7 +8394,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_14matrix_updates_predict_single_late
   __pyx_pybuffernd_x.data = NULL;
   __pyx_pybuffernd_x.rcbuffer = &__pyx_pybuffer_x;
 
-  /* "lom/_cython/matrix_updates.pyx":505
+  /* "lom/_cython/matrix_updates.pyx":503
  *     is equivalent to the product between to binary vectors
  *     """
  *     cdef int N = z.shape[0]             # <<<<<<<<<<<<<<
@@ -8418,7 +8403,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_14matrix_updates_predict_single_late
  */
   __pyx_v_N = (__pyx_v_z.shape[0]);
 
-  /* "lom/_cython/matrix_updates.pyx":506
+  /* "lom/_cython/matrix_updates.pyx":504
  *     """
  *     cdef int N = z.shape[0]
  *     cdef int D = u.shape[0]             # <<<<<<<<<<<<<<
@@ -8427,23 +8412,23 @@ static PyArrayObject *__pyx_f_3lom_7_cython_14matrix_updates_predict_single_late
  */
   __pyx_v_D = (__pyx_v_u.shape[0]);
 
-  /* "lom/_cython/matrix_updates.pyx":509
+  /* "lom/_cython/matrix_updates.pyx":507
  *     cdef int n, d
  * 
  *     cdef np.ndarray[data_type_t, ndim=2] x = np.zeros([z.shape[0], u.shape[0]], dtype=np.int8)             # <<<<<<<<<<<<<<
  * 
  *     for n in range(N):
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 509, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 509, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyInt_FromSsize_t((__pyx_v_z.shape[0])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 509, __pyx_L1_error)
+  __pyx_t_1 = PyInt_FromSsize_t((__pyx_v_z.shape[0])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyInt_FromSsize_t((__pyx_v_u.shape[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 509, __pyx_L1_error)
+  __pyx_t_3 = PyInt_FromSsize_t((__pyx_v_u.shape[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 509, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
   PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
@@ -8451,32 +8436,32 @@ static PyArrayObject *__pyx_f_3lom_7_cython_14matrix_updates_predict_single_late
   PyList_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 509, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 509, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 509, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_int8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 509, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_int8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 509, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 509, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 509, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 507, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 2, 0, __pyx_stack) == -1)) {
       __pyx_v_x = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_x.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 509, __pyx_L1_error)
+      __PYX_ERR(0, 507, __pyx_L1_error)
     } else {__pyx_pybuffernd_x.diminfo[0].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x.diminfo[0].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_x.diminfo[1].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_x.diminfo[1].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[1];
     }
   }
@@ -8484,7 +8469,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_14matrix_updates_predict_single_late
   __pyx_v_x = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":511
+  /* "lom/_cython/matrix_updates.pyx":509
  *     cdef np.ndarray[data_type_t, ndim=2] x = np.zeros([z.shape[0], u.shape[0]], dtype=np.int8)
  * 
  *     for n in range(N):             # <<<<<<<<<<<<<<
@@ -8495,7 +8480,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_14matrix_updates_predict_single_late
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_n = __pyx_t_8;
 
-    /* "lom/_cython/matrix_updates.pyx":513
+    /* "lom/_cython/matrix_updates.pyx":511
  *     for n in range(N):
  *     # for n in prange(N, schedule='dynamic', nogil=True):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -8506,7 +8491,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_14matrix_updates_predict_single_late
     for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
       __pyx_v_d = __pyx_t_10;
 
-      /* "lom/_cython/matrix_updates.pyx":514
+      /* "lom/_cython/matrix_updates.pyx":512
  *     # for n in prange(N, schedule='dynamic', nogil=True):
  *         for d in range(D):
  *             if (u[d] == 1) and (z[n] == 1):             # <<<<<<<<<<<<<<
@@ -8526,7 +8511,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_14matrix_updates_predict_single_late
       __pyx_L8_bool_binop_done:;
       if (__pyx_t_11) {
 
-        /* "lom/_cython/matrix_updates.pyx":515
+        /* "lom/_cython/matrix_updates.pyx":513
  *         for d in range(D):
  *             if (u[d] == 1) and (z[n] == 1):
  *                 x[n,d] = 1             # <<<<<<<<<<<<<<
@@ -8537,7 +8522,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_14matrix_updates_predict_single_late
         __pyx_t_16 = __pyx_v_d;
         *__Pyx_BufPtrStrided2d(__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *, __pyx_pybuffernd_x.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_x.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_x.diminfo[1].strides) = 1;
 
-        /* "lom/_cython/matrix_updates.pyx":514
+        /* "lom/_cython/matrix_updates.pyx":512
  *     # for n in prange(N, schedule='dynamic', nogil=True):
  *         for d in range(D):
  *             if (u[d] == 1) and (z[n] == 1):             # <<<<<<<<<<<<<<
@@ -8548,7 +8533,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_14matrix_updates_predict_single_late
     }
   }
 
-  /* "lom/_cython/matrix_updates.pyx":516
+  /* "lom/_cython/matrix_updates.pyx":514
  *             if (u[d] == 1) and (z[n] == 1):
  *                 x[n,d] = 1
  *     return x             # <<<<<<<<<<<<<<
@@ -8560,7 +8545,7 @@ static PyArrayObject *__pyx_f_3lom_7_cython_14matrix_updates_predict_single_late
   __pyx_r = ((PyArrayObject *)__pyx_v_x);
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_updates.pyx":499
+  /* "lom/_cython/matrix_updates.pyx":497
  * 
  * 
  * cpdef np.ndarray[data_type_t, ndim = 2] predict_single_latent(data_type_t[:] u,             # <<<<<<<<<<<<<<
@@ -8625,11 +8610,11 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_17predict_single_latent
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("predict_single_latent", 1, 2, 2, 1); __PYX_ERR(0, 499, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("predict_single_latent", 1, 2, 2, 1); __PYX_ERR(0, 497, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "predict_single_latent") < 0)) __PYX_ERR(0, 499, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "predict_single_latent") < 0)) __PYX_ERR(0, 497, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -8637,12 +8622,12 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_17predict_single_latent
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 499, __pyx_L3_error)
-    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 500, __pyx_L3_error)
+    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 497, __pyx_L3_error)
+    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 498, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("predict_single_latent", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 499, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("predict_single_latent", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 497, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lom._cython.matrix_updates.predict_single_latent", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -8661,9 +8646,9 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_16predict_single_latent
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("predict_single_latent", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 499, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 499, __pyx_L1_error) }
-  __pyx_t_1 = ((PyObject *)__pyx_f_3lom_7_cython_14matrix_updates_predict_single_latent(__pyx_v_u, __pyx_v_z, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 499, __pyx_L1_error)
+  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 497, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 497, __pyx_L1_error) }
+  __pyx_t_1 = ((PyObject *)__pyx_f_3lom_7_cython_14matrix_updates_predict_single_latent(__pyx_v_u, __pyx_v_z, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 497, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -8682,7 +8667,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_16predict_single_latent
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":521
+/* "lom/_cython/matrix_updates.pyx":519
  * @boundscheck(False)
  * @wraparound(False)
  * cdef data_type_t compute_g_alt_tilde_unified(data_type_t[:] u,             # <<<<<<<<<<<<<<
@@ -8700,7 +8685,7 @@ static __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_f_3lom_7_cython_
   int __pyx_t_5;
   Py_ssize_t __pyx_t_6;
 
-  /* "lom/_cython/matrix_updates.pyx":529
+  /* "lom/_cython/matrix_updates.pyx":527
  * 
  *     cdef int i
  *     for i in range(u.shape[0]):             # <<<<<<<<<<<<<<
@@ -8711,7 +8696,7 @@ static __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_f_3lom_7_cython_
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_i = __pyx_t_2;
 
-    /* "lom/_cython/matrix_updates.pyx":530
+    /* "lom/_cython/matrix_updates.pyx":528
  *     cdef int i
  *     for i in range(u.shape[0]):
  *         if u[i] == 1 and z[i] == 1:             # <<<<<<<<<<<<<<
@@ -8731,7 +8716,7 @@ static __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_f_3lom_7_cython_
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_3) {
 
-      /* "lom/_cython/matrix_updates.pyx":531
+      /* "lom/_cython/matrix_updates.pyx":529
  *     for i in range(u.shape[0]):
  *         if u[i] == 1 and z[i] == 1:
  *             return 1             # <<<<<<<<<<<<<<
@@ -8741,7 +8726,7 @@ static __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_f_3lom_7_cython_
       __pyx_r = 1;
       goto __pyx_L0;
 
-      /* "lom/_cython/matrix_updates.pyx":530
+      /* "lom/_cython/matrix_updates.pyx":528
  *     cdef int i
  *     for i in range(u.shape[0]):
  *         if u[i] == 1 and z[i] == 1:             # <<<<<<<<<<<<<<
@@ -8751,7 +8736,7 @@ static __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_f_3lom_7_cython_
     }
   }
 
-  /* "lom/_cython/matrix_updates.pyx":532
+  /* "lom/_cython/matrix_updates.pyx":530
  *         if u[i] == 1 and z[i] == 1:
  *             return 1
  *     return -1             # <<<<<<<<<<<<<<
@@ -8761,7 +8746,7 @@ static __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_f_3lom_7_cython_
   __pyx_r = -1;
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_updates.pyx":521
+  /* "lom/_cython/matrix_updates.pyx":519
  * @boundscheck(False)
  * @wraparound(False)
  * cdef data_type_t compute_g_alt_tilde_unified(data_type_t[:] u,             # <<<<<<<<<<<<<<
@@ -8774,7 +8759,7 @@ static __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_f_3lom_7_cython_
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":535
+/* "lom/_cython/matrix_updates.pyx":533
  * 
  * 
  * cdef (int, int) score_no_parents_balanced(             # <<<<<<<<<<<<<<
@@ -8805,7 +8790,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
   Py_ssize_t __pyx_t_13;
   __pyx_ctuple_int__and_int __pyx_t_14;
 
-  /* "lom/_cython/matrix_updates.pyx":543
+  /* "lom/_cython/matrix_updates.pyx":541
  *     int n_count) nogil:
  * 
  *     cdef int L = u.shape[1]             # <<<<<<<<<<<<<<
@@ -8814,7 +8799,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
  */
   __pyx_v_L = (__pyx_v_u.shape[1]);
 
-  /* "lom/_cython/matrix_updates.pyx":544
+  /* "lom/_cython/matrix_updates.pyx":542
  * 
  *     cdef int L = u.shape[1]
  *     cdef int D = u.shape[0]             # <<<<<<<<<<<<<<
@@ -8823,7 +8808,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
  */
   __pyx_v_D = (__pyx_v_u.shape[0]);
 
-  /* "lom/_cython/matrix_updates.pyx":546
+  /* "lom/_cython/matrix_updates.pyx":544
  *     cdef int D = u.shape[0]
  *     cdef bint alrdy_active
  *     cdef int score = 0             # <<<<<<<<<<<<<<
@@ -8832,7 +8817,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
  */
   __pyx_v_score = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":547
+  /* "lom/_cython/matrix_updates.pyx":545
  *     cdef bint alrdy_active
  *     cdef int score = 0
  *     p_count = 0             # <<<<<<<<<<<<<<
@@ -8841,7 +8826,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
  */
   __pyx_v_p_count = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":548
+  /* "lom/_cython/matrix_updates.pyx":546
  *     cdef int score = 0
  *     p_count = 0
  *     n_count = 0             # <<<<<<<<<<<<<<
@@ -8850,7 +8835,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
  */
   __pyx_v_n_count = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":550
+  /* "lom/_cython/matrix_updates.pyx":548
  *     n_count = 0
  * 
  *     for d in range(D):             # <<<<<<<<<<<<<<
@@ -8861,7 +8846,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_d = __pyx_t_2;
 
-    /* "lom/_cython/matrix_updates.pyx":551
+    /* "lom/_cython/matrix_updates.pyx":549
  * 
  *     for d in range(D):
  *         if u[d, l] != 1:             # <<<<<<<<<<<<<<
@@ -8873,7 +8858,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
     __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_3 * __pyx_v_u.strides[0]) ) + __pyx_t_4 * __pyx_v_u.strides[1]) ))) != 1) != 0);
     if (__pyx_t_5) {
 
-      /* "lom/_cython/matrix_updates.pyx":552
+      /* "lom/_cython/matrix_updates.pyx":550
  *     for d in range(D):
  *         if u[d, l] != 1:
  *             continue             # <<<<<<<<<<<<<<
@@ -8882,7 +8867,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
  */
       goto __pyx_L3_continue;
 
-      /* "lom/_cython/matrix_updates.pyx":551
+      /* "lom/_cython/matrix_updates.pyx":549
  * 
  *     for d in range(D):
  *         if u[d, l] != 1:             # <<<<<<<<<<<<<<
@@ -8891,7 +8876,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
  */
     }
 
-    /* "lom/_cython/matrix_updates.pyx":554
+    /* "lom/_cython/matrix_updates.pyx":552
  *             continue
  * 
  *         alrdy_active = False             # <<<<<<<<<<<<<<
@@ -8900,7 +8885,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
  */
     __pyx_v_alrdy_active = 0;
 
-    /* "lom/_cython/matrix_updates.pyx":555
+    /* "lom/_cython/matrix_updates.pyx":553
  * 
  *         alrdy_active = False
  *         for l_prime in range(L):             # <<<<<<<<<<<<<<
@@ -8911,7 +8896,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_l_prime = __pyx_t_7;
 
-      /* "lom/_cython/matrix_updates.pyx":556
+      /* "lom/_cython/matrix_updates.pyx":554
  *         alrdy_active = False
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -8926,7 +8911,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
         goto __pyx_L9_bool_binop_done;
       }
 
-      /* "lom/_cython/matrix_updates.pyx":557
+      /* "lom/_cython/matrix_updates.pyx":555
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and
  *                 u[d, l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -8942,7 +8927,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
         goto __pyx_L9_bool_binop_done;
       }
 
-      /* "lom/_cython/matrix_updates.pyx":558
+      /* "lom/_cython/matrix_updates.pyx":556
  *             if (z[l_prime] == 1 and
  *                 u[d, l_prime] == 1 and
  *                 l_prime != l):             # <<<<<<<<<<<<<<
@@ -8953,7 +8938,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
       __pyx_t_5 = __pyx_t_9;
       __pyx_L9_bool_binop_done:;
 
-      /* "lom/_cython/matrix_updates.pyx":556
+      /* "lom/_cython/matrix_updates.pyx":554
  *         alrdy_active = False
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -8962,7 +8947,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
  */
       if (__pyx_t_5) {
 
-        /* "lom/_cython/matrix_updates.pyx":559
+        /* "lom/_cython/matrix_updates.pyx":557
  *                 u[d, l_prime] == 1 and
  *                 l_prime != l):
  *                 alrdy_active = True             # <<<<<<<<<<<<<<
@@ -8971,7 +8956,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
  */
         __pyx_v_alrdy_active = 1;
 
-        /* "lom/_cython/matrix_updates.pyx":560
+        /* "lom/_cython/matrix_updates.pyx":558
  *                 l_prime != l):
  *                 alrdy_active = True
  *                 break             # <<<<<<<<<<<<<<
@@ -8980,7 +8965,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
  */
         goto __pyx_L7_break;
 
-        /* "lom/_cython/matrix_updates.pyx":556
+        /* "lom/_cython/matrix_updates.pyx":554
  *         alrdy_active = False
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -8991,7 +8976,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
     }
     __pyx_L7_break:;
 
-    /* "lom/_cython/matrix_updates.pyx":562
+    /* "lom/_cython/matrix_updates.pyx":560
  *                 break
  * 
  *         if (alrdy_active is False):             # <<<<<<<<<<<<<<
@@ -9001,7 +8986,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
     __pyx_t_5 = ((__pyx_v_alrdy_active == 0) != 0);
     if (__pyx_t_5) {
 
-      /* "lom/_cython/matrix_updates.pyx":563
+      /* "lom/_cython/matrix_updates.pyx":561
  * 
  *         if (alrdy_active is False):
  *             if x[d] == 1:             # <<<<<<<<<<<<<<
@@ -9012,7 +8997,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
       __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_12 * __pyx_v_x.strides[0]) ))) == 1) != 0);
       if (__pyx_t_5) {
 
-        /* "lom/_cython/matrix_updates.pyx":564
+        /* "lom/_cython/matrix_updates.pyx":562
  *         if (alrdy_active is False):
  *             if x[d] == 1:
  *                 p_count += 1             # <<<<<<<<<<<<<<
@@ -9021,7 +9006,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
  */
         __pyx_v_p_count = (__pyx_v_p_count + 1);
 
-        /* "lom/_cython/matrix_updates.pyx":563
+        /* "lom/_cython/matrix_updates.pyx":561
  * 
  *         if (alrdy_active is False):
  *             if x[d] == 1:             # <<<<<<<<<<<<<<
@@ -9031,7 +9016,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
         goto __pyx_L13;
       }
 
-      /* "lom/_cython/matrix_updates.pyx":565
+      /* "lom/_cython/matrix_updates.pyx":563
  *             if x[d] == 1:
  *                 p_count += 1
  *             elif x[d] == -1:             # <<<<<<<<<<<<<<
@@ -9042,7 +9027,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
       __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_13 * __pyx_v_x.strides[0]) ))) == -1L) != 0);
       if (__pyx_t_5) {
 
-        /* "lom/_cython/matrix_updates.pyx":566
+        /* "lom/_cython/matrix_updates.pyx":564
  *                 p_count += 1
  *             elif x[d] == -1:
  *                 n_count -= 1             # <<<<<<<<<<<<<<
@@ -9051,7 +9036,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
  */
         __pyx_v_n_count = (__pyx_v_n_count - 1);
 
-        /* "lom/_cython/matrix_updates.pyx":565
+        /* "lom/_cython/matrix_updates.pyx":563
  *             if x[d] == 1:
  *                 p_count += 1
  *             elif x[d] == -1:             # <<<<<<<<<<<<<<
@@ -9061,7 +9046,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
       }
       __pyx_L13:;
 
-      /* "lom/_cython/matrix_updates.pyx":562
+      /* "lom/_cython/matrix_updates.pyx":560
  *                 break
  * 
  *         if (alrdy_active is False):             # <<<<<<<<<<<<<<
@@ -9072,7 +9057,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
     __pyx_L3_continue:;
   }
 
-  /* "lom/_cython/matrix_updates.pyx":568
+  /* "lom/_cython/matrix_updates.pyx":566
  *                 n_count -= 1
  * 
  *     return p_count, n_count             # <<<<<<<<<<<<<<
@@ -9084,7 +9069,7 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
   __pyx_r = __pyx_t_14;
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_updates.pyx":535
+  /* "lom/_cython/matrix_updates.pyx":533
  * 
  * 
  * cdef (int, int) score_no_parents_balanced(             # <<<<<<<<<<<<<<
@@ -9097,15 +9082,16 @@ static __pyx_ctuple_int__and_int __pyx_f_3lom_7_cython_14matrix_updates_score_no
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":573
+/* "lom/_cython/matrix_updates.pyx":571
  * @boundscheck(False)
  * @wraparound(False)
- * cdef int score_no_parents_unified(             # <<<<<<<<<<<<<<
+ * cpdef int score_no_parents_unified(             # <<<<<<<<<<<<<<
  *     data_type_t[:] x, # (N x) D
  *     data_type_t[:] z, # (N x) L
  */
 
-static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, int __pyx_v_l) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_19score_no_parents_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, int __pyx_v_l, CYTHON_UNUSED int __pyx_skip_dispatch) {
   int __pyx_v_L;
   int __pyx_v_D;
   int __pyx_v_alrdy_active;
@@ -9126,7 +9112,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
   Py_ssize_t __pyx_t_11;
   Py_ssize_t __pyx_t_12;
 
-  /* "lom/_cython/matrix_updates.pyx":582
+  /* "lom/_cython/matrix_updates.pyx":580
  *     """
  * 
  *     cdef int L = u.shape[1]             # <<<<<<<<<<<<<<
@@ -9135,7 +9121,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
  */
   __pyx_v_L = (__pyx_v_u.shape[1]);
 
-  /* "lom/_cython/matrix_updates.pyx":583
+  /* "lom/_cython/matrix_updates.pyx":581
  * 
  *     cdef int L = u.shape[1]
  *     cdef int D = u.shape[0]             # <<<<<<<<<<<<<<
@@ -9144,7 +9130,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
  */
   __pyx_v_D = (__pyx_v_u.shape[0]);
 
-  /* "lom/_cython/matrix_updates.pyx":585
+  /* "lom/_cython/matrix_updates.pyx":583
  *     cdef int D = u.shape[0]
  *     cdef bint alrdy_active
  *     cdef int score = 0             # <<<<<<<<<<<<<<
@@ -9153,7 +9139,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
  */
   __pyx_v_score = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":587
+  /* "lom/_cython/matrix_updates.pyx":585
  *     cdef int score = 0
  * 
  *     for d in range(D):             # <<<<<<<<<<<<<<
@@ -9164,7 +9150,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_d = __pyx_t_2;
 
-    /* "lom/_cython/matrix_updates.pyx":588
+    /* "lom/_cython/matrix_updates.pyx":586
  * 
  *     for d in range(D):
  *         if u[d, l] != 1:             # <<<<<<<<<<<<<<
@@ -9176,7 +9162,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
     __pyx_t_5 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_3 * __pyx_v_u.strides[0]) ) + __pyx_t_4 * __pyx_v_u.strides[1]) ))) != 1) != 0);
     if (__pyx_t_5) {
 
-      /* "lom/_cython/matrix_updates.pyx":589
+      /* "lom/_cython/matrix_updates.pyx":587
  *     for d in range(D):
  *         if u[d, l] != 1:
  *             continue             # <<<<<<<<<<<<<<
@@ -9185,7 +9171,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
  */
       goto __pyx_L3_continue;
 
-      /* "lom/_cython/matrix_updates.pyx":588
+      /* "lom/_cython/matrix_updates.pyx":586
  * 
  *     for d in range(D):
  *         if u[d, l] != 1:             # <<<<<<<<<<<<<<
@@ -9194,7 +9180,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
  */
     }
 
-    /* "lom/_cython/matrix_updates.pyx":591
+    /* "lom/_cython/matrix_updates.pyx":589
  *             continue
  * 
  *         alrdy_active = False             # <<<<<<<<<<<<<<
@@ -9203,7 +9189,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
  */
     __pyx_v_alrdy_active = 0;
 
-    /* "lom/_cython/matrix_updates.pyx":592
+    /* "lom/_cython/matrix_updates.pyx":590
  * 
  *         alrdy_active = False
  *         for l_prime in range(L):             # <<<<<<<<<<<<<<
@@ -9214,7 +9200,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_l_prime = __pyx_t_7;
 
-      /* "lom/_cython/matrix_updates.pyx":593
+      /* "lom/_cython/matrix_updates.pyx":591
  *         alrdy_active = False
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -9229,7 +9215,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
         goto __pyx_L9_bool_binop_done;
       }
 
-      /* "lom/_cython/matrix_updates.pyx":594
+      /* "lom/_cython/matrix_updates.pyx":592
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and
  *                 u[d, l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -9245,7 +9231,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
         goto __pyx_L9_bool_binop_done;
       }
 
-      /* "lom/_cython/matrix_updates.pyx":595
+      /* "lom/_cython/matrix_updates.pyx":593
  *             if (z[l_prime] == 1 and
  *                 u[d, l_prime] == 1 and
  *                 l_prime != l):             # <<<<<<<<<<<<<<
@@ -9256,7 +9242,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
       __pyx_t_5 = __pyx_t_9;
       __pyx_L9_bool_binop_done:;
 
-      /* "lom/_cython/matrix_updates.pyx":593
+      /* "lom/_cython/matrix_updates.pyx":591
  *         alrdy_active = False
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -9265,7 +9251,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
  */
       if (__pyx_t_5) {
 
-        /* "lom/_cython/matrix_updates.pyx":596
+        /* "lom/_cython/matrix_updates.pyx":594
  *                 u[d, l_prime] == 1 and
  *                 l_prime != l):
  *                 alrdy_active = True             # <<<<<<<<<<<<<<
@@ -9274,7 +9260,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
  */
         __pyx_v_alrdy_active = 1;
 
-        /* "lom/_cython/matrix_updates.pyx":597
+        /* "lom/_cython/matrix_updates.pyx":595
  *                 l_prime != l):
  *                 alrdy_active = True
  *                 break             # <<<<<<<<<<<<<<
@@ -9283,7 +9269,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
  */
         goto __pyx_L7_break;
 
-        /* "lom/_cython/matrix_updates.pyx":593
+        /* "lom/_cython/matrix_updates.pyx":591
  *         alrdy_active = False
  *         for l_prime in range(L):
  *             if (z[l_prime] == 1 and             # <<<<<<<<<<<<<<
@@ -9294,7 +9280,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
     }
     __pyx_L7_break:;
 
-    /* "lom/_cython/matrix_updates.pyx":599
+    /* "lom/_cython/matrix_updates.pyx":597
  *                 break
  * 
  *         if (alrdy_active is False):             # <<<<<<<<<<<<<<
@@ -9304,7 +9290,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
     __pyx_t_5 = ((__pyx_v_alrdy_active == 0) != 0);
     if (__pyx_t_5) {
 
-      /* "lom/_cython/matrix_updates.pyx":600
+      /* "lom/_cython/matrix_updates.pyx":598
  * 
  *         if (alrdy_active is False):
  *             score += x[d]             # <<<<<<<<<<<<<<
@@ -9314,7 +9300,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
       __pyx_t_12 = __pyx_v_d;
       __pyx_v_score = (__pyx_v_score + (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_12 * __pyx_v_x.strides[0]) ))));
 
-      /* "lom/_cython/matrix_updates.pyx":599
+      /* "lom/_cython/matrix_updates.pyx":597
  *                 break
  * 
  *         if (alrdy_active is False):             # <<<<<<<<<<<<<<
@@ -9325,7 +9311,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
     __pyx_L3_continue:;
   }
 
-  /* "lom/_cython/matrix_updates.pyx":602
+  /* "lom/_cython/matrix_updates.pyx":600
  *             score += x[d]
  * 
  *     return score             # <<<<<<<<<<<<<<
@@ -9335,10 +9321,10 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
   __pyx_r = __pyx_v_score;
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_updates.pyx":573
+  /* "lom/_cython/matrix_updates.pyx":571
  * @boundscheck(False)
  * @wraparound(False)
- * cdef int score_no_parents_unified(             # <<<<<<<<<<<<<<
+ * cpdef int score_no_parents_unified(             # <<<<<<<<<<<<<<
  *     data_type_t[:] x, # (N x) D
  *     data_type_t[:] z, # (N x) L
  */
@@ -9348,7 +9334,120 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":605
+/* Python wrapper */
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_19score_no_parents_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_18score_no_parents_unified[] = "\n    This is essentially algorithm 1 from the ICML paper\n    ";
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_19score_no_parents_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_v_l;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("score_no_parents_unified (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_x,&__pyx_n_s_z,&__pyx_n_s_u,&__pyx_n_s_l,0};
+    PyObject* values[4] = {0,0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("score_no_parents_unified", 1, 4, 4, 1); __PYX_ERR(0, 571, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("score_no_parents_unified", 1, 4, 4, 2); __PYX_ERR(0, 571, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_l)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("score_no_parents_unified", 1, 4, 4, 3); __PYX_ERR(0, 571, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "score_no_parents_unified") < 0)) __PYX_ERR(0, 571, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+      values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+    }
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 572, __pyx_L3_error)
+    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 573, __pyx_L3_error)
+    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 574, __pyx_L3_error)
+    __pyx_v_l = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_l == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 575, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("score_no_parents_unified", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 571, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("lom._cython.matrix_updates.score_no_parents_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_18score_no_parents_unified(__pyx_self, __pyx_v_x, __pyx_v_z, __pyx_v_u, __pyx_v_l);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_18score_no_parents_unified(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_u, int __pyx_v_l) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("score_no_parents_unified", 0);
+  __Pyx_XDECREF(__pyx_r);
+  if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 571, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 571, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 571, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__pyx_v_x, __pyx_v_z, __pyx_v_u, __pyx_v_l, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 571, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("lom._cython.matrix_updates.score_no_parents_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __PYX_XDEC_MEMVIEW(&__pyx_v_x, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_z, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_u, 1);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "lom/_cython/matrix_updates.pyx":603
  * 
  * 
  * cpdef int swap_gibbs(float p) nogil:             # <<<<<<<<<<<<<<
@@ -9356,12 +9455,12 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__Pyx
  *     Flip according to standard gibbs sampler
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_19swap_gibbs(PyObject *__pyx_self, PyObject *__pyx_arg_p); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_21swap_gibbs(PyObject *__pyx_self, PyObject *__pyx_arg_p); /*proto*/
 static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs(float __pyx_v_p, CYTHON_UNUSED int __pyx_skip_dispatch) {
   int __pyx_r;
   int __pyx_t_1;
 
-  /* "lom/_cython/matrix_updates.pyx":609
+  /* "lom/_cython/matrix_updates.pyx":607
  *     Flip according to standard gibbs sampler
  *     """
  *     if rand()/float(RAND_MAX) > p:             # <<<<<<<<<<<<<<
@@ -9371,7 +9470,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs(float __pyx_v_p, CY
   __pyx_t_1 = (((((double)rand()) / ((double)RAND_MAX)) > __pyx_v_p) != 0);
   if (__pyx_t_1) {
 
-    /* "lom/_cython/matrix_updates.pyx":610
+    /* "lom/_cython/matrix_updates.pyx":608
  *     """
  *     if rand()/float(RAND_MAX) > p:
  *         return -1             # <<<<<<<<<<<<<<
@@ -9381,7 +9480,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs(float __pyx_v_p, CY
     __pyx_r = -1;
     goto __pyx_L0;
 
-    /* "lom/_cython/matrix_updates.pyx":609
+    /* "lom/_cython/matrix_updates.pyx":607
  *     Flip according to standard gibbs sampler
  *     """
  *     if rand()/float(RAND_MAX) > p:             # <<<<<<<<<<<<<<
@@ -9390,7 +9489,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs(float __pyx_v_p, CY
  */
   }
 
-  /* "lom/_cython/matrix_updates.pyx":612
+  /* "lom/_cython/matrix_updates.pyx":610
  *         return -1
  *     else:
  *         return 1             # <<<<<<<<<<<<<<
@@ -9402,7 +9501,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs(float __pyx_v_p, CY
     goto __pyx_L0;
   }
 
-  /* "lom/_cython/matrix_updates.pyx":605
+  /* "lom/_cython/matrix_updates.pyx":603
  * 
  * 
  * cpdef int swap_gibbs(float p) nogil:             # <<<<<<<<<<<<<<
@@ -9416,15 +9515,15 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs(float __pyx_v_p, CY
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_19swap_gibbs(PyObject *__pyx_self, PyObject *__pyx_arg_p); /*proto*/
-static char __pyx_doc_3lom_7_cython_14matrix_updates_18swap_gibbs[] = "\n    Flip according to standard gibbs sampler\n    ";
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_19swap_gibbs(PyObject *__pyx_self, PyObject *__pyx_arg_p) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_21swap_gibbs(PyObject *__pyx_self, PyObject *__pyx_arg_p); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_20swap_gibbs[] = "\n    Flip according to standard gibbs sampler\n    ";
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_21swap_gibbs(PyObject *__pyx_self, PyObject *__pyx_arg_p) {
   float __pyx_v_p;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("swap_gibbs (wrapper)", 0);
   assert(__pyx_arg_p); {
-    __pyx_v_p = __pyx_PyFloat_AsFloat(__pyx_arg_p); if (unlikely((__pyx_v_p == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 605, __pyx_L3_error)
+    __pyx_v_p = __pyx_PyFloat_AsFloat(__pyx_arg_p); if (unlikely((__pyx_v_p == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 603, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -9432,20 +9531,20 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_19swap_gibbs(PyObject *
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_18swap_gibbs(__pyx_self, ((float)__pyx_v_p));
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_20swap_gibbs(__pyx_self, ((float)__pyx_v_p));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_18swap_gibbs(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_20swap_gibbs(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("swap_gibbs", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs(__pyx_v_p, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 605, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs(__pyx_v_p, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 603, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9462,7 +9561,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_18swap_gibbs(CYTHON_UNU
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":618
+/* "lom/_cython/matrix_updates.pyx":616
  * # @cython.wraparound(False)
  * @cython.cdivision(True)
  * cpdef int swap_metropolised_gibbs_unified(float p, data_type_t x) nogil:             # <<<<<<<<<<<<<<
@@ -9470,13 +9569,13 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_18swap_gibbs(CYTHON_UNU
  *     Given the p(x=1) and the current state of x \in {-1,1}.
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_21swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_23swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(float __pyx_v_p, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch) {
   float __pyx_v_alpha;
   int __pyx_r;
   int __pyx_t_1;
 
-  /* "lom/_cython/matrix_updates.pyx":624
+  /* "lom/_cython/matrix_updates.pyx":622
  *     """
  *     cdef float alpha
  *     if x == 1:             # <<<<<<<<<<<<<<
@@ -9486,7 +9585,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unifie
   __pyx_t_1 = ((__pyx_v_x == 1) != 0);
   if (__pyx_t_1) {
 
-    /* "lom/_cython/matrix_updates.pyx":625
+    /* "lom/_cython/matrix_updates.pyx":623
  *     cdef float alpha
  *     if x == 1:
  *         if p <= .5:             # <<<<<<<<<<<<<<
@@ -9496,7 +9595,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unifie
     __pyx_t_1 = ((__pyx_v_p <= .5) != 0);
     if (__pyx_t_1) {
 
-      /* "lom/_cython/matrix_updates.pyx":626
+      /* "lom/_cython/matrix_updates.pyx":624
  *     if x == 1:
  *         if p <= .5:
  *             return -x             # <<<<<<<<<<<<<<
@@ -9506,7 +9605,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unifie
       __pyx_r = (-__pyx_v_x);
       goto __pyx_L0;
 
-      /* "lom/_cython/matrix_updates.pyx":625
+      /* "lom/_cython/matrix_updates.pyx":623
  *     cdef float alpha
  *     if x == 1:
  *         if p <= .5:             # <<<<<<<<<<<<<<
@@ -9515,7 +9614,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unifie
  */
     }
 
-    /* "lom/_cython/matrix_updates.pyx":629
+    /* "lom/_cython/matrix_updates.pyx":627
  *             # alpha = 1 # TODO, can return -x here
  *         else:
  *             alpha = (1-p)/p             # <<<<<<<<<<<<<<
@@ -9526,7 +9625,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unifie
       __pyx_v_alpha = ((1.0 - __pyx_v_p) / __pyx_v_p);
     }
 
-    /* "lom/_cython/matrix_updates.pyx":624
+    /* "lom/_cython/matrix_updates.pyx":622
  *     """
  *     cdef float alpha
  *     if x == 1:             # <<<<<<<<<<<<<<
@@ -9536,38 +9635,38 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unifie
     goto __pyx_L3;
   }
 
-  /* "lom/_cython/matrix_updates.pyx":631
+  /* "lom/_cython/matrix_updates.pyx":629
  *             alpha = (1-p)/p
  *     else:
  *         if p >= .5:             # <<<<<<<<<<<<<<
- *             alpha = 1
- *         else:
+ *             return -x
+ *             # alpha = 1
  */
   /*else*/ {
     __pyx_t_1 = ((__pyx_v_p >= .5) != 0);
     if (__pyx_t_1) {
 
-      /* "lom/_cython/matrix_updates.pyx":632
+      /* "lom/_cython/matrix_updates.pyx":630
  *     else:
  *         if p >= .5:
- *             alpha = 1             # <<<<<<<<<<<<<<
+ *             return -x             # <<<<<<<<<<<<<<
+ *             # alpha = 1
  *         else:
- *             alpha = p/(1-p)
  */
-      __pyx_v_alpha = 1.0;
+      __pyx_r = (-__pyx_v_x);
+      goto __pyx_L0;
 
-      /* "lom/_cython/matrix_updates.pyx":631
+      /* "lom/_cython/matrix_updates.pyx":629
  *             alpha = (1-p)/p
  *     else:
  *         if p >= .5:             # <<<<<<<<<<<<<<
- *             alpha = 1
- *         else:
+ *             return -x
+ *             # alpha = 1
  */
-      goto __pyx_L5;
     }
 
-    /* "lom/_cython/matrix_updates.pyx":634
- *             alpha = 1
+    /* "lom/_cython/matrix_updates.pyx":633
+ *             # alpha = 1
  *         else:
  *             alpha = p/(1-p)             # <<<<<<<<<<<<<<
  *     if rand()/float(RAND_MAX) < alpha:
@@ -9576,11 +9675,10 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unifie
     /*else*/ {
       __pyx_v_alpha = (__pyx_v_p / (1.0 - __pyx_v_p));
     }
-    __pyx_L5:;
   }
   __pyx_L3:;
 
-  /* "lom/_cython/matrix_updates.pyx":635
+  /* "lom/_cython/matrix_updates.pyx":634
  *         else:
  *             alpha = p/(1-p)
  *     if rand()/float(RAND_MAX) < alpha:             # <<<<<<<<<<<<<<
@@ -9590,7 +9688,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unifie
   __pyx_t_1 = (((((double)rand()) / ((double)RAND_MAX)) < __pyx_v_alpha) != 0);
   if (__pyx_t_1) {
 
-    /* "lom/_cython/matrix_updates.pyx":636
+    /* "lom/_cython/matrix_updates.pyx":635
  *             alpha = p/(1-p)
  *     if rand()/float(RAND_MAX) < alpha:
  *         return -x             # <<<<<<<<<<<<<<
@@ -9600,7 +9698,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unifie
     __pyx_r = (-__pyx_v_x);
     goto __pyx_L0;
 
-    /* "lom/_cython/matrix_updates.pyx":635
+    /* "lom/_cython/matrix_updates.pyx":634
  *         else:
  *             alpha = p/(1-p)
  *     if rand()/float(RAND_MAX) < alpha:             # <<<<<<<<<<<<<<
@@ -9609,7 +9707,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unifie
  */
   }
 
-  /* "lom/_cython/matrix_updates.pyx":638
+  /* "lom/_cython/matrix_updates.pyx":637
  *         return -x
  *     else:
  *         return x             # <<<<<<<<<<<<<<
@@ -9621,7 +9719,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unifie
     goto __pyx_L0;
   }
 
-  /* "lom/_cython/matrix_updates.pyx":618
+  /* "lom/_cython/matrix_updates.pyx":616
  * # @cython.wraparound(False)
  * @cython.cdivision(True)
  * cpdef int swap_metropolised_gibbs_unified(float p, data_type_t x) nogil:             # <<<<<<<<<<<<<<
@@ -9635,9 +9733,9 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unifie
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_21swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_14matrix_updates_20swap_metropolised_gibbs_unified[] = "\n    Given the p(x=1) and the current state of x \\in {-1,1}.\n    Draw new x according to metropolised Gibbs sampler\n    ";
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_21swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_23swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_22swap_metropolised_gibbs_unified[] = "\n    Given the p(x=1) and the current state of x \\in {-1,1}.\n    Draw new x according to metropolised Gibbs sampler\n    ";
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_23swap_metropolised_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   float __pyx_v_p;
   __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x;
   PyObject *__pyx_r = 0;
@@ -9666,11 +9764,11 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_21swap_metropolised_gib
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("swap_metropolised_gibbs_unified", 1, 2, 2, 1); __PYX_ERR(0, 618, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("swap_metropolised_gibbs_unified", 1, 2, 2, 1); __PYX_ERR(0, 616, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "swap_metropolised_gibbs_unified") < 0)) __PYX_ERR(0, 618, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "swap_metropolised_gibbs_unified") < 0)) __PYX_ERR(0, 616, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -9678,31 +9776,31 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_21swap_metropolised_gib
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_p = __pyx_PyFloat_AsFloat(values[0]); if (unlikely((__pyx_v_p == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 618, __pyx_L3_error)
-    __pyx_v_x = __Pyx_PyInt_As_npy_int8(values[1]); if (unlikely((__pyx_v_x == ((npy_int8)-1)) && PyErr_Occurred())) __PYX_ERR(0, 618, __pyx_L3_error)
+    __pyx_v_p = __pyx_PyFloat_AsFloat(values[0]); if (unlikely((__pyx_v_p == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 616, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyInt_As_npy_int8(values[1]); if (unlikely((__pyx_v_x == ((npy_int8)-1)) && PyErr_Occurred())) __PYX_ERR(0, 616, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("swap_metropolised_gibbs_unified", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 618, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("swap_metropolised_gibbs_unified", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 616, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lom._cython.matrix_updates.swap_metropolised_gibbs_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_20swap_metropolised_gibbs_unified(__pyx_self, __pyx_v_p, __pyx_v_x);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_22swap_metropolised_gibbs_unified(__pyx_self, __pyx_v_p, __pyx_v_x);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_20swap_metropolised_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_22swap_metropolised_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("swap_metropolised_gibbs_unified", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, __pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 618, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, __pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 616, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9719,7 +9817,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_20swap_metropolised_gib
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":642
+/* "lom/_cython/matrix_updates.pyx":641
  * 
  * @cython.cdivision(True)
  * cpdef int swap_gibbs_unified(float p, data_type_t x) nogil:             # <<<<<<<<<<<<<<
@@ -9727,12 +9825,12 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_20swap_metropolised_gib
  *     Given the p(x=1) and the current state of x \in {-1,1}.
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_23swap_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_25swap_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs_unified(float __pyx_v_p, CYTHON_UNUSED __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch) {
   int __pyx_r;
   int __pyx_t_1;
 
-  /* "lom/_cython/matrix_updates.pyx":648
+  /* "lom/_cython/matrix_updates.pyx":647
  *     """
  *     cdef float alpha
  *     if rand()/float(RAND_MAX) < p:             # <<<<<<<<<<<<<<
@@ -9742,7 +9840,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs_unified(float __pyx
   __pyx_t_1 = (((((double)rand()) / ((double)RAND_MAX)) < __pyx_v_p) != 0);
   if (__pyx_t_1) {
 
-    /* "lom/_cython/matrix_updates.pyx":649
+    /* "lom/_cython/matrix_updates.pyx":648
  *     cdef float alpha
  *     if rand()/float(RAND_MAX) < p:
  *         return 1             # <<<<<<<<<<<<<<
@@ -9752,7 +9850,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs_unified(float __pyx
     __pyx_r = 1;
     goto __pyx_L0;
 
-    /* "lom/_cython/matrix_updates.pyx":648
+    /* "lom/_cython/matrix_updates.pyx":647
  *     """
  *     cdef float alpha
  *     if rand()/float(RAND_MAX) < p:             # <<<<<<<<<<<<<<
@@ -9761,7 +9859,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs_unified(float __pyx
  */
   }
 
-  /* "lom/_cython/matrix_updates.pyx":651
+  /* "lom/_cython/matrix_updates.pyx":650
  *         return 1
  *     else:
  *         return -1             # <<<<<<<<<<<<<<
@@ -9773,7 +9871,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs_unified(float __pyx
     goto __pyx_L0;
   }
 
-  /* "lom/_cython/matrix_updates.pyx":642
+  /* "lom/_cython/matrix_updates.pyx":641
  * 
  * @cython.cdivision(True)
  * cpdef int swap_gibbs_unified(float p, data_type_t x) nogil:             # <<<<<<<<<<<<<<
@@ -9787,9 +9885,9 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs_unified(float __pyx
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_23swap_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_14matrix_updates_22swap_gibbs_unified[] = "\n    Given the p(x=1) and the current state of x \\in {-1,1}.\n    Draw new x according to a standard Gibbs sampler\n    ";
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_23swap_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_25swap_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_24swap_gibbs_unified[] = "\n    Given the p(x=1) and the current state of x \\in {-1,1}.\n    Draw new x according to a standard Gibbs sampler\n    ";
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_25swap_gibbs_unified(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   float __pyx_v_p;
   __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x;
   PyObject *__pyx_r = 0;
@@ -9818,11 +9916,11 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_23swap_gibbs_unified(Py
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("swap_gibbs_unified", 1, 2, 2, 1); __PYX_ERR(0, 642, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("swap_gibbs_unified", 1, 2, 2, 1); __PYX_ERR(0, 641, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "swap_gibbs_unified") < 0)) __PYX_ERR(0, 642, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "swap_gibbs_unified") < 0)) __PYX_ERR(0, 641, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -9830,31 +9928,31 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_23swap_gibbs_unified(Py
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_p = __pyx_PyFloat_AsFloat(values[0]); if (unlikely((__pyx_v_p == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 642, __pyx_L3_error)
-    __pyx_v_x = __Pyx_PyInt_As_npy_int8(values[1]); if (unlikely((__pyx_v_x == ((npy_int8)-1)) && PyErr_Occurred())) __PYX_ERR(0, 642, __pyx_L3_error)
+    __pyx_v_p = __pyx_PyFloat_AsFloat(values[0]); if (unlikely((__pyx_v_p == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 641, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyInt_As_npy_int8(values[1]); if (unlikely((__pyx_v_x == ((npy_int8)-1)) && PyErr_Occurred())) __PYX_ERR(0, 641, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("swap_gibbs_unified", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 642, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("swap_gibbs_unified", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 641, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lom._cython.matrix_updates.swap_gibbs_unified", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_22swap_gibbs_unified(__pyx_self, __pyx_v_p, __pyx_v_x);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_24swap_gibbs_unified(__pyx_self, __pyx_v_p, __pyx_v_x);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_22swap_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_24swap_gibbs_unified(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_p, __pyx_t_3lom_7_cython_14matrix_updates_data_type_t __pyx_v_x) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("swap_gibbs_unified", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs_unified(__pyx_v_p, __pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 642, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_14matrix_updates_swap_gibbs_unified(__pyx_v_p, __pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 641, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9871,7 +9969,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_22swap_gibbs_unified(CY
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":654
+/* "lom/_cython/matrix_updates.pyx":653
  * 
  * 
  * cpdef float sigmoid(float x) nogil:             # <<<<<<<<<<<<<<
@@ -9879,12 +9977,12 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_22swap_gibbs_unified(CY
  *     p = 1/(1+exp(-x))
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_25sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_27sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
 static float __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(float __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch) {
   float __pyx_v_p;
   float __pyx_r;
 
-  /* "lom/_cython/matrix_updates.pyx":656
+  /* "lom/_cython/matrix_updates.pyx":655
  * cpdef float sigmoid(float x) nogil:
  *     cdef float p
  *     p = 1/(1+exp(-x))             # <<<<<<<<<<<<<<
@@ -9893,7 +9991,7 @@ static float __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(float __pyx_v_x, CYT
  */
   __pyx_v_p = (1.0 / (1.0 + exp((-__pyx_v_x))));
 
-  /* "lom/_cython/matrix_updates.pyx":657
+  /* "lom/_cython/matrix_updates.pyx":656
  *     cdef float p
  *     p = 1/(1+exp(-x))
  *     return p             # <<<<<<<<<<<<<<
@@ -9903,7 +10001,7 @@ static float __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(float __pyx_v_x, CYT
   __pyx_r = __pyx_v_p;
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_updates.pyx":654
+  /* "lom/_cython/matrix_updates.pyx":653
  * 
  * 
  * cpdef float sigmoid(float x) nogil:             # <<<<<<<<<<<<<<
@@ -9917,14 +10015,14 @@ static float __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(float __pyx_v_x, CYT
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_25sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_25sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_27sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_27sigmoid(PyObject *__pyx_self, PyObject *__pyx_arg_x) {
   float __pyx_v_x;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("sigmoid (wrapper)", 0);
   assert(__pyx_arg_x); {
-    __pyx_v_x = __pyx_PyFloat_AsFloat(__pyx_arg_x); if (unlikely((__pyx_v_x == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 654, __pyx_L3_error)
+    __pyx_v_x = __pyx_PyFloat_AsFloat(__pyx_arg_x); if (unlikely((__pyx_v_x == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 653, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -9932,20 +10030,20 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_25sigmoid(PyObject *__p
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_24sigmoid(__pyx_self, ((float)__pyx_v_x));
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_26sigmoid(__pyx_self, ((float)__pyx_v_x));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_24sigmoid(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_x) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_26sigmoid(CYTHON_UNUSED PyObject *__pyx_self, float __pyx_v_x) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("sigmoid", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 654, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_x, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 653, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9962,7 +10060,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_24sigmoid(CYTHON_UNUSED
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":660
+/* "lom/_cython/matrix_updates.pyx":659
  * 
  * 
  * cpdef inline void compute_pred_accuracy(data_type_t[:,:] x,             # <<<<<<<<<<<<<<
@@ -9970,7 +10068,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_24sigmoid(CYTHON_UNUSED
  *                                         data_type_t[:,:] z,
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_27compute_pred_accuracy(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_29compute_pred_accuracy(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static CYTHON_INLINE void __pyx_f_3lom_7_cython_14matrix_updates_compute_pred_accuracy(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_rates, CYTHON_UNUSED int __pyx_skip_dispatch) {
   int __pyx_v_TP;
   int __pyx_v_FP;
@@ -9995,7 +10093,7 @@ static CYTHON_INLINE void __pyx_f_3lom_7_cython_14matrix_updates_compute_pred_ac
   Py_ssize_t __pyx_t_14;
   Py_ssize_t __pyx_t_15;
 
-  /* "lom/_cython/matrix_updates.pyx":665
+  /* "lom/_cython/matrix_updates.pyx":664
  *                                         long[:] rates) nogil:
  *     """ Compute false/true positive/negative rates. """
  *     cdef int TP=0, FP=0, TN=0, FN=0             # <<<<<<<<<<<<<<
@@ -10007,7 +10105,7 @@ static CYTHON_INLINE void __pyx_f_3lom_7_cython_14matrix_updates_compute_pred_ac
   __pyx_v_TN = 0;
   __pyx_v_FN = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":669
+  /* "lom/_cython/matrix_updates.pyx":668
  * 
  *     # for n in prange(x.shape[0], schedule='dynamic', nogil=True):
  *     for n in range(x.shape[0]):             # <<<<<<<<<<<<<<
@@ -10018,7 +10116,7 @@ static CYTHON_INLINE void __pyx_f_3lom_7_cython_14matrix_updates_compute_pred_ac
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_n = __pyx_t_2;
 
-    /* "lom/_cython/matrix_updates.pyx":670
+    /* "lom/_cython/matrix_updates.pyx":669
  *     # for n in prange(x.shape[0], schedule='dynamic', nogil=True):
  *     for n in range(x.shape[0]):
  *         for d in range(x.shape[1]):             # <<<<<<<<<<<<<<
@@ -10029,7 +10127,7 @@ static CYTHON_INLINE void __pyx_f_3lom_7_cython_14matrix_updates_compute_pred_ac
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_d = __pyx_t_4;
 
-      /* "lom/_cython/matrix_updates.pyx":671
+      /* "lom/_cython/matrix_updates.pyx":670
  *     for n in range(x.shape[0]):
  *         for d in range(x.shape[1]):
  *             g_temp = compute_g_alt_tilde_unified(u[d,:], z[n,:])             # <<<<<<<<<<<<<<
@@ -10053,7 +10151,7 @@ static CYTHON_INLINE void __pyx_f_3lom_7_cython_14matrix_updates_compute_pred_ac
             #ifdef WITH_THREAD
             PyGILState_Release(__pyx_gilstate_save);
             #endif
-        __PYX_ERR(0, 671, __pyx_L1_error)
+        __PYX_ERR(0, 670, __pyx_L1_error)
     }
         __pyx_t_5.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -10079,7 +10177,7 @@ __pyx_t_6.data = __pyx_v_z.data;
             #ifdef WITH_THREAD
             PyGILState_Release(__pyx_gilstate_save);
             #endif
-        __PYX_ERR(0, 671, __pyx_L1_error)
+        __PYX_ERR(0, 670, __pyx_L1_error)
     }
         __pyx_t_6.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -10096,7 +10194,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
       __pyx_t_6.memview = NULL;
       __pyx_t_6.data = NULL;
 
-      /* "lom/_cython/matrix_updates.pyx":672
+      /* "lom/_cython/matrix_updates.pyx":671
  *         for d in range(x.shape[1]):
  *             g_temp = compute_g_alt_tilde_unified(u[d,:], z[n,:])
  *             if g_temp == -1:             # <<<<<<<<<<<<<<
@@ -10106,7 +10204,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
       __pyx_t_7 = ((__pyx_v_g_temp == -1L) != 0);
       if (__pyx_t_7) {
 
-        /* "lom/_cython/matrix_updates.pyx":673
+        /* "lom/_cython/matrix_updates.pyx":672
  *             g_temp = compute_g_alt_tilde_unified(u[d,:], z[n,:])
  *             if g_temp == -1:
  *                 if x[n,d] == -1:             # <<<<<<<<<<<<<<
@@ -10118,7 +10216,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
         __pyx_t_7 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_8 * __pyx_v_x.strides[0]) ) + __pyx_t_9 * __pyx_v_x.strides[1]) ))) == -1L) != 0);
         if (__pyx_t_7) {
 
-          /* "lom/_cython/matrix_updates.pyx":674
+          /* "lom/_cython/matrix_updates.pyx":673
  *             if g_temp == -1:
  *                 if x[n,d] == -1:
  *                     TN += 1             # <<<<<<<<<<<<<<
@@ -10127,7 +10225,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
  */
           __pyx_v_TN = (__pyx_v_TN + 1);
 
-          /* "lom/_cython/matrix_updates.pyx":673
+          /* "lom/_cython/matrix_updates.pyx":672
  *             g_temp = compute_g_alt_tilde_unified(u[d,:], z[n,:])
  *             if g_temp == -1:
  *                 if x[n,d] == -1:             # <<<<<<<<<<<<<<
@@ -10137,7 +10235,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
           goto __pyx_L8;
         }
 
-        /* "lom/_cython/matrix_updates.pyx":676
+        /* "lom/_cython/matrix_updates.pyx":675
  *                     TN += 1
  *                 else:
  *                     FN += 1             # <<<<<<<<<<<<<<
@@ -10149,7 +10247,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
         }
         __pyx_L8:;
 
-        /* "lom/_cython/matrix_updates.pyx":672
+        /* "lom/_cython/matrix_updates.pyx":671
  *         for d in range(x.shape[1]):
  *             g_temp = compute_g_alt_tilde_unified(u[d,:], z[n,:])
  *             if g_temp == -1:             # <<<<<<<<<<<<<<
@@ -10159,7 +10257,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
         goto __pyx_L7;
       }
 
-      /* "lom/_cython/matrix_updates.pyx":678
+      /* "lom/_cython/matrix_updates.pyx":677
  *                     FN += 1
  *             else:
  *                 if x[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -10172,7 +10270,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
         __pyx_t_7 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_10 * __pyx_v_x.strides[0]) ) + __pyx_t_11 * __pyx_v_x.strides[1]) ))) == 1) != 0);
         if (__pyx_t_7) {
 
-          /* "lom/_cython/matrix_updates.pyx":679
+          /* "lom/_cython/matrix_updates.pyx":678
  *             else:
  *                 if x[n,d] == 1:
  *                     TP += 1             # <<<<<<<<<<<<<<
@@ -10181,7 +10279,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
  */
           __pyx_v_TP = (__pyx_v_TP + 1);
 
-          /* "lom/_cython/matrix_updates.pyx":678
+          /* "lom/_cython/matrix_updates.pyx":677
  *                     FN += 1
  *             else:
  *                 if x[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -10191,7 +10289,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
           goto __pyx_L9;
         }
 
-        /* "lom/_cython/matrix_updates.pyx":681
+        /* "lom/_cython/matrix_updates.pyx":680
  *                     TP += 1
  *                 else:
  *                     FP += 1             # <<<<<<<<<<<<<<
@@ -10207,7 +10305,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
     }
   }
 
-  /* "lom/_cython/matrix_updates.pyx":683
+  /* "lom/_cython/matrix_updates.pyx":682
  *                     FP += 1
  * 
  *     rates[0] = TP             # <<<<<<<<<<<<<<
@@ -10217,7 +10315,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
   __pyx_t_12 = 0;
   *((long *) ( /* dim=0 */ (__pyx_v_rates.data + __pyx_t_12 * __pyx_v_rates.strides[0]) )) = __pyx_v_TP;
 
-  /* "lom/_cython/matrix_updates.pyx":684
+  /* "lom/_cython/matrix_updates.pyx":683
  * 
  *     rates[0] = TP
  *     rates[1] = FP             # <<<<<<<<<<<<<<
@@ -10227,7 +10325,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
   __pyx_t_13 = 1;
   *((long *) ( /* dim=0 */ (__pyx_v_rates.data + __pyx_t_13 * __pyx_v_rates.strides[0]) )) = __pyx_v_FP;
 
-  /* "lom/_cython/matrix_updates.pyx":685
+  /* "lom/_cython/matrix_updates.pyx":684
  *     rates[0] = TP
  *     rates[1] = FP
  *     rates[2] = TN             # <<<<<<<<<<<<<<
@@ -10237,7 +10335,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
   __pyx_t_14 = 2;
   *((long *) ( /* dim=0 */ (__pyx_v_rates.data + __pyx_t_14 * __pyx_v_rates.strides[0]) )) = __pyx_v_TN;
 
-  /* "lom/_cython/matrix_updates.pyx":686
+  /* "lom/_cython/matrix_updates.pyx":685
  *     rates[1] = FP
  *     rates[2] = TN
  *     rates[3] = FN             # <<<<<<<<<<<<<<
@@ -10247,7 +10345,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
   __pyx_t_15 = 3;
   *((long *) ( /* dim=0 */ (__pyx_v_rates.data + __pyx_t_15 * __pyx_v_rates.strides[0]) )) = __pyx_v_FN;
 
-  /* "lom/_cython/matrix_updates.pyx":688
+  /* "lom/_cython/matrix_updates.pyx":687
  *     rates[3] = FN
  * 
  *     return             # <<<<<<<<<<<<<<
@@ -10256,7 +10354,7 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
  */
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_updates.pyx":660
+  /* "lom/_cython/matrix_updates.pyx":659
  * 
  * 
  * cpdef inline void compute_pred_accuracy(data_type_t[:,:] x,             # <<<<<<<<<<<<<<
@@ -10273,9 +10371,9 @@ __pyx_v_g_temp = __pyx_f_3lom_7_cython_14matrix_updates_compute_g_alt_tilde_unif
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_27compute_pred_accuracy(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_14matrix_updates_26compute_pred_accuracy[] = " Compute false/true positive/negative rates. ";
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_27compute_pred_accuracy(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_29compute_pred_accuracy(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_28compute_pred_accuracy[] = " Compute false/true positive/negative rates. ";
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_29compute_pred_accuracy(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -10310,23 +10408,23 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_27compute_pred_accuracy
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("compute_pred_accuracy", 1, 4, 4, 1); __PYX_ERR(0, 660, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("compute_pred_accuracy", 1, 4, 4, 1); __PYX_ERR(0, 659, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("compute_pred_accuracy", 1, 4, 4, 2); __PYX_ERR(0, 660, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("compute_pred_accuracy", 1, 4, 4, 2); __PYX_ERR(0, 659, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_rates)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("compute_pred_accuracy", 1, 4, 4, 3); __PYX_ERR(0, 660, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("compute_pred_accuracy", 1, 4, 4, 3); __PYX_ERR(0, 659, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "compute_pred_accuracy") < 0)) __PYX_ERR(0, 660, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "compute_pred_accuracy") < 0)) __PYX_ERR(0, 659, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -10336,37 +10434,37 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_27compute_pred_accuracy
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 660, __pyx_L3_error)
-    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 661, __pyx_L3_error)
-    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 662, __pyx_L3_error)
-    __pyx_v_rates = __Pyx_PyObject_to_MemoryviewSlice_ds_long(values[3]); if (unlikely(!__pyx_v_rates.memview)) __PYX_ERR(0, 663, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 659, __pyx_L3_error)
+    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 660, __pyx_L3_error)
+    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 661, __pyx_L3_error)
+    __pyx_v_rates = __Pyx_PyObject_to_MemoryviewSlice_ds_long(values[3]); if (unlikely(!__pyx_v_rates.memview)) __PYX_ERR(0, 662, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("compute_pred_accuracy", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 660, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("compute_pred_accuracy", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 659, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lom._cython.matrix_updates.compute_pred_accuracy", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_26compute_pred_accuracy(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_rates);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_28compute_pred_accuracy(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_rates);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_26compute_pred_accuracy(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_rates) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_28compute_pred_accuracy(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_rates) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("compute_pred_accuracy", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 660, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 660, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 660, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_rates.memview)) { __Pyx_RaiseUnboundLocalError("rates"); __PYX_ERR(0, 660, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_14matrix_updates_compute_pred_accuracy(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_rates, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 660, __pyx_L1_error)
+  if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 659, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 659, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 659, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_rates.memview)) { __Pyx_RaiseUnboundLocalError("rates"); __PYX_ERR(0, 659, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_14matrix_updates_compute_pred_accuracy(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_rates, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 659, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -10387,7 +10485,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_26compute_pred_accuracy
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":692
+/* "lom/_cython/matrix_updates.pyx":691
  * @wraparound(False)
  * @boundscheck(False)
  * cpdef int compute_P_parallel(data_type_t[:,:] x,             # <<<<<<<<<<<<<<
@@ -10395,7 +10493,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_26compute_pred_accuracy
  *                              data_type_t[:,:] z):
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_29compute_P_parallel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_31compute_P_parallel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static int __pyx_f_3lom_7_cython_14matrix_updates_compute_P_parallel(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, CYTHON_UNUSED int __pyx_skip_dispatch) {
   int __pyx_v_n;
   int __pyx_v_d;
@@ -10416,7 +10514,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_compute_P_parallel(__Pyx_memvi
   int __pyx_t_10;
   __Pyx_RefNannySetupContext("compute_P_parallel", 0);
 
-  /* "lom/_cython/matrix_updates.pyx":701
+  /* "lom/_cython/matrix_updates.pyx":700
  *     cdef:
  *         int n, d
  *         int N = x.shape[0]             # <<<<<<<<<<<<<<
@@ -10425,7 +10523,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_compute_P_parallel(__Pyx_memvi
  */
   __pyx_v_N = (__pyx_v_x.shape[0]);
 
-  /* "lom/_cython/matrix_updates.pyx":702
+  /* "lom/_cython/matrix_updates.pyx":701
  *         int n, d
  *         int N = x.shape[0]
  *         int D = x.shape[1]             # <<<<<<<<<<<<<<
@@ -10434,7 +10532,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_compute_P_parallel(__Pyx_memvi
  */
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_updates.pyx":703
+  /* "lom/_cython/matrix_updates.pyx":702
  *         int N = x.shape[0]
  *         int D = x.shape[1]
  *         int P = 0             # <<<<<<<<<<<<<<
@@ -10443,7 +10541,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_compute_P_parallel(__Pyx_memvi
  */
   __pyx_v_P = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":705
+  /* "lom/_cython/matrix_updates.pyx":704
  *         int P = 0
  * 
  *     for n in prange(N, schedule='guided', nogil=True):             # <<<<<<<<<<<<<<
@@ -10496,7 +10594,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_compute_P_parallel(__Pyx_memvi
                             /* Initialize private variables to invalid values */
                             __pyx_v_d = ((int)0xbad0bad0);
 
-                            /* "lom/_cython/matrix_updates.pyx":706
+                            /* "lom/_cython/matrix_updates.pyx":705
  * 
  *     for n in prange(N, schedule='guided', nogil=True):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -10507,7 +10605,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_compute_P_parallel(__Pyx_memvi
                             for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
                               __pyx_v_d = __pyx_t_5;
 
-                              /* "lom/_cython/matrix_updates.pyx":707
+                              /* "lom/_cython/matrix_updates.pyx":706
  *     for n in prange(N, schedule='guided', nogil=True):
  *         for d in range(D):
  *             if compute_g_alt_tilde_unified(u[d,:], z[n,:]) == x[n, d]:             # <<<<<<<<<<<<<<
@@ -10531,7 +10629,7 @@ static int __pyx_f_3lom_7_cython_14matrix_updates_compute_P_parallel(__Pyx_memvi
             #ifdef WITH_THREAD
             PyGILState_Release(__pyx_gilstate_save);
             #endif
-        __PYX_ERR(0, 707, __pyx_L8_error)
+        __PYX_ERR(0, 706, __pyx_L8_error)
     }
         __pyx_t_6.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -10557,7 +10655,7 @@ __pyx_t_7.data = __pyx_v_z.data;
             #ifdef WITH_THREAD
             PyGILState_Release(__pyx_gilstate_save);
             #endif
-        __PYX_ERR(0, 707, __pyx_L8_error)
+        __PYX_ERR(0, 706, __pyx_L8_error)
     }
         __pyx_t_7.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -10577,7 +10675,7 @@ __pyx_t_8 = __pyx_v_n;
                               __pyx_t_7.data = NULL;
                               if (__pyx_t_10) {
 
-                                /* "lom/_cython/matrix_updates.pyx":708
+                                /* "lom/_cython/matrix_updates.pyx":707
  *         for d in range(D):
  *             if compute_g_alt_tilde_unified(u[d,:], z[n,:]) == x[n, d]:
  *                 P += 1             # <<<<<<<<<<<<<<
@@ -10586,7 +10684,7 @@ __pyx_t_8 = __pyx_v_n;
  */
                                 __pyx_v_P = (__pyx_v_P + 1);
 
-                                /* "lom/_cython/matrix_updates.pyx":707
+                                /* "lom/_cython/matrix_updates.pyx":706
  *     for n in prange(N, schedule='guided', nogil=True):
  *         for d in range(D):
  *             if compute_g_alt_tilde_unified(u[d,:], z[n,:]) == x[n, d]:             # <<<<<<<<<<<<<<
@@ -10682,7 +10780,7 @@ __pyx_t_8 = __pyx_v_n;
         #endif
       }
 
-      /* "lom/_cython/matrix_updates.pyx":705
+      /* "lom/_cython/matrix_updates.pyx":704
  *         int P = 0
  * 
  *     for n in prange(N, schedule='guided', nogil=True):             # <<<<<<<<<<<<<<
@@ -10708,7 +10806,7 @@ __pyx_t_8 = __pyx_v_n;
       }
   }
 
-  /* "lom/_cython/matrix_updates.pyx":710
+  /* "lom/_cython/matrix_updates.pyx":709
  *                 P += 1
  * 
  *     return P             # <<<<<<<<<<<<<<
@@ -10718,7 +10816,7 @@ __pyx_t_8 = __pyx_v_n;
   __pyx_r = __pyx_v_P;
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_updates.pyx":692
+  /* "lom/_cython/matrix_updates.pyx":691
  * @wraparound(False)
  * @boundscheck(False)
  * cpdef int compute_P_parallel(data_type_t[:,:] x,             # <<<<<<<<<<<<<<
@@ -10738,9 +10836,9 @@ __pyx_t_8 = __pyx_v_n;
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_29compute_P_parallel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_14matrix_updates_28compute_P_parallel[] = " \n    compute number of deterministically correct predictions \n    ";
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_29compute_P_parallel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_31compute_P_parallel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_30compute_P_parallel[] = " \n    compute number of deterministically correct predictions \n    ";
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_31compute_P_parallel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -10772,17 +10870,17 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_29compute_P_parallel(Py
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("compute_P_parallel", 1, 3, 3, 1); __PYX_ERR(0, 692, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("compute_P_parallel", 1, 3, 3, 1); __PYX_ERR(0, 691, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("compute_P_parallel", 1, 3, 3, 2); __PYX_ERR(0, 692, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("compute_P_parallel", 1, 3, 3, 2); __PYX_ERR(0, 691, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "compute_P_parallel") < 0)) __PYX_ERR(0, 692, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "compute_P_parallel") < 0)) __PYX_ERR(0, 691, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -10791,35 +10889,35 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_29compute_P_parallel(Py
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 692, __pyx_L3_error)
-    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 693, __pyx_L3_error)
-    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 694, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 691, __pyx_L3_error)
+    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 692, __pyx_L3_error)
+    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 693, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("compute_P_parallel", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 692, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("compute_P_parallel", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 691, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lom._cython.matrix_updates.compute_P_parallel", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_28compute_P_parallel(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_30compute_P_parallel(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_28compute_P_parallel(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_30compute_P_parallel(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("compute_P_parallel", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 692, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 692, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 692, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_14matrix_updates_compute_P_parallel(__pyx_v_x, __pyx_v_u, __pyx_v_z, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 692, __pyx_L1_error)
+  if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 691, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 691, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 691, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3lom_7_cython_14matrix_updates_compute_P_parallel(__pyx_v_x, __pyx_v_u, __pyx_v_z, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 691, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -10839,7 +10937,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_28compute_P_parallel(CY
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":713
+/* "lom/_cython/matrix_updates.pyx":712
  * 
  * 
  * cpdef long compute_P(data_type_t[:,:] x,             # <<<<<<<<<<<<<<
@@ -10847,7 +10945,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_28compute_P_parallel(CY
  *                      data_type_t[:,:] z):
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_31compute_P(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_33compute_P(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static long __pyx_f_3lom_7_cython_14matrix_updates_compute_P(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, CYTHON_UNUSED int __pyx_skip_dispatch) {
   long __pyx_v_P;
   int __pyx_v_d;
@@ -10865,7 +10963,7 @@ static long __pyx_f_3lom_7_cython_14matrix_updates_compute_P(__Pyx_memviewslice 
   int __pyx_t_9;
   __Pyx_RefNannySetupContext("compute_P", 0);
 
-  /* "lom/_cython/matrix_updates.pyx":720
+  /* "lom/_cython/matrix_updates.pyx":719
  *     """
  * 
  *     cdef long P = 0             # <<<<<<<<<<<<<<
@@ -10874,7 +10972,7 @@ static long __pyx_f_3lom_7_cython_14matrix_updates_compute_P(__Pyx_memviewslice 
  */
   __pyx_v_P = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":724
+  /* "lom/_cython/matrix_updates.pyx":723
  * 
  *     # for n in range(x.shape[0]):
  *     for n in range(x.shape[0]):             # <<<<<<<<<<<<<<
@@ -10885,7 +10983,7 @@ static long __pyx_f_3lom_7_cython_14matrix_updates_compute_P(__Pyx_memviewslice 
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_n = __pyx_t_2;
 
-    /* "lom/_cython/matrix_updates.pyx":725
+    /* "lom/_cython/matrix_updates.pyx":724
  *     # for n in range(x.shape[0]):
  *     for n in range(x.shape[0]):
  *         for d in range(x.shape[1]):             # <<<<<<<<<<<<<<
@@ -10896,7 +10994,7 @@ static long __pyx_f_3lom_7_cython_14matrix_updates_compute_P(__Pyx_memviewslice 
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_d = __pyx_t_4;
 
-      /* "lom/_cython/matrix_updates.pyx":726
+      /* "lom/_cython/matrix_updates.pyx":725
  *     for n in range(x.shape[0]):
  *         for d in range(x.shape[1]):
  *             if compute_g_alt_tilde_unified(u[d,:], z[n,:]) == x[n, d]:             # <<<<<<<<<<<<<<
@@ -10914,7 +11012,7 @@ static long __pyx_f_3lom_7_cython_14matrix_updates_compute_P(__Pyx_memviewslice 
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 726, __pyx_L1_error)
+        __PYX_ERR(0, 725, __pyx_L1_error)
     }
         __pyx_t_5.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -10934,7 +11032,7 @@ __pyx_t_6.data = __pyx_v_z.data;
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 726, __pyx_L1_error)
+        __PYX_ERR(0, 725, __pyx_L1_error)
     }
         __pyx_t_6.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -10954,7 +11052,7 @@ __pyx_t_7 = __pyx_v_n;
       __pyx_t_6.data = NULL;
       if (__pyx_t_9) {
 
-        /* "lom/_cython/matrix_updates.pyx":727
+        /* "lom/_cython/matrix_updates.pyx":726
  *         for d in range(x.shape[1]):
  *             if compute_g_alt_tilde_unified(u[d,:], z[n,:]) == x[n, d]:
  *                 P += 1             # <<<<<<<<<<<<<<
@@ -10963,7 +11061,7 @@ __pyx_t_7 = __pyx_v_n;
  */
         __pyx_v_P = (__pyx_v_P + 1);
 
-        /* "lom/_cython/matrix_updates.pyx":726
+        /* "lom/_cython/matrix_updates.pyx":725
  *     for n in range(x.shape[0]):
  *         for d in range(x.shape[1]):
  *             if compute_g_alt_tilde_unified(u[d,:], z[n,:]) == x[n, d]:             # <<<<<<<<<<<<<<
@@ -10974,7 +11072,7 @@ __pyx_t_7 = __pyx_v_n;
     }
   }
 
-  /* "lom/_cython/matrix_updates.pyx":728
+  /* "lom/_cython/matrix_updates.pyx":727
  *             if compute_g_alt_tilde_unified(u[d,:], z[n,:]) == x[n, d]:
  *                 P += 1
  *     return P             # <<<<<<<<<<<<<<
@@ -10984,7 +11082,7 @@ __pyx_t_7 = __pyx_v_n;
   __pyx_r = __pyx_v_P;
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_updates.pyx":713
+  /* "lom/_cython/matrix_updates.pyx":712
  * 
  * 
  * cpdef long compute_P(data_type_t[:,:] x,             # <<<<<<<<<<<<<<
@@ -11004,9 +11102,9 @@ __pyx_t_7 = __pyx_v_n;
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_31compute_P(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3lom_7_cython_14matrix_updates_30compute_P[] = " \n    compute number of deterministically correct predictions \n    ";
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_31compute_P(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_33compute_P(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3lom_7_cython_14matrix_updates_32compute_P[] = " \n    compute number of deterministically correct predictions \n    ";
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_33compute_P(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -11038,17 +11136,17 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_31compute_P(PyObject *_
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("compute_P", 1, 3, 3, 1); __PYX_ERR(0, 713, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("compute_P", 1, 3, 3, 1); __PYX_ERR(0, 712, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("compute_P", 1, 3, 3, 2); __PYX_ERR(0, 713, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("compute_P", 1, 3, 3, 2); __PYX_ERR(0, 712, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "compute_P") < 0)) __PYX_ERR(0, 713, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "compute_P") < 0)) __PYX_ERR(0, 712, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -11057,35 +11155,35 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_31compute_P(PyObject *_
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 713, __pyx_L3_error)
-    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 714, __pyx_L3_error)
-    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 715, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 712, __pyx_L3_error)
+    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 713, __pyx_L3_error)
+    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 714, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("compute_P", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 713, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("compute_P", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 712, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lom._cython.matrix_updates.compute_P", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_30compute_P(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_32compute_P(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_30compute_P(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_32compute_P(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("compute_P", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 713, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 713, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 713, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_f_3lom_7_cython_14matrix_updates_compute_P(__pyx_v_x, __pyx_v_u, __pyx_v_z, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 713, __pyx_L1_error)
+  if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 712, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 712, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 712, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_f_3lom_7_cython_14matrix_updates_compute_P(__pyx_v_x, __pyx_v_u, __pyx_v_z, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 712, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -11105,7 +11203,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_30compute_P(CYTHON_UNUS
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":731
+/* "lom/_cython/matrix_updates.pyx":730
  * 
  * 
  * cpdef void probabilistc_output(double[:,:] x,             # <<<<<<<<<<<<<<
@@ -11113,7 +11211,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_30compute_P(CYTHON_UNUS
  *                                double[:,:] z,
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_33probabilistc_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_35probabilistc_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L, CYTHON_UNUSED int __pyx_skip_dispatch) {
   float __pyx_v_p_dn;
   float __pyx_v_sgmd_lbda;
@@ -11135,7 +11233,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__Pyx_mem
   Py_ssize_t __pyx_t_12;
   __Pyx_RefNannySetupContext("probabilistc_output", 0);
 
-  /* "lom/_cython/matrix_updates.pyx":741
+  /* "lom/_cython/matrix_updates.pyx":740
  *     """
  * 
  *     sgmd_lbda = sigmoid(lbda)             # <<<<<<<<<<<<<<
@@ -11144,7 +11242,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__Pyx_mem
  */
   __pyx_v_sgmd_lbda = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_lbda, 0);
 
-  /* "lom/_cython/matrix_updates.pyx":742
+  /* "lom/_cython/matrix_updates.pyx":741
  * 
  *     sgmd_lbda = sigmoid(lbda)
  *     for d in range(D):             # <<<<<<<<<<<<<<
@@ -11155,7 +11253,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__Pyx_mem
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_d = __pyx_t_2;
 
-    /* "lom/_cython/matrix_updates.pyx":743
+    /* "lom/_cython/matrix_updates.pyx":742
  *     sgmd_lbda = sigmoid(lbda)
  *     for d in range(D):
  *         for n in range(N):             # <<<<<<<<<<<<<<
@@ -11166,7 +11264,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__Pyx_mem
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_n = __pyx_t_4;
 
-      /* "lom/_cython/matrix_updates.pyx":744
+      /* "lom/_cython/matrix_updates.pyx":743
  *     for d in range(D):
  *         for n in range(N):
  *             p_dn = 1             # <<<<<<<<<<<<<<
@@ -11175,7 +11273,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__Pyx_mem
  */
       __pyx_v_p_dn = 1.0;
 
-      /* "lom/_cython/matrix_updates.pyx":745
+      /* "lom/_cython/matrix_updates.pyx":744
  *         for n in range(N):
  *             p_dn = 1
  *             for l in range(L):             # <<<<<<<<<<<<<<
@@ -11186,7 +11284,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__Pyx_mem
       for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
         __pyx_v_l = __pyx_t_6;
 
-        /* "lom/_cython/matrix_updates.pyx":746
+        /* "lom/_cython/matrix_updates.pyx":745
  *             p_dn = 1
  *             for l in range(L):
  *                 p_dn = p_dn * ( 1 - u[d,l]*z[n,l] )             # <<<<<<<<<<<<<<
@@ -11200,7 +11298,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__Pyx_mem
         __pyx_v_p_dn = (__pyx_v_p_dn * (1.0 - ((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_7 * __pyx_v_u.strides[0]) ) + __pyx_t_8 * __pyx_v_u.strides[1]) ))) * (*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_z.data + __pyx_t_9 * __pyx_v_z.strides[0]) ) + __pyx_t_10 * __pyx_v_z.strides[1]) ))))));
       }
 
-      /* "lom/_cython/matrix_updates.pyx":747
+      /* "lom/_cython/matrix_updates.pyx":746
  *             for l in range(L):
  *                 p_dn = p_dn * ( 1 - u[d,l]*z[n,l] )
  *             x[n, d] = (sgmd_lbda * (1-p_dn) + (p_dn*(1-sgmd_lbda) ) )             # <<<<<<<<<<<<<<
@@ -11213,7 +11311,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__Pyx_mem
     }
   }
 
-  /* "lom/_cython/matrix_updates.pyx":731
+  /* "lom/_cython/matrix_updates.pyx":730
  * 
  * 
  * cpdef void probabilistc_output(double[:,:] x,             # <<<<<<<<<<<<<<
@@ -11226,8 +11324,8 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__Pyx_mem
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_33probabilistc_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_33probabilistc_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_35probabilistc_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_35probabilistc_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -11271,41 +11369,41 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_33probabilistc_output(P
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, 1); __PYX_ERR(0, 731, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, 1); __PYX_ERR(0, 730, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, 2); __PYX_ERR(0, 731, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, 2); __PYX_ERR(0, 730, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lbda)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, 3); __PYX_ERR(0, 731, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, 3); __PYX_ERR(0, 730, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_D)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, 4); __PYX_ERR(0, 731, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, 4); __PYX_ERR(0, 730, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_N)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, 5); __PYX_ERR(0, 731, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, 5); __PYX_ERR(0, 730, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (likely((values[6] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_L)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, 6); __PYX_ERR(0, 731, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, 6); __PYX_ERR(0, 730, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "probabilistc_output") < 0)) __PYX_ERR(0, 731, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "probabilistc_output") < 0)) __PYX_ERR(0, 730, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 7) {
       goto __pyx_L5_argtuple_error;
@@ -11318,39 +11416,39 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_33probabilistc_output(P
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
       values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 731, __pyx_L3_error)
-    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 732, __pyx_L3_error)
-    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 733, __pyx_L3_error)
-    __pyx_v_lbda = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_lbda == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 734, __pyx_L3_error)
-    __pyx_v_D = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_D == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 735, __pyx_L3_error)
-    __pyx_v_N = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_N == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 735, __pyx_L3_error)
-    __pyx_v_L = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_L == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 735, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 730, __pyx_L3_error)
+    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 731, __pyx_L3_error)
+    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 732, __pyx_L3_error)
+    __pyx_v_lbda = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_lbda == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 733, __pyx_L3_error)
+    __pyx_v_D = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_D == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 734, __pyx_L3_error)
+    __pyx_v_N = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_N == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 734, __pyx_L3_error)
+    __pyx_v_L = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_L == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 734, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 731, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("probabilistc_output", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 730, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lom._cython.matrix_updates.probabilistc_output", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_32probabilistc_output(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_D, __pyx_v_N, __pyx_v_L);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_34probabilistc_output(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_D, __pyx_v_N, __pyx_v_L);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_32probabilistc_output(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_34probabilistc_output(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("probabilistc_output", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 731, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 731, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 731, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_D, __pyx_v_N, __pyx_v_L, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 731, __pyx_L1_error)
+  if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 730, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 730, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 730, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_D, __pyx_v_N, __pyx_v_L, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 730, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -11370,7 +11468,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_32probabilistc_output(C
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":750
+/* "lom/_cython/matrix_updates.pyx":749
  * 
  * 
  * cpdef void probabilistic_output_maxmachine(double[:,:] x,             # <<<<<<<<<<<<<<
@@ -11378,7 +11476,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_32probabilistc_output(C
  *                                            double[:,:] z,
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_35probabilistic_output_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_37probabilistic_output_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistic_output_maxmachine(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_pvec, __Pyx_memviewslice __pyx_v_l_dcr, CYTHON_UNUSED int __pyx_skip_dispatch) {
   int __pyx_v_D;
   int __pyx_v_L;
@@ -11447,7 +11545,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistic_output_maxmachi
   __Pyx_RefNannySetupContext("probabilistic_output_maxmachine", 0);
   __PYX_INC_MEMVIEW(&__pyx_v_l_dcr, 1);
 
-  /* "lom/_cython/matrix_updates.pyx":758
+  /* "lom/_cython/matrix_updates.pyx":757
  * 
  *     cdef float s1
  *     cdef int D = u.shape[0]             # <<<<<<<<<<<<<<
@@ -11456,7 +11554,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistic_output_maxmachi
  */
   __pyx_v_D = (__pyx_v_u.shape[0]);
 
-  /* "lom/_cython/matrix_updates.pyx":759
+  /* "lom/_cython/matrix_updates.pyx":758
  *     cdef float s1
  *     cdef int D = u.shape[0]
  *     cdef int L = u.shape[1]             # <<<<<<<<<<<<<<
@@ -11465,7 +11563,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistic_output_maxmachi
  */
   __pyx_v_L = (__pyx_v_u.shape[1]);
 
-  /* "lom/_cython/matrix_updates.pyx":760
+  /* "lom/_cython/matrix_updates.pyx":759
  *     cdef int D = u.shape[0]
  *     cdef int L = u.shape[1]
  *     cdef int N = z.shape[0]             # <<<<<<<<<<<<<<
@@ -11474,7 +11572,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistic_output_maxmachi
  */
   __pyx_v_N = (__pyx_v_z.shape[0]);
 
-  /* "lom/_cython/matrix_updates.pyx":773
+  /* "lom/_cython/matrix_updates.pyx":772
  * 
  *     # for d in prange(D, schedule=''dynamic'', nogil=False):
  *     for d in range(D):             # <<<<<<<<<<<<<<
@@ -11485,7 +11583,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistic_output_maxmachi
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_d = __pyx_t_2;
 
-    /* "lom/_cython/matrix_updates.pyx":774
+    /* "lom/_cython/matrix_updates.pyx":773
  *     # for d in prange(D, schedule=''dynamic'', nogil=False):
  *     for d in range(D):
  *         for n in range(N):             # <<<<<<<<<<<<<<
@@ -11496,7 +11594,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistic_output_maxmachi
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_n = __pyx_t_4;
 
-      /* "lom/_cython/matrix_updates.pyx":775
+      /* "lom/_cython/matrix_updates.pyx":774
  *     for d in range(D):
  *         for n in range(N):
  *             for l in range(L):             # <<<<<<<<<<<<<<
@@ -11507,39 +11605,39 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistic_output_maxmachi
       for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
         __pyx_v_l = __pyx_t_6;
 
-        /* "lom/_cython/matrix_updates.pyx":776
+        /* "lom/_cython/matrix_updates.pyx":775
  *         for n in range(N):
  *             for l in range(L):
  *                 l_dcr = np.array(np.argsort(np.multiply(             # <<<<<<<<<<<<<<
  *                     np.multiply(alpha[:-1], z[n,:]),u[d,:]))[::-1],
  *                                  dtype=np.int32)
  */
-        __pyx_t_7 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 776, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 775, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_array); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 776, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_array); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 775, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_9 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 776, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 775, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_argsort); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 776, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_argsort); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 775, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 776, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 775, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_multiply); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 776, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_multiply); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 775, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-        /* "lom/_cython/matrix_updates.pyx":777
+        /* "lom/_cython/matrix_updates.pyx":776
  *             for l in range(L):
  *                 l_dcr = np.array(np.argsort(np.multiply(
  *                     np.multiply(alpha[:-1], z[n,:]),u[d,:]))[::-1],             # <<<<<<<<<<<<<<
  *                                  dtype=np.int32)
  *                 #print(l_dcr)
  */
-        __pyx_t_13 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 777, __pyx_L1_error)
+        __pyx_t_13 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 776, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_13);
-        __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_13, __pyx_n_s_multiply); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 777, __pyx_L1_error)
+        __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_13, __pyx_n_s_multiply); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 776, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_14);
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
         __pyx_t_15.data = __pyx_v_alpha.data;
@@ -11560,10 +11658,10 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistic_output_maxmachi
     0,
     1) < 0))
 {
-    __PYX_ERR(0, 777, __pyx_L1_error)
+    __PYX_ERR(0, 776, __pyx_L1_error)
 }
 
-__pyx_t_13 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 777, __pyx_L1_error)
+__pyx_t_13 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 776, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_13);
         __PYX_XDEC_MEMVIEW(&__pyx_t_15, 1);
         __pyx_t_15.memview = NULL;
@@ -11579,7 +11677,7 @@ __pyx_t_13 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 777, __pyx_L1_error)
+        __PYX_ERR(0, 776, __pyx_L1_error)
     }
         __pyx_t_15.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -11588,7 +11686,7 @@ __pyx_t_15.shape[0] = __pyx_v_z.shape[1];
 __pyx_t_15.strides[0] = __pyx_v_z.strides[1];
     __pyx_t_15.suboffsets[0] = -1;
 
-__pyx_t_17 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 777, __pyx_L1_error)
+__pyx_t_17 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 776, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_17);
         __PYX_XDEC_MEMVIEW(&__pyx_t_15, 1);
         __pyx_t_15.memview = NULL;
@@ -11608,7 +11706,7 @@ __pyx_t_17 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_14)) {
           PyObject *__pyx_temp[3] = {__pyx_t_18, __pyx_t_13, __pyx_t_17};
-          __pyx_t_11 = __Pyx_PyFunction_FastCall(__pyx_t_14, __pyx_temp+1-__pyx_t_16, 2+__pyx_t_16); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 777, __pyx_L1_error)
+          __pyx_t_11 = __Pyx_PyFunction_FastCall(__pyx_t_14, __pyx_temp+1-__pyx_t_16, 2+__pyx_t_16); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 776, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_18); __pyx_t_18 = 0;
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
@@ -11618,7 +11716,7 @@ __pyx_t_17 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_14)) {
           PyObject *__pyx_temp[3] = {__pyx_t_18, __pyx_t_13, __pyx_t_17};
-          __pyx_t_11 = __Pyx_PyCFunction_FastCall(__pyx_t_14, __pyx_temp+1-__pyx_t_16, 2+__pyx_t_16); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 777, __pyx_L1_error)
+          __pyx_t_11 = __Pyx_PyCFunction_FastCall(__pyx_t_14, __pyx_temp+1-__pyx_t_16, 2+__pyx_t_16); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 776, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_18); __pyx_t_18 = 0;
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
@@ -11626,7 +11724,7 @@ __pyx_t_17 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         } else
         #endif
         {
-          __pyx_t_19 = PyTuple_New(2+__pyx_t_16); if (unlikely(!__pyx_t_19)) __PYX_ERR(0, 777, __pyx_L1_error)
+          __pyx_t_19 = PyTuple_New(2+__pyx_t_16); if (unlikely(!__pyx_t_19)) __PYX_ERR(0, 776, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_19);
           if (__pyx_t_18) {
             __Pyx_GIVEREF(__pyx_t_18); PyTuple_SET_ITEM(__pyx_t_19, 0, __pyx_t_18); __pyx_t_18 = NULL;
@@ -11637,7 +11735,7 @@ __pyx_t_17 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
           PyTuple_SET_ITEM(__pyx_t_19, 1+__pyx_t_16, __pyx_t_17);
           __pyx_t_13 = 0;
           __pyx_t_17 = 0;
-          __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_14, __pyx_t_19, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 777, __pyx_L1_error)
+          __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_14, __pyx_t_19, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 776, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_DECREF(__pyx_t_19); __pyx_t_19 = 0;
         }
@@ -11653,7 +11751,7 @@ __pyx_t_17 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         __pyx_tmp_idx += __pyx_tmp_shape;
     if (0 && (__pyx_tmp_idx < 0 || __pyx_tmp_idx >= __pyx_tmp_shape)) {
         PyErr_SetString(PyExc_IndexError, "Index out of bounds (axis 0)");
-        __PYX_ERR(0, 777, __pyx_L1_error)
+        __PYX_ERR(0, 776, __pyx_L1_error)
     }
         __pyx_t_15.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -11662,7 +11760,7 @@ __pyx_t_15.shape[0] = __pyx_v_u.shape[1];
 __pyx_t_15.strides[0] = __pyx_v_u.strides[1];
     __pyx_t_15.suboffsets[0] = -1;
 
-__pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 777, __pyx_L1_error)
+__pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 776, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_14);
         __PYX_XDEC_MEMVIEW(&__pyx_t_15, 1);
         __pyx_t_15.memview = NULL;
@@ -11682,7 +11780,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_12)) {
           PyObject *__pyx_temp[3] = {__pyx_t_19, __pyx_t_11, __pyx_t_14};
-          __pyx_t_9 = __Pyx_PyFunction_FastCall(__pyx_t_12, __pyx_temp+1-__pyx_t_16, 2+__pyx_t_16); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 776, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyFunction_FastCall(__pyx_t_12, __pyx_temp+1-__pyx_t_16, 2+__pyx_t_16); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 775, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_19); __pyx_t_19 = 0;
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
@@ -11692,7 +11790,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_12)) {
           PyObject *__pyx_temp[3] = {__pyx_t_19, __pyx_t_11, __pyx_t_14};
-          __pyx_t_9 = __Pyx_PyCFunction_FastCall(__pyx_t_12, __pyx_temp+1-__pyx_t_16, 2+__pyx_t_16); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 776, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyCFunction_FastCall(__pyx_t_12, __pyx_temp+1-__pyx_t_16, 2+__pyx_t_16); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 775, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_19); __pyx_t_19 = 0;
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
@@ -11700,7 +11798,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         } else
         #endif
         {
-          __pyx_t_17 = PyTuple_New(2+__pyx_t_16); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 776, __pyx_L1_error)
+          __pyx_t_17 = PyTuple_New(2+__pyx_t_16); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 775, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_17);
           if (__pyx_t_19) {
             __Pyx_GIVEREF(__pyx_t_19); PyTuple_SET_ITEM(__pyx_t_17, 0, __pyx_t_19); __pyx_t_19 = NULL;
@@ -11711,7 +11809,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
           PyTuple_SET_ITEM(__pyx_t_17, 1+__pyx_t_16, __pyx_t_14);
           __pyx_t_11 = 0;
           __pyx_t_14 = 0;
-          __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_12, __pyx_t_17, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 776, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_12, __pyx_t_17, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 775, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
         }
@@ -11727,14 +11825,14 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
           }
         }
         if (!__pyx_t_12) {
-          __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 776, __pyx_L1_error)
+          __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 775, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_GOTREF(__pyx_t_7);
         } else {
           #if CYTHON_FAST_PYCALL
           if (PyFunction_Check(__pyx_t_10)) {
             PyObject *__pyx_temp[2] = {__pyx_t_12, __pyx_t_9};
-            __pyx_t_7 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 776, __pyx_L1_error)
+            __pyx_t_7 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 775, __pyx_L1_error)
             __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_GOTREF(__pyx_t_7);
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -11743,80 +11841,80 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
           #if CYTHON_FAST_PYCCALL
           if (__Pyx_PyFastCFunction_Check(__pyx_t_10)) {
             PyObject *__pyx_temp[2] = {__pyx_t_12, __pyx_t_9};
-            __pyx_t_7 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 776, __pyx_L1_error)
+            __pyx_t_7 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 775, __pyx_L1_error)
             __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_GOTREF(__pyx_t_7);
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           } else
           #endif
           {
-            __pyx_t_17 = PyTuple_New(1+1); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 776, __pyx_L1_error)
+            __pyx_t_17 = PyTuple_New(1+1); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 775, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_17);
             __Pyx_GIVEREF(__pyx_t_12); PyTuple_SET_ITEM(__pyx_t_17, 0, __pyx_t_12); __pyx_t_12 = NULL;
             __Pyx_GIVEREF(__pyx_t_9);
             PyTuple_SET_ITEM(__pyx_t_17, 0+1, __pyx_t_9);
             __pyx_t_9 = 0;
-            __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_17, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 776, __pyx_L1_error)
+            __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_17, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 775, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_7);
             __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
           }
         }
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __pyx_t_10 = PyObject_GetItem(__pyx_t_7, __pyx_slice_); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 777, __pyx_L1_error)
+        __pyx_t_10 = PyObject_GetItem(__pyx_t_7, __pyx_slice_); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 776, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-        /* "lom/_cython/matrix_updates.pyx":776
+        /* "lom/_cython/matrix_updates.pyx":775
  *         for n in range(N):
  *             for l in range(L):
  *                 l_dcr = np.array(np.argsort(np.multiply(             # <<<<<<<<<<<<<<
  *                     np.multiply(alpha[:-1], z[n,:]),u[d,:]))[::-1],
  *                                  dtype=np.int32)
  */
-        __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 776, __pyx_L1_error)
+        __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 775, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_GIVEREF(__pyx_t_10);
         PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "lom/_cython/matrix_updates.pyx":778
+        /* "lom/_cython/matrix_updates.pyx":777
  *                 l_dcr = np.array(np.argsort(np.multiply(
  *                     np.multiply(alpha[:-1], z[n,:]),u[d,:]))[::-1],
  *                                  dtype=np.int32)             # <<<<<<<<<<<<<<
  *                 #print(l_dcr)
  *                 #print('lala')
  */
-        __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 778, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 777, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_17 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 778, __pyx_L1_error)
+        __pyx_t_17 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 777, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_17);
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_17, __pyx_n_s_int32); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 778, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_17, __pyx_n_s_int32); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 777, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
-        if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_dtype, __pyx_t_9) < 0) __PYX_ERR(0, 778, __pyx_L1_error)
+        if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_dtype, __pyx_t_9) < 0) __PYX_ERR(0, 777, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-        /* "lom/_cython/matrix_updates.pyx":776
+        /* "lom/_cython/matrix_updates.pyx":775
  *         for n in range(N):
  *             for l in range(L):
  *                 l_dcr = np.array(np.argsort(np.multiply(             # <<<<<<<<<<<<<<
  *                     np.multiply(alpha[:-1], z[n,:]),u[d,:]))[::-1],
  *                                  dtype=np.int32)
  */
-        __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_7, __pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 776, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_7, __pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 775, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_20 = __Pyx_PyObject_to_MemoryviewSlice_ds_int(__pyx_t_9);
-        if (unlikely(!__pyx_t_20.memview)) __PYX_ERR(0, 776, __pyx_L1_error)
+        if (unlikely(!__pyx_t_20.memview)) __PYX_ERR(0, 775, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __PYX_XDEC_MEMVIEW(&__pyx_v_l_dcr, 1);
         __pyx_v_l_dcr = __pyx_t_20;
         __pyx_t_20.memview = NULL;
         __pyx_t_20.data = NULL;
 
-        /* "lom/_cython/matrix_updates.pyx":781
+        /* "lom/_cython/matrix_updates.pyx":780
  *                 #print(l_dcr)
  *                 #print('lala')
  *                 pvec[l] = 1 - (z[n,l_dcr[l]] * u[d,l_dcr[l]])             # <<<<<<<<<<<<<<
@@ -11832,7 +11930,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         __pyx_t_27 = __pyx_v_l;
         *((double *) ( /* dim=0 */ (__pyx_v_pvec.data + __pyx_t_27 * __pyx_v_pvec.strides[0]) )) = (1.0 - ((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_z.data + __pyx_t_22 * __pyx_v_z.strides[0]) ) + __pyx_t_23 * __pyx_v_z.strides[1]) ))) * (*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_25 * __pyx_v_u.strides[0]) ) + __pyx_t_26 * __pyx_v_u.strides[1]) )))));
 
-        /* "lom/_cython/matrix_updates.pyx":782
+        /* "lom/_cython/matrix_updates.pyx":781
  *                 #print('lala')
  *                 pvec[l] = 1 - (z[n,l_dcr[l]] * u[d,l_dcr[l]])
  *                 for l_prime in range(l):             # <<<<<<<<<<<<<<
@@ -11843,7 +11941,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         for (__pyx_t_28 = 0; __pyx_t_28 < __pyx_t_16; __pyx_t_28+=1) {
           __pyx_v_l_prime = __pyx_t_28;
 
-          /* "lom/_cython/matrix_updates.pyx":783
+          /* "lom/_cython/matrix_updates.pyx":782
  *                 pvec[l] = 1 - (z[n,l_dcr[l]] * u[d,l_dcr[l]])
  *                 for l_prime in range(l):
  *                     pvec[l] = pvec[l] * pvec[l_prime]             # <<<<<<<<<<<<<<
@@ -11857,7 +11955,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         }
       }
 
-      /* "lom/_cython/matrix_updates.pyx":785
+      /* "lom/_cython/matrix_updates.pyx":784
  *                     pvec[l] = pvec[l] * pvec[l_prime]
  * 
  *             x[n,d] = z[n,l_dcr[0]]*u[d,l_dcr[0]]*alpha[l_dcr[0]]             # <<<<<<<<<<<<<<
@@ -11876,7 +11974,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
       __pyx_t_41 = __pyx_v_d;
       *((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_40 * __pyx_v_x.strides[0]) ) + __pyx_t_41 * __pyx_v_x.strides[1]) )) = (((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_z.data + __pyx_t_33 * __pyx_v_z.strides[0]) ) + __pyx_t_34 * __pyx_v_z.strides[1]) ))) * (*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_36 * __pyx_v_u.strides[0]) ) + __pyx_t_37 * __pyx_v_u.strides[1]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_alpha.data + __pyx_t_39 * __pyx_v_alpha.strides[0]) ))));
 
-      /* "lom/_cython/matrix_updates.pyx":786
+      /* "lom/_cython/matrix_updates.pyx":785
  * 
  *             x[n,d] = z[n,l_dcr[0]]*u[d,l_dcr[0]]*alpha[l_dcr[0]]
  *             for l in range(1,L):             # <<<<<<<<<<<<<<
@@ -11887,7 +11985,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
       for (__pyx_t_6 = 1; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
         __pyx_v_l = __pyx_t_6;
 
-        /* "lom/_cython/matrix_updates.pyx":787
+        /* "lom/_cython/matrix_updates.pyx":786
  *             x[n,d] = z[n,l_dcr[0]]*u[d,l_dcr[0]]*alpha[l_dcr[0]]
  *             for l in range(1,L):
  *                 x[n,d] += z[n,l_dcr[l]]*u[d,l_dcr[l]]*alpha[l_dcr[l]]*pvec[l-1]             # <<<<<<<<<<<<<<
@@ -11908,7 +12006,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
         *((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_51 * __pyx_v_x.strides[0]) ) + __pyx_t_52 * __pyx_v_x.strides[1]) )) += ((((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_z.data + __pyx_t_43 * __pyx_v_z.strides[0]) ) + __pyx_t_44 * __pyx_v_z.strides[1]) ))) * (*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_46 * __pyx_v_u.strides[0]) ) + __pyx_t_47 * __pyx_v_u.strides[1]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_alpha.data + __pyx_t_49 * __pyx_v_alpha.strides[0]) )))) * (*((double *) ( /* dim=0 */ (__pyx_v_pvec.data + __pyx_t_50 * __pyx_v_pvec.strides[0]) ))));
       }
 
-      /* "lom/_cython/matrix_updates.pyx":789
+      /* "lom/_cython/matrix_updates.pyx":788
  *                 x[n,d] += z[n,l_dcr[l]]*u[d,l_dcr[l]]*alpha[l_dcr[l]]*pvec[l-1]
  *             # noise dimension
  *             x[n,d] += pvec[L-1]*alpha[L]             # <<<<<<<<<<<<<<
@@ -11923,7 +12021,7 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
     }
   }
 
-  /* "lom/_cython/matrix_updates.pyx":750
+  /* "lom/_cython/matrix_updates.pyx":749
  * 
  * 
  * cpdef void probabilistic_output_maxmachine(double[:,:] x,             # <<<<<<<<<<<<<<
@@ -11954,8 +12052,8 @@ __pyx_t_14 = __pyx_memoryview_fromslice(__pyx_t_15, 1, (PyObject *(*)(char *)) _
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_35probabilistic_output_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_35probabilistic_output_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_37probabilistic_output_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_37probabilistic_output_maxmachine(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -11996,35 +12094,35 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_35probabilistic_output_
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistic_output_maxmachine", 1, 6, 6, 1); __PYX_ERR(0, 750, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistic_output_maxmachine", 1, 6, 6, 1); __PYX_ERR(0, 749, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistic_output_maxmachine", 1, 6, 6, 2); __PYX_ERR(0, 750, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistic_output_maxmachine", 1, 6, 6, 2); __PYX_ERR(0, 749, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_alpha)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistic_output_maxmachine", 1, 6, 6, 3); __PYX_ERR(0, 750, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistic_output_maxmachine", 1, 6, 6, 3); __PYX_ERR(0, 749, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_pvec)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistic_output_maxmachine", 1, 6, 6, 4); __PYX_ERR(0, 750, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistic_output_maxmachine", 1, 6, 6, 4); __PYX_ERR(0, 749, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_l_dcr)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistic_output_maxmachine", 1, 6, 6, 5); __PYX_ERR(0, 750, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistic_output_maxmachine", 1, 6, 6, 5); __PYX_ERR(0, 749, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "probabilistic_output_maxmachine") < 0)) __PYX_ERR(0, 750, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "probabilistic_output_maxmachine") < 0)) __PYX_ERR(0, 749, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
       goto __pyx_L5_argtuple_error;
@@ -12036,41 +12134,41 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_35probabilistic_output_
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 750, __pyx_L3_error)
-    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 751, __pyx_L3_error)
-    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 752, __pyx_L3_error)
-    __pyx_v_alpha = __Pyx_PyObject_to_MemoryviewSlice_ds_double(values[3]); if (unlikely(!__pyx_v_alpha.memview)) __PYX_ERR(0, 753, __pyx_L3_error)
-    __pyx_v_pvec = __Pyx_PyObject_to_MemoryviewSlice_ds_double(values[4]); if (unlikely(!__pyx_v_pvec.memview)) __PYX_ERR(0, 754, __pyx_L3_error)
-    __pyx_v_l_dcr = __Pyx_PyObject_to_MemoryviewSlice_ds_int(values[5]); if (unlikely(!__pyx_v_l_dcr.memview)) __PYX_ERR(0, 755, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 749, __pyx_L3_error)
+    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 750, __pyx_L3_error)
+    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 751, __pyx_L3_error)
+    __pyx_v_alpha = __Pyx_PyObject_to_MemoryviewSlice_ds_double(values[3]); if (unlikely(!__pyx_v_alpha.memview)) __PYX_ERR(0, 752, __pyx_L3_error)
+    __pyx_v_pvec = __Pyx_PyObject_to_MemoryviewSlice_ds_double(values[4]); if (unlikely(!__pyx_v_pvec.memview)) __PYX_ERR(0, 753, __pyx_L3_error)
+    __pyx_v_l_dcr = __Pyx_PyObject_to_MemoryviewSlice_ds_int(values[5]); if (unlikely(!__pyx_v_l_dcr.memview)) __PYX_ERR(0, 754, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("probabilistic_output_maxmachine", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 750, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("probabilistic_output_maxmachine", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 749, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lom._cython.matrix_updates.probabilistic_output_maxmachine", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_34probabilistic_output_maxmachine(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_alpha, __pyx_v_pvec, __pyx_v_l_dcr);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_36probabilistic_output_maxmachine(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_alpha, __pyx_v_pvec, __pyx_v_l_dcr);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_34probabilistic_output_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_pvec, __Pyx_memviewslice __pyx_v_l_dcr) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_36probabilistic_output_maxmachine(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, __Pyx_memviewslice __pyx_v_alpha, __Pyx_memviewslice __pyx_v_pvec, __Pyx_memviewslice __pyx_v_l_dcr) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("probabilistic_output_maxmachine", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 750, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 750, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 750, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_alpha.memview)) { __Pyx_RaiseUnboundLocalError("alpha"); __PYX_ERR(0, 750, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_pvec.memview)) { __Pyx_RaiseUnboundLocalError("pvec"); __PYX_ERR(0, 750, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_l_dcr.memview)) { __Pyx_RaiseUnboundLocalError("l_dcr"); __PYX_ERR(0, 750, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_14matrix_updates_probabilistic_output_maxmachine(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_alpha, __pyx_v_pvec, __pyx_v_l_dcr, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 750, __pyx_L1_error)
+  if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 749, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 749, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 749, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_alpha.memview)) { __Pyx_RaiseUnboundLocalError("alpha"); __PYX_ERR(0, 749, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_pvec.memview)) { __Pyx_RaiseUnboundLocalError("pvec"); __PYX_ERR(0, 749, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_l_dcr.memview)) { __Pyx_RaiseUnboundLocalError("l_dcr"); __PYX_ERR(0, 749, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_14matrix_updates_probabilistic_output_maxmachine(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_alpha, __pyx_v_pvec, __pyx_v_l_dcr, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 749, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -12093,7 +12191,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_34probabilistic_output_
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":793
+/* "lom/_cython/matrix_updates.pyx":792
  * 
  * 
  * cdef float parent_contribution_to_maxmachine(data_type_t[:,:] u_pa,             # <<<<<<<<<<<<<<
@@ -12121,7 +12219,7 @@ static float __pyx_f_3lom_7_cython_14matrix_updates_parent_contribution_to_maxma
   Py_ssize_t __pyx_t_13;
   __Pyx_RefNannySetupContext("parent_contribution_to_maxmachine", 0);
 
-  /* "lom/_cython/matrix_updates.pyx":802
+  /* "lom/_cython/matrix_updates.pyx":801
  *     """
  *     cdef int m
  *     cdef int M = u_pa.shape[1]             # <<<<<<<<<<<<<<
@@ -12130,7 +12228,7 @@ static float __pyx_f_3lom_7_cython_14matrix_updates_parent_contribution_to_maxma
  */
   __pyx_v_M = (__pyx_v_u_pa.shape[1]);
 
-  /* "lom/_cython/matrix_updates.pyx":804
+  /* "lom/_cython/matrix_updates.pyx":803
  *     cdef int M = u_pa.shape[1]
  * 
  *     for m in range(M):             # <<<<<<<<<<<<<<
@@ -12141,7 +12239,7 @@ static float __pyx_f_3lom_7_cython_14matrix_updates_parent_contribution_to_maxma
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_m = __pyx_t_2;
 
-    /* "lom/_cython/matrix_updates.pyx":805
+    /* "lom/_cython/matrix_updates.pyx":804
  * 
  *     for m in range(M):
  *         if (z_pa[n,idx_sorted[m]] == 1) and (u_pa[l,idx_sorted[m]] == 1):             # <<<<<<<<<<<<<<
@@ -12165,7 +12263,7 @@ static float __pyx_f_3lom_7_cython_14matrix_updates_parent_contribution_to_maxma
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_3) {
 
-      /* "lom/_cython/matrix_updates.pyx":806
+      /* "lom/_cython/matrix_updates.pyx":805
  *     for m in range(M):
  *         if (z_pa[n,idx_sorted[m]] == 1) and (u_pa[l,idx_sorted[m]] == 1):
  *             return logit_lbda_pa[idx_sorted[m]]             # <<<<<<<<<<<<<<
@@ -12177,7 +12275,7 @@ static float __pyx_f_3lom_7_cython_14matrix_updates_parent_contribution_to_maxma
       __pyx_r = (*((double *) ( /* dim=0 */ (__pyx_v_logit_lbda_pa.data + __pyx_t_12 * __pyx_v_logit_lbda_pa.strides[0]) )));
       goto __pyx_L0;
 
-      /* "lom/_cython/matrix_updates.pyx":805
+      /* "lom/_cython/matrix_updates.pyx":804
  * 
  *     for m in range(M):
  *         if (z_pa[n,idx_sorted[m]] == 1) and (u_pa[l,idx_sorted[m]] == 1):             # <<<<<<<<<<<<<<
@@ -12187,7 +12285,7 @@ static float __pyx_f_3lom_7_cython_14matrix_updates_parent_contribution_to_maxma
     }
   }
 
-  /* "lom/_cython/matrix_updates.pyx":809
+  /* "lom/_cython/matrix_updates.pyx":808
  * 
  *     # if no inpute was on, return clamped
  *     return logit_lbda_pa[M]             # <<<<<<<<<<<<<<
@@ -12198,7 +12296,7 @@ static float __pyx_f_3lom_7_cython_14matrix_updates_parent_contribution_to_maxma
   __pyx_r = (*((double *) ( /* dim=0 */ (__pyx_v_logit_lbda_pa.data + __pyx_t_13 * __pyx_v_logit_lbda_pa.strides[0]) )));
   goto __pyx_L0;
 
-  /* "lom/_cython/matrix_updates.pyx":793
+  /* "lom/_cython/matrix_updates.pyx":792
  * 
  * 
  * cdef float parent_contribution_to_maxmachine(data_type_t[:,:] u_pa,             # <<<<<<<<<<<<<<
@@ -12212,7 +12310,7 @@ static float __pyx_f_3lom_7_cython_14matrix_updates_parent_contribution_to_maxma
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":820
+/* "lom/_cython/matrix_updates.pyx":819
  * 
  * 
  * cdef void get_prior(np.float64_t[:] row_binom, np.float64_t[:] col_binom,             # <<<<<<<<<<<<<<
@@ -12232,7 +12330,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_get_prior(__Pyx_memviewslice 
   Py_ssize_t __pyx_t_8;
   __Pyx_RefNannySetupContext("get_prior", 0);
 
-  /* "lom/_cython/matrix_updates.pyx":828
+  /* "lom/_cython/matrix_updates.pyx":827
  *     """
  * 
  *     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -12242,7 +12340,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_get_prior(__Pyx_memviewslice 
   switch (__pyx_v_prior_code) {
     case 2:
 
-    /* "lom/_cython/matrix_updates.pyx":829
+    /* "lom/_cython/matrix_updates.pyx":828
  * 
  *     if prior_code == 2:
  *         prior = row_binom[row_densities[n]]             # <<<<<<<<<<<<<<
@@ -12253,7 +12351,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_get_prior(__Pyx_memviewslice 
     __pyx_t_2 = (*((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_row_densities.data + __pyx_t_1 * __pyx_v_row_densities.strides[0]) )));
     __pyx_v_prior = (*((__pyx_t_5numpy_float64_t *) ( /* dim=0 */ (__pyx_v_row_binom.data + __pyx_t_2 * __pyx_v_row_binom.strides[0]) )));
 
-    /* "lom/_cython/matrix_updates.pyx":828
+    /* "lom/_cython/matrix_updates.pyx":827
  *     """
  * 
  *     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -12262,7 +12360,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_get_prior(__Pyx_memviewslice 
  */
     break;
 
-    /* "lom/_cython/matrix_updates.pyx":830
+    /* "lom/_cython/matrix_updates.pyx":829
  *     if prior_code == 2:
  *         prior = row_binom[row_densities[n]]
  *     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -12271,7 +12369,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_get_prior(__Pyx_memviewslice 
  */
     case 3:
 
-    /* "lom/_cython/matrix_updates.pyx":831
+    /* "lom/_cython/matrix_updates.pyx":830
  *         prior = row_binom[row_densities[n]]
  *     elif prior_code == 3:
  *         prior = col_binom[col_densities[l]]             # <<<<<<<<<<<<<<
@@ -12282,7 +12380,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_get_prior(__Pyx_memviewslice 
     __pyx_t_4 = (*((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_col_densities.data + __pyx_t_3 * __pyx_v_col_densities.strides[0]) )));
     __pyx_v_prior = (*((__pyx_t_5numpy_float64_t *) ( /* dim=0 */ (__pyx_v_col_binom.data + __pyx_t_4 * __pyx_v_col_binom.strides[0]) )));
 
-    /* "lom/_cython/matrix_updates.pyx":830
+    /* "lom/_cython/matrix_updates.pyx":829
  *     if prior_code == 2:
  *         prior = row_binom[row_densities[n]]
  *     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -12291,7 +12389,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_get_prior(__Pyx_memviewslice 
  */
     break;
 
-    /* "lom/_cython/matrix_updates.pyx":832
+    /* "lom/_cython/matrix_updates.pyx":831
  *     elif prior_code == 3:
  *         prior = col_binom[col_densities[l]]
  *     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -12300,7 +12398,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_get_prior(__Pyx_memviewslice 
  */
     case 4:
 
-    /* "lom/_cython/matrix_updates.pyx":833
+    /* "lom/_cython/matrix_updates.pyx":832
  *         prior = col_binom[col_densities[l]]
  *     elif prior_code == 4:
  *         prior = row_binom[row_densities[n]] + col_binom[col_densities[l]]             # <<<<<<<<<<<<<<
@@ -12313,7 +12411,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_get_prior(__Pyx_memviewslice 
     __pyx_t_8 = (*((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_col_densities.data + __pyx_t_7 * __pyx_v_col_densities.strides[0]) )));
     __pyx_v_prior = ((*((__pyx_t_5numpy_float64_t *) ( /* dim=0 */ (__pyx_v_row_binom.data + __pyx_t_6 * __pyx_v_row_binom.strides[0]) ))) + (*((__pyx_t_5numpy_float64_t *) ( /* dim=0 */ (__pyx_v_col_binom.data + __pyx_t_8 * __pyx_v_col_binom.strides[0]) ))));
 
-    /* "lom/_cython/matrix_updates.pyx":832
+    /* "lom/_cython/matrix_updates.pyx":831
  *     elif prior_code == 3:
  *         prior = col_binom[col_densities[l]]
  *     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -12324,7 +12422,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_get_prior(__Pyx_memviewslice 
     default: break;
   }
 
-  /* "lom/_cython/matrix_updates.pyx":820
+  /* "lom/_cython/matrix_updates.pyx":819
  * 
  * 
  * cdef void get_prior(np.float64_t[:] row_binom, np.float64_t[:] col_binom,             # <<<<<<<<<<<<<<
@@ -12336,7 +12434,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_get_prior(__Pyx_memviewslice 
   __Pyx_RefNannyFinishContext();
 }
 
-/* "lom/_cython/matrix_updates.pyx":836
+/* "lom/_cython/matrix_updates.pyx":835
  * 
  * 
  * cdef void update_prior_counts(np.float64_t[:] row_binom, np.float64_t[:] col_binom,             # <<<<<<<<<<<<<<
@@ -12350,7 +12448,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_update_prior_counts(CYTHON_UN
   Py_ssize_t __pyx_t_3;
   Py_ssize_t __pyx_t_4;
 
-  /* "lom/_cython/matrix_updates.pyx":844
+  /* "lom/_cython/matrix_updates.pyx":843
  *     """
  * 
  *     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -12360,7 +12458,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_update_prior_counts(CYTHON_UN
   switch (__pyx_v_prior_code) {
     case 2:
 
-    /* "lom/_cython/matrix_updates.pyx":845
+    /* "lom/_cython/matrix_updates.pyx":844
  * 
  *     if prior_code == 2:
  *         row_densities[n] += x_new             # <<<<<<<<<<<<<<
@@ -12370,7 +12468,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_update_prior_counts(CYTHON_UN
     __pyx_t_1 = __pyx_v_n;
     *((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_row_densities.data + __pyx_t_1 * __pyx_v_row_densities.strides[0]) )) += __pyx_v_x_new;
 
-    /* "lom/_cython/matrix_updates.pyx":844
+    /* "lom/_cython/matrix_updates.pyx":843
  *     """
  * 
  *     if prior_code == 2:             # <<<<<<<<<<<<<<
@@ -12379,7 +12477,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_update_prior_counts(CYTHON_UN
  */
     break;
 
-    /* "lom/_cython/matrix_updates.pyx":846
+    /* "lom/_cython/matrix_updates.pyx":845
  *     if prior_code == 2:
  *         row_densities[n] += x_new
  *     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -12388,7 +12486,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_update_prior_counts(CYTHON_UN
  */
     case 3:
 
-    /* "lom/_cython/matrix_updates.pyx":847
+    /* "lom/_cython/matrix_updates.pyx":846
  *         row_densities[n] += x_new
  *     elif prior_code == 3:
  *         col_densities[l] += x_new             # <<<<<<<<<<<<<<
@@ -12398,7 +12496,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_update_prior_counts(CYTHON_UN
     __pyx_t_2 = __pyx_v_l;
     *((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_col_densities.data + __pyx_t_2 * __pyx_v_col_densities.strides[0]) )) += __pyx_v_x_new;
 
-    /* "lom/_cython/matrix_updates.pyx":846
+    /* "lom/_cython/matrix_updates.pyx":845
  *     if prior_code == 2:
  *         row_densities[n] += x_new
  *     elif prior_code == 3:             # <<<<<<<<<<<<<<
@@ -12407,7 +12505,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_update_prior_counts(CYTHON_UN
  */
     break;
 
-    /* "lom/_cython/matrix_updates.pyx":848
+    /* "lom/_cython/matrix_updates.pyx":847
  *     elif prior_code == 3:
  *         col_densities[l] += x_new
  *     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -12416,7 +12514,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_update_prior_counts(CYTHON_UN
  */
     case 4:
 
-    /* "lom/_cython/matrix_updates.pyx":849
+    /* "lom/_cython/matrix_updates.pyx":848
  *         col_densities[l] += x_new
  *     elif prior_code == 4:
  *         row_densities[n] += x_new             # <<<<<<<<<<<<<<
@@ -12426,7 +12524,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_update_prior_counts(CYTHON_UN
     __pyx_t_3 = __pyx_v_n;
     *((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_row_densities.data + __pyx_t_3 * __pyx_v_row_densities.strides[0]) )) += __pyx_v_x_new;
 
-    /* "lom/_cython/matrix_updates.pyx":850
+    /* "lom/_cython/matrix_updates.pyx":849
  *     elif prior_code == 4:
  *         row_densities[n] += x_new
  *         col_densities[l] += x_new             # <<<<<<<<<<<<<<
@@ -12436,7 +12534,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_update_prior_counts(CYTHON_UN
     __pyx_t_4 = __pyx_v_l;
     *((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_col_densities.data + __pyx_t_4 * __pyx_v_col_densities.strides[0]) )) += __pyx_v_x_new;
 
-    /* "lom/_cython/matrix_updates.pyx":848
+    /* "lom/_cython/matrix_updates.pyx":847
  *     elif prior_code == 3:
  *         col_densities[l] += x_new
  *     elif prior_code == 4:             # <<<<<<<<<<<<<<
@@ -12447,7 +12545,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_update_prior_counts(CYTHON_UN
     default: break;
   }
 
-  /* "lom/_cython/matrix_updates.pyx":836
+  /* "lom/_cython/matrix_updates.pyx":835
  * 
  * 
  * cdef void update_prior_counts(np.float64_t[:] row_binom, np.float64_t[:] col_binom,             # <<<<<<<<<<<<<<
@@ -12458,7 +12556,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_update_prior_counts(CYTHON_UN
   /* function exit code */
 }
 
-/* "lom/_cython/matrix_updates.pyx":853
+/* "lom/_cython/matrix_updates.pyx":852
  * 
  * 
  * cpdef void probabilistc_output_indpndt(double[:,:] x,             # <<<<<<<<<<<<<<
@@ -12466,7 +12564,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_update_prior_counts(CYTHON_UN
  *                                        double[:,:] z,
  */
 
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_37probabilistc_output_indpndt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_39probabilistc_output_indpndt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(__Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, double __pyx_v_mu, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L, CYTHON_UNUSED int __pyx_skip_dispatch) {
   float __pyx_v_p_dn;
   float __pyx_v_sgmd_lbda;
@@ -12489,7 +12587,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(_
   Py_ssize_t __pyx_t_12;
   __Pyx_RefNannySetupContext("probabilistc_output_indpndt", 0);
 
-  /* "lom/_cython/matrix_updates.pyx":864
+  /* "lom/_cython/matrix_updates.pyx":863
  *     """
  * 
  *     sgmd_lbda = sigmoid(lbda)             # <<<<<<<<<<<<<<
@@ -12498,7 +12596,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(_
  */
   __pyx_v_sgmd_lbda = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_lbda, 0);
 
-  /* "lom/_cython/matrix_updates.pyx":865
+  /* "lom/_cython/matrix_updates.pyx":864
  * 
  *     sgmd_lbda = sigmoid(lbda)
  *     sgmd_mu = sigmoid(mu)             # <<<<<<<<<<<<<<
@@ -12507,7 +12605,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(_
  */
   __pyx_v_sgmd_mu = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_mu, 0);
 
-  /* "lom/_cython/matrix_updates.pyx":866
+  /* "lom/_cython/matrix_updates.pyx":865
  *     sgmd_lbda = sigmoid(lbda)
  *     sgmd_mu = sigmoid(mu)
  *     for d in range(D):             # <<<<<<<<<<<<<<
@@ -12518,7 +12616,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(_
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_d = __pyx_t_2;
 
-    /* "lom/_cython/matrix_updates.pyx":867
+    /* "lom/_cython/matrix_updates.pyx":866
  *     sgmd_mu = sigmoid(mu)
  *     for d in range(D):
  *         for n in range(N):             # <<<<<<<<<<<<<<
@@ -12529,7 +12627,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(_
     for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_n = __pyx_t_4;
 
-      /* "lom/_cython/matrix_updates.pyx":868
+      /* "lom/_cython/matrix_updates.pyx":867
  *     for d in range(D):
  *         for n in range(N):
  *             p_dn = 1             # <<<<<<<<<<<<<<
@@ -12538,7 +12636,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(_
  */
       __pyx_v_p_dn = 1.0;
 
-      /* "lom/_cython/matrix_updates.pyx":869
+      /* "lom/_cython/matrix_updates.pyx":868
  *         for n in range(N):
  *             p_dn = 1
  *             for l in range(L):             # <<<<<<<<<<<<<<
@@ -12549,7 +12647,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(_
       for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
         __pyx_v_l = __pyx_t_6;
 
-        /* "lom/_cython/matrix_updates.pyx":870
+        /* "lom/_cython/matrix_updates.pyx":869
  *             p_dn = 1
  *             for l in range(L):
  *                 p_dn = p_dn * ( 1 - u[d,l]*z[n,l] )             # <<<<<<<<<<<<<<
@@ -12563,7 +12661,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(_
         __pyx_v_p_dn = (__pyx_v_p_dn * (1.0 - ((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_u.data + __pyx_t_7 * __pyx_v_u.strides[0]) ) + __pyx_t_8 * __pyx_v_u.strides[1]) ))) * (*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_z.data + __pyx_t_9 * __pyx_v_z.strides[0]) ) + __pyx_t_10 * __pyx_v_z.strides[1]) ))))));
       }
 
-      /* "lom/_cython/matrix_updates.pyx":871
+      /* "lom/_cython/matrix_updates.pyx":870
  *             for l in range(L):
  *                 p_dn = p_dn * ( 1 - u[d,l]*z[n,l] )
  *             x[n, d] = (sgmd_lbda * (1-p_dn) + (p_dn*(1-sgmd_mu) ) )             # <<<<<<<<<<<<<<
@@ -12576,7 +12674,7 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(_
     }
   }
 
-  /* "lom/_cython/matrix_updates.pyx":853
+  /* "lom/_cython/matrix_updates.pyx":852
  * 
  * 
  * cpdef void probabilistc_output_indpndt(double[:,:] x,             # <<<<<<<<<<<<<<
@@ -12589,8 +12687,8 @@ static void __pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(_
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_37probabilistc_output_indpndt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_37probabilistc_output_indpndt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_39probabilistc_output_indpndt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_39probabilistc_output_indpndt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_u = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_z = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -12637,47 +12735,47 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_37probabilistc_output_i
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, 1); __PYX_ERR(0, 853, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, 1); __PYX_ERR(0, 852, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, 2); __PYX_ERR(0, 853, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, 2); __PYX_ERR(0, 852, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lbda)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, 3); __PYX_ERR(0, 853, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, 3); __PYX_ERR(0, 852, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mu)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, 4); __PYX_ERR(0, 853, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, 4); __PYX_ERR(0, 852, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_D)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, 5); __PYX_ERR(0, 853, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, 5); __PYX_ERR(0, 852, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (likely((values[6] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_N)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, 6); __PYX_ERR(0, 853, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, 6); __PYX_ERR(0, 852, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
         if (likely((values[7] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_L)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, 7); __PYX_ERR(0, 853, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, 7); __PYX_ERR(0, 852, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "probabilistc_output_indpndt") < 0)) __PYX_ERR(0, 853, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "probabilistc_output_indpndt") < 0)) __PYX_ERR(0, 852, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 8) {
       goto __pyx_L5_argtuple_error;
@@ -12691,40 +12789,40 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_37probabilistc_output_i
       values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
       values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 853, __pyx_L3_error)
-    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 854, __pyx_L3_error)
-    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 855, __pyx_L3_error)
-    __pyx_v_lbda = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_lbda == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 856, __pyx_L3_error)
-    __pyx_v_mu = __pyx_PyFloat_AsDouble(values[4]); if (unlikely((__pyx_v_mu == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 857, __pyx_L3_error)
-    __pyx_v_D = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_D == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 858, __pyx_L3_error)
-    __pyx_v_N = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_N == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 858, __pyx_L3_error)
-    __pyx_v_L = __Pyx_PyInt_As_int(values[7]); if (unlikely((__pyx_v_L == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 858, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 852, __pyx_L3_error)
+    __pyx_v_u = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[1]); if (unlikely(!__pyx_v_u.memview)) __PYX_ERR(0, 853, __pyx_L3_error)
+    __pyx_v_z = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[2]); if (unlikely(!__pyx_v_z.memview)) __PYX_ERR(0, 854, __pyx_L3_error)
+    __pyx_v_lbda = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_lbda == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 855, __pyx_L3_error)
+    __pyx_v_mu = __pyx_PyFloat_AsDouble(values[4]); if (unlikely((__pyx_v_mu == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 856, __pyx_L3_error)
+    __pyx_v_D = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_D == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 857, __pyx_L3_error)
+    __pyx_v_N = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_N == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 857, __pyx_L3_error)
+    __pyx_v_L = __Pyx_PyInt_As_int(values[7]); if (unlikely((__pyx_v_L == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 857, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 853, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("probabilistc_output_indpndt", 1, 8, 8, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 852, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lom._cython.matrix_updates.probabilistc_output_indpndt", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_36probabilistc_output_indpndt(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_mu, __pyx_v_D, __pyx_v_N, __pyx_v_L);
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_38probabilistc_output_indpndt(__pyx_self, __pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_mu, __pyx_v_D, __pyx_v_N, __pyx_v_L);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_36probabilistc_output_indpndt(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, double __pyx_v_mu, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38probabilistc_output_indpndt(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_u, __Pyx_memviewslice __pyx_v_z, double __pyx_v_lbda, double __pyx_v_mu, int __pyx_v_D, int __pyx_v_N, int __pyx_v_L) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("probabilistc_output_indpndt", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 853, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 853, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 853, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_mu, __pyx_v_D, __pyx_v_N, __pyx_v_L, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 853, __pyx_L1_error)
+  if (unlikely(!__pyx_v_x.memview)) { __Pyx_RaiseUnboundLocalError("x"); __PYX_ERR(0, 852, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_u.memview)) { __Pyx_RaiseUnboundLocalError("u"); __PYX_ERR(0, 852, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_z.memview)) { __Pyx_RaiseUnboundLocalError("z"); __PYX_ERR(0, 852, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_3lom_7_cython_14matrix_updates_probabilistc_output_indpndt(__pyx_v_x, __pyx_v_u, __pyx_v_z, __pyx_v_lbda, __pyx_v_mu, __pyx_v_D, __pyx_v_N, __pyx_v_L, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 852, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -12744,7 +12842,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_36probabilistc_output_i
   return __pyx_r;
 }
 
-/* "lom/_cython/matrix_updates.pyx":875
+/* "lom/_cython/matrix_updates.pyx":874
  * 
  * 
  * def draw_noparents_onechild_old_prior(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -12753,9 +12851,9 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_36probabilistc_output_i
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_39draw_noparents_onechild_old_prior(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3lom_7_cython_14matrix_updates_39draw_noparents_onechild_old_prior = {"draw_noparents_onechild_old_prior", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_39draw_noparents_onechild_old_prior, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_39draw_noparents_onechild_old_prior(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_41draw_noparents_onechild_old_prior(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_3lom_7_cython_14matrix_updates_41draw_noparents_onechild_old_prior = {"draw_noparents_onechild_old_prior", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_41draw_noparents_onechild_old_prior, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_41draw_noparents_onechild_old_prior(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   __Pyx_memviewslice __pyx_v_x = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_sibling = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_child = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -12796,35 +12894,35 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_39draw_noparents_onechi
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_sibling)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_old_prior", 1, 6, 6, 1); __PYX_ERR(0, 875, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_old_prior", 1, 6, 6, 1); __PYX_ERR(0, 874, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_child)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_old_prior", 1, 6, 6, 2); __PYX_ERR(0, 875, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_old_prior", 1, 6, 6, 2); __PYX_ERR(0, 874, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lbda)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_old_prior", 1, 6, 6, 3); __PYX_ERR(0, 875, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_old_prior", 1, 6, 6, 3); __PYX_ERR(0, 874, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_prior_config)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_old_prior", 1, 6, 6, 4); __PYX_ERR(0, 875, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_old_prior", 1, 6, 6, 4); __PYX_ERR(0, 874, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_sampling_indicator)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_old_prior", 1, 6, 6, 5); __PYX_ERR(0, 875, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_old_prior", 1, 6, 6, 5); __PYX_ERR(0, 874, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "draw_noparents_onechild_old_prior") < 0)) __PYX_ERR(0, 875, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "draw_noparents_onechild_old_prior") < 0)) __PYX_ERR(0, 874, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
       goto __pyx_L5_argtuple_error;
@@ -12836,23 +12934,23 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_39draw_noparents_onechi
       values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 875, __pyx_L3_error)
-    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 876, __pyx_L3_error)
-    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 877, __pyx_L3_error)
-    __pyx_v_lbda = __pyx_PyFloat_AsFloat(values[3]); if (unlikely((__pyx_v_lbda == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 878, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[0]); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 874, __pyx_L3_error)
+    __pyx_v_sibling = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[1]); if (unlikely(!__pyx_v_sibling.memview)) __PYX_ERR(0, 875, __pyx_L3_error)
+    __pyx_v_child = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[2]); if (unlikely(!__pyx_v_child.memview)) __PYX_ERR(0, 876, __pyx_L3_error)
+    __pyx_v_lbda = __pyx_PyFloat_AsFloat(values[3]); if (unlikely((__pyx_v_lbda == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 877, __pyx_L3_error)
     __pyx_v_prior_config = ((PyObject*)values[4]);
-    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[5]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 880, __pyx_L3_error)
+    __pyx_v_sampling_indicator = __Pyx_PyObject_to_MemoryviewSlice_dsds_nn___pyx_t_3lom_7_cython_14matrix_updates_data_type_t(values[5]); if (unlikely(!__pyx_v_sampling_indicator.memview)) __PYX_ERR(0, 879, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_old_prior", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 875, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("draw_noparents_onechild_old_prior", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 874, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("lom._cython.matrix_updates.draw_noparents_onechild_old_prior", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prior_config), (&PyList_Type), 1, "prior_config", 1))) __PYX_ERR(0, 879, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechild_old_prior(__pyx_self, __pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_prior_config, __pyx_v_sampling_indicator);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prior_config), (&PyList_Type), 1, "prior_config", 1))) __PYX_ERR(0, 878, __pyx_L1_error)
+  __pyx_r = __pyx_pf_3lom_7_cython_14matrix_updates_40draw_noparents_onechild_old_prior(__pyx_self, __pyx_v_x, __pyx_v_sibling, __pyx_v_child, __pyx_v_lbda, __pyx_v_prior_config, __pyx_v_sampling_indicator);
 
   /* function exit code */
   goto __pyx_L0;
@@ -12863,7 +12961,7 @@ static PyObject *__pyx_pw_3lom_7_cython_14matrix_updates_39draw_noparents_onechi
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechild_old_prior(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator) {
+static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_40draw_noparents_onechild_old_prior(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_x, __Pyx_memviewslice __pyx_v_sibling, __Pyx_memviewslice __pyx_v_child, float __pyx_v_lbda, PyObject *__pyx_v_prior_config, __Pyx_memviewslice __pyx_v_sampling_indicator) {
   CYTHON_UNUSED PyArrayObject *__pyx_v_row_binom = 0;
   CYTHON_UNUSED PyArrayObject *__pyx_v_col_binom = 0;
   CYTHON_UNUSED PyArrayObject *__pyx_v_row_densities = 0;
@@ -12923,7 +13021,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
   __pyx_pybuffernd_col_densities.data = NULL;
   __pyx_pybuffernd_col_densities.rcbuffer = &__pyx_pybuffer_col_densities;
 
-  /* "lom/_cython/matrix_updates.pyx":883
+  /* "lom/_cython/matrix_updates.pyx":882
  * 
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]             # <<<<<<<<<<<<<<
@@ -12932,23 +13030,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 883, __pyx_L1_error)
+    __PYX_ERR(0, 882, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 2)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 2), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 883, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 2)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 2), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 882, __pyx_L1_error)
   __pyx_t_1 = PyList_GET_ITEM(__pyx_v_prior_config, 2);
   __Pyx_INCREF(__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_row_binom.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_1), &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_row_binom = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 883, __pyx_L1_error)
+      __PYX_ERR(0, 882, __pyx_L1_error)
     } else {__pyx_pybuffernd_row_binom.diminfo[0].strides = __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_row_binom.diminfo[0].shape = __pyx_pybuffernd_row_binom.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_row_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":884
+  /* "lom/_cython/matrix_updates.pyx":883
  *     # unpack prior config
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]             # <<<<<<<<<<<<<<
@@ -12957,23 +13055,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 884, __pyx_L1_error)
+    __PYX_ERR(0, 883, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 3)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 3), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 884, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 3)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 3), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 883, __pyx_L1_error)
   __pyx_t_1 = PyList_GET_ITEM(__pyx_v_prior_config, 3);
   __Pyx_INCREF(__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_col_binom.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_1), &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_col_binom = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 884, __pyx_L1_error)
+      __PYX_ERR(0, 883, __pyx_L1_error)
     } else {__pyx_pybuffernd_col_binom.diminfo[0].strides = __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_col_binom.diminfo[0].shape = __pyx_pybuffernd_col_binom.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_col_binom = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":885
+  /* "lom/_cython/matrix_updates.pyx":884
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] row_binom = prior_config[2]
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]             # <<<<<<<<<<<<<<
@@ -12982,23 +13080,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 885, __pyx_L1_error)
+    __PYX_ERR(0, 884, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 4)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 4), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 885, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 4)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 4), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 884, __pyx_L1_error)
   __pyx_t_1 = PyList_GET_ITEM(__pyx_v_prior_config, 4);
   __Pyx_INCREF(__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_row_densities.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_1), &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_row_densities = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 885, __pyx_L1_error)
+      __PYX_ERR(0, 884, __pyx_L1_error)
     } else {__pyx_pybuffernd_row_densities.diminfo[0].strides = __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_row_densities.diminfo[0].shape = __pyx_pybuffernd_row_densities.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_row_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":886
+  /* "lom/_cython/matrix_updates.pyx":885
  *     cdef np.ndarray[ndim=1, dtype=np.float64_t] col_binom = prior_config[3]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]             # <<<<<<<<<<<<<<
@@ -13007,23 +13105,23 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 886, __pyx_L1_error)
+    __PYX_ERR(0, 885, __pyx_L1_error)
   }
-  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 5)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 5), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 886, __pyx_L1_error)
+  if (!(likely(((PyList_GET_ITEM(__pyx_v_prior_config, 5)) == Py_None) || likely(__Pyx_TypeTest(PyList_GET_ITEM(__pyx_v_prior_config, 5), __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 885, __pyx_L1_error)
   __pyx_t_1 = PyList_GET_ITEM(__pyx_v_prior_config, 5);
   __Pyx_INCREF(__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_col_densities.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_1), &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_col_densities = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 886, __pyx_L1_error)
+      __PYX_ERR(0, 885, __pyx_L1_error)
     } else {__pyx_pybuffernd_col_densities.diminfo[0].strides = __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_col_densities.diminfo[0].shape = __pyx_pybuffernd_col_densities.rcbuffer->pybuffer.shape[0];
     }
   }
   __pyx_v_col_densities = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":887
+  /* "lom/_cython/matrix_updates.pyx":886
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] row_densities = prior_config[4]
  *     cdef np.ndarray[ndim=1, dtype=np.int32_t] col_densities = prior_config[5]
  *     cdef int prior_code = prior_config[0]             # <<<<<<<<<<<<<<
@@ -13032,12 +13130,12 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
  */
   if (unlikely(__pyx_v_prior_config == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 887, __pyx_L1_error)
+    __PYX_ERR(0, 886, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_PyInt_As_int(PyList_GET_ITEM(__pyx_v_prior_config, 0)); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 887, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(PyList_GET_ITEM(__pyx_v_prior_config, 0)); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 886, __pyx_L1_error)
   __pyx_v_prior_code = __pyx_t_2;
 
-  /* "lom/_cython/matrix_updates.pyx":889
+  /* "lom/_cython/matrix_updates.pyx":888
  *     cdef int prior_code = prior_config[0]
  *     cdef float p, acc_child
  *     cdef float prior = 0             # <<<<<<<<<<<<<<
@@ -13046,7 +13144,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
  */
   __pyx_v_prior = 0.0;
 
-  /* "lom/_cython/matrix_updates.pyx":890
+  /* "lom/_cython/matrix_updates.pyx":889
  *     cdef float p, acc_child
  *     cdef float prior = 0
  *     cdef int n, d, N = x.shape[0], D = x.shape[1]             # <<<<<<<<<<<<<<
@@ -13056,7 +13154,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
   __pyx_v_N = (__pyx_v_x.shape[0]);
   __pyx_v_D = (__pyx_v_x.shape[1]);
 
-  /* "lom/_cython/matrix_updates.pyx":893
+  /* "lom/_cython/matrix_updates.pyx":892
  *     cdef data_type_t x_old
  * 
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -13066,7 +13164,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
   __pyx_t_3 = ((__pyx_v_prior_code == 1) != 0);
   if (__pyx_t_3) {
 
-    /* "lom/_cython/matrix_updates.pyx":894
+    /* "lom/_cython/matrix_updates.pyx":893
  * 
  *     if prior_code == 1:
  *         prior = prior_config[1]             # <<<<<<<<<<<<<<
@@ -13075,12 +13173,12 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
  */
     if (unlikely(__pyx_v_prior_config == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 894, __pyx_L1_error)
+      __PYX_ERR(0, 893, __pyx_L1_error)
     }
-    __pyx_t_4 = __pyx_PyFloat_AsFloat(PyList_GET_ITEM(__pyx_v_prior_config, 1)); if (unlikely((__pyx_t_4 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 894, __pyx_L1_error)
+    __pyx_t_4 = __pyx_PyFloat_AsFloat(PyList_GET_ITEM(__pyx_v_prior_config, 1)); if (unlikely((__pyx_t_4 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 893, __pyx_L1_error)
     __pyx_v_prior = __pyx_t_4;
 
-    /* "lom/_cython/matrix_updates.pyx":893
+    /* "lom/_cython/matrix_updates.pyx":892
  *     cdef data_type_t x_old
  * 
  *     if prior_code == 1:             # <<<<<<<<<<<<<<
@@ -13089,7 +13187,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
  */
   }
 
-  /* "lom/_cython/matrix_updates.pyx":897
+  /* "lom/_cython/matrix_updates.pyx":896
  * 
  *     # for n in range(N):
  *     for n in prange(N, schedule='dynamic', nogil=True):             # <<<<<<<<<<<<<<
@@ -13147,7 +13245,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
                             __pyx_v_p = ((float)__PYX_NAN());
                             __pyx_v_x_old = ((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t)'?');
 
-                            /* "lom/_cython/matrix_updates.pyx":898
+                            /* "lom/_cython/matrix_updates.pyx":897
  *     # for n in range(N):
  *     for n in prange(N, schedule='dynamic', nogil=True):
  *         for d in range(D):             # <<<<<<<<<<<<<<
@@ -13158,7 +13256,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
                             for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
                               __pyx_v_d = __pyx_t_8;
 
-                              /* "lom/_cython/matrix_updates.pyx":899
+                              /* "lom/_cython/matrix_updates.pyx":898
  *     for n in prange(N, schedule='dynamic', nogil=True):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -13170,7 +13268,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
                               __pyx_t_3 = (((*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_sampling_indicator.data + __pyx_t_9 * __pyx_v_sampling_indicator.strides[0]) ) + __pyx_t_10 * __pyx_v_sampling_indicator.strides[1]) ))) == 1) != 0);
                               if (__pyx_t_3) {
 
-                                /* "lom/_cython/matrix_updates.pyx":902
+                                /* "lom/_cython/matrix_updates.pyx":901
  * 
  *                 # compute the posterior
  *                 acc_child = lbda*score_no_parents_unified(child[n,:], x[n,:], sibling, d)             # <<<<<<<<<<<<<<
@@ -13194,7 +13292,7 @@ static PyObject *__pyx_pf_3lom_7_cython_14matrix_updates_38draw_noparents_onechi
             #ifdef WITH_THREAD
             PyGILState_Release(__pyx_gilstate_save);
             #endif
-        __PYX_ERR(0, 902, __pyx_L9_error)
+        __PYX_ERR(0, 901, __pyx_L9_error)
     }
         __pyx_t_11.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -13220,7 +13318,7 @@ __pyx_t_12.data = __pyx_v_x.data;
             #ifdef WITH_THREAD
             PyGILState_Release(__pyx_gilstate_save);
             #endif
-        __PYX_ERR(0, 902, __pyx_L9_error)
+        __PYX_ERR(0, 901, __pyx_L9_error)
     }
         __pyx_t_12.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
@@ -13229,7 +13327,7 @@ __pyx_t_12.shape[0] = __pyx_v_x.shape[1];
 __pyx_t_12.strides[0] = __pyx_v_x.strides[1];
     __pyx_t_12.suboffsets[0] = -1;
 
-__pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__pyx_t_11, __pyx_t_12, __pyx_v_sibling, __pyx_v_d));
+__pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score_no_parents_unified(__pyx_t_11, __pyx_t_12, __pyx_v_sibling, __pyx_v_d, 0));
                                 __PYX_XDEC_MEMVIEW(&__pyx_t_11, 0);
                                 __pyx_t_11.memview = NULL;
                                 __pyx_t_11.data = NULL;
@@ -13237,7 +13335,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
                                 __pyx_t_12.memview = NULL;
                                 __pyx_t_12.data = NULL;
 
-                                /* "lom/_cython/matrix_updates.pyx":914
+                                /* "lom/_cython/matrix_updates.pyx":913
  *                 # p = sigmoid(acc_child + prior)
  * 
  *                 p = sigmoid(acc_child)             # <<<<<<<<<<<<<<
@@ -13246,7 +13344,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
  */
                                 __pyx_v_p = __pyx_f_3lom_7_cython_14matrix_updates_sigmoid(__pyx_v_acc_child, 0);
 
-                                /* "lom/_cython/matrix_updates.pyx":916
+                                /* "lom/_cython/matrix_updates.pyx":915
  *                 p = sigmoid(acc_child)
  * 
  *                 x_old = x[n,d]             # <<<<<<<<<<<<<<
@@ -13257,7 +13355,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
                                 __pyx_t_14 = __pyx_v_d;
                                 __pyx_v_x_old = (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_13 * __pyx_v_x.strides[0]) ) + __pyx_t_14 * __pyx_v_x.strides[1]) )));
 
-                                /* "lom/_cython/matrix_updates.pyx":917
+                                /* "lom/_cython/matrix_updates.pyx":916
  * 
  *                 x_old = x[n,d]
  *                 x[n, d] = swap_metropolised_gibbs_unified(p, x[n,d])             # <<<<<<<<<<<<<<
@@ -13270,7 +13368,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
                                 __pyx_t_18 = __pyx_v_d;
                                 *((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_17 * __pyx_v_x.strides[0]) ) + __pyx_t_18 * __pyx_v_x.strides[1]) )) = __pyx_f_3lom_7_cython_14matrix_updates_swap_metropolised_gibbs_unified(__pyx_v_p, (*((__pyx_t_3lom_7_cython_14matrix_updates_data_type_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_x.data + __pyx_t_15 * __pyx_v_x.strides[0]) ) + __pyx_t_16 * __pyx_v_x.strides[1]) ))), 0);
 
-                                /* "lom/_cython/matrix_updates.pyx":899
+                                /* "lom/_cython/matrix_updates.pyx":898
  *     for n in prange(N, schedule='dynamic', nogil=True):
  *         for d in range(D):
  *             if sampling_indicator[n,d] == 1:             # <<<<<<<<<<<<<<
@@ -13370,7 +13468,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
         #endif
       }
 
-      /* "lom/_cython/matrix_updates.pyx":897
+      /* "lom/_cython/matrix_updates.pyx":896
  * 
  *     # for n in range(N):
  *     for n in prange(N, schedule='dynamic', nogil=True):             # <<<<<<<<<<<<<<
@@ -13396,7 +13494,7 @@ __pyx_v_acc_child = (__pyx_v_lbda * __pyx_f_3lom_7_cython_14matrix_updates_score
       }
   }
 
-  /* "lom/_cython/matrix_updates.pyx":875
+  /* "lom/_cython/matrix_updates.pyx":874
  * 
  * 
  * def draw_noparents_onechild_old_prior(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
@@ -29504,16 +29602,17 @@ static PyTypeObject __pyx_type___pyx_memoryviewslice = {
 
 static PyMethodDef __pyx_methods[] = {
   {"predict_single_latent", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_17predict_single_latent, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_16predict_single_latent},
-  {"swap_gibbs", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_19swap_gibbs, METH_O, __pyx_doc_3lom_7_cython_14matrix_updates_18swap_gibbs},
-  {"swap_metropolised_gibbs_unified", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_21swap_metropolised_gibbs_unified, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_20swap_metropolised_gibbs_unified},
-  {"swap_gibbs_unified", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_23swap_gibbs_unified, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_22swap_gibbs_unified},
-  {"sigmoid", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_25sigmoid, METH_O, 0},
-  {"compute_pred_accuracy", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_27compute_pred_accuracy, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_26compute_pred_accuracy},
-  {"compute_P_parallel", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_29compute_P_parallel, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_28compute_P_parallel},
-  {"compute_P", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_31compute_P, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_30compute_P},
-  {"probabilistc_output", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_33probabilistc_output, METH_VARARGS|METH_KEYWORDS, 0},
-  {"probabilistic_output_maxmachine", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_35probabilistic_output_maxmachine, METH_VARARGS|METH_KEYWORDS, 0},
-  {"probabilistc_output_indpndt", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_37probabilistc_output_indpndt, METH_VARARGS|METH_KEYWORDS, 0},
+  {"score_no_parents_unified", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_19score_no_parents_unified, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_18score_no_parents_unified},
+  {"swap_gibbs", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_21swap_gibbs, METH_O, __pyx_doc_3lom_7_cython_14matrix_updates_20swap_gibbs},
+  {"swap_metropolised_gibbs_unified", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_23swap_metropolised_gibbs_unified, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_22swap_metropolised_gibbs_unified},
+  {"swap_gibbs_unified", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_25swap_gibbs_unified, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_24swap_gibbs_unified},
+  {"sigmoid", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_27sigmoid, METH_O, 0},
+  {"compute_pred_accuracy", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_29compute_pred_accuracy, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_28compute_pred_accuracy},
+  {"compute_P_parallel", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_31compute_P_parallel, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_30compute_P_parallel},
+  {"compute_P", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_33compute_P, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3lom_7_cython_14matrix_updates_32compute_P},
+  {"probabilistc_output", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_35probabilistc_output, METH_VARARGS|METH_KEYWORDS, 0},
+  {"probabilistic_output_maxmachine", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_37probabilistic_output_maxmachine, METH_VARARGS|METH_KEYWORDS, 0},
+  {"probabilistc_output_indpndt", (PyCFunction)__pyx_pw_3lom_7_cython_14matrix_updates_39probabilistc_output_indpndt, METH_VARARGS|METH_KEYWORDS, 0},
   {0, 0, 0, 0}
 };
 
@@ -29632,6 +29731,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_int8, __pyx_k_int8, sizeof(__pyx_k_int8), 0, 0, 1, 1},
   {&__pyx_n_s_itemsize, __pyx_k_itemsize, sizeof(__pyx_k_itemsize), 0, 0, 1, 1},
   {&__pyx_kp_s_itemsize_0_for_cython_array, __pyx_k_itemsize_0_for_cython_array, sizeof(__pyx_k_itemsize_0_for_cython_array), 0, 0, 1, 0},
+  {&__pyx_n_s_l, __pyx_k_l, sizeof(__pyx_k_l), 0, 0, 1, 1},
   {&__pyx_n_s_l_dcr, __pyx_k_l_dcr, sizeof(__pyx_k_l_dcr), 0, 0, 1, 1},
   {&__pyx_n_s_l_idx, __pyx_k_l_idx, sizeof(__pyx_k_l_idx), 0, 0, 1, 1},
   {&__pyx_n_s_lbda, __pyx_k_lbda, sizeof(__pyx_k_lbda), 0, 0, 1, 1},
@@ -29739,14 +29839,14 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "lom/_cython/matrix_updates.pyx":777
+  /* "lom/_cython/matrix_updates.pyx":776
  *             for l in range(L):
  *                 l_dcr = np.array(np.argsort(np.multiply(
  *                     np.multiply(alpha[:-1], z[n,:]),u[d,:]))[::-1],             # <<<<<<<<<<<<<<
  *                                  dtype=np.int32)
  *                 #print(l_dcr)
  */
-  __pyx_slice_ = PySlice_New(Py_None, Py_None, __pyx_int_neg_1); if (unlikely(!__pyx_slice_)) __PYX_ERR(0, 777, __pyx_L1_error)
+  __pyx_slice_ = PySlice_New(Py_None, Py_None, __pyx_int_neg_1); if (unlikely(!__pyx_slice_)) __PYX_ERR(0, 776, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice_);
   __Pyx_GIVEREF(__pyx_slice_);
 
@@ -30093,70 +30193,70 @@ static int __Pyx_InitCachedConstants(void) {
  *                            data_type_t[:,:] sibling, # D x Lc
  *                            data_type_t[:,:] child, # N x Lc
  */
-  __pyx_tuple__36 = PyTuple_Pack(13, __pyx_n_s_x, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_sampling_indicator, __pyx_n_s_p, __pyx_n_s_acc_child, __pyx_n_s_prior, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_x_old); if (unlikely(!__pyx_tuple__36)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __pyx_tuple__36 = PyTuple_Pack(12, __pyx_n_s_x, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_sampling_indicator, __pyx_n_s_p, __pyx_n_s_acc_child, __pyx_n_s_prior, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D); if (unlikely(!__pyx_tuple__36)) __PYX_ERR(0, 286, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__36);
   __Pyx_GIVEREF(__pyx_tuple__36);
-  __pyx_codeobj__37 = (PyObject*)__Pyx_PyCode_New(5, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__36, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_noparents_onechild, 286, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__37)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __pyx_codeobj__37 = (PyObject*)__Pyx_PyCode_New(5, 0, 12, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__36, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_noparents_onechild, 286, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__37)) __PYX_ERR(0, 286, __pyx_L1_error)
 
-  /* "lom/_cython/matrix_updates.pyx":312
+  /* "lom/_cython/matrix_updates.pyx":310
  * 
  * 
  * def draw_noparents_onechild_single_thread(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
  *                            data_type_t[:,:] sibling, # D x Lc
  *                            data_type_t[:,:] child, # N x Lc
  */
-  __pyx_tuple__38 = PyTuple_Pack(13, __pyx_n_s_x, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_sampling_indicator, __pyx_n_s_p, __pyx_n_s_acc_child, __pyx_n_s_prior, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_x_old); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_tuple__38 = PyTuple_Pack(13, __pyx_n_s_x, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_sampling_indicator, __pyx_n_s_p, __pyx_n_s_acc_child, __pyx_n_s_prior, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_x_old); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 310, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__38);
   __Pyx_GIVEREF(__pyx_tuple__38);
-  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(5, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_noparents_onechild_single_t, 312, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(5, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_noparents_onechild_single_t, 310, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 310, __pyx_L1_error)
 
-  /* "lom/_cython/matrix_updates.pyx":337
+  /* "lom/_cython/matrix_updates.pyx":335
  * 
  * 
  * def draw_oneparent_nochild(             # <<<<<<<<<<<<<<
  *     data_type_t[:,:] x,  # N x D
  *     data_type_t[:,:] z_pa, # N x Lp
  */
-  __pyx_tuple__40 = PyTuple_Pack(19, __pyx_n_s_x, __pyx_n_s_z_pa, __pyx_n_s_u_pa, __pyx_n_s_lbda_pa, __pyx_n_s_prior_config, __pyx_n_s_sampling_indicator, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_acc_par, __pyx_n_s_p, __pyx_n_s_prior, __pyx_n_s_x_old, __pyx_n_s_row_binom, __pyx_n_s_col_binom, __pyx_n_s_row_densities, __pyx_n_s_col_densities, __pyx_n_s_prior_code); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __pyx_tuple__40 = PyTuple_Pack(19, __pyx_n_s_x, __pyx_n_s_z_pa, __pyx_n_s_u_pa, __pyx_n_s_lbda_pa, __pyx_n_s_prior_config, __pyx_n_s_sampling_indicator, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_acc_par, __pyx_n_s_p, __pyx_n_s_prior, __pyx_n_s_x_old, __pyx_n_s_row_binom, __pyx_n_s_col_binom, __pyx_n_s_row_densities, __pyx_n_s_col_densities, __pyx_n_s_prior_code); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 335, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__40);
   __Pyx_GIVEREF(__pyx_tuple__40);
-  __pyx_codeobj__41 = (PyObject*)__Pyx_PyCode_New(6, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__40, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_oneparent_nochild, 337, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__41)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __pyx_codeobj__41 = (PyObject*)__Pyx_PyCode_New(6, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__40, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_oneparent_nochild, 335, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__41)) __PYX_ERR(0, 335, __pyx_L1_error)
 
-  /* "lom/_cython/matrix_updates.pyx":385
+  /* "lom/_cython/matrix_updates.pyx":383
  * 
  * 
  * def draw_twoparents_nochild(             # <<<<<<<<<<<<<<
  *         data_type_t[:,:] x,  # N x D
  *         data_type_t[:,:] z_pa1, # N x Lp1
  */
-  __pyx_tuple__42 = PyTuple_Pack(22, __pyx_n_s_x, __pyx_n_s_z_pa1, __pyx_n_s_u_pa1, __pyx_n_s_lbda_pa1, __pyx_n_s_z_pa2, __pyx_n_s_u_pa2, __pyx_n_s_lbda_pa2, __pyx_n_s_prior_config, __pyx_n_s_sampling_indicator, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_acc_par, __pyx_n_s_p, __pyx_n_s_prior, __pyx_n_s_x_old, __pyx_n_s_row_binom, __pyx_n_s_col_binom, __pyx_n_s_row_densities, __pyx_n_s_col_densities, __pyx_n_s_prior_code); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 385, __pyx_L1_error)
+  __pyx_tuple__42 = PyTuple_Pack(22, __pyx_n_s_x, __pyx_n_s_z_pa1, __pyx_n_s_u_pa1, __pyx_n_s_lbda_pa1, __pyx_n_s_z_pa2, __pyx_n_s_u_pa2, __pyx_n_s_lbda_pa2, __pyx_n_s_prior_config, __pyx_n_s_sampling_indicator, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_acc_par, __pyx_n_s_p, __pyx_n_s_prior, __pyx_n_s_x_old, __pyx_n_s_row_binom, __pyx_n_s_col_binom, __pyx_n_s_row_densities, __pyx_n_s_col_densities, __pyx_n_s_prior_code); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 383, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__42);
   __Pyx_GIVEREF(__pyx_tuple__42);
-  __pyx_codeobj__43 = (PyObject*)__Pyx_PyCode_New(9, 0, 22, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__42, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_twoparents_nochild, 385, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__43)) __PYX_ERR(0, 385, __pyx_L1_error)
+  __pyx_codeobj__43 = (PyObject*)__Pyx_PyCode_New(9, 0, 22, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__42, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_twoparents_nochild, 383, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__43)) __PYX_ERR(0, 383, __pyx_L1_error)
 
-  /* "lom/_cython/matrix_updates.pyx":442
+  /* "lom/_cython/matrix_updates.pyx":440
  * 
  * 
  * def draw_oneparent_onechild(             # <<<<<<<<<<<<<<
  *         data_type_t[:,:] x,  # N x D
  *         data_type_t[:,:] z_pa, # N x Lp
  */
-  __pyx_tuple__44 = PyTuple_Pack(23, __pyx_n_s_x, __pyx_n_s_z_pa, __pyx_n_s_u_pa, __pyx_n_s_lbda_pa, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_prior_config, __pyx_n_s_sampling_indicator, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_acc_par, __pyx_n_s_acc_child, __pyx_n_s_p, __pyx_n_s_prior, __pyx_n_s_x_old, __pyx_n_s_prior_code, __pyx_n_s_row_binom, __pyx_n_s_col_binom, __pyx_n_s_row_densities, __pyx_n_s_col_densities); if (unlikely(!__pyx_tuple__44)) __PYX_ERR(0, 442, __pyx_L1_error)
+  __pyx_tuple__44 = PyTuple_Pack(23, __pyx_n_s_x, __pyx_n_s_z_pa, __pyx_n_s_u_pa, __pyx_n_s_lbda_pa, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_prior_config, __pyx_n_s_sampling_indicator, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_acc_par, __pyx_n_s_acc_child, __pyx_n_s_p, __pyx_n_s_prior, __pyx_n_s_x_old, __pyx_n_s_prior_code, __pyx_n_s_row_binom, __pyx_n_s_col_binom, __pyx_n_s_row_densities, __pyx_n_s_col_densities); if (unlikely(!__pyx_tuple__44)) __PYX_ERR(0, 440, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__44);
   __Pyx_GIVEREF(__pyx_tuple__44);
-  __pyx_codeobj__45 = (PyObject*)__Pyx_PyCode_New(9, 0, 23, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__44, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_oneparent_onechild, 442, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__45)) __PYX_ERR(0, 442, __pyx_L1_error)
+  __pyx_codeobj__45 = (PyObject*)__Pyx_PyCode_New(9, 0, 23, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__44, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_oneparent_onechild, 440, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__45)) __PYX_ERR(0, 440, __pyx_L1_error)
 
-  /* "lom/_cython/matrix_updates.pyx":875
+  /* "lom/_cython/matrix_updates.pyx":874
  * 
  * 
  * def draw_noparents_onechild_old_prior(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
  *                            data_type_t[:,:] sibling, # D x Lc
  *                            data_type_t[:,:] child, # N x Lc
  */
-  __pyx_tuple__46 = PyTuple_Pack(19, __pyx_n_s_x, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_prior_config, __pyx_n_s_sampling_indicator, __pyx_n_s_row_binom, __pyx_n_s_col_binom, __pyx_n_s_row_densities, __pyx_n_s_col_densities, __pyx_n_s_prior_code, __pyx_n_s_p, __pyx_n_s_acc_child, __pyx_n_s_prior, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_x_old); if (unlikely(!__pyx_tuple__46)) __PYX_ERR(0, 875, __pyx_L1_error)
+  __pyx_tuple__46 = PyTuple_Pack(19, __pyx_n_s_x, __pyx_n_s_sibling, __pyx_n_s_child, __pyx_n_s_lbda, __pyx_n_s_prior_config, __pyx_n_s_sampling_indicator, __pyx_n_s_row_binom, __pyx_n_s_col_binom, __pyx_n_s_row_densities, __pyx_n_s_col_densities, __pyx_n_s_prior_code, __pyx_n_s_p, __pyx_n_s_acc_child, __pyx_n_s_prior, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_N, __pyx_n_s_D, __pyx_n_s_x_old); if (unlikely(!__pyx_tuple__46)) __PYX_ERR(0, 874, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__46);
   __Pyx_GIVEREF(__pyx_tuple__46);
-  __pyx_codeobj__47 = (PyObject*)__Pyx_PyCode_New(6, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__46, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_noparents_onechild_old_prio, 875, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__47)) __PYX_ERR(0, 875, __pyx_L1_error)
+  __pyx_codeobj__47 = (PyObject*)__Pyx_PyCode_New(6, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__46, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_lom__cython_matrix_updates_pyx, __pyx_n_s_draw_noparents_onechild_old_prio, 874, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__47)) __PYX_ERR(0, 874, __pyx_L1_error)
 
   /* "View.MemoryView":284
  *         return self.name
@@ -30535,64 +30635,64 @@ static int __pyx_pymod_exec_matrix_updates(PyObject *__pyx_pyinit_module)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_noparents_onechild, __pyx_t_1) < 0) __PYX_ERR(0, 286, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":312
+  /* "lom/_cython/matrix_updates.pyx":310
  * 
  * 
  * def draw_noparents_onechild_single_thread(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
  *                            data_type_t[:,:] sibling, # D x Lc
  *                            data_type_t[:,:] child, # N x Lc
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_9draw_noparents_onechild_single_thread, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_9draw_noparents_onechild_single_thread, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 310, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_noparents_onechild_single_t, __pyx_t_1) < 0) __PYX_ERR(0, 312, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_noparents_onechild_single_t, __pyx_t_1) < 0) __PYX_ERR(0, 310, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":337
+  /* "lom/_cython/matrix_updates.pyx":335
  * 
  * 
  * def draw_oneparent_nochild(             # <<<<<<<<<<<<<<
  *     data_type_t[:,:] x,  # N x D
  *     data_type_t[:,:] z_pa, # N x Lp
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_11draw_oneparent_nochild, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_11draw_oneparent_nochild, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 335, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_oneparent_nochild, __pyx_t_1) < 0) __PYX_ERR(0, 337, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_oneparent_nochild, __pyx_t_1) < 0) __PYX_ERR(0, 335, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":385
+  /* "lom/_cython/matrix_updates.pyx":383
  * 
  * 
  * def draw_twoparents_nochild(             # <<<<<<<<<<<<<<
  *         data_type_t[:,:] x,  # N x D
  *         data_type_t[:,:] z_pa1, # N x Lp1
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_13draw_twoparents_nochild, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 385, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_13draw_twoparents_nochild, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 383, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_twoparents_nochild, __pyx_t_1) < 0) __PYX_ERR(0, 385, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_twoparents_nochild, __pyx_t_1) < 0) __PYX_ERR(0, 383, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":442
+  /* "lom/_cython/matrix_updates.pyx":440
  * 
  * 
  * def draw_oneparent_onechild(             # <<<<<<<<<<<<<<
  *         data_type_t[:,:] x,  # N x D
  *         data_type_t[:,:] z_pa, # N x Lp
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_15draw_oneparent_onechild, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 442, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_15draw_oneparent_onechild, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 440, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_oneparent_onechild, __pyx_t_1) < 0) __PYX_ERR(0, 442, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_oneparent_onechild, __pyx_t_1) < 0) __PYX_ERR(0, 440, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "lom/_cython/matrix_updates.pyx":875
+  /* "lom/_cython/matrix_updates.pyx":874
  * 
  * 
  * def draw_noparents_onechild_old_prior(data_type_t[:,:] x,  # N x D             # <<<<<<<<<<<<<<
  *                            data_type_t[:,:] sibling, # D x Lc
  *                            data_type_t[:,:] child, # N x Lc
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_39draw_noparents_onechild_old_prior, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 875, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3lom_7_cython_14matrix_updates_41draw_noparents_onechild_old_prior, NULL, __pyx_n_s_lom__cython_matrix_updates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 874, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_noparents_onechild_old_prio, __pyx_t_1) < 0) __PYX_ERR(0, 875, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_draw_noparents_onechild_old_prio, __pyx_t_1) < 0) __PYX_ERR(0, 874, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "lom/_cython/matrix_updates.pyx":1
@@ -34131,195 +34231,6 @@ no_fail:
 }
 
 /* CIntFromPy */
-      static CYTHON_INLINE npy_int8 __Pyx_PyInt_As_npy_int8(PyObject *x) {
-    const npy_int8 neg_one = (npy_int8) -1, const_zero = (npy_int8) 0;
-    const int is_unsigned = neg_one > const_zero;
-#if PY_MAJOR_VERSION < 3
-    if (likely(PyInt_Check(x))) {
-        if (sizeof(npy_int8) < sizeof(long)) {
-            __PYX_VERIFY_RETURN_INT(npy_int8, long, PyInt_AS_LONG(x))
-        } else {
-            long val = PyInt_AS_LONG(x);
-            if (is_unsigned && unlikely(val < 0)) {
-                goto raise_neg_overflow;
-            }
-            return (npy_int8) val;
-        }
-    } else
-#endif
-    if (likely(PyLong_Check(x))) {
-        if (is_unsigned) {
-#if CYTHON_USE_PYLONG_INTERNALS
-            const digit* digits = ((PyLongObject*)x)->ob_digit;
-            switch (Py_SIZE(x)) {
-                case  0: return (npy_int8) 0;
-                case  1: __PYX_VERIFY_RETURN_INT(npy_int8, digit, digits[0])
-                case 2:
-                    if (8 * sizeof(npy_int8) > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(npy_int8, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(npy_int8) >= 2 * PyLong_SHIFT) {
-                            return (npy_int8) (((((npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0]));
-                        }
-                    }
-                    break;
-                case 3:
-                    if (8 * sizeof(npy_int8) > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(npy_int8, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(npy_int8) >= 3 * PyLong_SHIFT) {
-                            return (npy_int8) (((((((npy_int8)digits[2]) << PyLong_SHIFT) | (npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0]));
-                        }
-                    }
-                    break;
-                case 4:
-                    if (8 * sizeof(npy_int8) > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(npy_int8, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(npy_int8) >= 4 * PyLong_SHIFT) {
-                            return (npy_int8) (((((((((npy_int8)digits[3]) << PyLong_SHIFT) | (npy_int8)digits[2]) << PyLong_SHIFT) | (npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0]));
-                        }
-                    }
-                    break;
-            }
-#endif
-#if CYTHON_COMPILING_IN_CPYTHON
-            if (unlikely(Py_SIZE(x) < 0)) {
-                goto raise_neg_overflow;
-            }
-#else
-            {
-                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
-                if (unlikely(result < 0))
-                    return (npy_int8) -1;
-                if (unlikely(result == 1))
-                    goto raise_neg_overflow;
-            }
-#endif
-            if (sizeof(npy_int8) <= sizeof(unsigned long)) {
-                __PYX_VERIFY_RETURN_INT_EXC(npy_int8, unsigned long, PyLong_AsUnsignedLong(x))
-#ifdef HAVE_LONG_LONG
-            } else if (sizeof(npy_int8) <= sizeof(unsigned PY_LONG_LONG)) {
-                __PYX_VERIFY_RETURN_INT_EXC(npy_int8, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
-#endif
-            }
-        } else {
-#if CYTHON_USE_PYLONG_INTERNALS
-            const digit* digits = ((PyLongObject*)x)->ob_digit;
-            switch (Py_SIZE(x)) {
-                case  0: return (npy_int8) 0;
-                case -1: __PYX_VERIFY_RETURN_INT(npy_int8, sdigit, (sdigit) (-(sdigit)digits[0]))
-                case  1: __PYX_VERIFY_RETURN_INT(npy_int8,  digit, +digits[0])
-                case -2:
-                    if (8 * sizeof(npy_int8) - 1 > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(npy_int8, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(npy_int8) - 1 > 2 * PyLong_SHIFT) {
-                            return (npy_int8) (((npy_int8)-1)*(((((npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0])));
-                        }
-                    }
-                    break;
-                case 2:
-                    if (8 * sizeof(npy_int8) > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(npy_int8, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(npy_int8) - 1 > 2 * PyLong_SHIFT) {
-                            return (npy_int8) ((((((npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0])));
-                        }
-                    }
-                    break;
-                case -3:
-                    if (8 * sizeof(npy_int8) - 1 > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(npy_int8, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(npy_int8) - 1 > 3 * PyLong_SHIFT) {
-                            return (npy_int8) (((npy_int8)-1)*(((((((npy_int8)digits[2]) << PyLong_SHIFT) | (npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0])));
-                        }
-                    }
-                    break;
-                case 3:
-                    if (8 * sizeof(npy_int8) > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(npy_int8, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(npy_int8) - 1 > 3 * PyLong_SHIFT) {
-                            return (npy_int8) ((((((((npy_int8)digits[2]) << PyLong_SHIFT) | (npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0])));
-                        }
-                    }
-                    break;
-                case -4:
-                    if (8 * sizeof(npy_int8) - 1 > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(npy_int8, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(npy_int8) - 1 > 4 * PyLong_SHIFT) {
-                            return (npy_int8) (((npy_int8)-1)*(((((((((npy_int8)digits[3]) << PyLong_SHIFT) | (npy_int8)digits[2]) << PyLong_SHIFT) | (npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0])));
-                        }
-                    }
-                    break;
-                case 4:
-                    if (8 * sizeof(npy_int8) > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(npy_int8, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(npy_int8) - 1 > 4 * PyLong_SHIFT) {
-                            return (npy_int8) ((((((((((npy_int8)digits[3]) << PyLong_SHIFT) | (npy_int8)digits[2]) << PyLong_SHIFT) | (npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0])));
-                        }
-                    }
-                    break;
-            }
-#endif
-            if (sizeof(npy_int8) <= sizeof(long)) {
-                __PYX_VERIFY_RETURN_INT_EXC(npy_int8, long, PyLong_AsLong(x))
-#ifdef HAVE_LONG_LONG
-            } else if (sizeof(npy_int8) <= sizeof(PY_LONG_LONG)) {
-                __PYX_VERIFY_RETURN_INT_EXC(npy_int8, PY_LONG_LONG, PyLong_AsLongLong(x))
-#endif
-            }
-        }
-        {
-#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
-            PyErr_SetString(PyExc_RuntimeError,
-                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
-#else
-            npy_int8 val;
-            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
- #if PY_MAJOR_VERSION < 3
-            if (likely(v) && !PyLong_Check(v)) {
-                PyObject *tmp = v;
-                v = PyNumber_Long(tmp);
-                Py_DECREF(tmp);
-            }
- #endif
-            if (likely(v)) {
-                int one = 1; int is_little = (int)*(unsigned char *)&one;
-                unsigned char *bytes = (unsigned char *)&val;
-                int ret = _PyLong_AsByteArray((PyLongObject *)v,
-                                              bytes, sizeof(val),
-                                              is_little, !is_unsigned);
-                Py_DECREF(v);
-                if (likely(!ret))
-                    return val;
-            }
-#endif
-            return (npy_int8) -1;
-        }
-    } else {
-        npy_int8 val;
-        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
-        if (!tmp) return (npy_int8) -1;
-        val = __Pyx_PyInt_As_npy_int8(tmp);
-        Py_DECREF(tmp);
-        return val;
-    }
-raise_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "value too large to convert to npy_int8");
-    return (npy_int8) -1;
-raise_neg_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "can't convert negative value to npy_int8");
-    return (npy_int8) -1;
-}
-
-/* CIntFromPy */
       static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *x) {
     const int neg_one = (int) -1, const_zero = (int) 0;
     const int is_unsigned = neg_one > const_zero;
@@ -34506,6 +34417,195 @@ raise_neg_overflow:
     PyErr_SetString(PyExc_OverflowError,
         "can't convert negative value to int");
     return (int) -1;
+}
+
+/* CIntFromPy */
+      static CYTHON_INLINE npy_int8 __Pyx_PyInt_As_npy_int8(PyObject *x) {
+    const npy_int8 neg_one = (npy_int8) -1, const_zero = (npy_int8) 0;
+    const int is_unsigned = neg_one > const_zero;
+#if PY_MAJOR_VERSION < 3
+    if (likely(PyInt_Check(x))) {
+        if (sizeof(npy_int8) < sizeof(long)) {
+            __PYX_VERIFY_RETURN_INT(npy_int8, long, PyInt_AS_LONG(x))
+        } else {
+            long val = PyInt_AS_LONG(x);
+            if (is_unsigned && unlikely(val < 0)) {
+                goto raise_neg_overflow;
+            }
+            return (npy_int8) val;
+        }
+    } else
+#endif
+    if (likely(PyLong_Check(x))) {
+        if (is_unsigned) {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (npy_int8) 0;
+                case  1: __PYX_VERIFY_RETURN_INT(npy_int8, digit, digits[0])
+                case 2:
+                    if (8 * sizeof(npy_int8) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int8, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int8) >= 2 * PyLong_SHIFT) {
+                            return (npy_int8) (((((npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0]));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(npy_int8) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int8, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int8) >= 3 * PyLong_SHIFT) {
+                            return (npy_int8) (((((((npy_int8)digits[2]) << PyLong_SHIFT) | (npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0]));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(npy_int8) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int8, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int8) >= 4 * PyLong_SHIFT) {
+                            return (npy_int8) (((((((((npy_int8)digits[3]) << PyLong_SHIFT) | (npy_int8)digits[2]) << PyLong_SHIFT) | (npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0]));
+                        }
+                    }
+                    break;
+            }
+#endif
+#if CYTHON_COMPILING_IN_CPYTHON
+            if (unlikely(Py_SIZE(x) < 0)) {
+                goto raise_neg_overflow;
+            }
+#else
+            {
+                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
+                if (unlikely(result < 0))
+                    return (npy_int8) -1;
+                if (unlikely(result == 1))
+                    goto raise_neg_overflow;
+            }
+#endif
+            if (sizeof(npy_int8) <= sizeof(unsigned long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(npy_int8, unsigned long, PyLong_AsUnsignedLong(x))
+#ifdef HAVE_LONG_LONG
+            } else if (sizeof(npy_int8) <= sizeof(unsigned PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(npy_int8, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
+#endif
+            }
+        } else {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (npy_int8) 0;
+                case -1: __PYX_VERIFY_RETURN_INT(npy_int8, sdigit, (sdigit) (-(sdigit)digits[0]))
+                case  1: __PYX_VERIFY_RETURN_INT(npy_int8,  digit, +digits[0])
+                case -2:
+                    if (8 * sizeof(npy_int8) - 1 > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int8, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int8) - 1 > 2 * PyLong_SHIFT) {
+                            return (npy_int8) (((npy_int8)-1)*(((((npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0])));
+                        }
+                    }
+                    break;
+                case 2:
+                    if (8 * sizeof(npy_int8) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int8, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int8) - 1 > 2 * PyLong_SHIFT) {
+                            return (npy_int8) ((((((npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0])));
+                        }
+                    }
+                    break;
+                case -3:
+                    if (8 * sizeof(npy_int8) - 1 > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int8, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int8) - 1 > 3 * PyLong_SHIFT) {
+                            return (npy_int8) (((npy_int8)-1)*(((((((npy_int8)digits[2]) << PyLong_SHIFT) | (npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0])));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(npy_int8) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int8, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int8) - 1 > 3 * PyLong_SHIFT) {
+                            return (npy_int8) ((((((((npy_int8)digits[2]) << PyLong_SHIFT) | (npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0])));
+                        }
+                    }
+                    break;
+                case -4:
+                    if (8 * sizeof(npy_int8) - 1 > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int8, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int8) - 1 > 4 * PyLong_SHIFT) {
+                            return (npy_int8) (((npy_int8)-1)*(((((((((npy_int8)digits[3]) << PyLong_SHIFT) | (npy_int8)digits[2]) << PyLong_SHIFT) | (npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0])));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(npy_int8) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int8, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int8) - 1 > 4 * PyLong_SHIFT) {
+                            return (npy_int8) ((((((((((npy_int8)digits[3]) << PyLong_SHIFT) | (npy_int8)digits[2]) << PyLong_SHIFT) | (npy_int8)digits[1]) << PyLong_SHIFT) | (npy_int8)digits[0])));
+                        }
+                    }
+                    break;
+            }
+#endif
+            if (sizeof(npy_int8) <= sizeof(long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(npy_int8, long, PyLong_AsLong(x))
+#ifdef HAVE_LONG_LONG
+            } else if (sizeof(npy_int8) <= sizeof(PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(npy_int8, PY_LONG_LONG, PyLong_AsLongLong(x))
+#endif
+            }
+        }
+        {
+#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
+            PyErr_SetString(PyExc_RuntimeError,
+                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
+#else
+            npy_int8 val;
+            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
+ #if PY_MAJOR_VERSION < 3
+            if (likely(v) && !PyLong_Check(v)) {
+                PyObject *tmp = v;
+                v = PyNumber_Long(tmp);
+                Py_DECREF(tmp);
+            }
+ #endif
+            if (likely(v)) {
+                int one = 1; int is_little = (int)*(unsigned char *)&one;
+                unsigned char *bytes = (unsigned char *)&val;
+                int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                              bytes, sizeof(val),
+                                              is_little, !is_unsigned);
+                Py_DECREF(v);
+                if (likely(!ret))
+                    return val;
+            }
+#endif
+            return (npy_int8) -1;
+        }
+    } else {
+        npy_int8 val;
+        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
+        if (!tmp) return (npy_int8) -1;
+        val = __Pyx_PyInt_As_npy_int8(tmp);
+        Py_DECREF(tmp);
+        return val;
+    }
+raise_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "value too large to convert to npy_int8");
+    return (npy_int8) -1;
+raise_neg_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "can't convert negative value to npy_int8");
+    return (npy_int8) -1;
 }
 
 /* CIntFromPy */
