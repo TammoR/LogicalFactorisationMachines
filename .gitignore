@@ -1,3 +1,5 @@
+./lom/_cython/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
