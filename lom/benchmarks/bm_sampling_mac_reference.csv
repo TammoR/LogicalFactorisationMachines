@@ -1,0 +1,11 @@
+,log10 time in s,framework,log10 number of data-points,D
+0,-3.2864404000351572,numba mac reference,3,100
+1,-2.9903747445769953,cython mac reference,3,100
+2,-2.4088155534935245,numba mac reference,4,100
+3,-2.019760365457957,cython mac reference,4,100
+4,-1.4380593161229869,numba mac reference,5,100
+5,-1.0156040795630754,cython mac reference,5,100
+6,-0.39417929097726495,numba mac reference,6,100
+7,0.05070803202034072,cython mac reference,6,100
+8,0.5498317886067385,numba mac reference,7,100
+9,0.9895328152146252,cython mac reference,7,100
