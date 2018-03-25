@@ -1,6 +1,8 @@
 import numpy as np
 import lom
 import lom.experiments as experiments
+import itertools
+import lom.auxiliary_functions as aux
 
 
 def test_orm():
@@ -49,6 +51,37 @@ def test_tensorm():
     orm.infer(burn_in_min=20, no_samples=10)
 
     assert np.all((layer.output() > .5) == (tensor == 1))
+
+
+def test_all_2D_LOMs():
+
+  operators = ['AND','NAND','OR','NOR','XOR','NXOR']
+  machines = [x[0]+'-'+x[1] for x in list(itertools.product(operators, repeat=2))]
+
+  for machine in machines:
+
+      N = 50
+      D = 10
+      L = 3
+
+      Z = np.array(np.random.rand(N,L)>.5, dtype=np.int8)
+      U = np.array(np.random.rand(D,L)>.5, dtype=np.int8)
+      X = aux.lom_generate_data([2*Z-1,2*U-1], model=machine)
+
+      orm = lom.Machine()
+
+      data = orm.add_matrix(X, fixed=True)
+      layer = orm.add_layer(latent_size=L, child=data, model=machine)
+      layer.z.val = (1-2*layer.invert_factors)*(2*Z-1)
+      layer.u.val = (1-2*layer.invert_factors)*(2*U-1)
+
+      orm.infer(burn_in_min=10, fix_lbda_iters=0)
+      
+      try:
+          assert np.mean((2*(layer.output()>.5)-1) == data()) > .98
+      except:
+          acc = np.mean((2*(layer.output()>.5)-1) == data())
+          print(machine+' failed with reconstruction accuracy of '+str(acc))
 
 
 if __name__ == '__main__':

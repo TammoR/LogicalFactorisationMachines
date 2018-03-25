@@ -12,78 +12,122 @@ sampling_function(matrix)
 import numpy as np
 from IPython.core.debugger import Tracer
 import warnings
-
-import lom._cython.matrix_updates as cf
-import lom._cython.tensor_updates as cf_tensorm
+# import lom._cython.matrix_updates as cf
+# import lom._cython.tensor_updates as cf_tensorm
 import lom._numba.matrix_updates_numba as numba_mu
+import warnings
 
 
 def get_sampling_fct(mat):
+    """
+    Assign matrix update function to mat, depending on its
+    model and parent/child layers.
+    The default architecture is a single child layer an no parents.
+    Other architecture are only partially supported
+    """
 
-    model = mat.layer.__repr__()
+    if mat.sampling_fct is not None:
+        return mat.sampling_fct
+    try:
+        model = mat.layer.__repr__()
+    except:
+        warnings.warn(
+            "Sampling functions only implemented for matrices " +
+            "that are part of a layer and thus have children.")
 
+    # order of child dimensions such that first child dimension and mat
+    # dimension are aligned.
     transpose_order = tuple(
         [mat.child_axis] +
         [s.child_axis for s in mat.siblings])
 
     print('Assigning sampling function: ' + model)
 
-    if model == 'OR_AND_2D':
-        def OR_AND_2D(mat):
-            numba_mu.draw_OR_AND_2D(
+    # multi-layer sampling is only implemented for OR_AND models
+    if mat.parents and model not in ["OR_AND_2D", "OR_AND_3D"]:
+        raise NotImplementedError(
+            "Multi-layer sampling not supported for " + model)
+
+    if model == 'MAX_AND_2D':
+        raise NotImplementedError
+        def MAX_AND_2D(mat):
+            l_order = np.array(np.argsort(-mat.layer.lbda()[:-1]), dtype=np.int8)
+            numba_mu.draw_MAX_AND_2D(
                 mat(),
                 mat.siblings[0](),
                 mat.layer.child().transpose(transpose_order),
-                mat.layer.lbda())
-        return OR_AND_2D
+                mat.layer.lbda(),
+                l_order,
+                mat.layer.lbda_ratios)
+        return MAX_AND_2D
+
+    # all 2D LOMs
+    elif model[-2:] == '2D':
+
+        if not mat.parents:
+            sample = numba_mu.make_sampling_fct(model)
+            def LOM_sampler_2D(mat):
+                # numba_mu.draw_OR_AND_2D(
+                sample(
+                    mat(),
+                    mat.siblings[0](),
+                    mat.layer.child().transpose(transpose_order),
+                    mat.layer.lbda())
+            return LOM_sampler_2D
+
+                # if mat.child_axis == 0:
+                #     numba_mu.IBP_update(
+                #         mat(),
+                #         mat.siblings[0](),
+                #         mat.layer.child().transpose(transpose_order),
+                #         mat.layer.lbda())
+
+
+        elif len(mat.parents) == 1:
+            parent_model = mat.parents[0].__repr__()
+            sample = numba_mu.make_sampling_fct_hasparents(model, parent_model)
+            def LOM_sampler_2D_hasparents(mat):
+                numba_mu.draw_OR_AND_2D_has_parent(
+                    mat(),
+                    mat.siblings[0](),
+                    mat.layer.child().transpose(transpose_order),
+                    mat.layer.lbda(),
+                    mat.parents[0].factors[0](),
+                    mat.parents[0].factors[1](),
+                    mat.parents[0].lbda())
+            return LOM_sampler_2D_hasparents
+
+        else:
+            raise NotImplementedError("More than one parent not supported.")
+
 
     elif model == 'OR_AND_3D':
-        def OR_AND_3D(mat):
-            numba_mu.draw_OR_AND_3D(
-                mat(),
-                mat.siblings[0](),
-                mat.siblings[1](),
-                mat.layer.child().transpose(transpose_order),
-                mat.layer.lbda())
-        return OR_AND_3D
+        if not mat.parents:
 
-    elif model == 'OR_NAND_2D':
-        def OR_NAND_2D(mat):
-            numba_mu.draw_OR_AND_2D(
-                mat(),
-                mat.siblings[0](),
-                mat.layer.child().transpose(transpose_order),
-                mat.layer.lbda())
-        return OR_NAND_2D
+            def OR_AND_3D(mat):
+                numba_mu.draw_OR_AND_3D(
+                    mat(),
+                    mat.siblings[0](),
+                    mat.siblings[1](),
+                    mat.layer.child().transpose(transpose_order),
+                    mat.layer.lbda())
+            return OR_AND_3D
+
+        else:
+            def draw_OR_AND_3D_has_parent(mat):
+                numba_mu.draw_OR_AND_3D_has_parent(
+                    mat(),
+                    mat.siblings[0](),
+                    mat.siblings[1](),
+                    mat.layer.child().transpose(transpose_order),
+                    mat.layer.lbda(),
+                    mat.parents[0].factors[0](),
+                    mat.parents[0].factors[1](),
+                    mat.parents[0].lbda())
+            return draw_OR_AND_3D_has_parent
+
     else:
         raise ValueError('Model not supported')
-
-
-def draw_noparents_onechild_wrapper(mat):
-
-    transpose_order = tuple([mat.child_axis] +
-                            [s.child_axis for s in mat.siblings])
-
-    if hasattr(mat.layer.machine, 'framework'):
-        framework = mat.layer.machine.framework
-    else:
-        framework = 'cython'
-
-    if framework == 'numba':
-
-        numba_mu.draw_Z_numba(
-            mat(),
-            mat.siblings[0](),
-            mat.layer.child().transpose(transpose_order),
-            mat.layer.lbda())
-
-    else:
-        cf.draw_noparents_onechild(
-            mat(),  # NxD
-            mat.sibling(),  # sibling u: D x Lc
-            mat.child().transpose(transpose_order),  # child observation: N x Lc
-            mat.lbda(),  # own parameter: double
-            mat.sampling_indicator)
 
 
 def draw_balanced_or(mat):

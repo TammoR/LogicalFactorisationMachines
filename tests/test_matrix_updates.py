@@ -14,7 +14,7 @@ def test_ormachine_single_flip_numba():
     U = 2 * U - 1
     Z = 2 * Z - 1
 
-    numba_mu.draw_Z_numba(
+    numba_mu.draw_OR_AND_2D(
         U, Z, X.transpose(), 1000.0)
 
     assert U[0, 0] == 1
@@ -25,13 +25,15 @@ def test_ormachine_update_large_lambda_numba():
     Sample from U/Z with quasi deterministic lambda and correct product X.
     """
 
+    np.random.seed(1)
+
     U, Z, X = generate_orm_product()
 
     Z_start = Z.copy()
     U_start = U.copy()
 
-    numba_mu.draw_Z_numba(Z, U, X, 10000.0)
-    numba_mu.draw_Z_numba(U, Z, X.transpose(), 10000.0)
+    numba_mu.draw_OR_AND_2D(Z, U, X, 10000.0)
+    numba_mu.draw_OR_AND_2D(U, Z, X.transpose(), 10000.0)
 
     assert np.all(Z_start == Z)
     assert np.all(U_start == U)
@@ -47,14 +49,15 @@ def test_ormachine_update_small_lambda_numba():
     Z_start = Z.copy()
     U_start = U.copy()
 
-    numba_mu.draw_Z_numba(Z, U, X, 0.0)
-    numba_mu.draw_Z_numba(U, Z, X.transpose(), 0.0)
+    numba_mu.draw_OR_AND_2D(Z, U, X, 0.0)
+    numba_mu.draw_OR_AND_2D(U, Z, X.transpose(), 0.0)
 
     assert not np.all(Z_start == Z)
     assert not np.all(U_start == U)
 
 
 if __name__ == '__main__':
+    
     test_ormachine_single_flip_numba()
     test_ormachine_update_small_lambda_numba()
     test_ormachine_update_large_lambda_numba()

@@ -7,11 +7,14 @@ lom_sampling.py
 import numpy as np
 import lom.matrix_update_wrappers as wrappers
 import lom._cython.matrix_updates as cf
-import lom._cython.tensor_updates as cf_tensorm
+# import lom._cython.tensor_updates as cf_tensorm
 import lom._numba.lambda_updates_numba as lambda_updates_numba
 
 
 def get_update_fct(parm):
+
+    if parm.sampling_fct is not None:
+        return parm.sampling_fct
 
     model = parm.layer.__repr__()
     print('Assigning update function: ' + model)
@@ -26,8 +29,21 @@ def get_update_fct(parm):
             lambda_updates_numba.lbda_OR_AND(parm, K=3)
         return OR_AND_3D_lbda
 
+    elif model == 'OR_NAND_2D':
+        def OR_NAND_2D_lbda(parm):
+            lambda_updates_numba.lbda_OR_NAND(parm, K=2)
+        return OR_NAND_2D_lbda
+
+    elif model == 'MAX_AND_2D':
+        def MAX_AND_2D_lbda(parm):
+            lambda_updates_numba.lbda_MAX_AND(parm, K=2)
+        return MAX_AND_2D_lbda
+
+    elif 'XOR' in model:
+        return lambda_updates_numba.lbda_XOR_clan
+
     else:
-        raise ValueError('Model not supported')
+        raise ValueError('Model not supported')    
 
 
 def draw_lbda_or(parm):
@@ -69,12 +85,11 @@ def draw_lbda_max(parm):
     This should be cythonised, but contains nasty functions like argsort.
     """
 
-    z = parm.attached_matrices[0]
-    u = parm.attached_matrices[1]
-    x = parm.attached_matrices[0].child
-    N = z().shape[0]
+    z = parm.layer.factors[0]
+    u = parm.layer.factors[1]
+    x = parm.layer.child
+    N, L = z().shape
     D = u().shape[0]
-    L = z().shape[1]
 
     mask = np.zeros([N, D], dtype=bool)
     l_list = range(L)
@@ -93,17 +108,8 @@ def draw_lbda_max(parm):
         l_max_idx = np.argmax(l_pp_rate)
         l_max = l_list[l_max_idx]
 
-        # assign corresponding alpha
-        # mind: parm is of (fixed) size L, l_pp_rate gets smaller every iteration
-        if parm.prior_config[0] == 0:
-            # again, using Laplace rule of succession
-            parm()[l_max] = l_pp_rate[l_max_idx]
 
-        elif parm.prior_config[0] == 1:
-            alpha = parm.prior_config[1][0]
-            beta = parm.prior_config[1][1]
-            parm()[l_max] = ((TP[l_max_idx] + alpha - 1) /
-                             float(TP[l_max_idx] + FP[l_max_idx] + alpha + beta - 2))
+        parm()[l_max] = l_pp_rate[l_max_idx]
 
         # remove the dimenson from l_list
         l_list = [l_list[i] for i in range(len(l_list)) if i != l_max_idx]
@@ -125,12 +131,7 @@ def draw_lbda_max(parm):
     P_remain = np.count_nonzero(x()[~mask] == 1)
     N_remain = np.count_nonzero(x()[~mask] == -1)
 
-    if parm.prior_config[0] == 1:
-        alpha = parm.prior_config[2][0]
-        beta = parm.prior_config[2][1]
-        p_new = (P_remain + alpha - 1) / float(P_remain + N_remain + alpha + beta - 2)
-    elif parm.prior_config[0] == 0:
-        p_new = (P_remain + 1) / float(P_remain + N_remain + 2)
+    p_new = (P_remain + 1) / float(P_remain + N_remain + 2)
 
     parm()[-1] = p_new
 
@@ -141,7 +142,8 @@ def draw_lbda_max(parm):
 
     # after updating lambda, ratios need to be precomputed
     # should be done in a lazy fashion
-    parm.layer.precompute_lbda_ratios()
+    # parm.layer.compute_lbda_ratios()
+    lambda_updates_numba.compute_lbda_ratios(parm.layer)
 
 
 def draw_lbda_tensorm(parm):

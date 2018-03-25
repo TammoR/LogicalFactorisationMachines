@@ -14,9 +14,11 @@ import itertools
 
 import lom.matrix_update_wrappers as wrappers
 import lom.lambda_update_wrappers as sampling
-import lom._cython.matrix_updates as cf
+from lom._numba import lambda_updates_numba
+# import lom._cython.matrix_updates as cf
 
 from numpy.random import binomial
+from numba import jit
 
 # optional scipy dependencies
 def expit(x):
@@ -846,21 +848,27 @@ def get_lop(name='OR'):
     to 1D arrays of arbitrary length.
     """
 
+    @jit
     def OR(x):
         return np.any(x==1)
 
+    @jit        
     def NOR(x):
         return ~(np.any(x==1))
 
+    @jit        
     def AND(x):
         return np.all(x==1)
 
+    @jit        
     def NAND(x):
         return ~(np.all(x==1))
 
+    @jit
     def XOR(x):
         return np.sum(x==1) == 1
 
+    @jit        
     def NXOR(x):
         return ~(np.sum(x==1) == 1)
 
@@ -880,9 +888,11 @@ def get_fuzzy_lop(name='OR'):
     to 1D array of arbitrary length that contain probabilities.
     """
 
+    @jit
     def AND(x):
         return np.prod(x)
 
+    @jit
     def OR(x):
         return 1 - np.prod(1 - x)
 
@@ -891,10 +901,11 @@ def get_fuzzy_lop(name='OR'):
             [np.prod(
                 [1 - x[i] for i in range(len(x)) if i != j] + [x[j]])
                 for j in range(len(x))])
-
+    @jit
     def NAND(x):
         return 1 - np.prod(x)
 
+    @jit
     def NOR(x):
         return np.prod(1 - x)
 
@@ -911,4 +922,253 @@ def get_fuzzy_lop(name='OR'):
             return lop
 
     raise ValueError('Logical operator not defined.')
+
+
+def lom_generate_data_fast(factors, model='OR-AND'):
+    """
+    Factors and generated data are in [-1,1] mapping.
+    """
+
+    # fast generation is not available for all models
+    if model == 'OR-AND':
+
+        if len(factors) == 2:
+            return lambda_updates_numba.or_and_out_2D(
+                *[np.array(f, dtype=np.int8) for f in factors])
+
+        elif len(factors) == 3:
+            return lambda_updates_numba.or_and_out_3D(
+                *[np.array(f, dtype=np.int8) for f in factors])
+    else:
+        return lom_generate_data(factors, model)
+
+
+def lom_generate_data_fuzzy_fast(factors, model='OR-AND'):
+
+    # fast generation is not available for all models
+    if model == 'OR-AND':
+
+        if len(factors) == 2:
+            return lambda_updates_numba.or_and_out_2D_fuzzy(
+                *[np.array( .5 * (1 + f) ) for f in factors])
+
+        elif len(factors) == 3:
+            return lambda_updates_numba.or_and_out_3D_fuzzy(
+                *[np.array( .5 * (1 + f) ) for f in factors])        
+
+    else:
+        return lom_generate_data_fuzzy(factors, model)     
+
+
+def lom_generate_data(factors, model='OR-AND'):
+    """
+    Elegant way of generating data according to any LOM.
+    Not very fast, however.
+    See lom_generate_data_fast for a more performant implementation
+    """
+
+    K = len(factors)
+    L = factors[0].shape[1]
+    outer_operator_name, inner_operator_name = model.split('-')
+
+    out = np.zeros([x.shape[0] for x in factors], dtype=np.int8)
+
+    outer_operator = get_lop(outer_operator_name)
+    inner_operator = get_lop(inner_operator_name)
+
+    outer_logic = np.zeros(L, dtype=bool)
+    inner_logic = np.zeros(K, dtype=bool)
+
+    for index, _ in np.ndenumerate(out):
+        for l in range(L):
+            inner_logic[:] =\
+                [f[index[i], l] == 1 for i, f in enumerate(factors)]
+            outer_logic[l] = inner_operator(inner_logic)
+        out[index] = 2 * outer_operator(outer_logic) - 1
+
+    return out
+
+
+def lom_generate_data_fuzzy(factors, model='OR-AND'):
+
+    K = len(factors)
+    L = factors[0].shape[1]
+    outer_operator_name, inner_operator_name = model.split('-')
+
+    out = np.zeros([x.shape[0] for x in factors])
+
+    outer_operator = get_fuzzy_lop(outer_operator_name)
+    inner_operator = get_fuzzy_lop(inner_operator_name)
+
+    outer_logic = np.zeros(L) #, dtype=bool)
+    inner_logic = np.zeros(K) #, dtype=bool)
+
+    for index, _ in np.ndenumerate(out):
+        for l in range(L):
+            inner_logic[:] =\
+                [.5 * (f[index[i], l] + 1)
+                 for i, f in enumerate(factors)]
+            outer_logic[l] = inner_operator(inner_logic)
+        out[index] = outer_operator(outer_logic)
+
+    return 2*out-1
+
+
+def canonise_model(model, child):
+    """
+    Many of the possible Logical Operator Machines are equivalent,
+    or equivalent after inversion of the data or the factors.
+    Here the model is translated to its canonical form.
+    """
+
+    # the following pairs area equivalent
+    equivalent_pairs = [('OR-AND', 'NAND-NAND'),
+                        ('OR-OR', 'NAND-NOR'),
+                        ('OR-NAND', 'NAND-AND'),
+                        ('OR-NOR', 'NAND-OR'),
+                        ('AND-AND', 'NOR-NAND'),
+                        ('AND-OR', 'NOR-NOR'),
+                        ('AND-NAND', 'NOR-AND'),
+                        ('AND-NOR', 'NOR-OR'),
+                        ('NAND-XOR', 'OR-NXOR'),
+                        ('AND-XOR', 'NOR-NXOR'),  # remove 
+                        ('OR-XOR', 'NAND-NXOR'),  # remove
+                        ('NOR-XOR', 'AND-NXOR')]  # remove
+
+    # replace model by its equivalent counterparts
+    if model in [pair[1] for pair in equivalent_pairs]:
+        model_new = [pair[0] for pair in equivalent_pairs if pair[1] == model][0]
+    else:
+        model_new = model
+
+    invert_data = False
+    invert_factors = False
+
+    # translate to canonical models with data/factor inversion
+    # OR-AND family
+    if model_new == 'OR-AND':
+        pass
+    elif model_new == 'AND-NAND':
+        model_new = 'OR-AND'
+        invert_data = True
+    elif model_new == 'OR-NOR':
+        model_new = 'OR-AND'
+        invert_factors = True
+    elif model_new == 'AND-OR':
+        model_new = 'OR-AND'
+        invert_data = True
+        invert_factors = True
+
+    # OR-NAND family
+    elif model_new == 'OR-NAND':
+        pass
+    elif model_new == 'AND-AND':
+        model_new = 'OR-NAND'
+        invert_data = True
+    elif model_new == 'OR-OR':
+        model_new = 'OR-NAND'
+        invert_factors = True
+    elif model_new == 'AND-NOR':
+        model_new = 'OR-NAND'
+        invert_data = True
+        invert_factors = True
+
+    # XOR-AND family
+    elif model_new == 'XOR-AND':
+        pass
+    elif model_new == 'XOR-NOR':
+        model_new = 'XOR-AND'
+        invert_factors = True
+    elif model == 'NXOR-AND':
+        model_new = 'XOR-AND'
+        invert_data = True
+    elif model == 'NXOR-NOR':
+        model_new = 'XOR-AND'
+        invert_data = True
+        invert_factors = True
+
+    # XOR-NAND family
+    elif model_new == 'XOR-NAND':
+        pass
+    elif model_new == 'XOR-OR':
+        model_new = 'XOR-NAND'
+        invert_factors = True
+    elif model_new == 'NXOR-NAND':
+        model_new = 'XOR-NAND'
+        invert_data = True
+    elif model_new == 'NXOR-OR':
+        model_new = 'XOR-NAND'
+        invert_data = True
+        invert_factors = True
+
+    # AND-XOR family
+    elif model_new == 'NAND-XOR':
+        pass
+    elif model_new == 'AND-XOR':
+        model_new = 'NAND-XOR'
+        invert_data = True
+
+    # OR-XOR family
+    elif model_new == 'OR-XOR':
+        pass
+    elif model_new == 'NOR-XOR':
+        model_new = 'OR-XOR'
+        invert_data = True
+
+    # XOR-NXOR family
+    elif model_new == 'XOR-NXOR':
+        pass
+    elif model_new == 'NXOR-NXOR':
+        model_new = 'XOR-NXOR'
+        invert_data = True
+
+    # XOR-XOR family
+    elif model_new == 'XOR-XOR':
+        pass
+    elif model_new == 'NXOR-XOR':
+        model_new = 'XOR-XOR'
+        invert_data = True
+
+    else:
+        import pdb; pdb.set_trace()
+        raise NotImplementedError("Model not implemented.")
+
+    # print output and invert data if needed.
+    if invert_data is False and invert_factors is False:
+        print('\n' + model + ' is treated as ' + model_new + '.\n')
+
+    if invert_data is True and invert_factors is False:        
+        print('\n' + model + ' is treated as ' + model_new +
+              ' with inverted data.\n')
+        child.val *= -1
+
+    if invert_data is False and invert_factors is True:
+        print('\n' + model + ' is treated as ' + model_new +
+        ' with inverted factors. (Invert yourself!)\n')
+
+    if invert_data is True and invert_factors is True:
+        print('\n' + model + ' is treated as ' + model_new +
+              ' with inverted data and inverted factors. ' +
+              ' (invert factors yourself!)\n')
+        child.val *= -1        
+
+    # print warning for OR-NAND models.
+    if model_new == 'OR-NAND':
+        print(model_new + ' based models are reasonable only for' +
+              'a single latent dimensions!\n')
+
+    return model_new, invert_data, invert_factors
+
+
+def MAX_AND_output(factors, lbdas):
+
+    out = np.zeros([f.shape[0] for f in factors])
+    for l_idx in np.argsort(lbdas[:-1]):
+        temp = lbdas[l_idx] * lambda_updates_numba.predict_single_latent(
+            *[f[:, l_idx] for f in factors])
+        out[out==0] = temp[out==0]
+
+    return out
+
+
 

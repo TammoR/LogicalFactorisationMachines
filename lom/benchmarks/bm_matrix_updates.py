@@ -26,15 +26,14 @@ def generate_data(N=100, D=100, L=10):
 
     orm = lom.Machine()
 
-    data = orm.add_matrix(val=X, sampling_indicator=False)
+    data = orm.add_matrix(val=X, fixed=True)
 
-    layer = orm.add_layer(size=3,
+    layer = orm.add_layer(latent_size=3,
                           child=data,
-                          lbda_init=2.,
-                          noise_model='or-link')
+                          model='OR-AND')
 
-    layer.z.val = Z
-    layer.u.val = U
+    layer.factors[0].val = Z
+    layer.factors[1].val = U
 
     return layer
 
@@ -42,12 +41,15 @@ def generate_data(N=100, D=100, L=10):
 def time_lambda(layer):
 
     reps = 10
+    sampling_fct = lom.matrix_update_wrappers.get_sampling_fct(layer.factors[0])
+    sampling_fct(layer.factors[0])
 
     print('start')
     start = time.time()
-    for i in range(reps):
-        lom.matrix_update_wrappers.draw_noparents_onechild_wrapper(layer.z)
+    print(sampling_fct)
 
+    for i in range(reps):
+        sampling_fct(layer.factors[0])
     end = time.time()
 
     return (end - start) / reps
@@ -62,12 +64,13 @@ if __name__ == "__main__":
 
     L = 10
     D = 100
-    for N in [int(10**x) for x in range(2, 4)]:
+    for N in [int(10**x) for x in range(2, 6)]:
         print(N, D)
 
         layer = generate_data(N, D, L)
 
         try:
+            raise StandardError
             layer.machine.framework = 'cython'
             cython_time = time_lambda(layer)
 
@@ -102,5 +105,5 @@ if __name__ == "__main__":
         x='log10 number of data-points',
         y='log10 time in s',
         hue='framework')
-    plt.savefig('./sampling_bm.png')
+    # plt.savefig('./sampling_bm.png')
     plt.show()

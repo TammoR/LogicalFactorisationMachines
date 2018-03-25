@@ -19,7 +19,7 @@ def test_lambda_update_or():
 
     assert np.all(np.dot(Z == 1, U.transpose() == 1) == (data() == 1))
 
-    lambda_updates_numba.lbda_OR_AND(layer.lbda)
+    lambda_updates_numba.lbda_OR_AND(layer.lbda, len(layer.child().shape))
 
     ND = np.prod(X.shape)
 
