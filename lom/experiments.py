@@ -174,11 +174,19 @@ def split_train_test(tensor, split=.1, balanced=False):
     i = 0
 
     if balanced is False:
-        while i < num_split:
-            idx = index_generator()
-            if (tensor[idx] != 0) and (idx not in rand_tensor_idx):
-                rand_tensor_idx[:, i] = idx
-                i += 1
+        # old approach
+        # while i < num_split:
+        #     idx = index_generator()
+        #     if (tensor[idx] != 0) and (idx not in rand_tensor_idx):
+        #         rand_tensor_idx[:, i] = idx
+        #         i += 1
+
+        # more scalable approach
+        p = split / np.mean(tensor == 0)  # scale up fraction for missing data
+        mask = np.random.choice([True, False], size=(tensor.shape), p=[p, 1 - p])
+        mask[tensor == 0] = False
+        tensor[mask] = 0
+        test_mask = mask
 
     else:
         print('Balanced split is not optimised!')
@@ -190,18 +198,14 @@ def split_train_test(tensor, split=.1, balanced=False):
                 previous *= -1
                 i += 1
 
-    # nz_idx = list(zip(*[np.where(tensor != 0)[i] for i in range(3)]))
-    # num_data_points = len(nz_idx)
-    # rand_idx = np.random.choice(range(num_data_points), replace=False, size=int(split*num_data_points))
-    # rand_tensor_idx = [nz_idx[i] for i in rand_idx]
+        # following indent is part of the old approach
+        test_mask = np.zeros(tensor.shape, dtype=bool)
 
-    test_mask = np.zeros(tensor.shape, dtype=bool)
+        for idx in rand_tensor_idx.transpose():
+            test_mask[tuple(idx)] = True
 
-    for idx in rand_tensor_idx.transpose():
-        test_mask[tuple(idx)] = True
-
-    tensor = np.array(tensor, dtype=np.int8)
-    tensor[test_mask] = 0
+        tensor = np.array(tensor, dtype=np.int8)
+        tensor[test_mask] = 0
 
     return tensor, test_mask
 
