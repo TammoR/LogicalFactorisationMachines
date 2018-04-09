@@ -6,7 +6,7 @@ lom_sampling.py
 """
 import numpy as np
 import lom.matrix_update_wrappers as wrappers
-import lom._cython.matrix_updates as cf
+# import lom._cython.matrix_updates as cf
 # import lom._cython.tensor_updates as cf_tensorm
 import lom._numba.lambda_updates_numba as lambda_updates_numba
 
