@@ -248,7 +248,6 @@ def LOM_predictive(experiment, return_machine=False):
     layer = orm.add_layer(latent_size=L, child=data, model=machine)
 
     layer.auto_reset = False
-    layer.lbda.val = .0
 
     orm.infer(burn_in_min=20, fix_lbda_iters=5,
               convergence_window=10, burn_in_max=150, no_samples=10)
