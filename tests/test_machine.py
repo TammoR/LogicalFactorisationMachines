@@ -175,7 +175,7 @@ def test_densities():
 
   for machine in machines:
 
-    d = aux.expected_density(machine_class, L=3, K=2, f=.5)
+    d = aux.expected_density(machine, L=3, K=2, f=.5)
 
     N = 200
     D = 200
