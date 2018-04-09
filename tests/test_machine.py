@@ -171,7 +171,7 @@ def test_maxmachine():
 
 def test_densities():
 
-  machines = canonical_loms(level='clans', mode='implemented')
+  machines = aux.canonical_loms(level='clans', mode='implemented')
 
   for machine in machines:
     machine_class, Inv = aux.get_lom_class(machine)
