@@ -185,7 +185,8 @@ def split_train_test(tensor, split=.1, balanced=False):
         p = split / (1 - np.mean(tensor == 0))  # scale up fraction for missing data
         mask = np.random.choice([True, False], size=(tensor.shape), p=[p, 1 - p])
         mask[tensor == 0] = False
-        tensor[mask] = 0
+        training_tensor = np.copy(tensor)
+        training_tensor[mask] = 0
         test_mask = mask
 
     else:
@@ -207,7 +208,7 @@ def split_train_test(tensor, split=.1, balanced=False):
         tensor = np.array(tensor, dtype=np.int8)
         tensor[test_mask] = 0
 
-    return tensor, test_mask
+    return training_tensor, test_mask
 
 
 def split_tensor_train_test_old(tensor, split=.1):
@@ -253,7 +254,8 @@ def LOM_predictive(experiment, return_machine=False):
               convergence_window=10, burn_in_max=150, no_samples=10)
 
     out = layer.output(technique='factor_mean')[train_mask] > .5
-    truth = (-2 * layer.invert_data + 1) * X[train_mask] == 1
+    truth = (-2 * layer.invert_data + 1) * X[train_mask] +\
+        (layer.invert_data * 1) == 1
 
     if return_machine is False:
         return ([np.mean(out == truth), machine, layer.size])
