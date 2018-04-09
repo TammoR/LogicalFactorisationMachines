@@ -174,9 +174,8 @@ def test_densities():
   machines = aux.canonical_loms(level='clans', mode='implemented')
 
   for machine in machines:
-    machine_class, Inv = aux.get_lom_class(machine)
 
-    d = aux.expected_density(machine_class, L=3, K=2, f=.5, Inv=Inv)
+    d = aux.expected_density(machine_class, L=3, K=2, f=.5)
 
     N = 200
     D = 200

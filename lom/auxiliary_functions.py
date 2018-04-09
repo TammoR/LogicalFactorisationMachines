@@ -1013,8 +1013,8 @@ def replace_equivalent_model(model, equivalent_pairs=None):
 
 def expected_density(model, L, K, f):
     """
-    Inv: I_outer, I_hidden, I_inner
     """
+
     def invert(x):
         return 1 - x
 
