@@ -183,6 +183,8 @@ def split_train_test(tensor, split=.1, balanced=False):
 
         # more scalable approach
         p = split / (1 - np.mean(tensor == 0))  # scale up fraction for missing data
+        import pdb
+        pdb.set_trace()
         mask = np.random.choice([True, False], size=(tensor.shape), p=[p, 1 - p])
         mask[tensor == 0] = False
         tensor[mask] = 0
