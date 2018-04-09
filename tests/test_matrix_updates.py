@@ -14,8 +14,10 @@ def test_ormachine_single_flip_numba():
     U = 2 * U - 1
     Z = 2 * Z - 1
 
-    numba_mu.draw_OR_AND_2D(
-        U, Z, X.transpose(), 1000.0)
+    draw_OR_AND_2D = numba_mu.make_sampling_fct_onechild('OR_AND_2D')
+    draw_OR_AND_2D(
+        U, np.zeros(U.shape, dtype=np.int8), 
+        Z, X.transpose(), 1000.0, 0)
 
     assert U[0, 0] == 1
 
@@ -32,8 +34,9 @@ def test_ormachine_update_large_lambda_numba():
     Z_start = Z.copy()
     U_start = U.copy()
 
-    numba_mu.draw_OR_AND_2D(Z, U, X, 10000.0)
-    numba_mu.draw_OR_AND_2D(U, Z, X.transpose(), 10000.0)
+    draw_OR_AND_2D = numba_mu.make_sampling_fct_onechild('OR_AND_2D')
+    draw_OR_AND_2D(Z, np.zeros(Z.shape, dtype=np.int8), U, X, 10000.0, 0.0)
+    draw_OR_AND_2D(U, np.zeros(U.shape, dtype=np.int8), Z, X.transpose(), 10000.0, 0.0)
 
     assert np.all(Z_start == Z)
     assert np.all(U_start == U)
@@ -49,8 +52,9 @@ def test_ormachine_update_small_lambda_numba():
     Z_start = Z.copy()
     U_start = U.copy()
 
-    numba_mu.draw_OR_AND_2D(Z, U, X, 0.0)
-    numba_mu.draw_OR_AND_2D(U, Z, X.transpose(), 0.0)
+    draw_OR_AND_2D = numba_mu.make_sampling_fct_onechild('OR_AND_2D')
+    draw_OR_AND_2D(Z, np.zeros(Z.shape, dtype=np.int8), U, X, 0.0, 0.0)
+    draw_OR_AND_2D(U, np.zeros(U.shape, dtype=np.int8), Z, X.transpose(), 0.0, 0.0)
 
     assert not np.all(Z_start == Z)
     assert not np.all(U_start == U)

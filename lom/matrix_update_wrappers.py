@@ -1,21 +1,15 @@
 #!/usr/bin/env python
 """
-MaxMachine
-
-wrappers for easy calls to cython functions.
-The fowllowing functions are assigned to instances
-of MachineMatrix, to allow for simple update calls
-of the form:
-sampling_function(matrix)
+wrappers for easy calls to numba sampling functions.
 """
 
 import numpy as np
 from IPython.core.debugger import Tracer
 import warnings
-# import lom._cython.matrix_updates as cf
-# import lom._cython.tensor_updates as cf_tensorm
 import lom._numba.matrix_updates_numba as numba_mu
 import warnings
+# from lom.auxiliary_functions import logit
+from scipy.special import logit
 
 
 def get_sampling_fct(mat):
@@ -26,34 +20,41 @@ def get_sampling_fct(mat):
     Other architecture are only partially supported
     """
 
+    # use pre-assigned sampling function
     if mat.sampling_fct is not None:
         return mat.sampling_fct
-    try:
-        model = mat.layer.__repr__()
-    except:
-        warnings.warn(
-            "Sampling functions only implemented for matrices " +
-            "that are part of a layer and thus have children.")
 
-    # order of child dimensions such that first child dimension and mat
-    # dimension are aligned.
-    transpose_order = tuple(
-        [mat.child_axis] +
-        [s.child_axis for s in mat.siblings])
+    # determine order of child dimensions such that first 
+    # child dimension and mat dimension are aligned.
 
-    print('Assigning sampling function: ' + model)
+    mod, p1mod, p2mod = get_relatives_models(mat)
 
-    # multi-layer sampling is only implemented for OR_AND models
-    if mat.parents and model not in ["OR_AND_2D", "OR_AND_3D"]:
-        raise NotImplementedError(
-            "Multi-layer sampling not supported for " + model)
+    if mod is not None:
+        transpose_order = tuple(
+            [mat.child_axis] +
+            [s.child_axis for s in mat.siblings])
 
-    if model == 'MAX_AND_2D':
-        raise NotImplementedError
+    msg = 'Assigning sampling functions - '
+    if mod is not None:
+        msg += '\tchild: ' + str(mod)
+    if p1mod is not None:
+        msg += '\tparent1: ' + str(p1mod)
+    if p2mod is not None:
+        msg += '\tparent2: ' + str(p2mod)
+
+    print(msg)
+
+
+    if mod == 'MAX_AND_2D':
+        assert p1mod is None
+        assert p2mod is None
+        from lom._numba.max_machine_sampler import draw_MAX_AND_2D
+
         def MAX_AND_2D(mat):
             l_order = np.array(np.argsort(-mat.layer.lbda()[:-1]), dtype=np.int8)
-            numba_mu.draw_MAX_AND_2D(
+            draw_MAX_AND_2D(
                 mat(),
+                mat.fixed_entries,
                 mat.siblings[0](),
                 mat.layer.child().transpose(transpose_order),
                 mat.layer.lbda(),
@@ -61,74 +62,115 @@ def get_sampling_fct(mat):
                 mat.layer.lbda_ratios)
         return MAX_AND_2D
 
-    # all 2D LOMs
-    elif model[-2:] == '2D':
+    # unified all 2D LOMs
+    else:
+        logit_bernoulli_prior = np.float64(logit(mat.bernoulli_prior))
 
-        if not mat.parents:
-            sample = numba_mu.make_sampling_fct(model)
-            def LOM_sampler_2D(mat):
+        # standard case: one child, no parents
+        if p1mod is None and mod is not None:
+            sample = numba_mu.make_sampling_fct_onechild(mod)
+            def LOM_sampler(mat):
                 # numba_mu.draw_OR_AND_2D(
                 sample(
                     mat(),
-                    mat.siblings[0](),
-                    mat.layer.child().transpose(transpose_order),
-                    mat.layer.lbda())
-            return LOM_sampler_2D
-
-                # if mat.child_axis == 0:
-                #     numba_mu.IBP_update(
-                #         mat(),
-                #         mat.siblings[0](),
-                #         mat.layer.child().transpose(transpose_order),
-                #         mat.layer.lbda())
-
-
-        elif len(mat.parents) == 1:
-            parent_model = mat.parents[0].__repr__()
-            sample = numba_mu.make_sampling_fct_hasparents(model, parent_model)
-            def LOM_sampler_2D_hasparents(mat):
-                numba_mu.draw_OR_AND_2D_has_parent(
-                    mat(),
-                    mat.siblings[0](),
+                    mat.fixed_entries,
+                    *[x() for x in mat.siblings],
                     mat.layer.child().transpose(transpose_order),
                     mat.layer.lbda(),
-                    mat.parents[0].factors[0](),
-                    mat.parents[0].factors[1](),
-                    mat.parents[0].lbda())
-            return LOM_sampler_2D_hasparents
+                    logit_bernoulli_prior)
+            return LOM_sampler            
+
+        # one child, one parent
+        elif p1mod is not None and mod is not None and p2mod is None:
+            sample = numba_mu.make_sampling_fct_onechild_oneparent(
+                mod, p1mod)
+            def LOM_sampler_hasparents(mat):
+                sample(
+                    mat(),
+                    mat.fixed_entries,                    
+                    *[x() for x in mat.siblings],
+                    mat.layer.child().transpose(transpose_order),
+                    mat.layer.lbda(),
+                    *[x() for x in mat.parents[0].factors],
+                    mat.parents[0].lbda(),
+                    logit_bernoulli_prior)
+            return LOM_sampler_hasparents
+
+        # no child, one parent
+        elif mod is None and p1mod is not None and p2mod is None:
+            sample = numba_mu.make_sampling_fct_nochild_oneparent(p1mod)
+            def LOM_sampler_hasparents(mat):
+                sample(
+                    mat(),
+                    mat.fixed_entries,                    
+                    *[x() for x in mat.parents[0].factors],
+                    mat.parents[0].lbda(),
+                    logit_bernoulli_prior)
+            return LOM_sampler_hasparents            
+
+        # no child, two parents
+        elif mod is None and p1mod is not None and p2mod is not None:
+            sample = numba_mu.make_sampling_fct_nochild_twoparents(p1mod, p2mod)
+            def LOM_sampler_hasparents(mat):
+                sample(
+                    mat(),
+                    mat.fixed_entries,                    
+                    *[x() for x in mat.parents[0].factors],
+                    mat.parents[0].lbda(),
+                    *[x() for x in mat.parents[1].factors],
+                    mat.parents[1].lbda(),                    
+                    logit_bernoulli_prior)
+            return LOM_sampler_hasparents            
+
+
+        # one child, two parents
+        elif mod is not None and p1mod is not None and p2mod is not None:
+            sample = numba_mu.make_sampling_fct_onechild_twoparents(
+                mod, p1mod, p2mod)
+            def LOM_sampler_hasparents(mat):
+                sample(
+                    mat(),
+                    mat.fixed_entries,                    
+                    *[x() for x in mat.siblings],
+                    mat.layer.child().transpose(transpose_order),
+                    mat.layer.lbda(),
+                    *[x() for x in mat.parents[0].factors],
+                    mat.parents[0].lbda(),
+                    *[x() for x in mat.parents[1].factors],
+                    mat.parents[1].lbda(),               
+                    logit_bernoulli_prior)
+            return LOM_sampler_hasparents
 
         else:
+            import pdb; pdb.set_trace()
             raise NotImplementedError("More than one parent not supported.")
 
-
-    elif model == 'OR_AND_3D':
-        if not mat.parents:
-
-            def OR_AND_3D(mat):
-                numba_mu.draw_OR_AND_3D(
-                    mat(),
-                    mat.siblings[0](),
-                    mat.siblings[1](),
-                    mat.layer.child().transpose(transpose_order),
-                    mat.layer.lbda())
-            return OR_AND_3D
-
-        else:
-            def draw_OR_AND_3D_has_parent(mat):
-                numba_mu.draw_OR_AND_3D_has_parent(
-                    mat(),
-                    mat.siblings[0](),
-                    mat.siblings[1](),
-                    mat.layer.child().transpose(transpose_order),
-                    mat.layer.lbda(),
-                    mat.parents[0].factors[0](),
-                    mat.parents[0].factors[1](),
-                    mat.parents[0].lbda())
-            return draw_OR_AND_3D_has_parent
-
+def get_relatives_models(mat):
+    """
+    Return tuple (model, parent1_model, parent2_model) in 'OR_AND_2D' format
+    """
+    if mat.model is not None:
+        model = mat.model + '-' + str(mat.layer.dimensionality) + 'D'
+        model = model.replace('-','_')
     else:
-        raise ValueError('Model not supported')
+        model = None
 
+    parent1_model = None
+    parent2_model = None
+    if len(mat.parents) > 0:
+        assert len(mat.parents[0].factors) == 2
+        parent1_model = (mat.parents[0].model + '-2D').replace('-','_')
+    if len(mat.parents) > 1:
+        assert len(mat.parents[1].factors) == 2
+        parent2_model = (mat.parents[1].model + '-2D').replace('-','_')
+    elif len(mat.parents) > 2:
+        raise NotImplementedError("More than two parents are not supported.")
+
+    return model, parent1_model, parent2_model
+
+
+
+### Following functions aren't used. keep for reference
 
 def draw_balanced_or(mat):
     """
@@ -143,223 +185,3 @@ def draw_balanced_or(mat):
         mat.lbda(),
         mat.lbda() * (1 / mat.lbda.balance_factor)
     )
-
-
-def draw_tensorm_noparents_onechild_wrapper(mat):
-
-    transpose_order = tuple([mat.child_axis] +
-                            [x.child_axis for x in mat.get_siblings])
-
-    cf_tensorm.draw_tensorm_noparents_onechild(
-        mat(),
-        *[x.val for x in mat.get_siblings],
-        mat.child().transpose(transpose_order),
-        mat.lbda(),
-        mat.logit_prior
-    )
-
-
-def draw_tensorm_indp_noparents_onechild_wrapper(mat):
-
-    # this can be done more nicely, and also for simple OrM
-    # to improve code reusage! TODO
-    mat_idx = int(mat.role[-1]) - 1  # integer indicating (z,u,v)
-    siblings = [x for i, x in enumerate(mat.lbda[0].attached_matrices) if i != mat_idx]
-    # transpose data such that dimensions agree with parent matrices
-    transpose_order = (mat_idx,
-                       int(siblings[0].role[-1]) - 1,
-                       int(siblings[1].role[-1]) - 1)
-
-    cf_tensorm.draw_tensorm_indp_noparents_onechild(
-        mat(),
-        siblings[0](),
-        siblings[1](),
-        mat.child().transpose(transpose_order),
-        mat.lbda[0](),
-        mat.lbda[1]()
-    )
-
-
-# def draw_z_noparents_onechild_wrapper(mat):
-
-#     cf.draw_noparents_onechild(
-#         mat(),  # NxD
-#         mat.sibling(),  # sibling u: D x Lc
-#         mat.child(),  # child observation: N x Lc
-#         mat.lbda(),  # own parameter: double
-#         mat.sampling_indicator)
-
-# def draw_u_noparents_onechild_wrapper(mat):
-#     cf.draw_noparents_onechild(
-#         mat(), # NxD
-#         mat.sibling(), # sibling u: D x Lc
-#         mat.child().transpose(), # child observation: N x Lc
-#         mat.lbda(), # own parameter: double
-#         mat.sampling_indicator)
-
-
-def draw_u_noparents_onechild_wrapper_single_thread(mat):
-    cf.draw_noparents_onechild_single_thread(
-        mat(),  # NxD
-        mat.sibling(),  # sibling u: D x Lc
-        mat.child().transpose(),  # child observation: N x Lc
-        mat.lbda(),  # own parameter: double
-        mat.sampling_indicator)
-
-
-def draw_z_oneparent_nochild_wrapper(mat):
-
-    cf.draw_oneparent_nochild(
-        mat(),  # NxD
-        mat.parents[0](),  # parents obs: N x Lp
-        mat.parents[1](),  # parents feat: D x Lp
-        mat.parents[0].lbda(),  # parent lbdas:
-        mat.prior_config,
-        mat.sampling_indicator)
-
-
-def draw_u_oneparent_nochild_wrapper(mat):
-
-    cf.draw_oneparent_nochild(
-        mat(),  # NxD
-        mat.parents[1](),  # parents obs: N x Lp
-        mat.parents[0](),  # parents feat: D x Lp
-        mat.parents[0].lbda(),  # parent lbdas: K (KxL for MaxM)
-        mat.prior_config,
-        mat.sampling_indicator)
-
-
-def draw_z_twoparents_nochild_wrapper(mat):
-
-    cf.draw_twoparents_nochild(
-        mat(),  # NxD
-        mat.parent_layers[0].z(),  # parents obs: N x Lp
-        mat.parent_layers[0].u(),  # parents feat: D x Lp
-        mat.parent_layers[0].u.lbda(),  # parent lbda
-        mat.parent_layers[1].z(),  # parents obs: N x Lp
-        mat.parent_layers[1].u(),  # parents feat: D x Lp
-        mat.parent_layers[1].u.lbda(),  # parent lbda
-        mat.prior_config,
-        mat.sampling_indicator)
-
-
-def draw_u_twoparents_nochild_wrapper(mat):
-
-    cf.draw_twoparents_nochild(
-        mat(),  # NxD
-        mat.parent_layers[0].u(),  # parents obs: N x Lp
-        mat.parent_layers[0].z(),  # parents feat: D x Lp
-        mat.parent_layers[0].u.lbda(),  # parent lbda
-        mat.parent_layers[1].u(),  # parents obs: N x Lp
-        mat.parent_layers[1].z(),  # parents feat: D x Lp
-        mat.parent_layers[1].u.lbda(),  # parent lbda
-        mat.prior_config,
-        mat.sampling_indicator)
-
-
-def draw_z_oneparent_onechild_wrapper(mat):
-    cf.draw_oneparent_onechild(
-        mat(),  # N x D
-        mat.parents[0](),  # parent obs: N x Lp
-        mat.parents[1](),  # parent features, D x Lp
-        mat.parents[1].lbda(),  # parent lbda
-        mat.sibling(),  # sibling u: D x Lc
-        mat.child(),  # child observation: N x Lc
-        mat.lbda(),  # own parameter: double
-        mat.prior_config,
-        mat.sampling_indicator)
-
-
-def draw_u_oneparent_onechild_wrapper(mat):
-    cf.draw_oneparent_onechild(
-        mat(),  # NxD
-        mat.parents[1](),  # parent obs: N x Lp
-        mat.parents[0](),  # parent features, D x Lp
-        mat.parents[1].lbda(),  # parent lbda
-        mat.sibling(),  # sibling u: D x Lc
-        mat.child().transpose(),  # child observation: N x Lc
-        mat.lbda(),  # own parameter: double
-        mat.prior_config,
-        mat.sampling_indicator)
-
-
-def draw_noparents_onechild_maxmachine(mat):
-
-    # provide order of dimensions by assoicated noise
-    l_order = np.array(np.argsort(-mat.layer.lbda()[:-1]), dtype=np.int32)
-    transpose_order = tuple([mat.child_axis] + [mat.sibling.child_axis])
-
-    cf.draw_noparents_onechild_maxmachine(
-        mat(),
-        mat.sibling(),
-        mat.child().transpose(transpose_order),
-        mat.lbda(),
-        l_order,
-        mat.prior_config,
-        mat.layer.lbda_ratios)
-
-# def draw_u_noparents_onechild_maxmachine(mat):
-
-#     # provide order of dimensions by assoicated noise
-#     l_statistic = mat.layer.lbda()[:-1]
-#     l_order = np.array(np.argsort(-l_statistic), dtype=np.int32)
-
-#     cf.draw_noparents_onechild_maxmachine(
-#         mat(),
-#         mat.sibling(),
-#         mat.child().transpose(),
-#         mat.lbda(),
-#         l_order,
-#         mat.prior_config,
-#         mat.layer.lbda_ratios)
-
-
-# def draw_z_noparents_onechild_maxmachine(mat):
-
-#     # provide order of dimensions by assoicated noise
-#     l_order = np.array(np.argsort(-mat.layer.lbda()[:-1]), dtype=np.int32)
-
-#     cf.draw_noparents_onechild_maxmachine(
-#         mat(),
-#         mat.sibling(),
-#         mat.child(),
-#         mat.lbda(),
-#         l_order,
-#         mat.prior_config,
-#         mat.layer.lbda_ratios)
-
-
-def draw_u_oneparent_onechild_maxmachine(mat):
-    l_order = np.array(np.argsort(-mat.layer.lbda()[:-1]), dtype=np.int32)
-    l_order_pa = np.array(np.argsort(-mat.parent_layers[0].lbda()[:-1]), dtype=np.int32)
-
-    cf.draw_oneparent_onechild_maxmachine(
-        mat(),
-        mat.sibling(),
-        mat.child().transpose,
-        mat.lbda(),
-        l_order,
-        mat.prior_config,
-        mat.parents[0](),
-        mat.parents[1](),
-        lib.logit(mat.parent_layers[0].lbda()),  # TODO compute logit inside function
-        l_order_pa,
-        mat.layer.lbda_ratios)
-
-
-def draw_z_oneparent_onechild_maxmachine(mat):
-    l_order = np.array(np.argsort(-mat.layer.lbda()[:-1]), dtype=np.int32)
-    l_order_pa = np.array(np.argsort(-mat.parent_layers[0].lbda()[:-1]), dtype=np.int32)
-
-    cf.draw_oneparent_onechild_maxmachine(
-        mat(),
-        mat.sibling(),
-        mat.child(),
-        mat.lbda(),
-        l_order,
-        mat.prior_config,
-        mat.parents[1](),
-        mat.parents[0](),
-        lib.logit(mat.parent_layers[0].lbda()),  # TODO compute logit inside function
-        l_order_pa,
-        mat.layer.lbda_ratios)

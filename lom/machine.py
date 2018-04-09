@@ -86,6 +86,11 @@ import lom.lambda_update_wrappers as sampling
 import lom.lambda_update_wrappers as lbda_wrappers
 
 import lom._numba.lambda_updates_numba as lambda_updates_numba
+import lom._numba.lom_outputs as lom_outputs
+import lom._numba.lom_outputs_fuzzy as lom_outputs_fuzzy
+
+import lom._numba.max_machine_sampler as mm
+
 
 from numba import prange, jit
 
@@ -158,6 +163,7 @@ class MachineParameter(Trace):
         self.sampling_fct = None
         self.val = val
         self.fixed = fixed
+        self.beta_prior = (1, 1)
 
     def print_value(self):
         #  TODO: clean up
@@ -191,13 +197,9 @@ class MachineMatrix(Trace):
         self.sampling_fct = None
         self.child_axis = child_axis
         self.parents = []
-
+        self.bernoulli_prior = 0.5
         if val is not None:
             shape = val.shape
-
-        if type(fixed) is np.ndarray:
-            assert fixed.shape == shape
-        self.fixed = fixed
 
         # assign value if provided, otherwise bernoulli random
         if type(val) is np.ndarray:
@@ -206,14 +208,42 @@ class MachineMatrix(Trace):
             self.val = 2 * np.array(np.random.rand(*shape) > val,
                                     dtype=np.int8) - 1
         else:
-            self.val = 2 * np.array(np.random.rand(*shape) > .05,
+            self.val = 2 * np.array(np.random.rand(*shape) > .5,
                                     dtype=np.int8) - 1
+
+        # fix the full matrix
+        if type(fixed) is np.ndarray:
+            assert fixed.shape == shape
+        self.fixed = fixed
+
+        # fix some matrix entries
+        self.fixed_entries = np.zeros(self().shape, dtype=np.int8)
+
+        # initialise layer to None
+        self.layer = None
 
     def __call__(self):
         return self.val
 
-    def show(self):
-        aux.plot_matrix(self.mean())
+    def show(self, technique='mean'):
+        if technique == 'mean':
+            aux.plot_matrix(self.mean())
+        elif technique == 'map':
+            aux.plot_matrix(self.mean() > .5)
+        elif technique == 'state':
+            aux.plot_matrix(self())
+        else:
+            raise ValueError('invalid technique')
+
+    @property
+    def model(self):
+        """
+        return the model of the corresponding layer.
+        """
+        if 'layer' in self.__dict__.keys() and self.layer is not None:
+            return self.layer.model
+        else:
+            return None
 
     @property
     def siblings(self):
@@ -242,13 +272,13 @@ class MachineLayer():
         for factor in factors:
             factor.layer = self
 
-        self.auto_clean_up = False
+        self.auto_clean = False
         self.auto_reset = False  # TODO get rid of
 
-        self.prediction = None # allow lazy computation of output.
+        self.prediction = None  # allow lazy computation of output.
 
         if model == 'MAX-AND':
-            lambda_updates_numba.compute_lbda_ratios(self)
+            mm.compute_lbda_ratios(self)
 
     @property
     def z(self):
@@ -266,14 +296,22 @@ class MachineLayer():
     def size(self):
         return self.factors[0]().shape[1]
 
+    @property
+    def dimensionality(self):
+        return len(self.factors)
+
+    def __iter__(self):
+        return iter(self.factors)
+
     def __repr__(self):
         return (self.model + '-' + str(len(self.factors)) +
                 'D').replace('-', '_')
 
     def output(self,
-               technique='factor_mean',
-               noisy_emission=True,
-               lazy=False):
+               technique='factor_map',
+               noisy_emission=False,
+               lazy=False,
+               map_to_probabilities=True):
         """
         Compute output matrix from posterior samples.
         Valid techniques are:
@@ -286,75 +324,82 @@ class MachineLayer():
             - 'Factor-MEAN'
                 Computed from posterior mean of factors
         TODO: compute this in a lazy fashion
+        Note, that outputs are always probabilities in (0,1)
         """
 
         # return precomputed value
         if type(self.prediction) is np.ndarray and lazy is True:
+            print('returning previously computed value ' +
+                  'under disregard of technique.')
             return self.prediction
-
 
         # otherwise compute
         if self.model == 'MAX-AND':
             if technique == 'point_estimate':
-                out = aux.MAX_AND_output(
+                out = lom_outputs.MAX_AND_product_2d(
                     [x() for x in self.factors], self.lbda())
             elif technique == 'factor_map':
-                out = aux.MAX_AND_output(
-                    [2*(x.mean() > 0) - 1 for x in self.factors], self.lbda())
+                out = lom_outputs.MAX_AND_product_2d(
+                    [np.array(2 * (x.mean() > 0) - 1, dtype=np.int8)
+                        for x in self.factors], self.lbda())
             elif technique == 'mc':
                 out = np.zeros([x().shape[0] for x in self.factors])
                 for t in range(self.lbda.trace.shape[0]):
-                    out += aux.MAX_AND_output(
-                            [x.trace[t, :] for x in self.factors],
-                            self.lbda.trace[t])
+                    out += lom_outputs.MAX_AND_product_2d(
+                        [x.trace[t, :] for x in self.factors],
+                        self.lbda.trace[t])
                 out /= self.lbda.trace.shape[0]
             elif technique == 'factor_mean':
-                out = lambda_updates_numba.MAX_AND_fuzzy(
-                     .5*(1+self.z.mean()), 
-                     .5*(1+self.u.mean()), 
-                     np.array(self.lbda.mean()))
-                    # *[.5*(1+x.mean()) for x in self.factors], self.lbda.mean())                
+                out = lom_outputs_fuzzy.MAX_AND_product_fuzzy(
+                    .5 * (self.z.mean() + 1),
+                    .5 * (self.u.mean() + 1),
+                    self.lbda.mean())
 
         else:
             if technique == 'point_estimate':
                 out = aux.lom_generate_data_fast(
-                        [x() for x in self.factors], self.model)
+                    [x() for x in self.factors], self.model)
+                out = (1 + out) * .5  # map to probability of emitting a 1
 
             elif technique == 'factor_map':
                 out = aux.lom_generate_data_fast(
-                        [2*(x.mean() > 0) - 1 for x in self.factors],
-                        self.model)
+                    [2 * (x.mean() > 0) - 1 for x in self.factors],
+                    self.model)
+                out = np.array(out == 1, dtype=np.int8)  # map to probability of emitting a 1
 
             elif technique == 'factor_mean':
-                out = aux.lom_generate_data_fuzzy_fast(
-                        [x.mean() for x in self.factors],
-                        self.model)
+                # output does not need to be mapped to probabilities
+                out = aux.lom_generate_data_fast(
+                    [(x.mean() + 1) * .5 for x in self.factors],  # map to (0,1)
+                    self.model,
+                    fuzzy=True)
 
             elif technique == 'factor_mean_old':
                 out = aux.lom_generate_data_fuzzy(
-                        [x.mean() for x in self.factors],
-                        self.model)
+                    [x.mean() for x in self.factors],
+                    self.model)
 
-            elif technique == 'mc': # TODO numba
+            elif technique == 'mc':  # TODO numba
                 out = np.zeros([x().shape[0] for x in self.factors])
 
                 for t in range(self.lbda.trace.shape[0]):
                     out += aux.lom_generate_data_fast([x.trace[t, :]
-                                                      for x in self.factors],
-                                                     self.model)
+                                                       for x in self.factors],
+                                                      self.model)
                 out /= self.lbda.trace.shape[0]
-
-            out = (1+out)*.5  # map to probability of emitting a 1
+                out = (1 + out) * .5  # map to probability of emitting a 1
 
             # convert to probability of generating a 1
             if noisy_emission is True:
                 out = out * aux.expit(self.lbda.mean()) +\
-                     (1-out) * aux.expit(-self.lbda.mean())
+                    (1 - out) * aux.expit(-self.lbda.mean())
 
         self.prediction = out
 
-        return out
-
+        if map_to_probabilities is True:
+            return out
+        else:
+            return 2 * out - 1
 
 
 class Machine():
@@ -503,6 +548,7 @@ class Machine():
                 # reset trace index
                 for lbda in lbdas:
                     lbda.trace_index = 0
+
                 # check convergence for all lbdas
                 if np.all([x.check_convergence(eps=eps) for x in lbdas]):
                     print('\n\tconverged at reconstr. accuracy: ' +
@@ -511,20 +557,13 @@ class Machine():
                     # TODO: make this nice and pretty.
                     # check for dimensios to be removed and restart burn-in if
                     # layer.auto_clean_up is True
-                    if np.any([lib.clean_up_codes(lr, lr.noise_model)
-                               for lr in self.layers if lr.auto_clean_up is True]):
-                        print('\tremove duplicate or useless latent ' +
-                              'dimensions and restart burn-in. New L=' +
-                              + str([lr.size for lr in self.layers]))
-                        for lbda in lbdas:
-                            # reallocate arrays for lbda trace
-                            lbda.allocate_trace_arrays(convergence_window)
-                            lbda.trace_index = 0
+                    if np.any([aux.clean_up_codes(lr,
+                                                  lr.auto_reset,
+                                                  lr.auto_clean)
+                               for lr in self.layers if
+                               lr.auto_clean is True or
+                               lr.auto_reset is True]):
 
-                    # alternatively, check for dimensions to be reset
-                    elif np.any([lib.reset_codes(lr, lr.noise_model)
-                                 for lr in self.layers
-                                 if lr.auto_reset is True]):
                         for lbda in lbdas:
                             # reallocate arrays for lbda trace
                             lbda.allocate_trace_arrays(convergence_window)
@@ -537,6 +576,12 @@ class Machine():
 
             # stop if max number of burn in inters is reached
             if (burn_in_iter + pre_burn_in_iter) > burn_in_max:
+
+                # clean up non-converged auto-reset dimensions
+                for lr in self.layers:
+                    if lr.auto_reset is True:
+                        aux.clean_up_codes(lr, reset=False, clean=True)
+
                 print('\n\tmax burn-in iterations reached without convergence')
                 # reset trace index
                 for lbda in lbdas:

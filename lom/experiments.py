@@ -5,16 +5,10 @@ Functions to automatize experiments
 """
 
 import numpy as np
-import sys
-import tempfile
-import sklearn
-from IPython.core.debugger import Tracer
-
 import lom.auxiliary_functions as lib
 import lom
 import lom.matrix_update_wrappers as wrappers
 import lom.lambda_update_wrappers as sampling
-import lom._cython.matrix_updates as cf
 
 
 def generate_random_tensor(L, dims, noise=0, density=.5):
@@ -50,7 +44,7 @@ def dbtf_reconstruct(X, L, hyperparms=[1, .3, 50]):
     Calling dbtf to compute Boolean tensor factorisation of X
     for L latent dimensions.
     Returns reconstruction and tuple of factor matrices Z, U, V
-    hyerparameters is a tuple of 
+    hyerparameters is a tuple of
         (initial factor sets, initial density, convergence iters)
     """
 
@@ -165,15 +159,17 @@ def tensorm_reconstruct_indp(X, L, hyperparms=[0.5, 1.0]):
     return X_recon, f_tensorm, X_recon_plugin
 
 
-def split_tensor_train_test(tensor, split=.1, balanced=False):
+def split_train_test(tensor, split=.1, balanced=False):
     """
-    works with missing data. scales reasonably well large data, avoiding use of np.where
+    works with missing data. scales reasonably well to large data,
+    avoiding use of np.where.
     """
 
     num_split = int(np.sum(tensor != 0) * split)
 
-    def index_generator(): return tuple([np.random.randint(dim) for dim in tensor.shape])
-    # rand_tensor_idx = [tensor.shape for i in range(num_split)]
+    def index_generator():
+        return tuple([np.random.randint(dim) for dim in tensor.shape])
+
     rand_tensor_idx = np.zeros([len(tensor.shape), num_split], dtype=np.int)
     i = 0
 
@@ -232,3 +228,77 @@ def split_tensor_train_test_old(tensor, split=.1):
     tensor[test_mask] = 0
 
     return tensor, test_mask
+
+
+def LOM_predictive(experiment, return_machine=False):
+    """
+    Experiment is a tuple with all relevant settings
+    """
+
+    # unpack experiment parameters
+    X, X_train, train_mask, machine, L, random_idx = experiment
+
+    orm = lom.Machine()
+    data = orm.add_matrix(X_train, fixed=True)
+    layer = orm.add_layer(latent_size=L, child=data, model=machine)
+
+    layer.auto_reset = False
+    layer.lbda.val = .0
+
+    orm.infer(burn_in_min=50, fix_lbda_iters=10,
+              convergence_window=10, burn_in_max=150)
+
+    out = layer.output(technique='factor_mean')[train_mask] > .5
+    truth = (-2 * layer.invert_data + 1) * X[train_mask] == 1
+
+    if return_machine is False:
+        return ([np.mean(out == truth), machine, layer.size])
+    else:
+        return ([np.mean(out == truth), machine, layer.size], orm)
+
+
+def parallel_function(f):
+    def easy_parallize(f, sequence):
+        """ assumes f takes sequence as input, easy w/ Python's scope """
+        from multiprocessing import Pool
+        pool = Pool(processes=4)  # depends on available cores
+        result = pool.map(f, sequence)  # for i in sequence: result[i] = f(i)
+        cleaned = [x for x in result if x is not None]  # getting results
+        pool.close()  # not optimal! but easy
+        pool.join()
+        return cleaned
+    from functools import partial
+    return partial(easy_parallize, f)
+
+
+def LOM_hyperparms_parallel_gridsearch(X,
+                                       machines=None,
+                                       L_inits=[2, 6, 10],
+                                       random_idxs=[0]):
+    """
+    Split X in train/test set and determine predictive
+    accuracy over all configurations in experimental settings which is a
+    list of lists: [machines, ]
+    """
+    import pandas as pd
+
+    if machines is None:
+        machines = aux.canonical_loms()
+
+    # train/test split
+    X_train, train_mask = split_train_test(X, split=.2)
+
+    # unpack experimental parameters
+    experiment_parms = []
+    for machine in machines:
+        for L_init in L_inits:
+            for random_idx in random_idxs:
+                experiment_parms.append(
+                    [X, X_train, train_mask, machine, L_init, random_idx])
+
+    function = parallel_function(LOM_predictive)
+
+    out = function(experiment_parms)
+
+    return pd.DataFrame(sorted(out, reverse=True),
+                        columns=['test accuracy', 'LOM', 'L'])

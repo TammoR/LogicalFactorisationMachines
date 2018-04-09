@@ -13,38 +13,24 @@ import lom._numba.lambda_updates_numba as lambda_updates_numba
 
 def get_update_fct(parm):
 
+    print('Assigning update function: ' + parm.layer.__repr__())
+
     if parm.sampling_fct is not None:
         return parm.sampling_fct
 
-    model = parm.layer.__repr__()
-    print('Assigning update function: ' + model)
-
-    if model == 'OR_AND_2D':
-        def OR_AND_2D_lbda(parm):
-            lambda_updates_numba.lbda_OR_AND(parm, K=2)
-        return OR_AND_2D_lbda
-
-    elif model == 'OR_AND_3D':
-        def OR_AND_3D_lbda(parm):
-            lambda_updates_numba.lbda_OR_AND(parm, K=3)
-        return OR_AND_3D_lbda
-
-    elif model == 'OR_NAND_2D':
-        def OR_NAND_2D_lbda(parm):
-            lambda_updates_numba.lbda_OR_NAND(parm, K=2)
-        return OR_NAND_2D_lbda
-
-    elif model == 'MAX_AND_2D':
+    if parm.layer.model == 'MAX-AND' and parm.layer.dimensionality == 2:
+        import lom._numba.max_machine_sampler as mm_sampler
         def MAX_AND_2D_lbda(parm):
-            lambda_updates_numba.lbda_MAX_AND(parm, K=2)
+            mm_sampler.lbda_MAX_AND(parm, K=2)
         return MAX_AND_2D_lbda
 
-    elif 'XOR' in model:
-        return lambda_updates_numba.lbda_XOR_clan
-
     else:
-        raise ValueError('Model not supported')    
+        return lambda_updates_numba.make_lbda_update_fct(
+            parm.layer.model, parm.layer.dimensionality)
 
+
+### Following functions are not needed anymore. Keep for reference for the moment
+### TODO
 
 def draw_lbda_or(parm):
     """
@@ -77,95 +63,6 @@ def draw_lbda_or(parm):
             alpha = parm.prior_config[1][0]
             beta = parm.prior_config[1][1]
             parm.val = -np.log((ND + alpha - 1) / (float(P) + alpha + beta - 2) - 1)
-
-
-def draw_lbda_max(parm):
-    """
-    Set MachienParameter instance lambda to its MLE/MAP.
-    This should be cythonised, but contains nasty functions like argsort.
-    """
-
-    z = parm.layer.factors[0]
-    u = parm.layer.factors[1]
-    x = parm.layer.child
-    N, L = z().shape
-    D = u().shape[0]
-
-    mask = np.zeros([N, D], dtype=bool)
-    l_list = range(L)
-
-    predictions = [cf.predict_single_latent(u()[:, l], z()[:, l]) == 1 for l in l_list]
-
-    TP = [np.count_nonzero(x()[predictions[l]] == 1) for l in range(L)]
-    FP = [np.count_nonzero(x()[predictions[l]] == -1) for l in range(L)]
-
-    for iter_index in range(L):
-
-        # use Laplace rule of succession here, to avoid numerical issues
-        l_pp_rate = [(tp + 1) / float(tp + fp + 2) for tp, fp in zip(TP, FP)]
-
-        # find l with max predictive power
-        l_max_idx = np.argmax(l_pp_rate)
-        l_max = l_list[l_max_idx]
-
-
-        parm()[l_max] = l_pp_rate[l_max_idx]
-
-        # remove the dimenson from l_list
-        l_list = [l_list[i] for i in range(len(l_list)) if i != l_max_idx]
-
-        # the following large binary arrays need to be computed L times -> precompute here
-        temp_array = predictions[l_max] & ~mask
-        temp_array1 = temp_array & (x() == 1)
-        temp_array2 = temp_array & (x() == -1)
-
-        TP = [TP[l + (l >= l_max_idx)] - np.count_nonzero(temp_array1 & predictions[l_list[l]])
-              for l in range(len(l_list))]
-        FP = [FP[l + (l >= l_max_idx)] - np.count_nonzero(temp_array2 & predictions[l_list[l]])
-              for l in range(len(l_list))]
-
-        mask += predictions[l_max] == 1
-
-    assert len(l_list) == 0
-
-    P_remain = np.count_nonzero(x()[~mask] == 1)
-    N_remain = np.count_nonzero(x()[~mask] == -1)
-
-    p_new = (P_remain + 1) / float(P_remain + N_remain + 2)
-
-    parm()[-1] = p_new
-
-    # check that clamped lambda/alpha is the smallest
-    if parm()[-1] != np.min(parm()):
-        print('\nClamped lambda too large. Ok during burn-in, should not happen during sampling!\n')
-        parm()[-1] = np.min(parm())
-
-    # after updating lambda, ratios need to be precomputed
-    # should be done in a lazy fashion
-    # parm.layer.compute_lbda_ratios()
-    lambda_updates_numba.compute_lbda_ratios(parm.layer)
-
-
-def draw_lbda_tensorm(parm):
-    """
-    Update a Machine parameter to its MLE / MAP estima
-    """
-
-    P = cf_tensorm.compute_p_tensorm(
-        parm.layer.child(),
-        parm.attached_matrices[0](),
-        parm.attached_matrices[1](),
-        parm.attached_matrices[2]())
-
-    # effective number of observations (pre-compute for speedup TODO (not crucial))
-    NMD = (np.prod(parm.layer.child().shape) -
-           np.count_nonzero(parm.layer.child() == 0))
-
-    # use lapalce succession
-    parm.val = -np.log(((NMD + 2) / (float(P + 1))) - 1)
-
-    # don't use laplace succession
-    # parm.val = -np.log( ( (NMD) / (float(P)) ) - 1  )
 
 
 def draw_lbda_tensorm_indp_p(parm):
@@ -224,80 +121,3 @@ def draw_lbda_or_balanced(parm):
     parm.val = (TP + (TN / s)) / (TP + FN + ((TN + FP) / s))
 
     draw_lbda_or(parm)
-
-
-def infer_sampling_fct_mat(mat):
-    """
-    Assing appropriate sampling function as attribute, 
-    depending on family status and noise-model.
-    """
-    # first do some sanity checks, no of children etc. Todo
-    if False and 'independent' in mat.layer.noise_model:
-        if not np.any(mat.density_conditions) and not mat.parents:
-            if mat.role == 'dim1':
-                mat.sampling_fct = wrappers.draw_z_noparents_onechild_indpn_wrapper
-            elif mat.role == 'dim2':
-                mat.sampling_fct = wrappers.draw_u_noparents_onechild_indpn_wrapper
-        else:
-            raise StandardError('Appropriate sampling function for independent ' +
-                                'noise model is not defined')
-        return
-
-    # elif mat.layer.noise_model == 'or-link':
-    # assign different sampling fcts if matrix row/col density is constrained
-    # matrix without child...
-    if not mat.child:
-        # ...and one parent
-        if len(mat.parent_layers) == 1:
-            if mat.role == 'dim1':
-                mat.sampling_fct = wrappers.draw_z_oneparent_nochild_wrapper
-            elif mat.role == 'dim2':
-                mat.sampling_fct = wrappers.draw_u_oneparent_nochild_wrapper
-        # ...and two parents
-        if len(mat.parent_layers) == 2:
-            if mat.role == 'dim1':
-                mat.sampling_fct = wrappers.draw_z_twoparents_nochild_wrapper
-            elif mat.role == 'dim2':
-                mat.sampling_fct = wrappers.draw_u_twoparents_nochild_wrapper
-
-    # matrix with one child...
-    elif mat.child:
-
-        # ... and no parent # like here, we don't need extra fcts for u/z
-        if not mat.parents:
-            if mat.layer.noise_model == 'max-link':
-                mat.sampling_fct = wrappers.draw_noparents_onechild_maxmachine
-            elif mat.layer.noise_model == 'or-link':
-                mat.sampling_fct = wrappers.draw_noparents_onechild_wrapper
-
-        # ... and one parent
-        elif len(mat.parent_layers) == 1:
-            if mat.role == 'dim1':
-                if mat.layer.noise_model == 'max-link':
-                    mat.sampling_fct = wrappers.draw_z_oneparent_onechild_maxmachine
-                elif mat.layer.noise_model == 'or-link':
-                    mat.sampling_fct = wrappers.draw_z_oneparent_onechild_wrapper
-            elif mat.role == 'dim2':
-                mat.sampling_fct = wrappers.draw_u_oneparent_onechild_wrapper
-        # ... and two parents (not implemented, throwing error)
-
-        elif len(mat.parent_layers) == 2:
-            if mat.role == 'dim1':
-                mat.sampling_fct = wrappers.draw_z_twoparents_onechild_wrapper
-            elif mat.role == 'dim2':
-                mat.sampling_fct = wrappers.draw_u_twoparents_onechild_wrapper
-        else:
-            raise Warning('Sth is wrong with allocting sampling functions')
-
-
-def infer_sampling_fct_lbda(self):
-    """
-    For a MachineParameter, assing the appropriate 
-    sampling/update function
-    """
-    if 'or-link' in self.layer.noise_model:
-        self.sampling_fct = draw_lbda_or
-    elif 'max-link' in self.noise_model:
-        self.sampling_fct = draw_lbda_max
-    else:
-        raise StandardError('Can not infer appropriate samping function for lbda/mu')

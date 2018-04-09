@@ -9,149 +9,50 @@ import numpy as np
 import sys
 import tempfile
 import sklearn
-from IPython.core.debugger import Tracer
 import itertools
-
-import lom.matrix_update_wrappers as wrappers
-import lom.lambda_update_wrappers as sampling
 from lom._numba import lambda_updates_numba
 # import lom._cython.matrix_updates as cf
-
 from numpy.random import binomial
 from numba import jit
 
-# optional scipy dependencies
+
 def expit(x):
     """
-    better implementation in scipy.special, 
+    better implementation in scipy.special,
     but can avoid dependency
     """
     try:
         from scipy.special import expit
         return expit(x)
-    except:
-        return 1/(1+np.exp(-x))
+    except ModuleNotFoundError:
+        return 1 / (1 + np.exp(-x))
 
 
 def logit(x):
     """
-    better implementation in scipy.special, 
+    better implementation in scipy.special,
     but can avoid dependency
     """
     try:
         from scipy.special import logit
         return logit(x)
-    except:
-        return np.log(float(x)/(1-x))
+    except ModuleNotFoundError:
+        return np.log(float(x) / (1 - x))
 
 
 def logsumexp(a):
     """
-    better implementation in scipy.special, 
+    better implementation in scipy.special,
     but can avoid dependency
-    """    
+    """
     try:
         from scipy.special import logsumexp
         return logsumexp(a)
-    except:
+    except ModuleNotFoundError:
         a_max = np.max(a)
         out = np.log(np.sum(np.exp(a - a_max)))
         out += a_max
         return out
-
-
-def maxmachine_relevance(layer, model_type='mcmc'):
-    """
-    Return the expectec fraction of 1s that are modelled 
-    by any latent dimension.
-    This is similiar to the eigenvalues in PCA.
-    """
-
-    # avoid unnecessary re-computation.
-    if layer.eigenvals is not None:
-        return layer.eigenvals
-
-
-    if model_type is 'plugin': 
-        alphas = layer.lbda()
-        x = layer.child()
-        # add clamped units
-        z = np.concatenate([(layer.z.mean()+1)*.5,np.ones([layer.z().shape[0],1])], axis=1)
-        u = np.concatenate([(layer.u.mean()+1)*.5,np.ones([layer.u().shape[0],1])], axis=1)
-        N = z.shape[0]
-        D = u.shape[0]
-        L = z.shape[1]
-
-        # # we need to argsort all z*u*alpha. This is of size NxDxL!
-        # l_sorted = np.zeros([N,D,L], dtype=np.int8)
-        # for n in range(N): # could be parallelised -> but no argsort in cython without extra pain
-        #     for d in range(D):
-        #         l_sorted[n,d,:] = np.argsort(alphas*u[d,:]*z[n,:])
-
-        eigenvals = np.zeros(len(alphas)) # array for results
-        idxs = np.where(layer.child()==1)
-        idxs = zip(idxs[0],idxs[1]) # indices of n,d where x[n,d]=1
-        no_ones = len(idxs)
-
-        # iterate from largest to smallest alpha doesn't work
-        for l in range(L):
-            for n,d in idxs:
-                eigenvals[l] += z[n,l]*u[d,l]*alphas[l] * np.prod(
-                    [1-z[n,l_prime]*u[d,l_prime] for l_prime in range(L) 
-                     if z[n,l_prime]*u[d,l_prime]*alphas[l_prime] > z[n,l]*u[d,l]*alphas[l]])
-        eigenvals /= len(idxs)
-
-    elif model_type is 'mcmc':
-        alpha_tr = layer.lbda.trace
-        z_tr = layer.z.trace
-        u_tr = layer.u.trace
-        x = layer.child()
-        tr_len = u_tr.shape[0]
-        eigenvals = np.zeros(alpha_tr.shape[1])
-
-
-        for tr_idx in range(tr_len):
-            for l in range(u_tr.shape[2]):
-                
-                # deterministic prediction of current l
-                x_pred = np.dot(z_tr[tr_idx,:,l:l+1]==1,
-                                u_tr[tr_idx,:,l:l+1].transpose()==1)
-
-                # deterministic prediction of all l' > l
-                x_pred_alt = np.zeros(x_pred.shape)
-                for l_alt in range(u_tr.shape[2]):
-                    if alpha_tr[tr_idx,l_alt] > alpha_tr[tr_idx,l]:
-                        x_pred_alt += np.dot(z_tr[tr_idx,:,l_alt:l_alt+1]==1,
-                                             u_tr[tr_idx,:,l_alt:l_alt+1].transpose()==1)
-                        x_pred_alt = x_pred_alt > 0
-
-                eigenvals[l] += alpha_tr[tr_idx,l] * np.sum(x[(x_pred==1) & (x_pred_alt !=1)] == 1)
-                # import pdb; pdb.set_trace()
-
-                # eigenvals[l] += alpha_tr[tr_idx,l] * np.sum(
-                #     x[np.dot(z_tr[tr_idx,:,l:l+1]==1,
-                #              u_tr[tr_idx,:,l:l+1].transpose()==1)]==1)
-            eigenvals[-1] += alpha_tr[tr_idx, -1]
-
-        eigenvals /= float(tr_len)*np.sum(x==1)
-
-    layer.eigenvals = eigenvals
-    return eigenvals
-
-        
-def maxmachine_forward_pass(u, z, alpha):
-    """
-    compute probabilistic output for a single 
-    latent dimension in maxmachine.
-    """
-    x = np.zeros([z.shape[0], u.shape[0]])
-
-    for l in np.argsort(-alpha[:-1]):
-        x[x==0] += alpha[l]*np.dot(z[:,l:l+1],u[:,l:l+1].transpose())[x==0]
-
-    x[x==0] = alpha[-1]
-
-    return x
 
 
 def compute_bp(q, n, N, tau=1):
@@ -164,16 +65,15 @@ def compute_bp(q, n, N, tau=1):
     q = success probability per draw
     N = size of output (output gets logit(0)-padded)
     """
-    
-    exp_bp = [(q*(n-k*tau)) / ((1-q)*(k*tau+1)) for k in range(n)]
-    
+
+    exp_bp = [(q * (n - k * tau)) / ((1 - q) * (k * tau + 1)) for k in range(n)]
+
     bp = [np.log(x) if (x > 0) else -np.infty for x in exp_bp]
 
     if N != n:
         bp_new = [-np.infty for i in range(N)]
-        bp_new[:n-1] = bp
+        bp_new[:n - 1] = bp
         bp = bp_new
-        
     return np.array(bp, dtype=float)
 
 
@@ -182,7 +82,8 @@ def compute_bbp(n, a, b):
     compute list of beta-binomial logit for 1...n draws with
     beta parameters a, b.
     """
-    exp_bbp = [(float((n-k)*(k+a))/float((k+1)* (n-k+b-1))) for k in range(n+1)]
+    exp_bbp = [(float((n - k) * (k + a)) /
+                float((k + 1) * (n - k + b - 1))) for k in range(n + 1)]
     bbp = [np.log(x) if (x > 0) else -np.infty for x in exp_bbp]
     return np.array(bbp, dtype=float)
 
@@ -196,150 +97,66 @@ def unique_ordered(seq):
     return [x for x in seq if not (x in seen or seen_add(x))]
 
 
-        
-def clean_up_codes(layer, noise_model):
+def clean_up_codes(layer, reset=True, clean=False):
     """
     Remove redundant or all-zero latent dimensions
     from layer and adjust all attributes accordingly.
     Return True, if any dimension was removed, False otherwise.
     """
-    
-    def remove_dimension(l_prime, layer):
 
-        # update for tensorm link does not support parents
-        # nor priors
-        u = layer.u; z = layer.z; lbda = layer.lbda
-        layer.size -=1
-        u.val = np.delete(u.val, l_prime, axis=1)
-        z.val = np.delete(z.val, l_prime, axis=1)
+    if reset is True:
+        cleaning_action = reset_dimension
+    elif clean is True:
+        cleaning_action = remove_dimension
 
-        if 'tensorm-link' in layer.noise_model:
-            v = layer.v
-            v.val = np.delete(v.val, l_prime, axis=1)
-
-        else:   
-            if layer.noise_model == 'max-link':
-                lbda.val = np.delete(u.layer.lbda(), l_prime)
-                layer.precompute_lbda_ratios()
-            z.update_prior_config()
-            u.update_prior_config()
-            for iter_mat in [u,z]:
-                if len(iter_mat.parents) != 0:
-                    for parent in iter_mat.parents:
-                        if parent.role == 'dim2':
-                            parent.val = np.delete(parent.val, l_prime, axis=0)
-                            parent.update_prior_config()
+    # import pdb; pdb.set_trace()
 
     reduction_applied = False
     # remove inactive codes
     l = 0
-    while l < layer.size:
-        if np.any([np.all(mat()[:,l]== -1) for mat in layer.child.parents]):
-        # if np.all(layer.z()[:,l] == -1) or np.all(layer.u()[:,l] == -1):
-            # print('remove zero dimension')
-            remove_dimension(l, layer)
+    while l < layer.size:  # need to use while loop because layer.size changes.
+        if np.any([np.all(f()[:, l] == -1) for f in layer.factors]):
+            cleaning_action(l, layer)
             reduction_applied = True
         l += 1
 
-    if layer.noise_model == 'tensorm-link':
-        return reduction_applied
-                        
     # remove duplicates
     l = 0
     while l < layer.size:
-        l_prime = l+1
+        l_prime = l + 1
         while l_prime < layer.size:
-            if (np.all(layer.u()[:,l] == layer.u()[:,l_prime]) or
-            np.all(layer.z()[:,l] == layer.z()[:,l_prime])):
-                # print('remove duplicate dimension')
-                reduction_applied = True
-                remove_dimension(l_prime, layer)
+            for f in layer.factors:
+                if np.all(f()[:, l] == f()[:, l_prime]):
+                    reduction_applied = True
+                    cleaning_action(l_prime, layer)
+                    break
             l_prime += 1
         l += 1
 
-    # clean by alpha threshold
-    if layer.noise_model == 'max-link':
-        l = 0
-        while l < layer.size:
-            if layer.lbda()[l] < 1e-3:
-                # print('remove useless dimension')
-                reduction_applied = True
-                remove_dimension(l, layer)
-            l += 1
+    if reduction_applied is True:
+        if reset is True:
+            print('\n\tre-initialise duplicate or useless latent ' +
+                  'dimensions and restart burn-in. New L=' + str(layer.size))
+
+        elif clean is True:
+            print('\n\tremove duplicate or useless latent ' +
+                  'dimensions and restart burn-in. New L=' + str(layer.size))
 
     return reduction_applied
 
-        
-def reset_codes(layer, noise_model):
-    """
-    Reset codes/assignemtns in redundant or unused latent dimensions
-    to their initialisation. This can lead to better results and has a
-    nonparametric flavor. _Not used in any of the current models_.
-    """
-    z = layer.z
-    u = layer.u
 
-    has_reset = False
-    if noise_model == 'tensorm-link':
-        v = layer.v
-        for l in range(u().shape[1]):
-            for mat in [z(),u(),v()]:
-                if np.all(mat[:,l]==-1):
-                    print('reset zeroed latent dimensions')
-                    has_reset = True
-                    for mat in [z,u,v]:
-                        mat()[:,l] = -1 # np.random.randint(0,2,size=mat.shape[0])
-                    break
-        return has_reset
+def remove_dimension(l_prime, layer):
 
-    else:
-        # reset duplicates
-        for l in range(u().shape[1]):
-            for l_prime in range(l+1, u().shape[1]):
-                if np.all(u()[:,l] == u()[:,l_prime]):
-                    print('reset duplicates')
-                    z()[:,l_prime] = -1
-                    u()[:,l_prime] = -1
-                    if noise_model is 'max-link': 
-                        #z.k[l_prime] = 0
-                        #u.k[l_prime] = 0
+    # update for tensorm link does not support parents
+    # nor priors
+    # layer.size -= 1
+    for f in layer.factors:
+        f.val = np.delete(f.val, l_prime, axis=1)
 
-                        u.j = np.array(np.count_nonzero(u()==1, 1), dtype=np.int32)
-                        z.j = np.array(np.count_nonzero(z()==1, 1), dtype=np.int32)
 
-                        u.k[l_prime] = 0 # = np.array(np.count_nonzero(u()==1, 0), dtype=np.int32)
-                        z.k[l_prime] = 0 # np.array(np.count_nonzero(z()==1, 0), dtype=np.int32)
-
-        # reset zeroed codes
-        for l in range(u().shape[1]):
-            if np.all(u()[:,l] == -1):
-                print('reset zeroed')
-                z()[:,l] = -1
-                # only needed for binomial / beta-binomial prior
-                # TODO implement these prior for ormgachine
-                if noise_model is 'max-link': 
-                    z.k[l] = 0
-                    z.j = np.array(np.count_nonzero(z()==1, 1), dtype=np.int32)
-
-        # reset nested codes
-        for l in range(u().shape[1]):
-            for l_prime in range(u().shape[1]):
-                if l == l_prime:
-                    continue
-                # smaller code needs to have at least one 1.
-                elif np.count_nonzero(u()[:,l_prime]==1) > 1 and np.all(u()[u()[:,l_prime]==1, l]==1):
-                    print('reset nesting '+str(l)+' '+str(l_prime) +
-                          ' ' + str(np.count_nonzero(u()[:,l]==1)) +
-                          ' ' + str(np.count_nonzero(u()[:,l_prime]==1)))
-                    u()[u()[:,l_prime]==1,l] = -1
-                    # z()[z()[:,l]==1,l_prime] = 1
-
-                    if noise_model is 'max-link':
-                        u.k = np.array(np.count_nonzero(u()==1, 0), dtype=np.int32)
-                        u.j = np.array(np.count_nonzero(u()==1, 1), dtype=np.int32)
-                        z.k = np.array(np.count_nonzero(z()==1, 0), dtype=np.int32)
-                        z.j = np.array(np.count_nonzero(z()==1, 1), dtype=np.int32)
-
+def reset_dimension(l_prime, layer):
+    for f in layer.factors:
+        f.val[:, l_prime] = -1
 
 
 def plot_matrix_ax(mat, ax, draw_cbar=True):
@@ -348,73 +165,71 @@ def plot_matrix_ax(mat, ax, draw_cbar=True):
     attribues (optional) are used as xlabels
     """
 
-    if np.any(mat < 0): 
+    if np.any(mat < 0):
         print('rescaling matrix to probabilities')
-        mat = .5*(mat+1)
+        mat = .5 * (mat + 1)
 
-    import matplotlib.pyplot as plt
-    
     try:
         import seaborn as sns
-        
-        cmap = sns.cubehelix_palette(
-        8, start=2, dark=0, light=1,
-        reverse=False, as_cmap=True)
 
         cmap = sns.cubehelix_palette(
-        4, start=2, dark=0, light=1,
-        reverse=False, as_cmap=True)
+            8, start=2, dark=0, light=1,
+            reverse=False, as_cmap=True)
 
-        sns.set_style("whitegrid", {'axes.grid' : False})
-            
+        cmap = sns.cubehelix_palette(
+            4, start=2, dark=0, light=1,
+            reverse=False, as_cmap=True)
+
+        sns.set_style("whitegrid", {'axes.grid': False})
+
     except:
-        print('lala')
         cmap = 'gray_r'
-        
+
     cax = ax.imshow(mat, aspect='auto', cmap=cmap, vmin=0, vmax=1)
-    
+
     return ax, cax
     # ax.set_yticks([])
 
-def plot_matrix(mat, figsize=(7,4), draw_cbar=True, vmin=0, vmax=1, cmap=None):
+
+def plot_matrix(mat, figsize=(7, 4), draw_cbar=True, vmin=0, vmax=1, cmap=None):
     """
     wrapper for plotting a matrix of probabilities.
     attribues (optional) are used as xlabels
     """
 
-    if np.any(mat < 0): 
+    if np.any(mat < 0):
         print('rescaling matrix to probabilities')
-        mat = .5*(mat+1)
-    
+        mat = .5 * (mat + 1)
+
     try:
         import seaborn as sns
-        
+
         if cmap is None:
-            
-            cmap = sns.cubehelix_palette(
-            8, start=2, dark=0, light=1,
-            reverse=False, as_cmap=True)
 
             cmap = sns.cubehelix_palette(
-            4, start=2, dark=0, light=1,
-            reverse=False, as_cmap=True)
+                8, start=2, dark=0, light=1,
+                reverse=False, as_cmap=True)
 
-        sns.set_style("whitegrid", {'axes.grid' : False})
+            cmap = sns.cubehelix_palette(
+                4, start=2, dark=0, light=1,
+                reverse=False, as_cmap=True)
+
+        sns.set_style("whitegrid", {'axes.grid': False})
 
     except:
         print('lala')
         cmap = 'gray_r'
-        
+
     import matplotlib.pyplot as plt
 
     fig = plt.figure(figsize=figsize)
     ax = fig.add_subplot(111)
-    cax = ax.imshow(mat, aspect='auto', cmap=cmap, 
+    cax = ax.imshow(mat, aspect='auto', cmap=cmap,
                     vmin=vmin, vmax=vmax, origin='upper')
 
     if draw_cbar is True:
-        cbar = fig.colorbar(cax, orientation='vertical')
-    
+        fig.colorbar(cax, orientation='vertical')
+
     return fig, ax
     # ax.set_yticks([])
 
@@ -430,23 +245,23 @@ def plot_codes(mat, attributes=None, order='relevance'):
     try:
         import seaborn as sns
         cmap = sns.cubehelix_palette(
-        8, start=2, dark=0, light=1,
-        reverse=False, as_cmap=True)
-        sns.set_style("whitegrid", {'axes.grid' : False})
+            8, start=2, dark=0, light=1,
+            reverse=False, as_cmap=True)
+        sns.set_style("whitegrid", {'axes.grid': False})
     except:
         print('seaborn import failed')
         cmap = 'gray_r'
-    
+
     eigenvals = maxmachine_relevance(mat.layer)
     if order == 'relevance':
         l_idx = np.argsort(-np.array(eigenvals[:-1]))
     elif order == 'lbda':
         l_idx = np.argsort(-mat.layer.lbda()[:-1])
 
-    fig = plt.figure(figsize=(7,4))
+    fig = plt.figure(figsize=(7, 4))
     ax_codes = fig.add_subplot(111)
-    
-    ax_codes.imshow(mat.mean().transpose()[l_idx,:], aspect='auto', cmap=cmap)
+
+    ax_codes.imshow(mat.mean().transpose()[l_idx, :], aspect='auto', cmap=cmap)
 
     ax_codes.set_yticks(range(mat().shape[1]))
     if attributes is not None:
@@ -454,9 +269,9 @@ def plot_codes(mat, attributes=None, order='relevance'):
         xticklabels = ax_codes.set_xticklabels(list(attributes), rotation=90)
 
     yticklabels = ax_codes.set_yticklabels(
-        [ r"$\nu={0:.1f}, $".format(100*eigenvals[i]) +
-          r"$\hat\lambda={0:.1f}$".format(100*mat.layer.lbda()[i]) 
-          for i in l_idx], rotation=0)
+        [r"$\nu={0:.1f}, $".format(100 * eigenvals[i]) +
+         r"$\hat\lambda={0:.1f}$".format(100 * mat.layer.lbda()[i])
+         for i in l_idx], rotation=0)
 
     return fig, ax_codes
 
@@ -467,9 +282,9 @@ def get_roc_auc(data, data_train, prediction):
     """
 
     zero_idx = np.where(data_train == 0)
-    zero_idx = zip(list(zero_idx)[0],list(zero_idx)[1])
+    zero_idx = zip(list(zero_idx)[0], list(zero_idx)[1])
     auc = sklearn.metrics.roc_auc_score(
-        [data[i,j]==1 for i,j in zero_idx], [prediction[i,j] for i,j in zero_idx])
+        [data[i, j] == 1 for i, j in zero_idx], [prediction[i, j] for i, j in zero_idx])
 
     return auc
 
@@ -482,22 +297,22 @@ def predict_applicability_simple(data, dimensions=35, max_features=None):
 
     # check input format
     if not -1 in np.unique(data):
-        data = 2*data-1
+        data = 2 * data - 1
 
     # sample hold-out data as test-set
     data_train = split_test_train(data)
 
     mm = maxmachine.Machine()
     mm_data = mm.add_matrix(val=np.array(data_train, dtype=np.int8),
-                 sampling_indicator=False)
-    
+                            sampling_indicator=False)
+
     layer = mm.add_layer(size=int(dimensions),
-                          child=mm_data,
-                          z_init='kmeans',
-                          u_init='kmeans',
-                          lbda_init=.9)
+                         child=mm_data,
+                         z_init='kmeans',
+                         u_init='kmeans',
+                         lbda_init=.9)
     layer.lbda.set_prior([10, 2])
-    
+
     if max_features is not None:
         layer.u.set_prior('binomial', [.5, max_features], axis=1)
 
@@ -507,10 +322,10 @@ def predict_applicability_simple(data, dimensions=35, max_features=None):
 
     auc = get_roc_auc(data, data_train, layer.output())
 
-    print('Test set area under ROC: '+str(auc))
-    
+    print('Test set area under ROC: ' + str(auc))
+
     return layer
-    
+
 
 def split_test_train(data, p=.1):
     """ 
@@ -519,11 +334,11 @@ def split_test_train(data, p=.1):
     This serves to create a test set for maxmachine/ormachine.
     """
     import itertools
-    
+
     if not -1 in np.unique(data):
-        data = 2*data-1
-        
-    num_of_zeros = np.prod(data.shape)*p
+        data = 2 * data - 1
+
+    num_of_zeros = np.prod(data.shape) * p
     index_pairs = list(itertools.product(range(data.shape[0]), range(data.shape[1])))
 
     # randomly set indices unobserved
@@ -533,24 +348,24 @@ def split_test_train(data, p=.1):
 
     # set same number applicable/non-applicable unobserved
     if True:
-        true_index_pairs = [x for x in index_pairs if data[x]==1]
-        false_index_pairs = [x for x in index_pairs if data[x]==-1]
-        true_random_idx = np.random.choice(range(len(true_index_pairs)), 
-                                           int(num_of_zeros/2), replace=False)
-        false_random_idx = np.random.choice(range(len(false_index_pairs)), 
-                                            int(num_of_zeros/2), replace=False)
-        zero_idx = [true_index_pairs[i] for i in true_random_idx] + [false_index_pairs[i] 
+        true_index_pairs = [x for x in index_pairs if data[x] == 1]
+        false_index_pairs = [x for x in index_pairs if data[x] == -1]
+        true_random_idx = np.random.choice(range(len(true_index_pairs)),
+                                           int(num_of_zeros / 2), replace=False)
+        false_random_idx = np.random.choice(range(len(false_index_pairs)),
+                                            int(num_of_zeros / 2), replace=False)
+        zero_idx = [true_index_pairs[i] for i in true_random_idx] + [false_index_pairs[i]
                                                                      for i in false_random_idx]
 
     data_train = data.copy()
     for i, j in zero_idx:
-        data_train[i,j] = 0
-        
+        data_train[i, j] = 0
+
     return data_train
 
 
 def predict_applicability_fast(data,
-                               N_sub = 1000,
+                               N_sub=1000,
                                dimensions=35,
                                max_features=None,
                                lbda_prior=None,
@@ -564,11 +379,11 @@ def predict_applicability_fast(data,
 
     np.random.seed(seed)
     old_stdout = sys.stdout
-    
-    L = dimensions # reassign for brevity in expressions
+
+    L = dimensions  # reassign for brevity in expressions
     data = check_binary_coding(data)
     data_train = split_test_train(data)
-    
+
     # select subset at random
     if N_sub > data.shape[0]:
         N_sub = data.shape[0]
@@ -582,9 +397,9 @@ def predict_applicability_fast(data,
     layer1 = mm.add_layer(size=int(L), child=data_layer, z_init=.1,
                           u_init='kmeans', noise_model='max-link', lbda_init=.95)
     if max_features is not None:
-        layer1.u.set_prior('binomial',[binom_prior_attr_sets, max_features], axis=1)
+        layer1.u.set_prior('binomial', [binom_prior_attr_sets, max_features], axis=1)
     else:
-        layer1.u.set_prior('binomial',[binom_prior_attr_sets], axis=1)   
+        layer1.u.set_prior('binomial', [binom_prior_attr_sets], axis=1)
 
     if lbda_prior is not None:
         layer1.lbda.set_prior(lbda_prior)
@@ -593,19 +408,19 @@ def predict_applicability_fast(data,
     if high_level_object_coding is not None:
         high_level_object_coding = check_binary_coding(high_level_object_coding)
         layer2 = mm.add_layer(size=high_level_object_coding.shape[1],
-                               child=layer1.z, 
-                               noise_model='max-link',
-                               lbda_init=.6, 
-                               z_init=high_level_object_coding[subset_idx, :])
+                              child=layer1.z,
+                              noise_model='max-link',
+                              lbda_init=.6,
+                              z_init=high_level_object_coding[subset_idx, :])
         layer2.z.set_sampling_indicator(False)
 
     # train
 
     print('Training on subsample...')
-    sys.stdout = tempfile.TemporaryFile() # prevent printing (todo: write a decorator)
+    sys.stdout = tempfile.TemporaryFile()  # prevent printing (todo: write a decorator)
     mm.infer(no_samples=int(5e1), convergence_window=10,
-              convergence_eps=1e-2, burn_in_min=100, 
-              burn_in_max=int(3e3), fix_lbda_iters=10)
+             convergence_eps=1e-2, burn_in_min=100,
+             burn_in_max=int(3e3), fix_lbda_iters=10)
     sys.stdout = old_stdout
 
     # now run on full dataset with previous results as initialisation,
@@ -615,17 +430,17 @@ def predict_applicability_fast(data,
     mm_2 = maxmachine.Machine()
     # define model architecture
     data_layer_2 = mm_2.add_matrix(val=data_train, sampling_indicator=False)
-    layer1_2 = mm_2.add_layer(size=int(L), child=data_layer_2, z_init=0.0, 
-                               u_init=2*(layer1.u.mean()>.5)-1,
-                               noise_model='max-link', lbda_init=.9)
+    layer1_2 = mm_2.add_layer(size=int(L), child=data_layer_2, z_init=0.0,
+                              u_init=2 * (layer1.u.mean() > .5) - 1,
+                              noise_model='max-link', lbda_init=.9)
     # layer1_2.z.set_prior('binomial', [.5], axis=0)
     layer1_2.u.sampling_indicator = False
     layer1_2.auto_clean_up = True
 
     if high_level_object_coding is not None:
         layer2_2 = mm_2.add_layer(size=high_level_object_coding.shape[1],
-                                  child=layer1_2.z, 
-                                  noise_model='max-link', lbda_init=.6, 
+                                  child=layer1_2.z,
+                                  noise_model='max-link', lbda_init=.6,
                                   z_init=high_level_object_coding)
         layer2_2.z.set_sampling_indicator(False)
 
@@ -633,24 +448,24 @@ def predict_applicability_fast(data,
     print('Learning latent representation for all objects...')
     sys.stdout = tempfile.TemporaryFile()
     mm_2.infer(no_samples=int(10), convergence_window=5,
-                convergence_eps=1e-2, burn_in_min=20, 
-                burn_in_max=200, fix_lbda_iters=3)
+               convergence_eps=1e-2, burn_in_min=20,
+               burn_in_max=200, fix_lbda_iters=3)
     sys.stdout = old_stdout
-    
+
     # now sample u and z
     layer1_2.u.sampling_indicator = True
     print('Drawing samples on the full dataset...')
-    sys.stdout = tempfile.TemporaryFile()    
+    sys.stdout = tempfile.TemporaryFile()
     mm_2.infer(no_samples=int(2e1), convergence_window=5,
-                convergence_eps=5e-3, burn_in_min=10, 
-                burn_in_max=50, fix_lbda_iters=3)
+               convergence_eps=5e-3, burn_in_min=10,
+               burn_in_max=50, fix_lbda_iters=3)
     sys.stdout = old_stdout
-    
+
     roc_auc = get_roc_auc(data, data_train, layer1_2.output())
-    print('Area under ROC curve: ' +  str(roc_auc))
-    
+    print('Area under ROC curve: ' + str(roc_auc))
+
     return layer1_2, roc_auc, data_train
-    
+
 
 def check_binary_coding(data):
     """
@@ -659,7 +474,7 @@ def check_binary_coding(data):
     """
 
     if not -1 in np.unique(data):
-        data = 2*data-1
+        data = 2 * data - 1
 
     return np.array(data, dtype=np.int8)
 
@@ -670,18 +485,18 @@ def check_convergence_single_trace(trace, eps):
     checking whether there difference is > epsilon.
     """
 
-    l = int(len(trace)/2)
+    l = int(len(trace) / 2)
     r1 = expit(np.mean(trace[:l]))
     r2 = expit(np.mean(trace[l:]))
     r = expit(np.mean(trace))
-    
-    if np.abs(r1-r2) < eps:
+
+    if np.abs(r1 - r2) < eps:
         return True
     else:
-        return False       
+        return False
 
 
-def boolean_tensor_product(Z,U,V):
+def boolean_tensor_product(Z, U, V):
     """
     Return the Boolean tensor product of three matrices
     that share their second dimension.
@@ -691,80 +506,76 @@ def boolean_tensor_product(Z,U,V):
     D = U.shape[0]
     M = V.shape[0]
     L = Z.shape[1]
-    X = np.zeros([N,D,M], dtype=bool)
+    X = np.zeros([N, D, M], dtype=bool)
 
-    assert(U.shape[1]==L)
-    assert(V.shape[1]==L)
+    assert(U.shape[1] == L)
+    assert(V.shape[1] == L)
 
     for n in range(N):
         for d in range(D):
             for m in range(M):
-                if np.any([(Z[n,l] == True) and 
-                           (U[d,l] == True) and 
-                           (V[m,l] == True) 
+                if np.any([(Z[n, l] == True) and
+                           (U[d, l] == True) and
+                           (V[m, l] == True)
                            for l in range(L)]):
-                    X[n,d,m] = True
+                    X[n, d, m] = True
     return X
 
 
-
 def add_bernoulli_noise(X, p):
-    
+
     X_intern = X.copy()
-    
+
     for n in range(X.shape[0]):
         for d in range(X.shape[1]):
             for m in range(X.shape[2]):
                 if np.random.rand() < p:
-                    X_intern[n,d,m] = ~X_intern[n,d,m]
-                    
-    return X_intern
+                    X_intern[n, d, m] = ~X_intern[n, d, m]
 
+    return X_intern
 
 
 def add_bernoulli_noise_2d(X, p, seed=None):
-    
+
     if seed is None:
         np.random.seed(np.random.randint(1e4))
 
     X_intern = X.copy()
-    
+
     for n in range(X.shape[0]):
         for d in range(X.shape[1]):
             if np.random.rand() < p:
-                X_intern[n,d] = ~X_intern[n,d]
-                    
-    return X_intern
+                X_intern[n, d] = ~X_intern[n, d]
 
+    return X_intern
 
 
 def add_bernoulli_noise_2d_biased(X, p_plus, p_minus, seed=None):
-    
+
     if seed is None:
         np.random.seed(np.random.randint(1e4))
 
     X_intern = X.copy()
-    
+
     for n in range(X.shape[0]):
         for d in range(X.shape[1]):
-            if X_intern[n,d] == 1:
+            if X_intern[n, d] == 1:
                 p = p_plus
-            if X_intern[n,d] == 0:
+            if X_intern[n, d] == 0:
                 continue
-            elif X_intern[n,d] == -1:
+            elif X_intern[n, d] == -1:
                 p = p_minus
 
             if np.random.rand() < p:
-                X_intern[n,d] = -X_intern[n,d]
-                    
-    return X_intern
+                X_intern[n, d] = -X_intern[n, d]
 
+    return X_intern
 
 
 def flatten(t):
     """
     Generator flattening the structure
-     
+
     >>> list(flatten([2, [2, (4, 5, [7], [2, [6, 2, 6, [6], 4]], 6)]]))
     [2, 2, 4, 5, 7, 2, 6, 2, 6, 6, 4, 6]
     """
@@ -777,30 +588,28 @@ def flatten(t):
             yield from flatten(x)
 
 
-
 def intersect_dataframes(A, B):
     """
     given two dataframes, intersect rows and columns of both
     """
-    
+
     joint_rows = set(A.index).intersection(B.index)
     A = A[A.index.isin(joint_rows)]
     B = B[B.index.isin(joint_rows)]
-    
+
     joint_cols = set(A.columns).intersection(B.columns)
     A = A[list(joint_cols)]
     B = B[list(joint_cols)]
-    
+
     A = A.sort_index()
     B = B.sort_index()
-    
+
     assert np.all(A.index == B.index)
     assert np.all(A.columns == B.columns)
-    
-    print('\n\tNew shape is :'+str(mut.shape))
-    
-    return A, B
 
+    print('\n\tNew shape is :' + str(mut.shape))
+
+    return A, B
 
 
 def all_columsn_are_disjoint(mat):
@@ -810,13 +619,12 @@ def all_columsn_are_disjoint(mat):
     """
 
     L = mat.shape[1]
-    return not np.any([np.all(mat[mat[:,i]==1,j]==1) 
-                       for i,j in list(itertools.permutations(range(L),2))])
-    
+    return not np.any([np.all(mat[mat[:, i] == 1, j] == 1)
+                       for i, j in list(itertools.permutations(range(L), 2))])
+
 
 def random_machine_matrix(p, shape):
-    return 2*np.array(binomial(n=1, p=p, size=shape), dtype=np.int8)-1
-
+    return 2 * np.array(binomial(n=1, p=p, size=shape), dtype=np.int8) - 1
 
 
 def generate_orm_product(N=100, D=20, L=3):
@@ -831,16 +639,19 @@ def generate_orm_product(N=100, D=20, L=3):
             mat = np.array(np.random.rand(K, L) > .5, dtype=np.int8)
             if all_columsn_are_disjoint(mat):
                 return mat
-    
+
     U = disjoint_columns_mat(D, L)
     Z = disjoint_columns_mat(N, L)
 
-    X = np.array(np.dot(Z==1, U.transpose()==1), dtype=np.int8)
+    X = np.array(np.dot(Z == 1, U.transpose() == 1), dtype=np.int8)
 
     # map to {-1, 0, 1} reprst.
-    X = 2*X-1; U=2*U-1; Z=2*Z-1
+    X = 2 * X - 1
+    U = 2 * U - 1
+    Z = 2 * Z - 1
 
     return U, Z, X
+
 
 def get_lop(name='OR'):
     """
@@ -850,27 +661,27 @@ def get_lop(name='OR'):
 
     @jit
     def OR(x):
-        return np.any(x==1)
+        return np.any(x == 1)
 
-    @jit        
+    @jit
     def NOR(x):
-        return ~(np.any(x==1))
+        return ~(np.any(x == 1))
 
-    @jit        
+    @jit
     def AND(x):
-        return np.all(x==1)
+        return np.all(x == 1)
 
-    @jit        
+    @jit
     def NAND(x):
-        return ~(np.all(x==1))
+        return ~(np.all(x == 1))
 
     @jit
     def XOR(x):
-        return np.sum(x==1) == 1
+        return np.sum(x == 1) == 1
 
-    @jit        
+    @jit
     def NXOR(x):
-        return ~(np.sum(x==1) == 1)
+        return ~(np.sum(x == 1) == 1)
 
     lops = [OR, NOR, AND, NAND, XOR, NXOR]
 
@@ -879,7 +690,6 @@ def get_lop(name='OR'):
             return lop
 
     raise ValueError('Logical operator not defined.')
-
 
 
 def get_fuzzy_lop(name='OR'):
@@ -901,6 +711,7 @@ def get_fuzzy_lop(name='OR'):
             [np.prod(
                 [1 - x[i] for i in range(len(x)) if i != j] + [x[j]])
                 for j in range(len(x))])
+
     @jit
     def NAND(x):
         return 1 - np.prod(x)
@@ -924,40 +735,37 @@ def get_fuzzy_lop(name='OR'):
     raise ValueError('Logical operator not defined.')
 
 
-def lom_generate_data_fast(factors, model='OR-AND'):
+def lom_generate_data_fast(factors, model='OR-AND', fuzzy=False):
     """
     Factors and generated data are in [-1,1] mapping.
     """
 
-    # fast generation is not available for all models
-    if model == 'OR-AND':
-
-        if len(factors) == 2:
-            return lambda_updates_numba.or_and_out_2D(
-                *[np.array(f, dtype=np.int8) for f in factors])
-
-        elif len(factors) == 3:
-            return lambda_updates_numba.or_and_out_3D(
-                *[np.array(f, dtype=np.int8) for f in factors])
-    else:
+    if model not in implemented_loms():
+        print('Requested model output is not explicitly implemented.\n' +
+              'Falling back to slower general implementation.')
         return lom_generate_data(factors, model)
 
+    if len(factors) == 2:
 
-def lom_generate_data_fuzzy_fast(factors, model='OR-AND'):
+        if fuzzy is False:
+            out2D = lambda_updates_numba.make_output_function_2d(model)
+            return out2D(*[np.array(f, dtype=np.int8) for f in factors])
 
-    # fast generation is not available for all models
-    if model == 'OR-AND':
+        elif fuzzy is True:
+            out2D = lambda_updates_numba.make_output_function_2d_fuzzy(model)
+            return out2D(*[np.array(f, dtype=np.float64) for f in factors])
 
-        if len(factors) == 2:
-            return lambda_updates_numba.or_and_out_2D_fuzzy(
-                *[np.array( .5 * (1 + f) ) for f in factors])
+    elif len(factors) == 3 and model == 'OR-AND':
+        if fuzzy is False:
+            out3D = lambda_updates_numba.make_output_function_3d(model)
+            return out3D(*[np.array(f, dtype=np.int8) for f in factors])
 
-        elif len(factors) == 3:
-            return lambda_updates_numba.or_and_out_3D_fuzzy(
-                *[np.array( .5 * (1 + f) ) for f in factors])        
+        elif fuzzy is True:
+            out3D = lambda_updates_numba.make_output_function_3d_fuzzy(model)
+            return out3D(*[np.array(f, dtype=np.float64) for f in factors])
 
     else:
-        return lom_generate_data_fuzzy(factors, model)     
+        return lom_generate_data(factors, model)
 
 
 def lom_generate_data(factors, model='OR-AND'):
@@ -1000,8 +808,8 @@ def lom_generate_data_fuzzy(factors, model='OR-AND'):
     outer_operator = get_fuzzy_lop(outer_operator_name)
     inner_operator = get_fuzzy_lop(inner_operator_name)
 
-    outer_logic = np.zeros(L) #, dtype=bool)
-    inner_logic = np.zeros(K) #, dtype=bool)
+    outer_logic = np.zeros(L)  # , dtype=bool)
+    inner_logic = np.zeros(K)  # , dtype=bool)
 
     for index, _ in np.ndenumerate(out):
         for l in range(L):
@@ -1011,7 +819,7 @@ def lom_generate_data_fuzzy(factors, model='OR-AND'):
             outer_logic[l] = inner_operator(inner_logic)
         out[index] = outer_operator(outer_logic)
 
-    return 2*out-1
+    return 2 * out - 1
 
 
 def canonise_model(model, child):
@@ -1021,25 +829,7 @@ def canonise_model(model, child):
     Here the model is translated to its canonical form.
     """
 
-    # the following pairs area equivalent
-    equivalent_pairs = [('OR-AND', 'NAND-NAND'),
-                        ('OR-OR', 'NAND-NOR'),
-                        ('OR-NAND', 'NAND-AND'),
-                        ('OR-NOR', 'NAND-OR'),
-                        ('AND-AND', 'NOR-NAND'),
-                        ('AND-OR', 'NOR-NOR'),
-                        ('AND-NAND', 'NOR-AND'),
-                        ('AND-NOR', 'NOR-OR'),
-                        ('NAND-XOR', 'OR-NXOR'),
-                        ('AND-XOR', 'NOR-NXOR'),  # remove 
-                        ('OR-XOR', 'NAND-NXOR'),  # remove
-                        ('NOR-XOR', 'AND-NXOR')]  # remove
-
-    # replace model by its equivalent counterparts
-    if model in [pair[1] for pair in equivalent_pairs]:
-        model_new = [pair[0] for pair in equivalent_pairs if pair[1] == model][0]
-    else:
-        model_new = model
+    model_new = replace_equivalent_model(model)
 
     invert_data = False
     invert_factors = False
@@ -1129,28 +919,32 @@ def canonise_model(model, child):
         model_new = 'XOR-XOR'
         invert_data = True
 
+    elif model_new == 'MAX-AND':
+        pass
+
     else:
-        import pdb; pdb.set_trace()
+        import pdb
+        pdb.set_trace()
         raise NotImplementedError("Model not implemented.")
 
     # print output and invert data if needed.
     if invert_data is False and invert_factors is False:
         print('\n' + model + ' is treated as ' + model_new + '.\n')
 
-    if invert_data is True and invert_factors is False:        
+    if invert_data is True and invert_factors is False:
         print('\n' + model + ' is treated as ' + model_new +
               ' with inverted data.\n')
         child.val *= -1
 
     if invert_data is False and invert_factors is True:
         print('\n' + model + ' is treated as ' + model_new +
-        ' with inverted factors. (Invert yourself!)\n')
+              ' with inverted factors. (Invert yourself!)\n')
 
     if invert_data is True and invert_factors is True:
         print('\n' + model + ' is treated as ' + model_new +
               ' with inverted data and inverted factors. ' +
               ' (invert factors yourself!)\n')
-        child.val *= -1        
+        child.val *= -1
 
     # print warning for OR-NAND models.
     if model_new == 'OR-NAND':
@@ -1160,15 +954,200 @@ def canonise_model(model, child):
     return model_new, invert_data, invert_factors
 
 
-def MAX_AND_output(factors, lbdas):
+def canonical_loms(level='clans', mode='implemented'):
+    """
+    which: clans, families
+    type: implemented, canonical
+    """
 
-    out = np.zeros([f.shape[0] for f in factors])
-    for l_idx in np.argsort(lbdas[:-1]):
-        temp = lbdas[l_idx] * lambda_updates_numba.predict_single_latent(
-            *[f[:, l_idx] for f in factors])
-        out[out==0] = temp[out==0]
+    if mode == 'implemented':
+        clans = ['OR-AND', 'OR-NAND', 'OR-XOR', 'NAND-XOR',
+                 'XOR-NAND', 'XOR-AND', 'XOR-NXOR', 'XOR-XOR']
+        families = ['NOR-AND', 'NOR-NAND', 'NOR-XOR', 'AND-XOR',
+                    'NXOR-NAND', 'NXOR-AND', 'NXOR-NXOR', 'NXOR-XOR']
+    elif mode == 'canonical':
+        clans = ['AND-AND', 'AND-NAND', 'XOR-AND', 'XOR-NAND',
+                 'AND-XOR', 'AND-NXOR', 'XOR-XOR', 'XOR-NXOR']
+        families = ['OR-NAND', 'OR_AND', 'NXOR-AND', 'NXOR-NAND',
+                    'OR-NXOR', 'OR-XOR', 'NXOR-XOR', 'NXOR-NXOR']
+    else:
+        raise ValueError
 
-    return out
+    if level == 'clans':
+        return clans
+    elif level == 'families':
+        return clans + families
+    else:
+        raise ValueError
 
 
+def implemented_loms():
+    return ['OR-AND', 'OR-NAND', 'OR-XOR', 'NAND-XOR',
+            'XOR-AND', 'XOR-XOR', 'XOR-NXOR', 'XOR-NAND']
 
+
+def replace_equivalent_model(model, equivalent_pairs=None):
+
+    # the following pairs area equivalent and the
+    # left partner supports posterior inference
+    # (this is not equivalent to the canonical representation)
+    if equivalent_pairs is None:
+        equivalent_pairs = [('OR-AND', 'NAND-NAND'),
+                            ('OR-NOR', 'NAND-OR'),
+                            ('AND-OR', 'NOR-NOR'),
+                            ('AND-NAND', 'NOR-AND'),
+                            ('OR-OR', 'NAND-NOR'),
+                            ('OR-NAND', 'NAND-AND'),
+                            ('AND-AND', 'NOR-NAND'),
+                            ('AND-NOR', 'NOR-OR'),
+                            ('NAND-XOR', 'OR-NXOR'),
+                            ('AND-XOR', 'NOR-NXOR'),  # remove
+                            ('OR-XOR', 'NAND-NXOR'),  # remove
+                            ('NOR-XOR', 'AND-NXOR')]  # remove
+
+    # replace model by its equivalent counterparts
+    if model in [pair[1] for pair in equivalent_pairs]:
+        model = [pair[0] for pair in equivalent_pairs if pair[1] == model][0]
+    return model
+
+
+def expected_density(model, L, K, f):
+    """
+    Inv: I_outer, I_hidden, I_inner
+    """
+    def invert(x):
+        return 1 - x
+
+    def identity(x):
+        return x
+
+    if model == 'XOR-NXOR' or model == 'NXOR-NXOR':
+        # need some extra treatment, XOR-XOR does not generalise via inversion
+        pass
+        if model == 'NXOR-NXOR':
+            Inv = invert
+        else:
+            Inv = identity
+        d = Inv(
+            L * (((1 - (K * f * (1 - f)**(K - 1)))) *
+                 (K * f * (1 - f)**(K - 1))**(L - 1))
+        )
+        return d
+    else:
+        model_group, Inv = get_lom_class(model)
+
+    for i, indicator in enumerate(Inv):
+        if indicator is True:
+            Inv[i] = invert
+        else:
+            Inv[i] = identity
+
+    if model_group == 'AND-AND':
+        d = Inv[0](Inv[1](Inv[2](f)**K)**L)
+
+    elif model_group == 'XOR-AND':
+        d = Inv[0](L * invert(Inv[1](Inv[2](f)**K))**(L - 1) *
+                   Inv[1](Inv[2](f)**K))
+
+    elif model_group == 'AND-XOR':
+        # d = (K * f * invert(f)**(K - 1))**L
+        d = Inv[0](Inv[1](K * f * invert(f)**(K - 1))**L)
+
+    elif model_group == 'XOR-XOR':
+        d = Inv[0](L * (
+            Inv[1](K * f * (invert(f))**(K - 1) *
+                   (f**K + invert(f)**(K)) ** (L - 1))
+        ))
+
+    return d
+
+
+def get_lom_class(machine):
+    """
+    Return corresponding class and tuple of inversion
+    instructions.
+    Inv: I_outer, I_hidden, I_inner
+    """
+
+    # AND-AND class
+    if machine == 'AND-AND' or machine == 'NOR-NAND':
+        Inv = [False, False, False]
+        machine = 'AND-AND'
+    elif machine == 'AND-NOR' or machine == 'NOR-OR':
+        Inv = [False, False, True]
+        machine = 'AND-AND'
+    elif machine == 'OR-NAND' or machine == 'NAND-AND':
+        Inv = [True, False, False]
+        machine = 'AND-AND'
+    elif machine == 'OR-OR' or machine == 'NAND-NOR':
+        Inv = [True, False, True]
+        machine = 'AND-AND'
+    elif machine == 'AND-NAND' or machine == 'NOR-AND':
+        Inv = [False, True, False]
+        machine = 'AND-AND'
+    elif machine == 'AND-OR' or machine == 'NOR-NOR':
+        Inv = [False, True, True]
+        machine = 'AND-AND'
+    elif machine == 'OR-AND' or machine == 'NAND-NAND':
+        Inv = [True, True, False]
+        machine = 'AND-AND'
+    elif machine == 'OR-NOR' or machine == 'NAND-OR':
+        Inv = [True, True, True]
+        machine = 'AND-AND'
+
+    elif machine == 'XOR-AND':
+        Inv = [False, False, False]
+        machine = 'XOR-AND'
+    elif machine == 'XOR-NOR':
+        Inv = [False, False, True]
+        machine = 'XOR-AND'
+    elif machine == 'NXOR-AND':
+        Inv = [True, False, False]
+        machine = 'XOR-AND'
+    elif machine == 'NXOR-NOR':
+        Inv = [True, False, True]
+        machine = 'XOR-AND'
+    elif machine == 'XOR-NAND':
+        Inv = [False, True, False]
+        machine = 'XOR-AND'
+    elif machine == 'XOR-OR':
+        Inv = [False, True, True]
+        machine = 'XOR-AND'
+    elif machine == 'NXOR-NAND':
+        Inv = [True, True, False]
+        machine = 'XOR-AND'
+    elif machine == 'NXOR-OR':
+        Inv = [True, True, True]
+        machine = 'XOR-AND'
+
+    elif machine == 'AND-XOR' or machine == 'NOR-NXOR':
+        Inv = [False, False, False]
+        machine = 'AND-XOR'
+    elif machine == 'OR-NXOR' or machine == 'NAND-XOR':
+        Inv = [True, False, False]
+        machine = 'AND-XOR'
+    elif machine == 'AND-NXOR' or machine == 'NOR-XOR':
+        Inv = [False, True, False]
+        machine = 'AND-XOR'
+    elif machine == 'OR-XOR' or machine == 'NAND-NXOR':
+        Inv = [True, True, False]
+        machine = 'AND-XOR'
+
+    elif machine == 'XOR-XOR':
+        Inv = [False, False, False]
+        machine = 'XOR-XOR'
+    elif machine == 'NXOR-XOR':
+        Inv = [True, False, False]
+        machine = 'XOR-XOR'
+    elif machine == 'XOR-NXOR':
+        Inv = [False, True, False]
+        machine = 'XOR-XOR'
+    elif machine == 'NXOR-NXOR':
+        Inv = [True, True, False]
+        machine = 'XOR-XOR'
+
+    try:
+        return machine, Inv
+    except:
+        import pdb
+        pdb.set_trace()
