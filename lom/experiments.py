@@ -183,8 +183,6 @@ def split_train_test(tensor, split=.1, balanced=False):
 
         # more scalable approach
         p = split / (1 - np.mean(tensor == 0))  # scale up fraction for missing data
-        import pdb
-        pdb.set_trace()
         mask = np.random.choice([True, False], size=(tensor.shape), p=[p, 1 - p])
         mask[tensor == 0] = False
         tensor[mask] = 0
@@ -251,8 +249,8 @@ def LOM_predictive(experiment, return_machine=False):
     layer.auto_reset = False
     layer.lbda.val = .0
 
-    orm.infer(burn_in_min=50, fix_lbda_iters=10,
-              convergence_window=10, burn_in_max=150)
+    orm.infer(burn_in_min=20, fix_lbda_iters=5,
+              convergence_window=10, burn_in_max=150, no_samples=10)
 
     out = layer.output(technique='factor_mean')[train_mask] > .5
     truth = (-2 * layer.invert_data + 1) * X[train_mask] == 1
