@@ -50,7 +50,7 @@ def dbtf_reconstruct(X, L, hyperparms=[1, .3, 50], compute_output=True):
 
     import subprocess
     import os
-    assert set(np.unique(X)) == {True, False}
+    # assert set(np.unique(X)) == {True, False}
 
     # files are written to and read from this directory
     try:
@@ -63,9 +63,7 @@ def dbtf_reconstruct(X, L, hyperparms=[1, .3, 50], compute_output=True):
     N, D, M = X.shape
 
     # write tensor X to text file
-    # sparse_tensor = np.array(np.where(X == 1)).transpose()
-    print('here')
-    sparse_tensor = np.nonzero(X == 1).transpose()
+    sparse_tensor = np.array(np.nonzero(X == 1)).transpose()  # used to be np.where
 
     np.savetxt('./data/mytensor.tensor', sparse_tensor,
                delimiter=',', fmt='%d',
@@ -249,7 +247,7 @@ def LOM_predictive(experiment, return_machine=False):
     data = orm.add_matrix(X_train, fixed=True)
     layer = orm.add_layer(latent_size=L, child=data, model=machine)
 
-    layer.auto_reset = True
+    # layer.auto_reset = True
 
     orm.infer(burn_in_min=20, fix_lbda_iters=5,
               convergence_window=10, burn_in_max=150, no_samples=10)
