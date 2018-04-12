@@ -1062,6 +1062,46 @@ def expected_density(model, L, K, f):
     return d
 
 
+def factor_density(machine, L, K, X):
+    """
+    X is the desired expected data density
+    returns the corresponding factor density
+    """
+    from scipy.optimize import fsolve
+    from scipy.optimize import least_squares
+
+
+    def func(f_d):
+        if f_d < 0:
+            return 1e10
+        if f_d > 1:
+            return 1e10
+        else:
+            return expected_density(machine, L, K, f=f_d) - X
+
+    # Plot it
+    tau = np.linspace(0, 1, 201)
+
+    # Use the numerical solver to find the roots
+    best = 1e10
+    for tau_initial_guess in [.01,.25,.5,.75,.99]:
+        tau_solution = fsolve(func, tau_initial_guess, 
+                              maxfev=int(1e6), full_output=False, 
+                              xtol=1e-10, factor=10)
+        if func(tau_solution)[0] < best:
+            best = np.abs(func(tau_solution)[0])
+            best_solution = tau_solution
+
+    print("The solution is tau = " + str(best_solution))
+    print("at which the value of the expression is " +
+          str(func(best_solution) + X))
+
+    if np.abs(func(best_solution)) > 1e-6:
+        print('Solution does not exist. Returning closest value.')
+
+    return best_solution
+
+
 def get_lom_class(machine):
     """
     Return corresponding class and tuple of inversion

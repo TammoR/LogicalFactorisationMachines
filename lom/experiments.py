@@ -100,21 +100,14 @@ def tensorm_reconstruct(X, L, hyperparms=[.5, 1.0], return_layer=False):
     lbda_init = hyperparms[1]
 
     orm = lom.Machine()
-    data = orm.add_matrix(X, sampling_indicator=False)
-    layer = orm.add_tensorm_layer(
-        child=data, size=L,
-        lbda_init=lbda_init,
-        inits=3 * [p_init])
+    data = orm.add_matrix(X, fixed=True)
+    layer = orm.add_layer(
+        child=data, latent_size=L, model='OR-AND')
 
-    # assign the correct updating functions
-    for factor_matrix in data.parents:
-        factor_matrix.sampling_fct = wrappers.draw_tensorm_noparents_onechild_wrapper
-    layer.lbda.sampling_fct = sampling.draw_lbda_tensorm
+    orm.infer(burn_in_min=100, no_samples=50)
 
-    orm.infer(burn_in_min=1000, no_samples=50)
-
-    X_recon = layer.output(recon_model='mc', force_computation=True)
-    X_recon_plugin = layer.output(recon_model='plugin', force_computation=True)
+    X_recon = layer.output(technique='factor_mean', lazy=False)
+    X_recon_plugin = layer.output(technique='factor_map', lazy=False)
     f_tensorm = (layer.z.mean(), layer.u.mean(), layer.v.mean())
 
     if return_layer is True:

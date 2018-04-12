@@ -27,6 +27,16 @@ layer = orm.add_layer(latent_size=3, child=data, model='OR-AND')
 # initialise factors (optional)
 layer.factors[0].val = np.array( 2*(np.random.rand(N, L) > .5) - 1, dtype=np.int8)
 
+# Fix particular entries (1s in fixed_entries matrix) (optional)
+layer.factors[1].fixed_entries = np.zeros(layer.factors[1]().shape)
+layer.factors[1].fixed_entries[0,:] = 1
+
+# Set priors beta prior on sigmoid(lambda) (optional)
+layer.lbda.beta_prior = (10,1)
+
+# Set iid bernoulli priors on factor matrix entries (optional)
+layer.factors[1].bernoulli_prior = .1
+
 # run inference
 orm.infer(burn_in_min=100, burn_in_max=1000, fix_lbda_iters=10, no_samples=50)
 

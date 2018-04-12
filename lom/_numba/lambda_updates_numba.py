@@ -107,8 +107,8 @@ def make_output_function_3d(model):
 
     get_scalar_output_3d = get_scalar_output_function_3d(model, fuzzy=False)
 
-    @jit('int8[:,:](int8[:,:], int8[:,:], int8[:,:])',
-         nogil=True, nopython=False, parallel=True)
+    @jit('int8[:,:,:](int8[:,:], int8[:,:], int8[:,:])',
+         nogil=False, nopython=False, parallel=True)
     def output_function_3d(Z, U, V):
         N = Z.shape[0]
         D = U.shape[0]
