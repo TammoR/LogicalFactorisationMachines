@@ -39,7 +39,7 @@ def generate_random_tensor(L, dims, noise=0, density=.5):
     return X_noisy, X, f_truth, factor_density
 
 
-def dbtf_reconstruct(X, L, hyperparms=[1, .3, 50]):
+def dbtf_reconstruct(X, L, hyperparms=[1, .3, 50], compute_output=True):
     """
     Calling dbtf to compute Boolean tensor factorisation of X
     for L latent dimensions.
@@ -63,7 +63,10 @@ def dbtf_reconstruct(X, L, hyperparms=[1, .3, 50]):
     N, D, M = X.shape
 
     # write tensor X to text file
-    sparse_tensor = np.array(np.where(X == 1)).transpose()
+    # sparse_tensor = np.array(np.where(X == 1)).transpose()
+    print('here')
+    sparse_tensor = np.nonzero(X == 1).transpose()
+
     np.savetxt('./data/mytensor.tensor', sparse_tensor,
                delimiter=',', fmt='%d',
                header="tensor size: " + str(N) + "-by-" + str(D) + "-by-" + str(M) + "\ntensor base index: 0")
@@ -87,9 +90,11 @@ def dbtf_reconstruct(X, L, hyperparms=[1, .3, 50]):
         for (i, j) in f:
             f_dbtf[-1][i, j] = True
 
-    X_recon = lib.boolean_tensor_product(*f_dbtf)
-
-    return X_recon, f_dbtf
+    if compute_output is True:
+        X_recon = lib.boolean_tensor_product(*f_dbtf)
+        return X_recon, f_dbtf
+    else:
+        return f_dbtf
 
 
 def tensorm_reconstruct(X, L, hyperparms=[.5, 1.0], return_layer=False):
