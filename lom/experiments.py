@@ -53,8 +53,12 @@ def dbtf_reconstruct(X, L, hyperparms=[1, .3, 50]):
     assert set(np.unique(X)) == {True, False}
 
     # files are written to and read from this directory
-    dbtf_dir = "/Users/trukat/dphil_projects/modules/dbtf-1.0/"
-    os.chdir(dbtf_dir)
+    try:
+        dbtf_dir = "/Users/trukat/dphil_projects/modules/dbtf-1.0/"
+        os.chdir(dbtf_dir)
+    except:
+        dbtf_dir = "/home/trukat/dbtf-1.0/"
+        os.chdir(dbtf_dir)
 
     N, D, M = X.shape
 
