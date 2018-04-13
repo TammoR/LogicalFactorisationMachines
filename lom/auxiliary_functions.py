@@ -1088,7 +1088,7 @@ def factor_density(machine, L, K, X):
         tau_solution = fsolve(func, tau_initial_guess, 
                               maxfev=int(1e6), full_output=False, 
                               xtol=1e-10, factor=10)
-        if func(tau_solution)[0] < best:
+        if np.abs(func(tau_solution)[0]) < best:
             best = np.abs(func(tau_solution)[0])
             best_solution = tau_solution
 
@@ -1099,7 +1099,7 @@ def factor_density(machine, L, K, X):
     if np.abs(func(best_solution)) > 1e-6:
         print('Solution does not exist. Returning closest value.')
 
-    return best_solution
+    return best_solution[0]
 
 
 def get_lom_class(machine):
