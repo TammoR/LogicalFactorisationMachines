@@ -968,7 +968,7 @@ def canonical_loms(level='clans', mode='implemented'):
     elif mode == 'canonical':
         clans = ['AND-AND', 'AND-NAND', 'XOR-AND', 'XOR-NAND',
                  'AND-XOR', 'AND-NXOR', 'XOR-XOR', 'XOR-NXOR']
-        families = ['OR-NAND', 'OR_AND', 'NXOR-AND', 'NXOR-NAND',
+        families = ['OR-NAND', 'OR-AND', 'NXOR-AND', 'NXOR-NAND',
                     'OR-NXOR', 'OR-XOR', 'NXOR-XOR', 'NXOR-NXOR']
     else:
         raise ValueError
