@@ -71,8 +71,6 @@ def posterior_score_MAX_AND_2D(Z_n, U, X_n, l, l_sorted, lbda_ratios):
     return score
 
 
-
-
 def lbda_MAX_AND(parm, K):
     """
     TODO: numba

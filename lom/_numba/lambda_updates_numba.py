@@ -210,7 +210,8 @@ def make_lbda_update_fct(model, dimensionality):
     """
 
     if model == 'MAX-AND':
-        return lbda_MAX_AND
+        import lom._numba.max_machine_sampler
+        return lom._numba.max_machine_sampler.bda_MAX_AND
 
     else:
         counter = make_correct_predictions_counter(model, dimensionality)
@@ -223,4 +224,5 @@ def make_lbda_update_fct(model, dimensionality):
             # number of data points that are to be predicted
             ND = np.prod(parm.layer.child().shape) - np.sum(parm.layer.child() == 0)
             parm.val = np.max([-np.log(((ND + alpha + beta) / (float(P) + alpha)) - 1), 0])
+            print(P, ND, P / ND)
         return lbda_update_fct
