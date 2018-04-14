@@ -463,7 +463,7 @@ class Machine():
         elif 'BALANCED' in model:
             lbda_init = np.array([1.0 for i in range(2)])
         else:
-            lbda_init = .1
+            lbda_init = .05
         lbda = MachineParameter(val=lbda_init)
 
         # initialise layer object
