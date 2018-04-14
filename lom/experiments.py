@@ -39,7 +39,6 @@ def generate_random_tensor(L, dims, noise=0, density=.5):
     return X_noisy, X, f_truth, factor_density
 
 
-
 def dbtf_reconstruct(X, L, hyperparms=[3, .3, 25], compute_output=True):
     """
     Calling dbtf to compute Boolean tensor factorisation of X
