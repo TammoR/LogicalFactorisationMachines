@@ -249,7 +249,7 @@ def LOM_predictive(experiment, return_machine=False):
 
     # layer.auto_reset = True
 
-    orm.infer(burn_in_min=20, fix_lbda_iters=5,
+    orm.infer(burn_in_min=100, fix_lbda_iters=50,
               convergence_window=10, burn_in_max=150, no_samples=10)
 
     out = layer.output(technique='factor_mean')[train_mask] > .5
