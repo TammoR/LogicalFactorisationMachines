@@ -185,28 +185,49 @@ def split_train_test(tensor, split=.1, balanced=False):
         p = split / (1 - np.mean(tensor == 0))  # scale up fraction for missing data
         mask = np.random.choice([True, False], size=(tensor.shape), p=[p, 1 - p])
         mask[tensor == 0] = False
-        training_tensor = np.copy(tensor)
-        training_tensor[mask] = 0
-        test_mask = mask
 
     else:
-        print('Balanced split is not optimised!')
-        previous = -1
-        while i < num_split:
-            idx = index_generator()
-            if (tensor[idx] != 0) and (idx not in rand_tensor_idx) and (tensor[idx] != previous):
-                rand_tensor_idx[:, i] = idx
-                previous *= -1
-                i += 1
+        S = int(np.sum(tensor != 0) * split * .5)  # number of ones/zeros to split
 
-        # following indent is part of the old approach
-        test_mask = np.zeros(tensor.shape, dtype=bool)
+        # at most half the ones/zeros should be test set
+        assert np.sum(tensor == 1) > S / 2
+        assert np.sum(tensor == -1) > S / 2
 
-        for idx in rand_tensor_idx.transpose():
-            test_mask[tuple(idx)] = True
+        # select indices for positives
+        nz = np.nonzero(tensor == 1)
+        p_idxs = np.random.choice(range(len(nz[0])), S, replace=False)
+        p_idxs = tuple(nz[k][p_idxs] for k in range(len(nz)))
 
-        tensor = np.array(tensor, dtype=np.int8)
-        tensor[test_mask] = 0
+        # select indices for negatives
+        nz = np.nonzero(tensor == -1)
+        n_idxs = np.random.choice(range(len(nz[0])), S, replace=False)
+        n_idxs = tuple(nz[k][n_idxs] for k in range(len(nz)))
+
+        mask = np.zeros(tensor.shape, dtype=bool)
+        mask[n_idxs] = True
+        mask[p_idxs] = True
+
+    training_tensor = np.copy(tensor)
+    training_tensor[mask] = 0
+    test_mask = mask
+
+    # print('Balanced split is not optimised!')
+    # previous = -1
+    # while i < num_split:
+    #     idx = index_generator()
+    #     if (tensor[idx] != 0) and (idx not in rand_tensor_idx) and (tensor[idx] != previous):
+    #         rand_tensor_idx[:, i] = idx
+    #         previous *= -1
+    #         i += 1
+
+    # # following indent is part of the old approach
+    # test_mask = np.zeros(tensor.shape, dtype=bool)
+
+    # for idx in rand_tensor_idx.transpose():
+    #     test_mask[tuple(idx)] = True
+
+    # tensor = np.array(tensor, dtype=np.int8)
+    # tensor[test_mask] = 0
 
     return training_tensor, test_mask
 
