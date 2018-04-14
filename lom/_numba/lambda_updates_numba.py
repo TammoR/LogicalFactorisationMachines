@@ -169,11 +169,11 @@ def make_correct_predictions_counter(model, dimensionality):
 
         output_fct = get_scalar_output_function_2d(model, fuzzy=False)
 
-        @jit('int32(int8[:,:], int8[:,:], int8[:,:])',
+        @jit('int64(int8[:,:], int8[:,:], int8[:,:])',
              nogil=True, nopython=True, parallel=True)
         def correct_predictions_counter(Z, U, X):
             N, D = X.shape
-            count = 0
+            count = np.int64(0)
             for n in prange(N):
                 for d in prange(D):
                     if output_fct(Z[n, :], U[d, :]) == X[n, d]:
@@ -184,11 +184,11 @@ def make_correct_predictions_counter(model, dimensionality):
 
         output_fct = get_scalar_output_function_3d(model, fuzzy=False)
 
-        @jit('int32(int8[:,:], int8[:,:], int8[:,:], int8[:,:,:])',
+        @jit('int64(int8[:,:], int8[:,:], int8[:,:], int8[:,:,:])',
              nogil=True, nopython=True, parallel=True)
         def correct_predictions_counter(Z, U, V, X):
             N, D, M = X.shape
-            count = np.int32(0)
+            count = np.int64(0)
             for n in prange(N):
                 for d in prange(D):
                     for m in range(M):
