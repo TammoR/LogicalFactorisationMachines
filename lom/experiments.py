@@ -319,6 +319,7 @@ def LOM_hyperparms_parallel_gridsearch(X,
             X_train, train_mask = split_train_test(X, split=.1, balanced=balanced)
             make_split = False
         except:
+            print('\n\n\n\n\n\n\nMake test set smaller!\n\n\n\n\n\n')
             split *= .1
 
     # unpack experimental parameters
