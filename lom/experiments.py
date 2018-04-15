@@ -267,6 +267,7 @@ def LOM_predictive(experiment, return_machine=False):
     orm = lom.Machine()
     data = orm.add_matrix(X_train, fixed=True)
     layer = orm.add_layer(latent_size=L, child=data, model=machine)
+    layer.lbda.val = .1
 
     # layer.auto_reset = True
 
