@@ -299,7 +299,8 @@ def parallel_function(f):
 def LOM_hyperparms_parallel_gridsearch(X,
                                        machines=None,
                                        L_inits=[2, 6, 10],
-                                       random_idxs=[0]):
+                                       random_idxs=[0],
+                                       balanced=False):
     """
     Split X in train/test set and determine predictive
     accuracy over all configurations in experimental settings which is a
@@ -311,7 +312,7 @@ def LOM_hyperparms_parallel_gridsearch(X,
         machines = aux.canonical_loms()
 
     # train/test split
-    X_train, train_mask = split_train_test(X, split=.1, balanced=False)
+    X_train, train_mask = split_train_test(X, split=.1, balanced=balanced)
 
     # unpack experimental parameters
     experiment_parms = []
