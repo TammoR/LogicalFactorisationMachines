@@ -313,7 +313,12 @@ def LOM_hyperparms_parallel_gridsearch(X,
         machines = aux.canonical_loms()
 
     # train/test split
-    X_train, train_mask = split_train_test(X, split=.1, balanced=balanced)
+    while make_split is True:
+        try:
+            X_train, train_mask = split_train_test(X, split=.1, balanced=balanced)
+            make_split = False
+        except:
+            split *= .1
 
     # unpack experimental parameters
     experiment_parms = []
