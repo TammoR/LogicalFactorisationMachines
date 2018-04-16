@@ -314,9 +314,10 @@ def LOM_hyperparms_parallel_gridsearch(X,
 
     # train/test split
     make_split = True
+    split = .1
     while make_split is True:
         try:
-            X_train, train_mask = split_train_test(X, split=.1, balanced=balanced)
+            X_train, train_mask = split_train_test(X, split=split, balanced=balanced)
             make_split = False
         except:
             print('\n\n\n\n\n\n\nMake test set smaller!\n\n\n\n\n\n')
