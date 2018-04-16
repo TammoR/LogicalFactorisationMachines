@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/TammoR/LogicalOperatorMachines.svg?branch=master)](https://travis-ci.org/TammoR/LogicalOperatorMachines)
+
 # Logical Factorisation Machines
 
 Requires Python 3 and the [numba](numba.pydata.org) package.
