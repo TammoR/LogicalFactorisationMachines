@@ -29,6 +29,7 @@ def test_orm():
   layer1 = orm.add_layer(latent_size=L,
                          child=data,
                          model='OR-AND')
+  layer1.lbda.val = 2.0
 
   # layer1.factors[0].val = np.array(2*np.ones([N,L])-1, dtype=np.int8)
   # layer1.factors[1].val = np.array(2*np.ones([D,L])-1, dtype=np.int8)
@@ -196,8 +197,8 @@ def test_densities():
 
 if __name__ == '__main__':
 
-  # test_orm()
+  test_orm()
   # test_all_2D_LOMs()
   # test_all_3D_LOMs()
   # test_maxmachine()
-  test_densities()
+  # test_densities()

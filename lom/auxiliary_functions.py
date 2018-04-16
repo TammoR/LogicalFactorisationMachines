@@ -537,6 +537,8 @@ def add_bernoulli_noise(X, p):
 
 def add_bernoulli_noise_2d(X, p, seed=None):
 
+    print('X needs to be in -1, 1 mapping!')
+
     if seed is None:
         np.random.seed(np.random.randint(1e4))
 
@@ -545,7 +547,7 @@ def add_bernoulli_noise_2d(X, p, seed=None):
     for n in range(X.shape[0]):
         for d in range(X.shape[1]):
             if np.random.rand() < p:
-                X_intern[n, d] = ~X_intern[n, d]
+                X_intern[n, d] = -X_intern[n, d]
 
     return X_intern
 

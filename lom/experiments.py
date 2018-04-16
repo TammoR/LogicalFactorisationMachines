@@ -262,12 +262,12 @@ def LOM_predictive(experiment, return_machine=False):
     """
 
     # unpack experiment parameters
-    X, X_train, train_mask, machine, L, random_idx = experiment
+    X, X_train, train_mask, machine, L, random_idx, lbda_init = experiment
 
     orm = lom.Machine()
     data = orm.add_matrix(X_train, fixed=True)
     layer = orm.add_layer(latent_size=L, child=data, model=machine)
-    layer.lbda.val = .1
+    layer.lbda.val = lbda_init
 
     # layer.auto_reset = True
 
@@ -283,11 +283,15 @@ def LOM_predictive(experiment, return_machine=False):
         return ([np.mean(out == truth), machine, layer.size], orm)
 
 
+def LOM_factorise(experiment):
+    return
+
+
 def parallel_function(f):
     def easy_parallize(f, sequence):
         """ assumes f takes sequence as input, easy w/ Python's scope """
         from multiprocessing import Pool
-        pool = Pool(processes=4)  # depends on available cores
+        pool = Pool(processes=28)  # depends on available cores
         result = pool.map(f, sequence)  # for i in sequence: result[i] = f(i)
         cleaned = [x for x in result if x is not None]  # getting results
         pool.close()  # not optimal! but easy
@@ -301,6 +305,7 @@ def LOM_hyperparms_parallel_gridsearch(X,
                                        machines=None,
                                        L_inits=[2, 6, 10],
                                        random_idxs=[0],
+                                       lbda_init=.1,
                                        balanced=False):
     """
     Split X in train/test set and determine predictive
@@ -329,7 +334,7 @@ def LOM_hyperparms_parallel_gridsearch(X,
         for L_init in L_inits:
             for random_idx in random_idxs:
                 experiment_parms.append(
-                    [X, X_train, train_mask, machine, L_init, random_idx])
+                    [X, X_train, train_mask, machine, L_init, random_idx, lbda_init])
 
     function = parallel_function(LOM_predictive)
 

@@ -1,12 +1,11 @@
-[![Build Status](https://travis-ci.org/TammoR/LogicalOperatorMachines.svg?branch=master)](https://travis-ci.org/TammoR/LogicalOperatorMachines)
-
 # Logical Factorisation Machines
+[![Build Status](https://travis-ci.org/TammoR/LogicalOperatorMachines.svg?branch=master)](https://travis-ci.org/TammoR/LogicalOperatorMachines)
 
 Requires Python 3 and the [numba](numba.pydata.org) package.
 The easiest way is to use the [Anaconda Python distribution](https://www.anaconda.com/download).
 See [here](https://pypi.python.org/pypi/numba) numba installation instructions.
 
-For installation got to the cloned directory and do `pip install .`.
+For installation go to the cloned directory and do `pip install .`.
 
 ## Basic usage example
 
