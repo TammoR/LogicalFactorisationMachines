@@ -73,9 +73,8 @@ TODOs
 - layers and matrices should have names e.g. orm.layers[0].z.name = 'z'
 """
 
-from __future__ import absolute_import, division, print_function  # for python2
-from numpy.random import binomial
 import numpy as np
+from numpy.random import binomial
 import lom.auxiliary_functions as lib
 import lom.auxiliary_functions as aux
 
