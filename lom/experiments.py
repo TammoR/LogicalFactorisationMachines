@@ -256,7 +256,7 @@ def split_tensor_train_test_old(tensor, split=.1):
     return tensor, test_mask
 
 
-def LOM_predictive(experiment, return_machine=False):
+def LOM_predictive(experiment, return_machine=True):
     """
     Experiment is a tuple with all relevant settings
     """
