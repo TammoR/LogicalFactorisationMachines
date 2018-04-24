@@ -341,8 +341,5 @@ def LOM_hyperparms_parallel_gridsearch(X,
 
     out = function(experiment_parms)
 
-    import pdb
-    pdb.set_trace()
-
-    return pd.DataFrame(sorted(out[0], reverse=True),
+    return pd.DataFrame([x[0] for x in out],
                         columns=['test accuracy', 'LOM', 'L']), out[1]
