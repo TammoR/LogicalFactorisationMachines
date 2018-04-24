@@ -281,7 +281,7 @@ def LOM_predictive(experiment, return_machine=True):
         return ([np.mean(out == truth), machine, layer.size])
     else:
         return ([np.mean(out == truth), machine, layer.size],
-                [x.mean() for x in orm.layer.factors])
+                [x.mean() for x in layer.factors])
 
 
 def LOM_factorise(experiment):
