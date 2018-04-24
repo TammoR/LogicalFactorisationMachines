@@ -234,7 +234,6 @@ def posterior_score_OR_NAND_2D(Z_n, U, X_n, l):
     return -score
 
 
-# CONT HERE
 @jit('int16(int8[:], int8[:,:], int8[:,:], int8[:,:], int16)', nopython=True, nogil=True)
 def posterior_score_OR_NAND_3D(Z_n, U, V, X_n, l):
 

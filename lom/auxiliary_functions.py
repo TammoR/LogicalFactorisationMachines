@@ -924,6 +924,13 @@ def canonise_model(model, child):
     elif model_new == 'MAX-AND':
         pass
 
+    # elif model_new == 'OR-ALL':
+    #     pass
+    # elif model_new == 'NOR-ALL':
+    #     invert_data = True
+    #     model_new == 'OR-ALL'
+    # other derivates or OR-ALL models...
+
     else:
         import pdb
         pdb.set_trace()
@@ -1072,7 +1079,6 @@ def factor_density(machine, L, K, X):
     from scipy.optimize import fsolve
     from scipy.optimize import least_squares
 
-
     def func(f_d):
         if f_d < 0:
             return 1e10
@@ -1086,9 +1092,9 @@ def factor_density(machine, L, K, X):
 
     # Use the numerical solver to find the roots
     best = 1e10
-    for tau_initial_guess in [.01,.25,.5,.75,.99]:
-        tau_solution = fsolve(func, tau_initial_guess, 
-                              maxfev=int(1e6), full_output=False, 
+    for tau_initial_guess in [.01, .25, .5, .75, .99]:
+        tau_solution = fsolve(func, tau_initial_guess,
+                              maxfev=int(1e6), full_output=False,
                               xtol=1e-10, factor=10)
         if np.abs(func(tau_solution)[0]) < best:
             best = np.abs(func(tau_solution)[0])
@@ -1193,3 +1199,21 @@ def get_lom_class(machine):
     except:
         import pdb
         pdb.set_trace()
+
+
+def find_centers_of_ordered_list(ls):
+    """
+    to find label positions for plotting.
+    ls must be ordered!
+    """
+
+    uniqs = pandas.unique(ls)
+    positions = []
+    for u in uniqs:
+        idxs = []  # list of indices of corresponding values
+        for index, elements in enumerate(ls):
+            if elements == u:
+                idxs.append(index)
+        positions.append(int(np.mean(idxs)))
+
+    return positions
