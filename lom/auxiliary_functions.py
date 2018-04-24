@@ -1206,6 +1206,7 @@ def find_centers_of_ordered_list(ls):
     to find label positions for plotting.
     ls must be ordered!
     """
+
     import pandas
     uniqs = pandas.unique(ls)
     positions = []
