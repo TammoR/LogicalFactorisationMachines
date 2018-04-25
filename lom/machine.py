@@ -518,7 +518,7 @@ class Machine():
                       str(pre_burn_in_iter) +
                       ' disperion.: ' +
                       '\t--\t '.join([x.print_value() for x in lbdas]),
-                      end='\n')
+                      end='')
 
             # draw samples
             [mat.sampling_fct(mat) for mat in np.random.permutation(mats)]
