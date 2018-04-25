@@ -413,6 +413,7 @@ class Machine():
         """
         self.layers = []
         self.matrices = []
+        self.anneal = False
 
     @property
     def members(self):
@@ -517,12 +518,32 @@ class Machine():
                       str(pre_burn_in_iter) +
                       ' disperion.: ' +
                       '\t--\t '.join([x.print_value() for x in lbdas]),
-                      end='')
+                      end='\n')
 
             # draw samples
             [mat.sampling_fct(mat) for mat in np.random.permutation(mats)]
+            # update lambda
             if pre_burn_in_iter > fix_lbda_iters:
-                [lbda.sampling_fct(lbda) for lbda in lbdas]
+                if self.anneal is False:
+                    [lbda.sampling_fct(lbda) for lbda in lbdas]
+
+                # Anneal lambda for pre_burn_in_iter steps to 
+                # it's initially given value.
+                elif self.anneal is True:
+                    try:
+                        assert fix_lbda_iters == 0
+                    except:
+                        raise ValueError('fix_lbda_iters should be zero for annealing.')
+                    # pre-compute annealing steps
+                    if pre_burn_in_iter == fix_lbda_iters + 1:
+                        annealing_lbdas = [np.arange(
+                            lbda() / burn_in_min,
+                            lbda() + 2 * lbda() / burn_in_min,
+                            lbda() / burn_in_min)
+                            for lbda in lbdas]
+
+                    for lbda_idx, lbda in enumerate(lbdas):
+                        lbda.val = annealing_lbdas[lbda_idx][pre_burn_in_iter]
 
         # allocate array for lambda traces for burn in detection
         for lbda in lbdas:
@@ -540,7 +561,7 @@ class Machine():
                       str(pre_burn_in_iter + burn_in_iter) +
                       ' recon acc.: ' +
                       '\t--\t '.join([x.print_value() for x in lbdas]),
-                      end='')
+                      end='\n')
 
             #  check convergence every convergence_window iterations
             if burn_in_iter % convergence_window == 0:
@@ -667,7 +688,7 @@ class Machine():
                       str(sampling_iter) +
                       '; recon acc.: ' +
                       '\t--\t'.join([x.print_value() for x in lbdas]),
-                      end='')
+                      end='\n')
 
         # some sanity checks
         for layer in self.layers:
