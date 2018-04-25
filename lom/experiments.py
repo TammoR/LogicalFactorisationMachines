@@ -272,8 +272,8 @@ def LOM_predictive(experiment, return_machine=True):
     # layer.auto_reset = True
     if anneal is True:
         orm.anneal = True
-        orm.infer(burn_in_min=2500, fix_lbda_iters=0,
-                  convergence_window=50, burn_in_max=3500, no_samples=10)
+        orm.infer(burn_in_min=600, fix_lbda_iters=0,
+                  convergence_window=50, burn_in_max=1000, no_samples=10)
 
     else:
         orm.infer(burn_in_min=100, fix_lbda_iters=50,
