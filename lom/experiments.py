@@ -262,7 +262,7 @@ def LOM_predictive(experiment, return_machine=True):
     """
 
     # unpack experiment parameters
-    X, X_train, train_mask, machine, L, random_idx, lbda_init = experiment
+    X, X_train, train_mask, machine, L, random_idx, lbda_init, anneal = experiment
 
     orm = lom.Machine()
     data = orm.add_matrix(X_train, fixed=True)
@@ -270,9 +270,14 @@ def LOM_predictive(experiment, return_machine=True):
     layer.lbda.val = lbda_init
 
     # layer.auto_reset = True
+    if anneal is True:
+        orm.anneal = True
+        orm.infer(burn_in_min=1000, fix_lbda_iters=0,
+                  convergence_window=50, burn_in_max=1500, no_samples=10)
 
-    orm.infer(burn_in_min=100, fix_lbda_iters=50,
-              convergence_window=10, burn_in_max=150, no_samples=10)
+    else:
+        orm.infer(burn_in_min=100, fix_lbda_iters=50,
+                  convergence_window=10, burn_in_max=150, no_samples=10)
 
     out = layer.output(technique='factor_mean')[train_mask] > .5
     truth = (-2 * layer.invert_data + 1) * X[train_mask] == 1
@@ -307,7 +312,8 @@ def LOM_hyperparms_parallel_gridsearch(X,
                                        L_inits=[2, 6, 10],
                                        random_idxs=[0],
                                        lbda_init=.1,
-                                       balanced=False):
+                                       balanced=False,
+                                       anneal=True):
     """
     Split X in train/test set and determine predictive
     accuracy over all configurations in experimental settings which is a
@@ -335,7 +341,8 @@ def LOM_hyperparms_parallel_gridsearch(X,
         for L_init in L_inits:
             for random_idx in random_idxs:
                 experiment_parms.append(
-                    [X, X_train, train_mask, machine, L_init, random_idx, lbda_init])
+                    [X, X_train, train_mask, machine, L_init,
+                     random_idx, lbda_init, anneal])
 
     function = parallel_function(LOM_predictive)
 
