@@ -1,5 +1,5 @@
 # Logical Factorisation Machines
-[![Build Status](https://travis-ci.org/TammoR/LogicalOperatorMachines.svg?branch=master)](https://travis-ci.org/TammoR/LogicalOperatorMachines)
+[![Build Status](https://travis-ci.org/TammoR/LogicalFactorisationMachines.svg?branch=master)](https://travis-ci.org/TammoR/LogicalOperatorMachines)
 
 Requires Python 3 and the [numba](numba.pydata.org) package.
 The easiest way is to use the [Anaconda Python distribution](https://www.anaconda.com/download).
