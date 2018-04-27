@@ -561,7 +561,7 @@ class Machine():
                       str(pre_burn_in_iter + burn_in_iter) +
                       ' recon acc.: ' +
                       '\t--\t '.join([x.print_value() for x in lbdas]),
-                      end='\n')
+                      end='')
 
             #  check convergence every convergence_window iterations
             if burn_in_iter % convergence_window == 0:
@@ -688,7 +688,7 @@ class Machine():
                       str(sampling_iter) +
                       '; recon acc.: ' +
                       '\t--\t'.join([x.print_value() for x in lbdas]),
-                      end='\n')
+                      end='')
 
         # some sanity checks
         for layer in self.layers:
