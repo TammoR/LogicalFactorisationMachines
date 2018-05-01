@@ -527,7 +527,7 @@ class Machine():
                 if self.anneal is False:
                     [lbda.sampling_fct(lbda) for lbda in lbdas]
 
-                # Anneal lambda for pre_burn_in_iter steps to 
+                # Anneal lambda for pre_burn_in_iter steps to
                 # it's initially given value.
                 elif self.anneal is True:
                     try:
@@ -621,7 +621,7 @@ class Machine():
               burn_in_min=30,
               burn_in_max=2000,
               print_step=10,
-              fix_lbda_iters=5):
+              fix_lbda_iters=0):
         """
         Infer matrices and parameters, starting with burn-in and subsequent
         sampling phase.
