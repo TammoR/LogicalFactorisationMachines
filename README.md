@@ -13,6 +13,8 @@ For installation go to the cloned directory and do `pip install .`.
 
 ## Basic usage example
 
+All (optional) steps can be ignored.
+
 ```
 import lom
 
@@ -42,8 +44,12 @@ layer.lbda.beta_prior = (10,1)
 # Set iid bernoulli priors on factor matrix entries (optional)
 layer.factors[1].bernoulli_prior = .1
 
+# Use annealing to improve convergence (optional, not needed in general).
+orm.anneal = True
+layer.lbda.val = 2.0
+
 # run inference
-orm.infer(burn_in_min=100, burn_in_max=1000, fix_lbda_iters=10, no_samples=50)
+orm.infer(burn_in_min=100, burn_in_max=1000, no_samples=50)
 
 # to inspect results do 
 # [layer.factors[i].show() for i in range(len(factors))]
