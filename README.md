@@ -1,7 +1,11 @@
 # Logical Factorisation Machines
 [![Build Status](https://travis-ci.org/TammoR/LogicalFactorisationMachines.svg?branch=master)](https://travis-ci.org/TammoR/LogicalOperatorMachines)
 
-Requires Python 3 and the [numba](numba.pydata.org) package.
+This package generalises the deprecated [OrMachine](https://github.com/TammoR/ormachine) package.
+If you are looking for an implementation of Boolean Matrix Factorisation or Boolean Tensor Factorisation, 
+you should use Logical Factorisation Machines with the default model `OR-AND`.
+
+This requires Python 3 and the [numba](numba.pydata.org) package.
 The easiest way is to use the [Anaconda Python distribution](https://www.anaconda.com/download).
 See [here](https://pypi.python.org/pypi/numba) numba installation instructions.
 
