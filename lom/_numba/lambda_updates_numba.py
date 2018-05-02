@@ -225,7 +225,7 @@ def make_lbda_update_fct(model, dimensionality):
             ND = np.prod(parm.layer.child().shape) - np.count_nonzero(parm.layer.child() == 0)
             parm.val = np.max([-np.log(((ND + alpha + beta) / (float(P) + alpha)) - 1), 0])
 
-            print('\n')
-            print(P, ND)
+            # print('\n')
+            # print(P, ND)
 
         return lbda_update_fct
