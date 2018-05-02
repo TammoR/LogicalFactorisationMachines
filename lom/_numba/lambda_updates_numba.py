@@ -191,7 +191,7 @@ def make_correct_predictions_counter(model, dimensionality):
             count = np.int64(0)
             for n in prange(N):
                 for d in prange(D):
-                    for m in range(M):
+                    for m in prange(M):
                         if output_fct(Z[n, :], U[d, :], V[m, :]) == X[n, d, m]:
                             count += 1
             return count
