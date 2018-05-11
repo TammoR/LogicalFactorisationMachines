@@ -574,20 +574,20 @@ def add_bernoulli_noise_2d_biased(X, p_plus, p_minus, seed=None):
     return X_intern
 
 
-def flatten(t):
-    """
-    Generator flattening the structure
+# def flatten(t):
+#     """
+#     Generator flattening the structure
 
-    >>> list(flatten([2, [2, (4, 5, [7], [2, [6, 2, 6, [6], 4]], 6)]]))
-    [2, 2, 4, 5, 7, 2, 6, 2, 6, 6, 4, 6]
-    """
+#     >>> list(flatten([2, [2, (4, 5, [7], [2, [6, 2, 6, [6], 4]], 6)]]))
+#     [2, 2, 4, 5, 7, 2, 6, 2, 6, 6, 4, 6]
+#     """
 
-    import collections
-    for x in t:
-        if not isinstance(x, collections.Iterable):
-            yield x
-        else:
-            yield from flatten(x)
+#     import collections
+#     for x in t:
+#         if not isinstance(x, collections.Iterable):
+#             yield x
+#         else:
+#             yield from flatten(x)
 
 
 def intersect_dataframes(A, B):
