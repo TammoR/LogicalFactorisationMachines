@@ -11,6 +11,29 @@ from numba import jit, prange  # int8, int16, int32, float32, float64
 # Non-fuzzy output functions mapping from vectors with element in {-1,1}
 # to single data point, also in {-1, 1}
 
+# number of actives sources
+@jit('void(int8[:,:], int8[:,:], int8[:,:])', nopython=True, nogil=True)
+def compute_g(Z, U, g):
+    N, L = Z.shape
+    D, _ = U.shape
+    for n in prange(N):
+        for d in prange(D):
+            for l in range(L):
+                if Z[n, l] == U[d, l] == 1:
+                    g[n, d] += 1
+
+
+# qL-AND
+@jit('int8(int8[:], int8[:], int8)', nopython=True, nogil=True)
+def qL_AND_product(u, z, q):
+    counter = np.int8(0)
+    for l in range(u.shape[0]):
+        if u[l] == 1 and z[l] == 1:
+            counter += 1
+        if counter == q:
+            return 1
+    else:
+        return -1
 
 # OR-AND
 @jit('int8(int8[:], int8[:])', nopython=True, nogil=True)
@@ -28,6 +51,7 @@ def OR_AND_product_3d(Z_n, U_d, V_m):
             return 1
     return -1
 
+
 @jit('int8[:,:](int8[:], int8[:])', nopython=False, nogil=True, parallel=True)
 def OR_AND_product_expand(z, u):
     """
@@ -40,7 +64,7 @@ def OR_AND_product_expand(z, u):
     for n in prange(N):
         for d in prange(D):
             if u[d] == 1 and z[n] == 1:
-                X[n,d] = 1
+                X[n, d] = 1
     return X
 
 
@@ -138,6 +162,7 @@ def XOR_XOR_product(u, z):
     else:
         return -1
 
+
 @jit('int8(int8[:], int8[:], int8[:])', nopython=True, nogil=True)
 def XOR_XOR_product_3d(u, z, v):
     xor_count = np.int8(0)
@@ -149,7 +174,7 @@ def XOR_XOR_product_3d(u, z, v):
     if xor_count == 1:
         return 1
     else:
-        return -1    
+        return -1
 
 
 # XOR-NXOR
@@ -178,7 +203,7 @@ def XOR_NXOR_product_3d(u, z, v):
     if xor_count == 1:
         return 1
     else:
-        return -1    
+        return -1
 
 
 # XOR-NAND
@@ -207,7 +232,7 @@ def XOR_NAND_product_3d(u, z, v):
     if xor_count == 1:
         return 1
     else:
-        return -1    
+        return -1
 
 
 # MAX-AND
@@ -218,6 +243,6 @@ def MAX_AND_product_2d(factors, lbdas):
     for l_idx in np.argsort(lbdas[:-1]):
         temp = lbdas[l_idx] * OR_AND_product_expand(
             *[f[:, l_idx] for f in factors])
-        out[out==0] = temp[out==0]
+        out[out == 0] = temp[out == 0]
 
     return out

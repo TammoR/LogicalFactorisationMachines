@@ -19,13 +19,12 @@ def get_sampling_fct(mat):
     Other architecture are only partially supported
     """
 
-    # use pre-assigned sampling function
+    # use pre-assigned sampling function if present
     if mat.sampling_fct is not None:
         return mat.sampling_fct
 
     # determine order of child dimensions such that first
     # child dimension and mat dimension are aligned.
-
     mod, p1mod, p2mod = get_relatives_models(mat)
 
     if mod is not None:
@@ -43,6 +42,7 @@ def get_sampling_fct(mat):
 
     print(msg)
 
+    # assign functions for MAX-AND model
     if mod == 'MAX_AND_2D':
         assert p1mod is None
         assert p2mod is None
@@ -60,7 +60,84 @@ def get_sampling_fct(mat):
                 mat.layer.lbda_ratios)
         return MAX_AND_2D
 
-    # unified all 2D LOMs
+    elif mod == 'qL_AND_2D':
+
+        def q_sampler(q):
+            numba_mu.sample_qL_q(
+                q.layer.factors[0](),
+                q.layer.factors[1](),
+                q.layer.child(),
+                q(),
+                q.layer.lbda(),
+                q.layer.gamma)
+
+        mat.layer.q.sampling_fct = q_sampler
+
+        if mat.child_axis == 0:
+            def qL_sampler_Z(mat):
+                numba_mu.sample_qL_factors_Z(
+                    mat(),
+                    mat.siblings[0](),
+                    mat.layer.child().transpose(transpose_order),
+                    mat.layer.q(),
+                    mat.layer.lbda())
+            return qL_sampler_Z
+
+        elif mat.child_axis == 1:
+            def qL_sampler_U(mat):
+                numba_mu.sample_qL_factors_U(
+                    mat(),
+                    mat.siblings[0](),
+                    mat.layer.child().transpose(transpose_order),
+                    mat.layer.q(),
+                    mat.layer.lbda())
+            return qL_sampler_U
+
+    # assign sampling functions for IBP.
+    # Here all updates happen in sampling for the first factor.
+    elif mod == 'OR_AND_IBP_2D':
+
+        if mat.layer.alpha is None:
+            print('Setting IBP parameter alpha to 3.')
+            mat.layer.alpha = 3
+
+        # IBP only on the first factor
+        if mat.child_axis == 0:
+
+            def IBP_sampler(mat):
+                """
+                References are overwritten in the function,
+                need to return arrays.
+                """
+                mat.val, mat.siblings[0].val = numba_mu.sample_2d_IBP(
+                    mat(),
+                    mat.siblings[0](),
+                    mat.layer.child().transpose(transpose_order),
+                    mat.layer.lbda(),
+                    mat.siblings[0].bernoulli_prior,
+                    mat.layer.alpha)
+
+            return IBP_sampler
+
+        # For U, sample as usual
+        elif mat.child_axis == 1:
+            # return lambda mat: None
+            sample = numba_mu.make_sampling_fct_onechild('OR_AND_2D')
+            logit_bernoulli_prior = np.float64(logit(mat.bernoulli_prior))
+
+            def LOM_sampler(mat):
+                # numba_mu.draw_OR_AND_2D(
+                sample(
+                    mat(),
+                    mat.fixed_entries,
+                    *[x() for x in mat.siblings],
+                    mat.layer.child().transpose(transpose_order),
+                    mat.layer.lbda(),
+                    logit_bernoulli_prior)
+                
+            return LOM_sampler
+
+    # assign functions for all classical LFMs
     else:
         logit_bernoulli_prior = np.float64(logit(mat.bernoulli_prior))
 

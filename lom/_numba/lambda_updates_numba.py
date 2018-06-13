@@ -29,6 +29,8 @@ def get_scalar_output_function_2d(model, fuzzy=False):
             return lom_outputs.XOR_NXOR_product
         if model == 'OR-NAND':
             return lom_outputs.OR_NAND_product
+        if model == 'qL-AND':
+            return lom_outputs.qL_AND_product
     else:
         if model == 'OR-AND':
             return lom_outputs_fuzzy.OR_AND_product_fuzzy
@@ -165,6 +167,27 @@ def make_correct_predictions_counter(model, dimensionality):
     predictions with signature fct(factor0, factor1, ..., data)
     """
 
+    if model == 'OR-AND-IBP':
+        model = 'OR-AND'
+
+    # ql-AND model requires extra treatment because of additional
+    # argument q.
+    if model == 'qL-AND':
+        output_fct = get_scalar_output_function_2d(model, fuzzy=False)
+
+        @jit('int64(int8[:,:], int8[:,:], int8[:,:], int8[:])',
+             nogil=True, nopython=True, parallel=True)
+        def correct_predictions_counter(Z, U, X, q):
+            N, D = X.shape
+            count = np.int64(0)
+            for n in prange(N):
+                for d in prange(D):
+                    if output_fct(Z[n, :], U[d, :], q[d]) == X[n, d]:
+                        count += 1
+            return count
+
+        return correct_predictions_counter
+
     if dimensionality == 2:
 
         output_fct = get_scalar_output_function_2d(model, fuzzy=False)
@@ -209,6 +232,28 @@ def make_lbda_update_fct(model, dimensionality):
     TODO: make for general arity
     """
 
+    # Next: use OR-AND update instead of qL-AND for testings
+
+    if model == 'qL-AND':
+        counter = make_correct_predictions_counter(model, dimensionality)
+
+        def lbda_update_fct(parm):
+            alpha, beta = parm.beta_prior
+
+            # correct predictions, counting 0 prediction as false
+            P = counter(*[x.val for x in parm.layer.factors],
+                        parm.layer.child(),
+                        parm.layer.q()[0, :])
+
+            # number of data points that are to be predicted
+            ND = np.prod(parm.layer.child().shape) - np.count_nonzero(parm.layer.child() == 0)
+            parm.val = np.max([-np.log(((ND + alpha + beta) / (float(P) + alpha)) - 1), 0])
+
+            # print('\n')
+            # print(P, ND)
+
+        return lbda_update_fct
+
     if model == 'MAX-AND':
         import lom._numba.max_machine_sampler
         return lom._numba.max_machine_sampler.bda_MAX_AND
@@ -224,8 +269,5 @@ def make_lbda_update_fct(model, dimensionality):
             # number of data points that are to be predicted
             ND = np.prod(parm.layer.child().shape) - np.count_nonzero(parm.layer.child() == 0)
             parm.val = np.max([-np.log(((ND + alpha + beta) / (float(P) + alpha)) - 1), 0])
-
-            # print('\n')
-            # print(P, ND)
 
         return lbda_update_fct

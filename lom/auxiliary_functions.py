@@ -924,12 +924,11 @@ def canonise_model(model, child):
     elif model_new == 'MAX-AND':
         pass
 
-    # elif model_new == 'OR-ALL':
-    #     pass
-    # elif model_new == 'NOR-ALL':
-    #     invert_data = True
-    #     model_new == 'OR-ALL'
-    # other derivates or OR-ALL models...
+    elif model_new == 'OR-AND-IBP':
+        pass
+
+    elif model_new == 'qL-AND':
+        pass
 
     else:
         import pdb

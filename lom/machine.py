@@ -10,7 +10,7 @@ relationship akin to nodes in a graphical model.
 
 The minimal example is a standard matrix factorisation model
 with a data matrix 'data', and its two parents 'z' (objects x latent) and
-'u' (features x latent). 'z' and 'u' are siblings and part of layer, 
+'u' (features x latent). 'z' and 'u' are siblings and part of layer,
 'data' is the layer's child.
 All matrices are instances of the MachineMatrix class and expose their
 family relationes as attributes, e.g.: z.layer.child == data;
@@ -110,6 +110,21 @@ class Trace():
 
     def __call__(self):
         return self.val
+
+    def allocate_trace_arrays_IBP(self, no_of_samples):
+        no_of_samples = int(no_of_samples)
+        if type(self.val) == np.ndarray:
+
+            self.trace = np.full([no_of_samples] +
+                                 [self.val.shape[0]] +
+                                 [self.val.shape[1] + 10],
+                                 dtype=self().dtype, fill_value=-1)
+
+    def update_trace_IBP(self):
+        self.trace[self.trace_index,
+                   :self.val.shape[0],
+                   :self.val.shape[1]] = self.val
+        self.trace_index += 1
 
     def allocate_trace_arrays(self, no_of_samples):
         no_of_samples = int(no_of_samples)
@@ -279,6 +294,15 @@ class MachineLayer():
         if model == 'MAX-AND':
             mm.compute_lbda_ratios(self)
 
+        if model == 'OR-AND-IBP':
+            self.alpha = None  # poisson hyperparameter for IBP
+
+        if model == 'qL-AND':
+            self.q = MachineMatrix(shape=(1, child().shape[1]), child_axis=1)
+            self.q.val[:] = 1
+            self.q.layer = self
+            self.gamma = 1  # poissons hyperparmeters for q_d
+
     @property
     def z(self):
         return self.factors[0]
@@ -294,6 +318,10 @@ class MachineLayer():
     @property
     def size(self):
         return self.factors[0]().shape[1]
+
+    @property
+    def L(self):
+        return self.size
 
     @property
     def dimensionality(self):
@@ -332,6 +360,11 @@ class MachineLayer():
                   'under disregard of technique.')
             return self.prediction
 
+        reset_name_to_IBP = False
+        if self.model == 'OR-AND-IBP':
+            reset_name_to_IBP = True
+            self.model = 'OR-AND'
+
         # otherwise compute
         if self.model == 'MAX-AND':
             if technique == 'point_estimate':
@@ -353,6 +386,17 @@ class MachineLayer():
                     .5 * (self.z.mean() + 1),
                     .5 * (self.u.mean() + 1),
                     self.lbda.mean())
+
+        elif self.model == 'qL-AND':
+            N, D = self.child().shape
+            out = np.zeros([N, D])
+            for n in range(N):
+                for d in range(D):
+                    # TODO: Use MAP estimate
+                    out[n, d] = lom_outputs.qL_AND_product(
+                        self.u()[d, :],
+                        self.z()[n, :],
+                        self.q()[0, d])
 
         else:
             if technique == 'point_estimate':
@@ -395,6 +439,9 @@ class MachineLayer():
 
         self.prediction = out
 
+        if reset_name_to_IBP is True:
+            self.model = 'OR-AND-IBP'
+
         if map_to_probabilities is True:
             return out
         else:
@@ -423,7 +470,11 @@ class Machine():
         single_mats = self.matrices
         layer_mats = [f for layer in self.layers for f in layer.factors]
 
-        return layer_mats + single_mats
+        # q_counts for qL-AND model
+        q_mat = [layer.q for layer in self.layers
+                 if layer.model == 'qL-AND']
+
+        return layer_mats + single_mats + q_mat
 
     @property
     def lbdas(self):
@@ -575,7 +626,7 @@ class Machine():
                           '\t--\t'.join([x.print_value() for x in lbdas]))
 
                     # TODO: make this nice and pretty.
-                    # check for dimensios to be removed and restart burn-in if
+                    # check for dimensions to be removed and restart burn-in if
                     # layer.auto_clean_up is True
                     if np.any([aux.clean_up_codes(lr,
                                                   lr.auto_reset,
@@ -590,11 +641,11 @@ class Machine():
                             lbda.trace_index = 0
 
                     else:
-                        # save nu of burn in iters
+                        # save number of burn in iterations
                         self.burn_in_iters = burn_in_iter + pre_burn_in_iter
                         break
 
-            # stop if max number of burn in inters is reached
+            # stop if maximum number of burn in iterations is reached
             if (burn_in_iter + pre_burn_in_iter) > burn_in_max:
 
                 # clean up non-converged auto-reset dimensions
@@ -668,7 +719,10 @@ class Machine():
         # allocate memory to save samples
         print('allocating memory to save samples...')
         for mat in mats:
-            mat.allocate_trace_arrays(no_samples)
+            if mat.layer.model == 'OR-AND-IBP':
+                mat.allocate_trace_arrays_IBP(no_samples)
+            else:
+                mat.allocate_trace_arrays(no_samples)
         for lbda in lbdas:
             lbda.allocate_trace_arrays(no_samples)
 
@@ -677,7 +731,11 @@ class Machine():
 
             # sample mats and write to trace # shuffle(mats)
             [mat.sampling_fct(mat) for mat in np.random.permutation(mats)]
-            [mat.update_trace() for mat in mats]
+
+            if np.any([x.model == 'OR-AND-IBP' for x in mats]):
+                [mat.update_trace_IBP() for mat in mats]
+            else:
+                [mat.update_trace() for mat in mats]
 
             # sample lbdas and write to trace
             [lbda.sampling_fct(lbda) for lbda in lbdas]
