@@ -217,7 +217,8 @@ class MachineMatrix(Trace):
 
         # assign value if provided, otherwise bernoulli random
         if type(val) is np.ndarray:
-            self.val = np.array(val, dtype=np.int8)
+            # avoid creation of new array.
+            self.val = val  # np.array(val, dtype=np.int8)
         elif type(val) is float:
             self.val = 2 * np.array(np.random.rand(*shape) > val,
                                     dtype=np.int8) - 1

@@ -134,7 +134,6 @@ def get_sampling_fct(mat):
                     mat.layer.child().transpose(transpose_order),
                     mat.layer.lbda(),
                     logit_bernoulli_prior)
-                
             return LOM_sampler
 
     # assign functions for all classical LFMs
