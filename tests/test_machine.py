@@ -94,6 +94,7 @@ def test_all_3D_LOMs():
     Z = np.array(np.random.rand(N, L) > .5, dtype=np.int8)
     U = np.array(np.random.rand(D, L) > .5, dtype=np.int8)
     V = np.array(np.random.rand(D, L) > .5, dtype=np.int8)
+    # generate_data_fast is not available for all machines
     X = aux.lom_generate_data([2 * Z - 1, 2 * U - 1, 2 * V - 1], model=machine)
 
     orm = lom.Machine()
