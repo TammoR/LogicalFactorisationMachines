@@ -9,6 +9,7 @@ import math
 from numba import jit, int8, int16, int32, float32, float64, prange
 import lom._numba.lom_outputs as lom_outputs
 import lom._numba.lom_outputs_fuzzy as lom_outputs_fuzzy
+from numba.types import int64
 
 
 def get_scalar_output_function_2d(model, fuzzy=False):
@@ -179,7 +180,7 @@ def make_correct_predictions_counter(model, dimensionality):
              nogil=True, nopython=True, parallel=True)
         def correct_predictions_counter(Z, U, X, q):
             N, D = X.shape
-            count = np.int64(0)
+            count = int64(0)
             for n in prange(N):
                 for d in prange(D):
                     if output_fct(Z[n, :], U[d, :], q[d]) == X[n, d]:
@@ -196,7 +197,7 @@ def make_correct_predictions_counter(model, dimensionality):
              nogil=True, nopython=True, parallel=True)
         def correct_predictions_counter(Z, U, X):
             N, D = X.shape
-            count = np.int64(0)
+            count = int64(0)
             for n in prange(N):
                 for d in prange(D):
                     if output_fct(Z[n, :], U[d, :]) == X[n, d]:
@@ -211,7 +212,7 @@ def make_correct_predictions_counter(model, dimensionality):
              nogil=True, nopython=True, parallel=True)
         def correct_predictions_counter(Z, U, V, X):
             N, D, M = X.shape
-            count = numba.types.int64(0)
+            count = int64(0)
             for n in prange(N):
                 for d in prange(D):
                     for m in range(M):
