@@ -266,14 +266,11 @@ def make_lbda_update_fct(model, dimensionality):
             alpha, beta = parm.beta_prior
 
             # correct predictions, counting 0 prediction as false
+            print('compute counts')
             P = counter(*[x.val for x in parm.layer.factors], parm.layer.child())
-
+            print('doen with counts')
             # number of data points that are to be predicted
             ND = np.prod(parm.layer.child().shape) - np.count_nonzero(parm.layer.child() == 0)
             parm.val = np.max([-np.log(((ND + alpha + beta) / (float(P) + alpha)) - 1), 0])
-
-            print('\n')
-            print(P, ND)
-            print('\n')
 
         return lbda_update_fct
