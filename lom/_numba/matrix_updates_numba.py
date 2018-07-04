@@ -176,7 +176,7 @@ def make_sampling_fct_onechild(model):
     elif model[-2:] == '3D':
         @jit('void(int8[:,:], int8[:,:], int8[:,:], int8[:,:],' +
              'int8[:,:,:], float64, float64)',
-             nogil=True, nopython=True, parallel=True)
+             nogil=True, nopython=True, parallel=False)
         def sampling_fct(Z, Z_fixed, U, V, X, lbda, logit_prior):
             N, L = Z.shape
             for n in prange(N):

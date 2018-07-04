@@ -211,10 +211,10 @@ def make_correct_predictions_counter(model, dimensionality):
              nogil=True, nopython=True, parallel=True)
         def correct_predictions_counter(Z, U, V, X):
             N, D, M = X.shape
-            count = np.int64(0)
+            count = numba.types.int64(0)
             for n in prange(N):
                 for d in prange(D):
-                    for m in prange(M):
+                    for m in range(M):
                         if output_fct(Z[n, :], U[d, :], V[m, :]) == X[n, d, m]:
                             count += 1
             return count
@@ -266,8 +266,13 @@ def make_lbda_update_fct(model, dimensionality):
 
             # correct predictions, counting 0 prediction as false
             P = counter(*[x.val for x in parm.layer.factors], parm.layer.child())
+
             # number of data points that are to be predicted
             ND = np.prod(parm.layer.child().shape) - np.count_nonzero(parm.layer.child() == 0)
             parm.val = np.max([-np.log(((ND + alpha + beta) / (float(P) + alpha)) - 1), 0])
+
+            print('\n')
+            print(P, ND)
+            print('\n')
 
         return lbda_update_fct
