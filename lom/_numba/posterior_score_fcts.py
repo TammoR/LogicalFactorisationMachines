@@ -49,7 +49,7 @@ def posterior_score_OR_AND_3D(Z_n, U, V, X_n, l):
     D, L = U.shape
     M, _ = V.shape
 
-    score = np.int64(0)
+    score = numba.types.int64(0)
     for d in range(D):
         for m in range(M):
             if (U[d, l] != 1) or (V[m, l] != 1):  # AND
@@ -115,7 +115,7 @@ def posterior_score_XOR_AND_3D(Z_n, U, V, X_n, l):
     D, L = U.shape
     M, _ = V.shape
 
-    score = np.int64(0)
+    score = numba.types.int64(0)
     for d in range(D):
         for m in range(M):
             if (U[d, l] != 1) or (V[m, l] != 1):  # AND
@@ -179,7 +179,7 @@ def posterior_score_XOR_NAND_3D(Z_n, U, V, X_n, l):
     D, L = U.shape
     M, _ = V.shape
 
-    score = np.int64(0)
+    score = numba.types.int64(0)
     for d in range(D):
         for m in range(M):
             if U[d, l] != 1 or V[m, l] != 1:  # AND
@@ -240,7 +240,7 @@ def posterior_score_OR_NAND_3D(Z_n, U, V, X_n, l):
     M, _ = V.shape
     D, L = U.shape
 
-    score = np.int64(0)
+    score = numba.types.int64(0)
     for d in range(D):
         for m in range(M):
             if (U[d, l] == -1) or (V[m, l] == -1):  # NAND
@@ -293,7 +293,7 @@ def posterior_score_OR_XOR_3D(Z_n, U, V, X_n, l):
     D, L = U.shape
     M, _ = V.shape
 
-    score = np.int64(0)
+    score = numba.types.int64(0)
     for d in range(D):
         for m in range(M):
             if U[d, l] == 1 and V[m, l] == 1:  # XOR cant be changed by z_nl
@@ -337,7 +337,7 @@ def posterior_score_NAND_XOR_3D(Z_n, U, V, X_n, l):
 
     M, _ = V.shape
     D, L = U.shape
-    score = np.int64(0)
+    score = numba.types.int64(0)
     for d in range(D):
         for m in range(M):
             if U[d, l] == 1 and V[m, l] == 1:  # XOR cant be changed by z_nl
@@ -385,7 +385,7 @@ def posterior_score_XOR_XOR_3D(Z_n, U, V, X_n, l):
     M, _ = V.shape
     D, L = U.shape
 
-    score = np.int64(0)
+    score = numba.types.int64(0)
     for d in range(D):
         for m in range(M):
             if U[d, l] == 1 and V[m, l] == 1:  # XOR cant be changed by z_nl
@@ -436,7 +436,7 @@ def posterior_score_XOR_NXOR_3D(Z_n, U, V, X_n, l):
     M, _ = V.shape
     D, L = U.shape
 
-    score = np.int64(0)
+    score = numba.types.int64(0)
     for d in range(D):
         for m in range(M):
             if U[d, l] == 1 and V[m, l] == 1:  # NXOR cant be changed by z_nl
