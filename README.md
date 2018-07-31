@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/TammoR/LogicalFactorisationMachines.svg?branch=master)](https://travis-ci.org/TammoR/LogicalOperatorMachines)
 
 [ICML 2018 paper on tensor decomposition](http://proceedings.mlr.press/v80/rukat18a.html)
+
 [ICML 2017 paper on matrix factorisation](http://proceedings.mlr.press/v70/rukat17a.html)
 
 This package generalises the deprecated [OrMachine](https://github.com/TammoR/ormachine) package.
