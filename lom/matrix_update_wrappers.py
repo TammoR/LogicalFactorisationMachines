@@ -1,13 +1,10 @@
 #!/usr/bin/env python
 """
-wrappers for easy calls to numba sampling functions.
+wrappers for calls to numba sampling functions.
 """
 
 import numpy as np
-import warnings
 import lom._numba.matrix_updates_numba as numba_mu
-import warnings
-# from lom.auxiliary_functions import logit
 from scipy.special import logit
 
 
@@ -58,6 +55,7 @@ def get_sampling_fct(mat):
                 mat.layer.lbda(),
                 l_order,
                 mat.layer.lbda_ratios)
+
         return MAX_AND_2D
 
     elif mod == 'qL_AND_2D':
@@ -81,6 +79,7 @@ def get_sampling_fct(mat):
                     mat.layer.child().transpose(transpose_order),
                     mat.layer.q(),
                     mat.layer.lbda())
+
             return qL_sampler_Z
 
         elif mat.child_axis == 1:
@@ -91,6 +90,7 @@ def get_sampling_fct(mat):
                     mat.layer.child().transpose(transpose_order),
                     mat.layer.q(),
                     mat.layer.lbda())
+
             return qL_sampler_U
 
     # assign sampling functions for IBP.
@@ -134,6 +134,7 @@ def get_sampling_fct(mat):
                     mat.layer.child().transpose(transpose_order),
                     mat.layer.lbda(),
                     logit_bernoulli_prior)
+
             return LOM_sampler
 
     # assign functions for all classical LFMs
@@ -153,6 +154,7 @@ def get_sampling_fct(mat):
                     mat.layer.child().transpose(transpose_order),
                     mat.layer.lbda(),
                     logit_bernoulli_prior)
+
             return LOM_sampler
 
         # one child, one parent
@@ -170,6 +172,7 @@ def get_sampling_fct(mat):
                     *[x() for x in mat.parents[0].factors],
                     mat.parents[0].lbda(),
                     logit_bernoulli_prior)
+
             return LOM_sampler_hasparents
 
         # no child, one parent
@@ -183,6 +186,7 @@ def get_sampling_fct(mat):
                     *[x() for x in mat.parents[0].factors],
                     mat.parents[0].lbda(),
                     logit_bernoulli_prior)
+
             return LOM_sampler_hasparents
 
         # no child, two parents
@@ -198,6 +202,7 @@ def get_sampling_fct(mat):
                     *[x() for x in mat.parents[1].factors],
                     mat.parents[1].lbda(),
                     logit_bernoulli_prior)
+
             return LOM_sampler_hasparents
 
         # one child, two parents
@@ -217,6 +222,7 @@ def get_sampling_fct(mat):
                     *[x() for x in mat.parents[1].factors],
                     mat.parents[1].lbda(),
                     logit_bernoulli_prior)
+
             return LOM_sampler_hasparents
 
         else:
@@ -250,17 +256,17 @@ def get_relatives_models(mat):
 
 
 # Following functions aren't used. keep for reference
-
-def draw_balanced_or(mat):
-    """
-    mat() and child need to share their first dimension. otherwise transpose.
-    """
-    transpose_order = tuple([mat.child_axis] + [mat.sibling.child_axis])
-
-    cf.draw_balanced_or(
-        mat(),
-        mat.sibling(),
-        mat.child.transpose(transpose_order),
-        mat.lbda(),
-        mat.lbda() * (1 / mat.lbda.balance_factor)
-    )
+#
+# def draw_balanced_or(mat):
+#     """
+#     mat() and child need to share their first dimension. otherwise transpose.
+#     """
+#     transpose_order = tuple([mat.child_axis] + [mat.sibling.child_axis])
+#
+#     cf.draw_balanced_or(
+#         mat(),
+#         mat.sibling(),
+#         mat.child.transpose(transpose_order),
+#         mat.lbda(),
+#         mat.lbda() * (1 / mat.lbda.balance_factor)
+#     )
