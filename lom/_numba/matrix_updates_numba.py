@@ -385,7 +385,7 @@ def sample_2d_IBP(Z, U, X, lbda, q, alpha):
     """
     IBP update procedure for 2D OrMachine, drawing U and Z where
     U has flat prior and Z comes from IBP with concentration parameter alpha.
-    Z[n,l], U[d,l], X[n,d]
+    Z[n,l], U[d,l], X[n,d], q: Bernoulli prior, alpha: IPB concentration parameter.
     """
 
     # lbda = lr.lbda.val
@@ -406,6 +406,8 @@ def sample_2d_IBP(Z, U, X, lbda, q, alpha):
                  for L_temp in range(L_new_max)]
     TN_factor = [np.log((expit(-lbda) * (1 - 2 * (q**L_temp))) + (q**L_temp))
                  for L_temp in range(L_new_max)]
+
+    n_predict = np.ones(D, dtype=np.int8)
 
     for n in range(N):
 
@@ -439,8 +441,14 @@ def sample_2d_IBP(Z, U, X, lbda, q, alpha):
 
         # draw number of new dishes (columns)
         # compute log probability of L' for a range of L' values
-        n_predict = [lom_outputs.OR_AND_product(Z[n, :], U[d, :])
-                     for d in range(D)]
+        # n_predict = [lom_outputs.OR_AND_product(Z[n, :], U[d, :])
+        #              for d in range(D)]
+
+        # faster
+        n_predict = lom_outputs.OR_AND_single_n(Z[n, :], U)
+
+        # assert(np.all(n_predict_test==n_predict))
+
         # compute number of true negatives / false negatives
         TN = ((X[n, :] == -1) * (np.array(n_predict) == -1)).sum()
         FN = ((X[n, :] == 1) * (np.array(n_predict) == -1)).sum()

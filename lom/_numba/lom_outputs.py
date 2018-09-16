@@ -67,6 +67,20 @@ def OR_AND_product_expand(z, u):
                 X[n, d] = 1
     return X
 
+@jit('int8[:,:](int8[:], int8[:,:])', nogil=True, parallel=True)
+def OR_AND_single_n(z, U):
+    """
+    Compute deterministic output for a single row
+    """
+
+    D = U.shape[0]
+    out = np.zeros(D, dtype=np.int8)
+
+    for d in range(D):
+        out[d] = OR_AND_product(z, U[d, :])
+
+    return out
+
 
 # OR-NAND
 @jit('int8(int8[:], int8[:])', nopython=True, nogil=True)

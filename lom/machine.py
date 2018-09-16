@@ -103,15 +103,18 @@ __status__ = "Development"
 
 class Trace():
     """
-    abstract base class implementing methods posterior traces arrays.
-    Inherited to MachineMatrix and MachineParameter. TODO MachineMatrix and MachineParameter
-    should be instances of the same class (?).
+    abstract base class implementing methods for posterior trace arrays.
+    Inherits to MachineMatrix and MachineParameter.
     """
 
     def __call__(self):
         return self.val
 
     def allocate_trace_arrays_IBP(self, no_of_samples):
+        """
+        Assigned extra columns. In IBP we also need to keep track of columns that are all zero
+        at some sampling step.
+        """
         no_of_samples = int(no_of_samples)
         if type(self.val) == np.ndarray:
 
