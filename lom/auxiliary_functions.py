@@ -217,7 +217,6 @@ def plot_matrix(mat, figsize=(7, 4), draw_cbar=True, vmin=0, vmax=1, cmap=None):
         sns.set_style("whitegrid", {'axes.grid': False})
 
     except:
-        print('lala')
         cmap = 'gray_r'
 
     import matplotlib.pyplot as plt

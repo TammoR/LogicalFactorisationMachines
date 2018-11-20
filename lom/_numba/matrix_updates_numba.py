@@ -392,8 +392,8 @@ def sample_2d_IBP(Z, U, X, lbda, q, alpha):
     # alpha = lr.alpha
     # X = lr.child()
 
-    L_new_max = 3
-    N, L = Z.shape
+    L_new_max = 3  # maxmimum number of new dishes to consider
+    N, L = Z.shape  #
     D, _ = U.shape
     posterior_score_fct = get_posterior_score_fct('OR_AND_2D')
 
@@ -406,8 +406,6 @@ def sample_2d_IBP(Z, U, X, lbda, q, alpha):
                  for L_temp in range(L_new_max)]
     TN_factor = [np.log((expit(-lbda) * (1 - 2 * (q**L_temp))) + (q**L_temp))
                  for L_temp in range(L_new_max)]
-
-    n_predict = np.ones(D, dtype=np.int8)
 
     for n in range(N):
 
@@ -441,12 +439,9 @@ def sample_2d_IBP(Z, U, X, lbda, q, alpha):
 
         # draw number of new dishes (columns)
         # compute log probability of L' for a range of L' values
-        # n_predict = [lom_outputs.OR_AND_product(Z[n, :], U[d, :])
-        #              for d in range(D)]
-
+        # n_predict = [lom_outputs.OR_AND_product(Z[n, :], U[d, :]) for d in range(D)]
         # faster
         n_predict = lom_outputs.OR_AND_single_n(Z[n, :], U)
-
         # assert(np.all(n_predict_test==n_predict))
 
         # compute number of true negatives / false negatives
