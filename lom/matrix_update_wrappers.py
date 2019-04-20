@@ -39,8 +39,34 @@ def get_sampling_fct(mat):
 
     print(msg)
 
+    if 'OR_AND_dropout_' in mod:
+
+        sample = numba_mu.make_sampling_fct_onechild_dropout(mod)
+
+        def lfm_sampler_dropout(mat):
+
+            transpose_order = tuple([mat.child_axis] + [s.child_axis for s in mat.siblings])
+            logit_bernoulli_prior = np.float64(logit(mat.bernoulli_prior))
+
+            sample(
+                mat(),
+                mat.fixed_entries,
+                *[x() for x in mat.siblings],
+                mat.layer.child().transpose(transpose_order),
+                mat.layer.lbda(),
+                mat.layer.dropout_factor,
+                logit_bernoulli_prior)
+
+        return lfm_sampler_dropout
+
+        # if mod == 'OR_AND_dropout_2D':
+        #     temp = 0
+        #
+        # elif mod == 'OR_AND_dropout_3D':
+        #     temp = 0
+
     # assign functions for MAX-AND model
-    if mod == 'MAX_AND_2D':
+    elif mod == 'MAX_AND_2D':
         assert p1mod is None
         assert p2mod is None
         from lom._numba.max_machine_sampler import draw_MAX_AND_2D

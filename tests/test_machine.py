@@ -196,10 +196,32 @@ def test_densities():
       print(machine)
 
 
-if __name__ == '__main__':
+def test_dropout_orm_2d():
 
-  test_orm()
-  # test_all_2D_LOMs()
-  # test_all_3D_LOMs()
-  # test_maxmachine()
-  # test_densities()
+    N = 40
+    D = 40
+    M = 40
+    L = 5
+
+    Z = 2 * np.array(np.random.rand(N, L) > .8, dtype=np.int8) - 1
+    U = 2 * np.array(np.random.rand(D, L) > .8, dtype=np.int8) - 1
+    X = aux.lom_generate_data([Z, U], model='OR-AND')  # take Boolean product
+
+    print((X == 1).mean())
+    X_noisy = X.copy()
+
+    dropout_noise = 0
+
+    for i in range(X.shape[0]):
+        for j in range(X.shape[1]):
+            if X_noisy[i, j] == 1 and np.random.rand() < dropout_noise:
+                X_noisy[i, j] = -1
+
+    orm = lom.Machine()
+    data = orm.add_matrix(X_noisy, fixed=True)
+    layer = orm.add_layer(latent_size=L, child=data, model='OR-AND_dropout')
+    layer.lbda.val = 0
+    layer.alpha.fixed = True
+    layer.alpha.val = .8
+
+    orm.infer()

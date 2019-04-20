@@ -6,10 +6,11 @@ Numba sampling routines
 import numpy as np
 import numba
 import math
-from numba import jit, int8, int16, int32, float32, float64, prange
+from numba import jit, prange
 import lom._numba.lom_outputs as lom_outputs
 import lom._numba.lom_outputs_fuzzy as lom_outputs_fuzzy
-from numba.types import int64
+from numba.types import int64, int16
+from scipy.special import logit
 
 
 def get_scalar_output_function_2d(model, fuzzy=False):
@@ -168,6 +169,74 @@ def make_correct_predictions_counter(model, dimensionality):
     predictions with signature fct(factor0, factor1, ..., data)
     """
 
+    if model == 'OR-AND_dropout':
+        if dimensionality == 2:
+
+            output_fct = get_scalar_output_function_2d('OR-AND', fuzzy=False)
+
+            @jit('UniTuple(float64, 2)(int8[:,:], int8[:,:], int8[:,:])',
+                 nogil=True, nopython=True, parallel=True)
+            def correct_predictions_counter(Z, U, X):
+                N, D = X.shape
+                TP = int64(0)
+                TN = int64(0)
+                FP = int64(0)
+                FN = int64(0)
+                for n in prange(N):
+                    for d in prange(D):
+                        # ignore unobserved
+                        if X[n, d] == 0:
+                            pass
+                        # true predictions
+                        elif output_fct(Z[n, :], U[d, :]) == X[n, d]:
+                            if X[n, d] == 1:
+                                TP += 1
+                            elif X[n, d] == -1:
+                                TN += 1
+                        # false predictions
+                        else:
+                            if X[n, d] == 1:
+                                FN += 1
+                            elif X[n, d] == -1:
+                                FP += 1
+
+                return TP / (TP + FP + 1), TN / (TN + FN + 1)
+
+        elif dimensionality == 3:
+
+            output_fct = get_scalar_output_function_3d('OR-AND', fuzzy=False)
+
+            @jit('UniTuple(float64, 2)(int8[:,:], int8[:,:], int8[:,:], int8[:,:,:])', nogil=True, nopython=True,
+                 parallel=True)
+            def correct_predictions_counter(Z, U, V, X):
+                N, D, M = X.shape
+                TP = int64(0)
+                TN = int64(0)
+                FP = int64(0)
+                FN = int64(0)
+                for n in prange(N):
+                    for d in prange(D):
+                        for m in prange(M):
+                            # ignore unobserved
+                            if X[n, d, m] == 0:
+                                pass
+                            # true predictions
+                            elif output_fct(Z[n, :], U[d, :], V[m, :]) == X[n, d, m]:
+                                if X[n, d, m] == 1:
+                                    TP += 1
+                                elif X[n, d, m] == -1:
+                                    TN += 1
+                            # false predictions
+                            else:
+                                if X[n, d, m] == 1:
+                                    FN += 1
+                                elif X[n, d, m] == -1:
+                                    FP += 1
+
+                return TP / (TP + FP + 1), TN / (TN + FN + 1)
+
+        return correct_predictions_counter
+
     if model == 'OR-AND-IBP':
         model = 'OR-AND'
 
@@ -233,9 +302,31 @@ def make_lbda_update_fct(model, dimensionality):
     TODO: make for general arity
     """
 
-    # Next: use OR-AND update instead of qL-AND for testings
+    if model == 'OR-AND_dropout':
+        counter = make_correct_predictions_counter(model, dimensionality)
 
-    if model == 'qL-AND':
+        def lbda_update_fct(parm):
+            """
+            Updates both, lambda and alpha, as well as the derived dropout factor.
+            """
+
+            PPV, NPV = counter(*[x.val for x in parm.layer.factors], parm.layer.child())
+            NPV = max(NPV, .5)  # NPV < .5 reverses the noise model
+
+            if parm.layer.lbda.fixed is False:
+                lbda = logit(NPV)
+                parm.val = lbda
+
+            alpha = parm.layer.alpha.val
+            if parm.layer.alpha.fixed is False:
+                alpha = min(PPV / NPV, 1)
+                parm.layer.alpha.val = alpha
+
+            parm.layer.dropout_factor = np.log((1 - alpha * NPV) / (1 - alpha * (1 - NPV)))
+
+        return lbda_update_fct
+
+    elif model == 'qL-AND':
         counter = make_correct_predictions_counter(model, dimensionality)
 
         def lbda_update_fct(parm):
@@ -255,7 +346,7 @@ def make_lbda_update_fct(model, dimensionality):
 
         return lbda_update_fct
 
-    if model == 'MAX-AND':
+    elif model == 'MAX-AND':
         import lom._numba.max_machine_sampler
         return lom._numba.max_machine_sampler.bda_MAX_AND
 

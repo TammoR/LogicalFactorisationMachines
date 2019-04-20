@@ -5,7 +5,77 @@ Posterior score functions for logical operator machines
 
 import numpy as np
 from numba import jit
-from numba.types import int64
+from numba.types import int64, int16
+
+
+#OR-AND dropout
+@jit('UniTuple(int16, 2)(int8[:], int8[:,:], int8[:], int16)', nopython=True, nogil=True)
+def posterior_scores_OR_AND_2D_dropout(Z_n, U, X_n, l):
+    """
+    Return count of correct/incorrect explanations
+    of 0/1 separately as caused by setting Z[n,l] to 1, respecting
+    explaining away dependencies
+    """
+    D, L = U.shape
+    pos_score = int16(0)
+    neg_score = int16(0)
+
+    for d in range(D):
+        if U[d, l] != 1:  # AND
+            continue
+
+        alrdy_active = False
+        for l_prime in range(L):
+            if (Z_n[l_prime] == 1) and \
+                    (U[d, l_prime] == 1) and \
+                    (l_prime != l):
+                alrdy_active = True  # OR
+                break
+
+        if alrdy_active is False:
+            if X_n[d] == -1:
+                neg_score += 1
+            elif X_n[d] == 1:
+                pos_score += 1
+
+    return pos_score, neg_score
+
+
+@jit('UniTuple(int64, 2)(int8[:], int8[:,:], int8[:,:], int8[:,:], int16)',
+     nopython=True, nogil=True)
+def posterior_score_OR_AND_3D_dropout(Z_n, U, V, X_n, l):
+    """
+    Return count of correct/incorrect explanations
+    of 0/1 separately as caused by setting Z[n,l] to 1, respecting
+    explaining away dependencies
+    """
+    D, L = U.shape
+    M, _ = V.shape
+    pos_score = int16(0)
+    neg_score = int16(0)
+
+    for d in range(D):
+        for m in range(M):
+            if (U[d, l] != 1) or (V[m, l] != 1):  # AND
+                continue
+
+            alrdy_active = False
+            for l_prime in range(L):
+                if (Z_n[l_prime] == 1) and \
+                        (U[d, l_prime] == 1) and \
+                        (V[m, l_prime] == 1) and \
+                        (l_prime != l):
+                    alrdy_active = True  # OR
+                    break
+
+            if alrdy_active is False:
+                if X_n[d, m] == -1:
+                    neg_score += 1
+                elif X_n[d, m] == 1:
+                    pos_score += 1
+
+    return pos_score, neg_score
+
 
 # OR-AND
 @jit('int16(int8[:], int8[:,:], int8[:], int16)', nopython=True, nogil=True)

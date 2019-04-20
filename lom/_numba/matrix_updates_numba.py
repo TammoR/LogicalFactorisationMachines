@@ -109,6 +109,10 @@ def get_posterior_score_fct(model):
         posterior_score_fct = score_fcts.posterior_score_OR_ALL_2D
     elif model == 'OR_ALL_3D':
         posterior_score_fct = score_fcts.posterior_score_OR_ALL_3D
+    elif model == 'OR_AND_dropout_2D':
+        posterior_score_fct = score_fcts.posterior_scores_OR_AND_2D_dropout
+    elif model == 'OR_AND_dropout_3D':
+        posterior_score_fct = score_fcts.posterior_scores_OR_AND_3D_dropout
     else:
         print(model)
         raise NotImplementedError('Posterior sampling for ' + model + '.')
@@ -159,7 +163,7 @@ def make_sampling_fct_onechild(model):
     posterior_score_fct = get_posterior_score_fct(model)
 
     if model[-2:] == '2D':
-        @jit('void(int8[:,:], int8[:,:], int8[:,:], int8[:,:],'
+        @jit('void(int8[:,:], int8[:,:], int8[:,:], int8[:,:],' +
              'float64, float64)',
              nogil=True, nopython=True, parallel=True)
         def sampling_fct(Z, Z_fixed, U, X, lbda, logit_prior):
@@ -190,6 +194,42 @@ def make_sampling_fct_onechild(model):
 
     return sampling_fct
 
+
+def make_sampling_fct_onechild_dropout(model):
+
+    posterior_score_fct = get_posterior_score_fct(model)
+
+    if model[-2:] == '2D':
+        @jit('void(int8[:,:], int8[:,:], int8[:,:], int8[:,:], float64, float64, float64)',
+             nogil=True, nopython=True, parallel=True)
+        def sampling_fct(Z, Z_fixed, U, X, lbda, dropout_factor, logit_prior):
+            N, L = Z.shape
+            for n in prange(N):
+                for l in range(L):
+                    if Z_fixed[n, l] == 1:
+                        continue
+                    pos_score, neg_score = posterior_score_fct(Z[n, :], U, X[n, :], l)
+                    logit_score = lbda * pos_score + dropout_factor * neg_score
+
+                    Z[n, l] = flip_metropolised_gibbs_numba(
+                        logit_score + logit_prior, Z[n, l])
+
+    elif model[-2:] == '3D':
+        @jit('void(int8[:,:], int8[:,:], int8[:,:], int8[:,:], int8[:,:,:], float64, float64, float64)',
+             nogil=True, nopython=True, parallel=True)
+        def sampling_fct(Z, Z_fixed, U, V, X, lbda, dropout_factor, logit_prior):
+            N, L = Z.shape
+            for n in prange(N):
+                for l in range(L):
+                    if Z_fixed[n, l] == 1:
+                        continue
+                    pos_score, neg_score = posterior_score_fct(
+                        Z[n, :], U, V, X[n, :, :], l)
+                    logit_score = lbda * pos_score + dropout_factor * neg_score
+                    Z[n, l] = flip_metropolised_gibbs_numba(
+                        logit_score + logit_prior, Z[n, l])
+
+    return sampling_fct
 
 def make_sampling_fct_onechild_oneparent(model, parent_model):
 

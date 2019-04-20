@@ -778,7 +778,7 @@ def lom_generate_data(factors, model='OR-AND'):
 
     K = len(factors)
     L = factors[0].shape[1]
-    outer_operator_name, inner_operator_name = model.split('-')
+    outer_operator_name, inner_operator_name = model.split('-')[:2]
 
     out = np.zeros([x.shape[0] for x in factors], dtype=np.int8)
 
@@ -927,6 +927,9 @@ def canonise_model(model, child):
         pass
 
     elif model_new == 'qL-AND':
+        pass
+
+    elif model_new == 'OR-AND_dropout':
         pass
 
     else:

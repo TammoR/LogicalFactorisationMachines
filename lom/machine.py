@@ -358,6 +358,12 @@ class MachineLayer():
         Note, that outputs are always probabilities in (0,1)
         """
 
+        if self.model == 'OR-AND_dropout':
+            model = 'OR-AND'
+            print('Output computed without dropout.')
+        else:
+            model = self.model
+
         # return precomputed value
         if type(self.prediction) is np.ndarray and lazy is True:
             print('returning previously computed value ' +
@@ -405,34 +411,32 @@ class MachineLayer():
         else:
             if technique == 'point_estimate':
                 out = aux.lom_generate_data_fast(
-                    [x() for x in self.factors], self.model)
+                    [x() for x in self.factors], model)
                 out = (1 + out) * .5  # map to probability of emitting a 1
 
             elif technique == 'factor_map':
                 out = aux.lom_generate_data_fast(
                     [2 * (x.mean() > 0) - 1 for x in self.factors],
-                    self.model)
+                    model)
                 out = np.array(out == 1, dtype=np.int8)  # map to probability of emitting a 1
 
             elif technique == 'factor_mean':
                 # output does not need to be mapped to probabilities
                 out = aux.lom_generate_data_fast(
                     [(x.mean() + 1) * .5 for x in self.factors],  # map to (0,1)
-                    self.model,
+                    model,
                     fuzzy=True)
 
             elif technique == 'factor_mean_old':
                 out = aux.lom_generate_data_fuzzy(
-                    [x.mean() for x in self.factors],
-                    self.model)
+                    [x.mean() for x in self.factors], model)
 
             elif technique == 'mc':  # TODO numba
                 out = np.zeros([x().shape[0] for x in self.factors])
 
                 for t in range(self.lbda.trace.shape[0]):
                     out += aux.lom_generate_data_fast([x.trace[t, :]
-                                                       for x in self.factors],
-                                                      self.model)
+                                                       for x in self.factors], model)
                 out /= self.lbda.trace.shape[0]
                 out = (1 + out) * .5  # map to probability of emitting a 1
 
@@ -482,7 +486,13 @@ class Machine():
 
     @property
     def lbdas(self):
-        return [layer.lbda for layer in self.layers]
+        lbda_list = [layer.lbda for layer in self.layers]
+
+        # for layer in self.layers:
+        #     if hasattr(layer, 'alpha'):
+        #         lbda_list.append(layer.alpha)
+
+        return lbda_list
 
     def add_layer(self,
                   latent_size=None,
@@ -527,6 +537,12 @@ class Machine():
         layer.invert_factors = invert_factors
         self.layers.append(layer)
         layer.machine = self
+
+        if model == 'OR-AND_dropout':
+            layer.alpha = MachineParameter(fixed=True, val=.8)
+            layer.alpha.sampling_fct = lambda dummy: None
+            layer.dropout_factor = 0
+            layer.alpha.layer = layer
 
         return layer
 

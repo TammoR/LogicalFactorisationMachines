@@ -23,8 +23,6 @@ def test_ibp():
     data = orm.add_matrix(X, fixed=True)
     layer = orm.add_layer(latent_size=1, child=data, model='OR-AND-IBP')
 
-    orm.infer(burn_in_min=200)
+    orm.infer(burn_in_min=100)
 
     assert np.mean((2*layer.output()-1) == X) > .9
-
-test_ibp()
